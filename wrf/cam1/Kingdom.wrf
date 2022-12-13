@@ -1,0 +1,16 @@
+/*
+ * Kingdom.wrf
+ *
+ */
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+
+file		SMSG		"briefk.txt"
+file		SMSG		"proxk.txt"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory "script/campaign"
+file JAVASCRIPT "kingdom.js"

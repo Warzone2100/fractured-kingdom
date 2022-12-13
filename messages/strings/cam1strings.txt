@@ -1,0 +1,730 @@
+/* Fractured Kingdom message text */
+
+/* General Headers */
+INTERTRAN			_("------------------------ INTERCEPTED TRANSMISSION -----------------------")
+INCOMTRAN			_("------------------------- INCOMING TRANSMISSION -------------------------")
+NEWINTEL			_("------------------------ NEW INTELLIGENCE REPORT ------------------------")
+/* Message ID's */
+UNKWNID				_("FROM: UNKNOWN")
+RESID				_("FROM: RESISTANCE COMMAND")
+AMPAID				_("FROM: AMPHOS BOARD ASSOCIATE")
+AMPPID				_("FROM: AMPHOS BOARD PRESIDENT")
+HELID				_("FROM: HELLRAISER WARCHIEF")
+COAID				_("FROM: COALITION LEADERSHIP")
+ROYID				_("FROM: ROYALIST HIGH COMMAND")
+/* General Footers */
+ENDTRAN				_("--------------------------- TRANSMISSION ENDS ---------------------------")
+ENDREPORT			_("------------------------------ REPORT ENDS ------------------------------")
+
+/* Encounter 1 Transmission */
+ENC1MSG1			_("Did you hear that? It sounded like something exploded on the other side of that hill.")
+ENC1MSG2			_("Could it be the Royalists? If they start landing troops this close to the base we're in big trouble.")
+ENC1MSG3			_("Maybe. But don't you think they'd try to be more quiet if they're trying to sneak around us?")
+ENC1MSG4			_("Let's go check it out...")
+
+/* Encounter 2 Transmission */
+ENC2MSG1			_("We've got bogeys coming at us from the valley!")
+ENC2MSG2			_("Second squad, move up and defend the roadblock.")
+ENC2MSG3			_("Be on your A-game gentlemen, we could be dealing with a Royalist attack!")
+
+/* Resistance Negotiation Transmission */
+RESNEGOMSG1			_("Greetings, this is the leader of the Resistance speaking.")
+RESNEGOMSG2			_("I believe there has been a severe misunderstanding, it is quite obvious that you are not a Royalist.")
+RESNEGOMSG3			_("But we do not need to be enemies, and I think we can settle this with diplomacy.")
+RESNEGOMSG4			_("In order to resolve this, I will offer a negotiation.")
+RESNEGOMSG5			_("Simply move one of your trucks to the marked area and meet with one of ours.")
+RESNEGOMSG6			_("Once the negotiations are done, we can end this fighting before this escalates any further.")
+
+/* Resistance Allied */
+RESALLYMSG1			_("Thank you for accepting our negotiations Commander, and I'm very glad we were able to reach a peaceful resolution. Things could have really gotten out of hand.")
+RESALLYMSG2			_("I also apologize for that brief skirmish earlier. Everyone is on edge here because we're paranoid of any Royalists attack.")
+RESALLYMSG3			_("...")
+RESALLYMSG4			_("My name is James. Like I said earlier, I'm the leader of the Resistance.")
+RESALLYMSG5			_("Judging by your wrecked transport, you're probably new around here. So I'll give you the scoop.")
+RESALLYMSG6			_("This whole area used to be united under one kingdom, led by the old King.")
+RESALLYMSG7			_("But one day the King passed away, and most of the kingdom broke apart.")
+RESALLYMSG8			_("The King's most loyal followers united under the rule of the King's daughter the Princess, who then anointed herself as the new Queen.")
+RESALLYMSG9			_("Since then, the Queen and her Royalists have been trying to restore the kingdom under her rule.")
+RESALLYMSG10		_("Well that's the story, or at least the short version.")
+RESALLYMSG11		_("So far we've been safe down south here, and most of the fighting has been up north.")
+RESALLYMSG12		_("But every day the Royalists get bolder, and I've got a feeling it's only a matter of time before the Queen's goons try to make a move on us.")
+RESALLYMSG13		_("You should probably get a base set up, since it looks like you'll be here for a while. We've also got some technology to share.")
+RESALLYMSG14		_("Maybe with our forces working together, we might be able to hold out against them.")
+
+/* Resistance Aggro'd */
+RESAGGRMSG1			_("W-well then..!")
+RESAGGRMSG2			_("I extend an olive branch and offer a peaceful solution, yet you insist on tearing it to shreds, huh?")
+RESAGGRMSG3			_("If you think we're just gonna sit around and take it, well, you're wrong.")
+RESAGGRMSG4			_("We'll just have to do this the hard way then!")
+
+/* Resistance Evac */
+RESEVACMSG1			_("Attention brave Resistance members, this is James speaking.")
+RESEVACMSG2			_("Even though this new foe is not among the Queen's Royalists, they are nonetheless quite formidable.")
+RESEVACMSG3			_("...")
+RESEVACMSG4			_("I have reached an agreement with the Coalition to evacuate our personnel to their base. Thus ensuring our survival in the event that these aggressors prevail.")
+RESEVACMSG5			_("There is only one caveat...")
+RESEVACMSG6			_("I will be staying behind.")
+RESEVACMSG7			_("This is the only way I could arrange their cooperation, I'm sure some of you already know why.")
+RESEVACMSG8			_("Those of you who wish to remain and fight, thank you for your courage.")
+RESEVACMSG9			_("I will remain here, with any brave volunteers, to fight off this attack. We must buy the transport more time to finish the evacuation.")
+RESEVACMSG10		_("In the event that this base falls, those on the transport will survive.")
+
+/* Royalist Introduction (From Resistance) */
+RESROYMSG1			_("Those are Royalists!")
+RESROYMSG2			_("How did they manage to get past the Hellraisers?")
+RESROYMSG3			_("Commander, if the Royalists have troops here, they probably have a base too.")
+RESROYMSG4			_("And they're gonna keep sending cyborgs until we take it out.")
+RESROYMSG5			_("You lead the way and we'll help you any way we can.")
+RESROYMSG6			_("But be careful, the Royalists are the most dangerous guys out here.")
+RESROYMSG7			_("And watch out for the ones with rocket launchers, they're devastating against vehicles!")
+
+/* Royalist Message after destroying the south base (Resistance Allied) */
+ROYAMSG1			_("Now would you look at that. James' little 'Resistance' have found themselves a new friend!")
+ROYAMSG2			_("Well I've gotta to hand it to you kid, you've got some real guts messing with my things.")
+ROYAMSG3			_("And it seems like you've really stirred up the hopes of those poor things you call your 'allies'. Without you I bet they couldn't even fend for themselves.")
+ROYAMSG4			_("But don't think it'll amount to anything.")
+ROYAMSG5			_("Do you even realize who I am?")
+ROYAMSG6			_("I'm the Queen, and this is MY land.")
+ROYAMSG7			_("I control the most powerful military this kingdom has ever seen!")
+ROYAMSG8			_("... Does that not matter to you in the slightest?")
+ROYAMSG9			_("Well!")
+ROYAMSG10			_("I have more pressing matters to attend to, but I look forward to stomping your merry band of neer-do-wells.")
+ROYAMSG11			_("See you real soooon!")
+
+/* Royalist Message after destroying the south base (Resistance Eradicated) */
+ROYEMSG1			_("Well now would you look at that. Seems like there's someone new in town!")
+ROYEMSG2			_("I've gotta to hand it to you kid, you've got some real guts messing with my things.")
+ROYEMSG3			_("I bet you think you're a REAL tough guy, thinking you can march triumphantly into every battle after squashing that pathetic 'Resistance' huh?")
+ROYEMSG4			_("Do you even realize who I am?")
+ROYEMSG5			_("I am the Queen, and this is MY land.")
+ROYEMSG6			_("I control the most powerful military this kingdom has ever seen!")
+ROYEMSG7			_("... Does that not matter to you in the slightest?")
+ROYEMSG8			_("Well!")
+ROYEMSG9			_("I have more pressing matters to attend to, but I look forward to seeing how 'tough' you are when I crush your little forces into dust.")
+ROYEMSG10			_("See you real soooon!")
+
+/* AMPHOS Introduction (From Resistance) */
+RESAMPMSG1			_("That base belongs to AMPHOS. They operate in the East Lake, and they use hovercrafts to move between their islands.")
+RESAMPMSG2			_("After the King passed, AMPHOS became one of the two large factions that fought against the Royalists.")
+RESAMPMSG3			_("They were a real pain in the rear too, since their hovers were so fast they could fire barrages of rockets and then flee before taking any real damage.")
+RESAMPMSG4			_("... Anyway, at some point the Royalists started to catch up to AMPHOS, and eventually managed to get them to negotiate an alliance.")
+RESAMPMSG5			_("In what became known as the 'East Lake Deal', the Royalists had gained free access to the Eastern Lake and pacified one of their greatest threats.")
+RESAMPMSG6			_("But with how much the Royalists grown in strength, I'm not sure AMPHOS acts much more than a puppet for them at this point.")
+RESAMPMSG7			_("...")
+RESAMPMSG8			_("The Royalists must have used that base to get past the Hellraisers.")
+RESAMPMSG9			_("We'll need to clear it out to make sure the Royalists don't come back again.")
+
+/* AMPHOS Pitch (From Resistance) */
+RESAMPPITCHMSG1		_("Commander, we have been contacted by someone describing herself as an associate of the AMPHOS board of directors.")
+RESAMPPITCHMSG2		_("She claims that she is sympathetic to our cause, and is willing to pull some strings among the higher-ups in AMPHOS in order to start negotiations.")
+RESAMPPITCHMSG3		_("But she will need some help to convince the rest of the board.")
+RESAMPPITCHMSG4		_("According to the associate, there has been a rising sense of fear among AMPHOS leadership since the East Lake Deal that the Royalists are preparing to turn against them once the opportunity arises.")
+RESAMPPITCHMSG5		_("She thinks she can exploit this to get AMPHOS on our side.")
+RESAMPPITCHMSG6		_("The Royalists have established a presence in the waters of the East Lake by building a base on the northwest island.")
+RESAMPPITCHMSG7		_("They also have assigned a commander to patrol the northern waters of the East Lake.")
+RESAMPPITCHMSG8		_("If you can eliminate that Royalist commander and clear out that base, and then give way to allow AMPHOS to build their own base on that island, she thinks she can arrange a negotiation.")
+RESAMPPITCHMSG9		_("The trouble is, that Royalist base is quite far away, and there's a lot of AMPHOS defenses in the way.")
+RESAMPPITCHMSG10	_("But according to the associate, as long as you stay clear of the AMPHOS main base, she should still be able to get the rest of the AMPHOS board to sign on to negotiations.")
+
+/* AMPHOS Pitch (Resistance Eradicated) */
+AMPPITCHMSG1		_("Greetings Commander, I am a member of the AMPHOS board of directors.")
+AMPPITCHMSG2		_("I have observed your interactions with AMPHOS and Royalist forces so far, and I believe we are not truly enemies.")
+AMPPITCHMSG3		_("While AMPHOS may have provided itself with a degree of temporary safety in its alliance with the Royalists, I, and others on this board, have found evidence that the Royalists may be preparing to turn on us whenever it most benefits them.")
+AMPPITCHMSG4		_("This is where you come in.")
+AMPPITCHMSG5		_("If you can remove the Royalist presence in the East Lake and allow our trucks to build on the large islands, I can convince the rest of the board that allying with you is more beneficial than remaining ignorant of the Royalists growing plans to backstab us.")
+AMPPITCHMSG6		_("Just keep your distance from our main island base, and I'll keep working on softening up the board, OK?")
+
+/* AMPHOS Negotiation Message */
+AMPNEGOMSG1			_("Well, it appears that Alice was right about you.")
+AMPNEGOMSG2			_("You've managed to push back against the Royalists and cleared us breathing room.")
+AMPNEGOMSG3			_("And you've not only done so by yourself, without any assistance from us, but also while our forces were actively working against you.")
+AMPNEGOMSG4			_("You really are something incredible, don't think we will forget this extraordinary favor that you have done for us.")
+AMPNEGOMSG5			_("Commander, as president of the AMPHOS board of directors, I hereby offer to negotiate an alliance with you at the designated location.")
+AMPNEGOMSG6			_("Once the negotiations are through, we will share technology and support your forces as you strike back against the Royalists!")
+AMPNEGOMSG7			_("...")
+AMPNEGOMSG8			_("Although, we WILL need to charge for any damage you may have previously caused to AMPHOS.")
+AMPNEGOMSG9			_("Hey, it's a business!")
+
+/* AMPHOS Aggro'd Message */
+AMPAGGRMSG1			_("You dare try challenging the might of AMPHOS!?")
+AMPAGGRMSG2			_("You've just made a grave mistake, Commander.")
+AMPAGGRMSG3			_("We will blow your inferior hovercrafts out of the water, and then wipe out whatever meager structures you call your 'base'.")
+AMPAGGRMSG4			_("In due time you'll be begging us for mercy!")
+
+/* AMPHOS Betrayal Message */
+AMPBTRYMSG1			_("...!")
+AMPBTRYMSG2			_("After all you've done to seemingly aid us, you turn around and betray us at the very last moment?")
+AMPBTRYMSG3			_("I don't think I'll ever be able to understand your judgment, Commander.")
+AMPBTRYMSG4			_("But your betrayal will not go unpunished.")
+AMPBTRYMSG5			_("We will blow your inferior hovercrafts out of the water, and then wipe out whatever meager structures you call a 'base'.")
+AMPBTRYMSG6			_("In due time you'll be begging us for mercy!")
+
+/* Royalist Message after allying with AMPHOS */
+ROYAMPAMSG1			_("You're REALLY proving yourself to be quite a nuisance, aren't you?")
+ROYAMPAMSG2			_("I honestly didn't think those snobby, self-absorbed half-wits at AMPHOS had it in them to turn against me at this point.")
+ROYAMPAMSG3			_("But I guess you just love to prove the impossible.")
+ROYAMPAMSG4			_("I promise that this won't end well. Neither for you or those backstabbing cowards at AMPHOS.")
+
+/* Royalist Message after eradicating AMPHOS */
+ROYAMPEMSG1			_("Bravo, Commander!")
+ROYAMPEMSG2			_("You really showed those AMPHOS cowards who's boss. So credit where credit's due.")
+ROYAMPEMSG3			_("Honestly, you've just saved me the trouble of wiping them out myself, so thanks for taking it upon yourself to take out the trash.")
+ROYAMPEMSG4			_("But don't think it means I'll hold back against you.")
+/* This gets added if the player has Eradicated the Resistance */
+ROYAMPEMSGADD1		_("After all, I've got quite a large bone to pick with you.")
+
+/* Hellraiser Introduction (From Resistance) */
+RESHELMSG1			_("Careful, those structures in the hills belong to the Hellraisers.")
+RESHELMSG2			_("The Hellraisers are super territorial. They've probably held out there since the fall of the old kingdom.")
+RESHELMSG3			_("We've tried to reach out and negotiate with them in the past, but they're apparently pretty... unreceptive of outsiders.")
+RESHELMSG4			_("Fortunately for us, they usually don't go far out of their own territory.")
+RESHELMSG5			_("Unfortunately, they control the only land routes to get across the river to the north.")
+RESHELMSG6			_("So at some point, we're going to have to deal with them.")
+RESHELMSG7			_("Just be cautious when in their territory, that whole place is one big death trap.")
+RESHELMSG8			_("Those cragged hills don't leave much room for maneuvering around. And the Hellraisers are fanatical about incendiary weapons.")
+RESHELMSG9			_("Their patrols are armed with flamethrowers, and they've placed bunkers around every corner.")
+RESHELMSG10			_("They've even modified their mortars to leave burning areas where they hit.")
+
+/* Hellraiser Pitch */
+HELPITCHMSG1		_("Attention interlopers!")
+HELPITCHMSG2		_("This is the Warchief of the Hellraiser clan speaking.")
+HELPITCHMSG3		_("You have trespassed into our clan's rightful territory.")
+HELPITCHMSG4		_("While your skill in leading your forces in combat is remarkable, these games must now end.")
+HELPITCHMSG5		_("If you dare continue forwards, we will show you no mercy.")
+HELPITCHMSG6		_("We will burn your units to ash, and raze your structures to the ground until nothing remains.")
+HELPITCHMSG7		_("...")
+HELPITCHMSG8		_("However, if you turn back now, and allow us to repair the damage that you have caused, then we may be willing to negotiate a more peaceful resolution to this conflict.")
+HELPITCHMSG9		_("The choice is yours, Commander.")
+
+/* Hellraiser Negotiation Message */
+HELNEGOMSG1			_("Well, it seems you have some common sense after all!")
+HELNEGOMSG2			_("You've ended your attacks against us, and allowed us to reclaim all of our territory.")
+HELNEGOMSG3			_("And you have earned my personal respect, Commander.")
+HELNEGOMSG4			_("I have sent a truck to begin negotiations for an alliance.")
+HELNEGOMSG5			_("Once they are complete, we can join our forces and incinerate any Royalist in our path!")
+
+/* Hellraiser Aggro'd Message */
+HELAGGRMSG1			_("Well, it seems you have made the wrong choice!")
+HELAGGRMSG2			_("You are very brave, Commander. But also very foolish if you think you can defeat us.")
+HELAGGRMSG3			_("These transgressions shall not go unpunished!")
+HELAGGRMSG4			_("Maybe once we've burnt your vile units to a crisp, we'll hear you beg for forgiveness!")
+
+/* Hellraiser Betrayal Message */
+HELBTRYMSG1			_("Huh?")
+HELBTRYMSG2			_("You encroach on our base, pull back and let us recover, only to attack us again?")
+HELBTRYMSG3			_("Your tactics confuse me, Commander.")
+HELBTRYMSG4			_("But if you think we'll play along with these back-and-forth shenanigans, then you are about to be VERY sorely mistaken!")
+HELBTRYMSG5			_("Maybe once we've burnt your units to a crisp, we'll hear you beg for forgiveness!")
+
+/* Coalition Pitch (Both Hellraisers and Resistance Allied) */
+COAPITCHMSG1		_("So, you're the Commander I've heard so much about.")
+COAPITCHMSG2		_("My name is Max, I'm the leader of the Coalition.")
+COAPITCHMSG3		_("The Hellraisers tell me that you're a competent fighter and a respectable leader.")
+COAPITCHMSG4		_("...But I can't say that I'm convinced yet, ")
+COAPITCHMSG5		_("So I've got a mission for you.")
+COAPITCHMSG6		_("The Royalists control a factory base wedged in the mountains north of you.")
+COAPITCHMSG7		_("It serves as a critical manufacturing site for the Royalists, and allows them to produce units close to the frontline.")
+COAPITCHMSG8		_("I want you to go there and destroy that base.")
+COAPITCHMSG9		_("Do this for us, and I'll set up negotiations so we can really work together.")
+
+/* Coalition Warning (Resistance Eradicated) */
+COAWARN1MSG1		_("So, you're the Commander I've heard so much about.")
+COAWARN1MSG2		_("You may have won over those Hellraisers with your antics, but you won't fool me.")
+COAWARN1MSG3		_("I know what happened to the Resistance after they offered to ally with you. I know EXACTLY what you did.")
+COAWARN1MSG4		_("Here's the only offer I'll give you:")
+COAWARN1MSG5		_("You stay far, far away from any Coalition base, and stay out of our way, and I WON'T order my men tear you to shreds.")
+COAWARN1MSG6		_("This deal is non-negotiable.")
+COAWARN1MSG7		_("Capiche?")
+
+/* Coalition Warning (Hellraisers Eradicated) */
+COAWARN2MSG1		_("So, you're the Commander I've heard so much about.")
+COAWARN2MSG2		_("You and your Resistance lackeys may have wiped out the Hellraisers.")
+COAWARN2MSG3		_("But neither of you are any match against my Coalition.")
+COAWARN2MSG4		_("So unless you want me to turn all of your tanks and cyborgs into scrap, you'll both stay far away from Coalition territory.")
+COAWARN2MSG5		_("Capiche?")
+COAWARN2MSG6		_("Oh, and tell the leader of the 'Resistance' that I know EXACTLY who he is.")
+
+/* Coalition Introduction after either their pitch or warning (From Resistance) */
+RESCOAMSG1			_("That message was from leader of the Coalition, Max.")
+RESCOAMSG2			_("There is no faction that the Royalists, or the Queen herself, hates more than the Coalition.")
+RESCOAMSG3			_("The Coalition was the first major group that formed once the old kingdom fell, with the sole purpose of putting a permanent end to the King's bloodline.")
+RESCOAMSG4			_("Max is... well he's quite the lively character as they say. Haha...")
+RESCOAMSG5			_("...")
+/* This gets added to the message when following the Coalition's Pitch */
+RESCOAPITCHMSG1		_("So, Max wants us to destroy that base for him, huh?")
+RESCOAPITCHMSG2		_("That's not gonna be easy, the Royalists have that place well fortified.")
+RESCOAPITCHMSG3		_("It seems kinda scummy to make us destroy that base for him, instead of working together to take it down.")
+RESCOAPITCHMSG4		_("But hey, at least we've got your back, and we've got the Hellraisers working with us too.")
+RESCOAPITCHMSG4ALT	_("But hey, at least we've got your back, and we've got the Hellraisers and AMPHOS working with us too.")
+RESCOAPITCHMSG5		_("The Coalition would be one heck of an ally to have on our side against the Royalists.")
+RESCOAPITCHMSG6		_("But it's your call how you wanna do this.")
+/* This gets added to the message when following the Coalition's Warning */
+RESCOAWARNMSG1		_("... And he r-really likes to trash talk, huh?")
+RESCOAWARNMSG2		_("Commander, I think we should think about our next moves v-very carefully.")
+RESCOAWARNMSG3		_("The Coalition might not have the tech the Royalists have, but they've been hardened by months of non-stop fighting, and they do NOT mess around.")
+RESCOAWARNMSG4		_("If you think we can take on the Coalition, I trust your judgment.")
+RESCOAWARNMSG5		_("If not, then well, it looks like we better heed his advice...")
+RESCOAWARNMSG6		_("Just be careful, Okay?")
+
+/* Coalition Negotiation Message  */
+COANEGOMSG1			_("Well done, Commander!")
+COANEGOMSG2			_("You've shown your prowess in combat, and therefore earned your place to fight alongside the Coalition's forces.")
+COANEGOMSG3			_("Once we unite our strength, we can then work against the Royalists together.")
+COANEGOMSG4			_("I have sent a truck to begin negotiations. I very much look forward to us fighting side by side as allies.")
+
+/* Coalition Negotiation Message (Central Factory Base already destroyed when pitching) */
+COAANTIPITCHMSG1	_("So, you're the Commander I've heard so much about.")
+COAANTIPITCHMSG2	_("My name is Max, I'm the leader of the Coalition.")
+COAANTIPITCHMSG3	_("And, I must say, I am very impressed!")
+COAANTIPITCHMSG4	_("Not only have you managed to win over the favor of the Hellraisers, but also proven yourself as a extraordinary fighter by destroying that Royalist factory base!")
+COAANTIPITCHMSG5	_("I believe with both of us working together, we will become the strongest force this kingdom has ever seen!")
+COAANTIPITCHMSG6	_("Together, we can crush the Royalists in our path. We will become unstoppable!")
+COAANTIPITCHMSG7	_("I have sent a truck to begin negotiations. I very much look forward to us fighting side by side as allies.")
+
+/* Coalition Aggro'd (After a Warning) */
+COAAGGRWMSG1		_("Well, it looks like you've got a deathwish then!")
+COAAGGRWMSG2		_("You had your chance to turn back, but you just had to test your luck, huh?")
+COAAGGRWMSG3		_("Do you really think you can defeat the Coalition?")
+COAAGGRWMSG4		_("Hah! I don't think so.")
+COAAGGRWMSG5		_("The Hellraisers yielded to our might, and even the Royalists couldn't defeat us.")
+COAAGGRWADD			_("And we've got some 'old friends' of yours who are just ITCHING to get some payback.")
+COAAGGRWMSG6		_("When we're through with you, there'll be nothing left of you and your forces but smoldering rubble.")
+
+/* Coalition Aggro'd (After the Pitch) */
+COAAGGRPMSG1		_("Well, it seems I have misjudged you, Commander!")
+COAAGGRPMSG2		_("I truly thought we might be able to work together...")
+COAAGGRPMSG3		_("But it seems you have no plans for cooperation!")
+COAAGGRPMSG4		_("You really are as much of a double-crossing scoundrel as that Prince you call an ally.")
+COAAGGRPMSG5		_("But this will not go unpunished.")
+COAAGGRPMSG6		_("No matter how competent you are or how many allies you have, the Coalition will be victorious!")
+COAAGGRPMSG7		_("When I'm through with you, there'll be nothing left of your forces but smoldering rubble.")
+
+/* Coalition Aggro'd (After Eradicating Resistance and Hellraisers) */
+COASUPERAGGRMSG1	_("I have to hand it to ya, Commander, you really are quite a menace.")
+COASUPERAGGRMSG2	_("All the destruction you've caused, all the pain you've inflicted.")
+COASUPERAGGRMSG3	_("...")
+COASUPERAGGRMSG4	_("We'll make you pay for every life you've taken.")
+COASUPERAGGRMSG5	_("So don't you dare think this is over just because you got past the Hellraisers.")
+COASUPERAGGRMSG6	_("In fact, we're only just getting started!")
+COASUPERAGGRMSG7	_("All of us who are left, we'll send you back to whatever hole you crawled out of.")
+COASUPERAGGRMSG8	_("We'll fight to the last man if we have to!")
+
+/* Coalition Betrayal */
+COABTRYMSG1			_("...What?!")
+COABTRYMSG2			_("You've allied with the Resistance, and even the Hellraisers.")
+COABTRYALT			_("You've allied with the Resistance, the Hellraisers, and even those cowards in AMPHOS.")
+COABTRYMSG3			_("Yet you turn on me at the very last moment!?")
+COABTRYMSG4			_("...")
+COABTRYMSG5			_("This betrayal will not go unpunished.")
+COABTRYMSG6			_("No matter how competent you are or how many allies you have, the Coalition will be victorious!")
+COABTRYMSG7			_("When I'm through with you, there'll be nothing left of your forces but smoldering rubble.")
+
+/* Coalition Threat (Both Hellraisers and Resistance Eradicated) */
+COATHREATMSG1		_("This is leader of the Coalition speaking.")
+COATHREATMSG2		_("...So, YOU'RE the Commander I've heard so much about.")
+COATHREATMSG3		_("You've really been stirring up trouble down there, haven't you?")
+COATHREATMSG4		_("Who do you think you are? You think you can just run around and stomp on anyone who gets in your way?")
+COATHREATMSG5		_("That ends today.")
+COATHREATMSG6		_("Remember the Resistance?")
+COATHREATMSG7		_("Well, I happen to have a lot of them right here just ITCHING for some payback.")
+COATHREATMSG8		_("The Hellraisers, the Resistance, and the Coalition. Together, we'll put a permanent end to you.")
+COATHREATMSG9		_("I'm gonna stick my boot so far down your gullet, I'll wear your whole body like a sock!")
+COATHREATMSG10		_("So get ready, Commander.")
+COATHREATMSG11		_("You're about to have a REALLY bad time!")
+
+/* Coalition Taunt */
+COATAUNTMSG1		_("Seems like you've got some bark to your bite, Commander!")
+COATAUNTMSG2		_("But don't think that intimidates me in the slightest.")
+COATAUNTMSG3		_("After all, I've been fighting head on against the Royalists for what has felt like an eternity, and you're NOTHING compared to them!")
+COATAUNTMSG4		_("...")
+COATAUNTMSG5		_("Do you know the reason why the Royalists despise me?")
+COATAUNTMSG6		_("Do you know why the Queen fears me?")
+COATAUNTMSG7		_("It's because I'm the one who killed the King.")
+/* Added if the Resistance is allied */
+COATAUNTRESMSG1		_("Hah! I bet James left that part out when he told you about me, didn't he?")
+COATAUNTRESMSG2		_("Did he even tell you that he was the Prince?")
+COATAUNTRESMSG3		_("He's a Royalist. He's the one who got AMPHOS to sign the East Lake Deal. It's because of him that the Royalists have been able to push us so much harder.")
+COATAUNTRESMSG4		_("I know him well enough to know that he can't handle himself under pressure. He lacks the courage to lead.")
+COATAUNTRESMSG5		_("So he's using you for his own protection. You're the only thing standing between me, the Queen, and that Prince.")
+COATAUNTRESMSG6		_("But the Queen's his sister, I know if she gets past you, she's not gonna kill James. She'd probably just take him back to her HQ or something.")
+COATAUNTRESMSG7		_("But me?")
+COATAUNTRESMSG8		_("The Queen might have her Royalists protecting her, but the only thing James has is you and those meek forces he calls the 'Resistance'.")
+COATAUNTRESMSG9		_("When I'm done with you, there'll be nothing stopping me from getting to that Prince.")
+COATAUNTRESALT		_("When I'm done with you and those traitorous Hellraisers, there'll be nothing stopping me from getting to that Prince...")
+COATAUNTRESMSG10	_("...And then I'll be able to hit the Queen where it REALLY hurts.")
+/* Added if the Resistance is eradicated */
+COATAUNTNORESMSG1	_("It only took one good VTOL run to put an end to his rule.")
+COATAUNTNORESMSG2	_("I did what no one else could.")
+COATAUNTNORESMSG3	_("...")
+COATAUNTNORESMSG4	_("After that, his two brats took control.")
+COATAUNTNORESMSG5	_("The Princess was a lot like her father, but the Prince on the other hand...")
+COATAUNTNORESMSG6	_("He always seemed like a coward.")
+COATAUNTNORESMSG7	_("Or at least that's what I thought before.")
+COATAUNTNORESMSG8	_("As it turns out, he had some guts after all. He sacrificed himself to protect his Resistance from an existential threat.")
+COATAUNTNORESMSG9	_("Or rather, from you.")
+COATAUNTNORESMSG10	_("...Maybe he wasn't so bad after all?")
+COATAUNTNORESMSG11	_("...")
+COATAUNTNORESMSG12	_("You, on the other hand, have a whole 'nother thing coming to ya!")
+COATAUNTNORESMSG13	_("You may be strong, but the Coalition is stronger.")
+COATAUNTNORESMSG14	_("We will prevail. And we'll avenge a Prince while we're at it!")
+
+/* Coalition Taunt (Resistance and Hellraisers Eradicated) */
+COAERADTAUNTMSG1	_("You impress me, Commander, but you do not scare me.")
+COAERADTAUNTMSG2	_("I've been through too much to be intimidated by power-hungry maniacs.")
+COAERADTAUNTMSG3	_("Not you. Not the Queen. Not even the King.")
+COAERADTAUNTMSG4	_("Do you know why?")
+COAERADTAUNTMSG5	_("It's because I killed the King.")
+COAERADTAUNTMSG6	_("It took only one VTOL run. Broad daylight. He was giving some sort of speech about the glory of his kingdom.")
+COAERADTAUNTMSG7	_("I'm the one who pulled the trigger.")
+COAERADTAUNTMSG8	_("Then I set my sights on his kids; the new Queen and the Prince.")
+COAERADTAUNTMSG9	_("...")
+COAERADTAUNTMSG10	_("The Queen turned out a lot like her father, but that Prince...")
+COAERADTAUNTMSG11	_("I thought he was a coward, I really thought he would crumble under stress.")
+COAERADTAUNTMSG12	_("But he proved me wrong.")
+COAERADTAUNTMSG13	_("Not only did he stand his ground, but he even sacrificed himself to protect his men...")
+COAERADTAUNTMSG14	_("...To protect his men from you.")
+COAERADTAUNTMSG15	_("...")
+COAERADTAUNTMSG16	_("I do not know what you are trying to accomplish by attacking so many, Commander.")
+COAERADTAUNTMSG17	_("But know this, for every Coalition soldier you've slain. For every Hellraiser and Resistance fighter...")
+COAERADTAUNTADD		_("Even for everyone in AMPHOS.")
+COAERADTAUNTMSG18	_("I'll avenge them all.")
+COAERADTAUNTMSG19	_("You just might be the worst thing to happen to this kingdom.")
+COAERADTAUNTMSG20	_("I'll turn your tanks and cyborgs into scrap metal, and then wipe you off the continent!")
+
+/* Coalition Eradication Message (From Resistance) */
+RESCOAERADMSG1		_("I suppose I should explain myself to you, Commander.")
+RESCOAERADMSG2		_("What Max told you is no lie, it is true that am the King's son.")
+RESCOAERADMSG3		_("...")
+RESCOAERADMSG4		_("I served under my sister's rule for quite some time after she took power. In fact, I was the man in charge of keeping AMPHOS at bay while so the rest of the Royalist forces could fight the Coalition.")
+RESCOAERADMSG5		_("I was the one who got AMPHOS to agree to the East Lake Deal.")
+RESCOAERADMSG6		_("At the time, those at the higher levels of AMPHOS probably saw the East Lake Deal as a sort of 'get out of jail free card'. Royalist hover technology was catching up to AMPHOS rapidly, and both sides knew it wouldn't be long before the Royalists overtook AMPHOS in amphibious military power.")
+RESCOAERADMSG7		_("But after AMPHOS was dealt with, my sister, the Queen, assigned me to help in the fight against the Coalition.")
+RESCOAERADMSG8		_("...")
+RESCOAERADMSG9		_("But I couldn't take it anymore.")
+RESCOAERADMSG10		_("Growing up, I was aware of how... unpopular my father was with the kingdom's population.")
+RESCOAERADMSG11		_("Both my sister and I were at least somewhat familiar with the ways in which the King ruled his subjects.")
+RESCOAERADMSG12		_("It was only after some time serving under my sister did I truly realize how twisted her vision of her father's kingdom was.")
+RESCOAERADMSG13		_("Not only was she willing to embrace the most brutal methods of the King, she was fully willing to go even further.")
+RESCOAERADMSG14		_("So I left. I gathered anyone who was would listen, and we fled south and hid from the Royalists.")
+/* Added if neither the Hellraisers or AMPHOS are Eradicated */
+RESCOAERADADD1		_("I couldn't stand serving anyone, even my own sister, who had such sinister ambitions.")
+RESCOAERADADD2		_("How sinister?")
+RESCOAERADADD3		_("Case in point, Commander, she'll do anything to solidify her power.")
+RESCOAERADADD4		_("Even if it means killing thousands.")
+RESCOAERADADD5		_("She'll wipe out anybody who won't serve her.")
+RESCOAERADADD6		_("Not just the Coalition, but the Hellraisers and AMPHOS too.")
+RESCOAERADADD7		_("She'll kill them all just to stay on the throne.")
+RESCOAERADMSG15		_("...")
+RESCOAERADMSG16		_("Commander, I think out of anyone, you've got the best shot at actually defeating the Royalists and dethroning my sister.")
+RESCOAERADMSG17		_("We've already come so far, and not even the Coalition could stop you.")
+RESCOAERADMSG18		_("I think we might actually have a chance, but there's no turning back now.")
+
+/* Coalition Alliance Message */
+COAALLYMSG1			_("Well done, Commander!")
+COAALLYMSG2			_("With our forces working together, along with the Resistance and Hellraisers, real victory against the Royalists is finally within our reach.")
+COAALLYALT1			_("With our forces working together, along with the Resistance, Hellraisers, and AMPHOS, real victory against the Royalists is finally within our reach.")
+COAALLYALT2			_("You just might be the best thing to happen around here in a long time.")
+COAALLYMSG3			_("But just because we're working together doesn't mean what comes next is gonna be easy, the Royalist main base is the most fortified area in the kingdom by far.")
+COAALLYMSG4			_("There's only two entrances to the main base: from the west and from the south.")
+COAALLYMSG5			_("Both are heavily guarded by artillery, anti-air and ground defenses.")
+COAALLYMSG6			_("And once we're inside, we'll likely have to face the best the Royalists have to offer.")
+COAALLYMSG7			_("But with our combined forces, I'm sure we'll be able to handle anything the Royalists can throw at us.")
+COAALLYMSG8			_("We'll bring down the Queen's base, then I'll drag her off her throne myself!")
+
+/* AMPHOS Eradication Message (From Royalists) */
+ROYAMPERADMSG1		_("And so the cowards have finally met their end.")
+ROYAMPERADMSG2		_("The hovercrafts fielded by AMPHOS may have been fast, but they weren't fast enough to escape me.")
+ROYAMPERADMSG3		_("It won't be long before the same thing happens to you, Commander.")
+
+/* Hellraiser Eradication Message (From Royalists) */
+ROYHELERADMSG1		_("Did you really think those Hellraiser savages could protect you?")
+ROYHELERADMSG2		_("They were nothing more than roaches, scurrying between the cliffs of their domain until my forces stomped them out.")
+ROYHELERADMSG3		_("They meant nothing against the might of the Royalists.")
+
+/* Coalition Eradication Message (From Royalists) */
+ROYCOAERADMSG1		_("And so falls the greatest menace to the kingdom!")
+ROYCOAERADMSG2		_("In the end, not even Max and his Coalition could stand against my might.")
+ROYCOAERADMSG3		_("Do you still think you stand a chance against me now?")
+
+/* Added to any message if the player has 1 non-Resistance ally left */
+ROY1LEFTADD1		_("Your allies are growing thin, Commander.")
+ROY1LEFTADD2		_("You should have realized that opposing me was futile from the start!")
+
+/* Added to any message if the player has no non-Resistance allies left */
+ROY0LEFTADD1		_("No more allies to hide behind, Commander. It's just you and me.")
+ROY0LEFTADD2		_("It's time for these games to end.")
+
+/* Coalition message about Royalist commander */
+COACOMMANDERMSG1	_("Heads up, that Royalist commander is bad news.")
+COACOMMANDERMSG2	_("They're responsible for destroying hundreds for the Royalists, and are one of the Queen's most valuable assets.")
+/* Changes depending on difficulty */
+COACOMMANDERELITE	_("They are one of the Royalists' most Elite units.")
+COACOMMANDERSPECIAL	_("They hold a Special place among the ranks of the Royalists.")
+COACOMMANDERHERO	_("They are considered a Hero among the Royalists.")
+
+COACOMMANDERMSG3	_("Watch yourself when engaging them. That commander does not mess around.")
+
+/* Coalition message about getting out of their way */
+COAOFFENSMSG1		_("This is Max speaking. This area is being liberated from the Royalists. It now belongs to the Coalition.")
+COAOFFENSMSG2		_("If you know what's good for you, you'll stay out of the Coalition's way.")
+COAOFFENSMSG3		_("Don't play with fire if you're not ready to get burned.")
+
+/* AMPHOS Pitch after Royalist Betrayal */
+AMPBEGMSG1			_("This is an emergency message to anyone left out there. The Royalists have betrayed AMPHOS!")
+AMPBEGMSG2			_("We are requesting assistance in fighting against Royalist forces.")
+AMPBEGMSG3			_("If anyone is receiving this message, please help us destroy the Royalist commander ravaging the East Lake.")
+AMPBEGMSG4			_("I repeat: the Royalists have betrayed AMPHOS. We'll take any and all the help we can get!")
+
+/* Royalist Negotiation Message */
+ROYNEGOMSG1			_("Well, Commander. It looks like it's just you and me.")
+ROYNEGOMSG2			_("...You know what, you might not be so bad.")
+ROYNEGOMSG3			_("Inadvertently or not, you've destroyed many enemies of the Royalists; the Hellraisers, AMPHOS, even the Coalition.")
+ROYNEGOMSG4			_("...They're all gone now.")
+ROYNEGOMSG5			_("So you know what? I'll extend an olive branch.")
+ROYNEGOMSG6			_("A Royalist truck has been sent to begin negotiations, Commander. Let's end this here and now.")
+
+/* Royalist message if the player accepts negotiations */
+ROYAMBUMSG1			_("Hah! Did you really, truly believe that it would end this way?")
+ROYAMBUMSG2			_("Not a chance!")
+ROYAMBUMSG3			_("Oh come on, did you really think I'd let someone as dangerous as you around MY kingdom?")
+ROYAMBUMSG4			_("After all, not only did you massacre my subjects, but you're also the one who killed my brother.")
+ROYAMBUMSG5			_("And what kind of Queen would I be if I let someone who did that live?")
+ROYAMBUMSG6			_("This is MY kingdom.")
+ROYAMBUMSG7			_("And you have no place in it!")
+
+/* Royalist message doesn't fall for the fakeout */
+ROYBTRYMSG1			_("I extend an olive branch and offer a peaceful solution, yet you still insist on fighting?")
+ROYBTRYMSG2			_("...Ha!")
+ROYBTRYMSG3			_("I bet James said something like that to you, too.")
+ROYBTRYMSG4			_("He was always quick to try to find a diplomatic ending.")
+ROYBTRYMSG5			_("Yet you didn't show him any mercy, did you?")
+ROYBTRYMSG6			_("In fact, I don't think you've spared anyone you've come across.")
+ROYBTRYMSG7			_("I guess we're pretty similar then.")
+ROYBTRYMSG8			_("...")
+ROYBTRYMSG9			_("But this is MY kingdom.")
+ROYBTRYMSG10		_("And you have no place in it!")
+
+/* Resistance Assault Alert (When the Royalists target the player with an Assault) */
+RESALERTMSG1		_("Heads up Commander, we've intercepted some Royalist radio transmissions indicating that they're preparing for an all-out assault against us.")
+RESALERTMSG2		_("Brace yourself, Commander. I think things might be about to get nasty.")
+
+/* AMPHOS Assault Alert */
+AMPALERTMSG1		_("We have detected a large amount of Royalist hovercrafts bearing towards our base's location.")
+AMPALERTMSG2		_("Any assistance in dealing with this would be greatly appreciated, Commander.")
+
+/* Hellraiser Assault Alert */
+HELALERTMSG1		_("Commander, we've spotted more Royalists heading towards us!")
+HELALERTMSG2		_("We must hold the line here!")
+
+/* Coalition Assault Alert */
+COAALERTMSG1		_("Hey, Commander! We've got intel that suggests the Royalists are about to hit us with a huge assault.")
+COAALERTMSG2		_("We could use a hand in defending over here!")
+
+/* Phase 3 Message (Only if the player has any allies) */
+ROYPHASE3MSG1		_("That's it, Commander.")
+ROYPHASE3MSG2		_("You've become a nuisance I can no longer ignore.")
+ROYPHASE3MSG3		_("I bet you're VERY proud of yourself.")
+ROYPHASE3MSG4		_("But you're now number one on my to-kill list!")
+ROYPHASE3MSG5		_("So you'd best be ready for what's in store for you...")
+
+/* Royalist base under attack */
+ROYATTACKMSG1		_("What do you think you're doing?")
+ROYATTACKMSG2		_("You're attacking me?")
+ROYATTACKMSG3		_("Pfft. That's really cute.")
+ROYATTACKMSG4		_("If only you stood any chance!")
+ROYATTACKMSG5		_("No matter how strong you become, nor how many allies you gain, you're still hopeless against my might!")
+ROYATTACKMSG6		_("You hear that? Hopeless!")
+
+/* Royalist base under attack (Player has Eradicated all other factions) */
+ROYERADATTACKMSG1	_("What do you think you're doing?")
+ROYERADATTACKMSG2	_("You think you can destroy us like you've done to all the rest?")
+ROYERADATTACKMSG3	_("Ha! Ha Ha Ha!")
+ROYERADATTACKMSG4	_("You're quite tough, Commander, I'll give you that!")
+ROYERADATTACKMSG5	_("But you're either stupid or crazy if you think you can defeat the Royalists.")
+ROYERADATTACKMSG6	_("I don't care how tough you are, I'm the Queen!")
+ROYERADATTACKMSG7	_("I've triumphed over every foe before you, and I'll do the same to you!")
+ROYERADATTACKMSG8	_("You're nothing special! You'll be cleared away just like the rest!")
+
+/* Royalist Outer Base Eradicated */
+ROYOUTERMSG1		_("H-Hold it!")
+ROYOUTERMSG2		_("Just think about what you're doing, j-just for a moment!")
+ROYOUTERMSG3		_("I-I'm the Queen! This kingdom belongs to me!")
+ROYOUTERMSG4		_("N-Not you.")
+ROYOUTERMSG5		_("Not Max.")
+ROYOUTERMSG6		_("Not James!")
+ROYOUTERMSG7		_("ME!")
+ROYOUTERMSG8		_("My father left it to me! It's MINE!")
+ROYOUTERMSG9		_("A-And nobody can take that from me!")
+ROYOUTERMSG10		_("I'll kill you, I'll kill your allies, I'll kill anyone you know to keep it that way!")
+ROYOUTERMSG11		_("Do you h-hear me?")
+ROYOUTERMSG12		_("YOU CAN'T STOP ME!")
+
+/* Royalist Outer Base Eradicated (Player has Eradicated all other factions) */
+ROYERADOUTERMSG1	_("H-How!?")
+ROYERADOUTERMSG2	_("How is it that one Commander is this capable!?")
+ROYERADOUTERMSG3	_("Ever since you got here, you've done nothing but sow chaos and death and destruction.")
+ROYERADOUTERMSG4	_("And no one has been able to stand in your way!")
+ROYERADOUTERMSG5	_("HOW?!")
+ROYERADOUTERMSG6	_("What is it? What's your secret? How are you able to kill so many by yourself!?")
+ROYERADOUTERMSG7	_("Is it some secret weapon? Some technique to allow such extraordinary amounts of violence?")
+ROYERADOUTERMSG8	_("W-Where did you even come from!?")
+ROYERADOUTERMSG9	_("...")
+
+
+/* Campaign 1 Mission Briefing text */
+
+CAM1_MSG1			_("OBJECTIVE: Locate and recover neural synapse technology")
+CAM1_MSG2			_("Establish a base, then search for a Pre-Collapse structure.")
+CAM1_MSG3			_("This structure contains technology vital for the success of the Project.")
+
+CAM1A_MSG1			_("ALPHA BASE MISSION: Scavenger Raiders") 
+CAM1A_MSG2			_("Scavenger raiders are approaching our base.")
+CAM1A_MSG3			_("Defend the base then destroy the Scavenger camps.")
+
+CAM1B_MSG1			_("ALPHA BASE MISSION: Power Surge Detected")
+CAM1B_MSG2			_("A power surge has been detected to the south of our position.")
+CAM1B_MSG3			_("Investigate and secure the area.")
+
+CAM1C_MSG1			_("ALPHA BASE MISSION: The New Paradigm")
+CAM1C_MSG2			_("The New Paradigm control superior weapons technology.")
+CAM1C_MSG3			_("They may have the synaptic link technology, it's vital we retrieve it.")
+
+SUB1_1_MSG1			_("TRANSPORT MISSION: Locate and Recover Artifacts")
+SUB1_1_MSG2			_("Load an attack force into the transport.")
+SUB1_1_MSG3			_("On landing, explore the ruins and recover any artifacts.")
+
+SUB1_2_MSG1			_("TRANSPORT MISSION: Investigate Research Center")
+SUB1_2_MSG2			_("Investigate the area and recover any artifacts present.")
+SUB1_2_MSG3			_("Reinforcements are available.")
+
+SUB1_3_MSG1			_("TRANSPORT MISSION: Encoded Signals Detected")
+SUB1_3_MSG2			_("Take a scout force to investigate these signals.")
+SUB1_3_MSG3			_("Use your trucks to build defenses at your LZ.")
+
+SUB1_4A_MSG1			_("TRANSPORT MISSION: Enemy Transmissions Detected")
+SUB1_4A_MSG2			_("Scout the designated area for enemy research facilities.")
+SUB1_4A_MSG3			_("Proceed to LZ#2. Do not engage the enemy at this time.")
+
+SUB1_5_MSG1			_("TRANSPORT MISSION: Synaptic Link Location")
+SUB1_5_MSG2			_("The New Paradigm are analyzing synaptic link technology at this location.")
+SUB1_5_MSG3			_("Assemble an attack team and recover the synaptic link technology.")
+
+SUB1_7_MSG1			_("TRANSPORT MISSION: New Objectives")
+SUB1_7_MSG2			_("New Paradigm are searching for artifacts in this vicinity.")
+SUB1_7_MSG3			_("Intercept them. Do not let any enemies exit this area.")
+
+SUB1_8_MSG1			_("TRANSPORT MISSION: Enemy Base Under Construction")
+SUB1_8_MSG2			_("Enemy forces are establishing a forward base at this location.")
+SUB1_8_MSG3			_("Eradicate the base and secure the area.")
+
+/* Campaign Mission briefing additional */
+CAM1CA_MSG1			_("ALPHA BASE MISSION: Establish a Forward Base")
+CAM1CA_MSG2			_("Establish a forward base on the plateau and fend off the New Paradigm.")
+CAM1CA_MSG3			_("Build defensive structures until the green objective blip disappears.")
+
+CAM1A-C_MSG1			_("ALPHA BASE MISSION: Counter Attack")
+CAM1A-C_MSG2			_("Enemy forces are approaching from the east and north.")
+CAM1A-C_MSG3			_("Hold the bases and repulse any attacks.")
+
+CAM1D_MSG1			_("ALPHA BASE MISSION: Incoming Transmission")
+CAM1D_MSG2			_("We are detecting enemy forces at these locations.")
+CAM1D_MSG3			_("This is our chance to defeat the New Paradigm and destroy their base.")
+
+
+/* New Paradigm - incoming transmission */
+NP_MSG2				" "
+
+/* Cam 1B Player Ident Congrats */
+P1B_MSG1			_("ALPHA BASE MISSION: Power Surge Detected") 
+P1B_MSG2			_("Congratulations Commander.")
+P1B_MSG3			_("We now have a further task for you.")
+
+/* Cam 1.1 Player Ident Congrats */
+P1-1_MSG1			_("ALPHA BASE MISSION: Locate and Recover Artifacts")
+P1-1_MSG2			_("The first two zones are now secure.")
+P1-1_MSG3			" "
+
+/* Project Team updates */
+P1-3A_MSG1			_("PROJECT TEAM UPDATES")
+
+/* Team Beta update */
+BETA1_MSG1			_("TEAM BETA UPDATE")
+BETA1_MSG2			_("We have recovered some artifacts.")
+BETA1_MSG3			_("There is a better equipped force operating in this area.")
+
+/* Team Gamma update */
+GAMMA_MSG1			_("TEAM GAMMA UPDATE")
+GAMMA_MSG2			_("Nothing to report.")
+GAMMA_MSG3			_("We've discovered no artifacts and encountered no hostiles.")
+
+/* Map1c mission brief - intelligence report */
+CAM1C_MSG4			_("ALPHA BASE INTELLIGENCE REPORT: Enemy Attack")
+CAM1C_MSG5			_("We are detecting an enemy attack force at this location.")
+CAM1C_MSG6			" "
+
+/* Map1c project update - enemy attack */
+CAM1C_MSG7			_("PRIMARY OBJECTIVE")
+CAM1C_MSG8			_("This structure is your primary objective.")
+CAM1C_MSG9			_("Search for and recover any artifacts here.")
+
+CAM1C_MSG10			_("ENEMY LZ")
+CAM1C_MSG11			_("Destroy this LZ to prevent enemy landings.")
+
+/* Sub 1.7 Player ident New objectives */
+SUB1_7_MSG4			_("ALPHA BASE INTELLIGENCE REPORT: NEXUS")
+SUB1_7_MSG5			_("New objective.")
+SUB1_7_MSG6			_("We have detected and isolated an intruder program.")
+
+/* Reinforcements available message for 1.4 (now in GenStrings!)*/
+
+/* Map1ca Player ident supplemental */
+SUP_MSG1			_("Supplemental")
+SUP_MSG2			_("The synaptic link technology was at this location but was removed.")
+/*SUP_MSG2			_("The synaptic link technology was present at this structure.")*/
+SUP_MSG3			_("Establish a forward base then continue the search for the synaptic link.")
+
+/* Submap1_4 Player ident */
+SUB1_4A_MSG4			_("INCOMING TRANSMISSION")
+SUB1_4A_MSG5			_("Decoding in progress.....")
+SUB1_4A_MSG6			" "
+
+/* Submap 1_4b - Destroy Enemy Base */
+SUB1_4B_MSG2			_("Commander.")
+SUB1_4B_MSG3			_("We have decoded the incoming message to the New Paradigm...")
+
+/* Submap 1_4b - Player Ident - Destroy Enemy Base */
+SUB1_4B_MSG4			_("Destroy Enemy Base")
+SUB1_4B_MSG5			_("Assemble an attack force and board the transport.")
+SUB1_4B_MSG6			_("Destroy the base and recover any artifacts present.")
+
+/* Map1a-c - Player Ident */
+CAM1A-C_MSG5			_("The synaptic link technology has been recovered!")
+CAM1A-C_MSG6			_("Initial research confirms it will be of great benefit to the Project.")
+
+/* Submap 1_8 - Player Ident */
+SUB1_8_MSG4			_("Base Beta is under heavy attack, they may need assistance.")
+SUB1_8_MSG5			_("We will send further updates as they arrive.") 
+
+/* Cam1d Player ident */
+CAM1D_MSG4			_("This transmission was intercepted a few minutes ago.")
+CAM1D_MSG5			_("It originates from the east.")
+
+/* Cam1b2 power generator */
+CAM1_B2_MSG			_("POWER MODULE ARTIFACT")
+CAM1_B2_MSG2			_("Research the power module artifact.")
+CAM1_B2_MSG3			_("Then use a truck to upgrade your power generator with the module.")
+
+/* sub1_2 scavenger base part2 */
+SUB1_2_MSG4			_("SCAVENGER BASE DETECTED")
+SUB1_2_MSG5			_("Defeat the scavengers and retrieve any artifacts.")
+SUB1_2_MSG6			_("Reinforcements are available.")
+
+/* Campaign 1 outro */
+CAM1OUT_MSG1			_("Congratulations on defeating the New Paradigm, this sector is now secure.")
+CAM1OUT_MSG2			_("The Nexus Intruder Program was in the New Paradigm system.")
+CAM1OUT_MSG3			_("We recorded two conversations with it, extracts follow...")
+
+CAM1OUT_MSG4			" "
+CAM1OUT_MSG5			_("We'll keep you informed of further developments")
+
+CAM1OUT_MSG6			_("Commander you are to assist Team Beta")

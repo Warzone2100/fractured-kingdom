@@ -1,0 +1,6 @@
+200 400	0.0		6.0		_("The Queen has been slain, and her Royalists have been wiped out.")
+125 400	6.0		12.0	_("With an efficiency and ruthlessness the kingdom had never before seen, the Commander had purged all who stood in their path.")
+200 400	12.0	18.0	_("Anyone who still remained in the kingdom either submitted to their rule, or perished.")
+100 400	18.0	24.0	_("The Commander rapidly strengthened their iron grip on their new subjects, plunging what was left of the kingdom into another era of subjugation.")
+150 400	24.0	30.0	_("Among those who still remained within the kingdom, none were strong enough to challenge the Commander’s might.")
+250 400	30.0	36.0	_("A dark future awaits the inhabitants of the kingdom.")

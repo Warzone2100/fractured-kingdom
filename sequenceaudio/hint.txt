@@ -1,0 +1,2 @@
+0 400	4.0		16.0	_("The orange rocks hide a secret.")
+0 420	9.0		16.0	_("Destroy them all to illuminate the truth.")
