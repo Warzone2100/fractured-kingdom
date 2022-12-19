@@ -1410,6 +1410,7 @@ function initializeGameInfo()
 		"coaPowerGen": { tech: "R-Struc-PowerModuleMk1" }, // Power Module
 		// Royalist Artifacts
 		"royalistSouthCyborgFac": { tech: "R-Cyborg-Metals02", req: "R-Cyborg-Metals01" }, // Cyborg Composite Alloys Mk2 (requires Mk1)
+		"royCompositeTank": { tech: "R-Vehicle-Metals03", req: "R-Vehicle-Metals02" }, // Composite Alloys Mk3 (requires Mk2)
 		"royInfBunker": { tech: "R-Wpn-Flame2" }, // Inferno
 		"royLancerTow1": { tech: "R-Wpn-Rocket01-LtAT", req: "R-Wpn-Rocket-LtA-TMk1" }, // Lancer AT Rocket (requires Sarissa)
 		"royLancerTow2": { tech: "R-Wpn-Rocket01-LtAT", req: "R-Wpn-Rocket-LtA-TMk1" }, // Lancer AT Rocket (requires Sarissa)
@@ -2253,6 +2254,7 @@ function initializeGameInfo()
 
 	gameState = {
 		funny: 0,
+		oopsieDaisies: 0,
 		playerColour: playerData[0].colour,
 		allowColourChange: true,
 		// How far the player has progressed, used to determine some faction behaviours
@@ -2276,6 +2278,7 @@ function initializeGameInfo()
 			commandProgression: 0, // How many command-control upgrades have been dropped
 			sarissaDrop: false, // Whether the player has caused a specific artifact to drop
 			hmgDrop: false,
+			compositeDrop: false,
 			lancerDrop: false,
 			cycloneDrop: false,
 			powModDrop: false,

@@ -1272,5 +1272,11 @@
         "type": 1,
         "player": 2,
         "label": "ampLancerTow"
+    },
+    "object_91": {
+        "id": 4363,
+        "type": 0,
+        "player": 5,
+        "label": "royCompositeTank"
     }
 }

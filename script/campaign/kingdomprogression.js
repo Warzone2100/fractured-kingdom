@@ -683,6 +683,7 @@ function expandMap()
 		// Swap the artifact in the Royalist Cyborg Factory 
 		camAddArtifact({"royalistSouthCyborgFac": { tech: "R-Cyborg-Metals03", req: "R-Cyborg-Metals02" }}) // Cyborg Composite Alloys Mk3 (requires Mk2)
 		camRemoveArtifact("helResearch1"); // Remove the artifact in the Hellraiser base
+		camRemoveArtifact("royCompositeTank"); // Remove the artifact in the Royalist tank north of the river
 	}
 
 	// Ready the Royalist's Heavy commander
@@ -874,7 +875,14 @@ function checkAmphosOfferConditions()
 function setupAmphosNegotiations()
 {
 	// Message from AMPHOS
-	missionMessage("AMPNEGOMSG", "TRANS");
+	if (gameState.amphos.requireNW)
+	{
+		missionMessage("AMPNEGOMSG", "TRANS");
+	}
+	else
+	{
+		missionMessage("AMPNEGOALLEMSG", "TRANS");
+	}
 
 	console("AMPHOS is offering to form an alliance with you!");
 	playSound("pcv479.ogg"); // "Alliance offered"
@@ -994,26 +1002,29 @@ function allyAmphos()
 		playSound("pcv482.ogg"); // "Gift recieved"
 	}
 
-	// Fine the player depending on how much AMPHOS stuff they destroyed
-	var powerFine = 4000; // Max amount of power to fine the player
-	if (gameState.resistance.allianceState === "ALLIED")
+	if (gameState.amphos.requireNW) 
 	{
-		// Resistance will talk down their prices
-		powerFine = 2000;
-		if (gameState.amphos.numDestroyed * 10 < powerFine)
+		// Fine the player depending on how much AMPHOS stuff they destroyed
+		var powerFine = 4000; // Max amount of power to fine the player
+		if (gameState.resistance.allianceState === "ALLIED")
 		{
-			powerFine = gameState.amphos.numDestroyed * 10;
+			// Resistance will talk down their prices
+			powerFine = 2000;
+			if (gameState.amphos.numDestroyed * 10 < powerFine)
+			{
+				powerFine = gameState.amphos.numDestroyed * 10;
+			}
 		}
-	}
-	else
-	{
-		if (gameState.amphos.numDestroyed * 25 < powerFine)
+		else
 		{
-			powerFine = gameState.amphos.numDestroyed * 25;
+			if (gameState.amphos.numDestroyed * 25 < powerFine)
+			{
+				powerFine = gameState.amphos.numDestroyed * 25;
+			}
 		}
+		setPower(playerPower(CAM_HUMAN_PLAYER) - powerFine, CAM_HUMAN_PLAYER);
+		playSound("power-transferred.ogg"); // "Power Transferred"
 	}
-	setPower(playerPower(CAM_HUMAN_PLAYER) - powerFine, CAM_HUMAN_PLAYER);
-	playSound("power-transferred.ogg"); // "Power Transferred"
 
 	// Upgrade AMPHOS structures if the player has already researched better tech
 	updateAlliedStructs();
@@ -2738,6 +2749,23 @@ function playQueenPanicMessage()
 	{
 		missionMessage("ROYOUTERMSG", "TRANS");
 	}
+
+	if (gameState.resistance.allianceState === "ALLIED" || gameState.coalition.allianceState === "ALLIED")
+	{
+		queue("playPanicMessageResponse", camSecondsToMilliseconds(8));
+	}
+}
+
+function playPanicMessageResponse()
+{
+	if (gameState.coalition.allianceState === "ALLIED")
+	{
+		missionMessage("COARESPONMSG", "TRANS");
+	}
+	else if (gameState.resistance.allianceState === "ALLIED")
+	{
+		missionMessage("RESRESPONMSG", "TRANS");
+	}
 }
 
 function beginEndCountdown()
@@ -2936,7 +2964,13 @@ function checkErad(player)
 				}
 
 				// Queue response message from Royalists
-				queue("royAmphosResponse", camSecondsToMilliseconds(12));
+				if (gameState.resistance.allianceState === "ALLIED"
+					|| gameState.hellraisers.allianceState === "ALLIED"
+					&& !gameState.royalists.underAttack)
+				{
+					// Only if the player has allied with anyone
+					queue("royAmphosResponse", camSecondsToMilliseconds(12));
+				}
 			}
 			else
 			{

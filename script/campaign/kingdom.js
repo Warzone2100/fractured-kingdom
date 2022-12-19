@@ -230,36 +230,22 @@ function eventDroidBuilt(droid, structure)
 		case ROYALISTS:
 			if (droid.droidType === DROID_COMMAND)
 			{
-				// // Assault Commander has been rebuilt
-				// // Check if it's stuck on an island
-				// var droidPos = camMakePos(droid);
-				// var basePos = camMakePos("royMainAssembly");
-				// if (!propulsionCanReach(droid.propulsion, droidPos.x, droidPos.y, basePos.x, basePos.y)) 
-				// {
-				// 	// Commander is stuck, remove it and try again
-				// 	camQueueDroidProduction(ROYALISTS, { body: "Body7ABT", prop: droid.propulsion, weap: "CommandBrain01" });
-				// 	camSafeRemoveObject(droid);
-				// 	break;
-				// }
-				// else
-				// {
-					// The droid is a new assault commander
-					addLabel(droid, "royAssaultCommander");
-					commander = getObject("royAssaultCommander");
-					
-					if (difficulty <= EASY) camSetDroidRank(commander, "Trained");
-					if (difficulty === MEDIUM) camSetDroidRank(commander, "Regular");
-					if (difficulty >= HARD) camSetDroidRank(commander, "Professional");
+				// The droid is a new assault commander
+				addLabel(droid, "royAssaultCommander");
+				commander = getObject("royAssaultCommander");
+				
+				if (difficulty <= EASY) camSetDroidRank(commander, "Trained");
+				if (difficulty === MEDIUM) camSetDroidRank(commander, "Regular");
+				if (difficulty >= HARD) camSetDroidRank(commander, "Professional");
 
-					// Assign units to the commander
-					var commandGroup = gameState.royalists.assaultCommandGroup;
-					camManageGroup(commandGroup.id, commandGroup.order, commandGroup.data);
+				// Assign units to the commander
+				var commandGroup = gameState.royalists.assaultCommandGroup;
+				camManageGroup(commandGroup.id, commandGroup.order, commandGroup.data);
 
-					camManageGroup(camMakeGroup("royAssaultCommander"), CAM_ORDER_DEFEND, {
-						pos: basePos,
-						repair: 40
-					});
-				// }
+				camManageGroup(camMakeGroup("royAssaultCommander"), CAM_ORDER_DEFEND, {
+					pos: basePos,
+					repair: 40
+				});
 				break; // Commander assigned, all done.
 			}
 			var mainFac = getObject("royalistMainFactory");
@@ -413,6 +399,15 @@ function eventDestroyed(obj)
 		{
 			// Note, this achievement is granted even if an ally gets the kill
 			achievementMessage("No-Fly Zone", "Shoot down an enemy transport while it's in the air");
+		}
+		else if (obj.type === DROID && attacker.player === CAM_HUMAN_PLAYER && allianceExistsBetween(CAM_HUMAN_PLAYER, player))
+		{
+			oopsieDaisies++;
+			if (oopsieDaisies >= 20)
+			{
+				// Don't worry, I'm sure you didn't mean to
+				achievementMessage("Woops!", "Destroy 20 allied units");
+			}
 		}
 	}
 
@@ -766,6 +761,17 @@ function eventDestroyed(obj)
 			gameState.artifacts.hmgDrop = true;
 			if (label !== "ampMGTow") camRemoveArtifact("ampMGTow");
 			if (label !== "helMGTow") camRemoveArtifact("helMGTow");
+			break;
+		// Duplicate Composite Alloys Mk3 artifacts
+		case "helResearch1":
+		case "royCompositeTank":
+			if (gameState.artifacts.compositeDrop)
+			{
+				break;
+			}
+			gameState.artifacts.compositeDrop = true;
+			if (label !== "helResearch1") camRemoveArtifact("helResearch1");
+			if (label !== "royCompositeTank") camRemoveArtifact("royCompositeTank");
 			break;
 		// Duplicate Lancer artifacts
 		case "ampLancerTow":
@@ -1195,8 +1201,9 @@ function eventResearched(research, structure, player)
 				}
 				break;
 			case "R-Sys-Engineering02":
-				// Remove the artifact for Composite Alloys Mk3
+				// Remove the artifacts for Composite Alloys Mk3
 				camRemoveArtifact("helResearch1");
+				camRemoveArtifact("royCompositeTank");
 				break;
 			case "R-Vehicle-Metals02":
 			case "R-Cyborg-Metals01":
