@@ -99,7 +99,7 @@ ROYEMSG3			_("You must not be from around here, isn't that right?")
 ROYEMSG4			_("And if the Resistance isn't with you...")
 ROYEMSG5			_("...")
 ROYEMSG6			_("You've got no idea who you are messing with, do you? Do you even realize who I am?")
-ROYAMSG7			_("I'm the Queen of the Royalists, and this is MY kingdom you've stepped on.")
+ROYEMSG7			_("I'm the Queen of the Royalists, and this is MY kingdom you've stepped on.")
 ROYEMSG8			_("I have more pressing matters to attend to for now, but I'll be seeing you around, buddy.")
 
 /* AMPHOS Introduction (From Resistance) */
@@ -504,9 +504,9 @@ ROYNEGOMSG3			_("Inadvertently or not, you've destroyed many enemies of the Roya
 ROYNEGOMSG4			_("...They're all gone now.")
 ROYNEGOMSG5			_("So you know what? I'll extend an olive branch.")
 ROYNEGOMSG6			_("Let's put down our arms and settle this peacefully.")
-ROYNEGOMSG6			_("You stand down and give me the rest of my kingdom, and I'll let you go scott-free.")
-ROYNEGOMSG6			_("And then you can back to wherever the hell you came from.")
-ROYNEGOMSG7			_("A Royalist truck has been sent to begin negotiations, Commander. Let's end this here and now.")
+ROYNEGOMSG7			_("You stand down and give me the rest of my kingdom, and I'll let you go scott-free.")
+ROYNEGOMSG8			_("And then you can back to wherever the hell you came from.")
+ROYNEGOMSG9			_("A Royalist truck has been sent to begin negotiations, Commander. Let's end this here and now.")
 
 /* Royalist message if the player accepts negotiations */
 ROYAMBUMSG1			_("Did you really, TRULY believe that it would end this way?")
