@@ -1,0 +1,36 @@
+Below is a list of all the achievements available in Fractured Kingdom, ranked roughly by difficulty (from least difficult to most difficult).
+There's no reward for collecting achievements, and earned achievements are not saved between playthroughs. They're meant to be fun little challenges/milestones players can accomplish while playing through the mod.
+Note that some achievements have conflicting requirements, so it is impossible to get them all in one playthrough.
+
+- Whiteout: Now look at what you've done
+- BFFs: Form an alliance with the Resistance
+- Firestarter: Ally with the Hellraisers
+- A Poorly-Learned Lesson: Destroy the same base twice
+- Dealmaker: Ally with AMPHOS and help them turn against the Royalists
+- First Blood: Eradicate the Resistance
+- Unionized: Unite with the Coalition against the Royalists
+- Why: Destroy an enemy Super Cyborg with a Bunker Buster Rocket
+- Scorched Earth: Eradicate the Hellraisers
+- Master Negotiator: Form an alliance with all factions
+- To The Skies: Build any VTOL unit
+- Hold The Line!: Survive a full Royalist assault
+- The Bigger They Are...: Destroy a Royalist Fortress
+- Drowned Out: Eradicate AMPHOS
+- Dethroned: Defeat the Royalists on Normal difficulty or higher
+- For Real This Time: Eradicate the Resistance again
+- Union Buster: Eradicate the Coalition
+- Brommander: Ally with AMPHOS without destroying their command hover
+- Interceptor: Shoot down a VTOL with another VTOL
+- Recession: Reach negative 2100 power
+- Gold Star: Level any unit to Hero rank
+- Best Served Cold: Build any unit with the Vengeance body
+- Friendly Get-Together: Begin negotiations with the Royalists
+- Walking Apocalypse: Defeat the Royalists after eradicating all other factions
+- Relentless: Defeat the Royalists on Hard difficulty or higher
+- Illuminator: Acquire the Flashlight Laser
+- No-Fly Zone: Shoot down an enemy transport while it's in the air
+- Stubborn: Defeat the Royalists without ever building a commander
+- Fortnight Of Fun: Defeat the Royalists in under two in-game weeks (4 hours & 40 minutes)
+- Isolationist: Defeat the Royalists without aggravating or allying with any faction (other than the Resistance)
+- Stainless: Defeat the Royalists without any unit losses
+- Non Compos Mentis: Defeat the Royalists on Insane difficulty
