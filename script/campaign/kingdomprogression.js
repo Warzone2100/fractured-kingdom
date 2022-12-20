@@ -841,6 +841,15 @@ function ampPitch()
 	setTimer("checkAmphosOfferConditions", camSecondsToMilliseconds(5));
 }
 
+function camEnemyBaseEliminated_nwIslandBase() 
+{
+	if (gameState.amphos.allianceState === "NEUTRAL")
+	{
+		// Don't allow the Royalists to rebuild this base if the player is trying to let AMPHOS take it
+		camDisableTruck(camGetTrucksFromBase("nwIslandBase")[0]);
+	}
+}
+
 // Check if AMPHOS is ready to start negotiations
 function checkAmphosOfferConditions()
 {
@@ -1118,6 +1127,9 @@ function allyAmphos()
 		// Allow Royalists to start getting late-game research.
 		camCallOnce("grantRoyalistTier2Research");
 	}
+
+	// Allow the Royalists to try to rebuild the NW island base
+	camEnableTruck(camGetTrucksFromBase("nwIslandBase")[0]);
 }
 
 // Live Queen Reaction
@@ -1237,6 +1249,9 @@ function aggroAmphos()
 
 	queue("ampCommanderAttack", camChangeOnDiff(camMinutesToMilliseconds(12)));
 	camCallOnce("setPhaseTwo");
+
+	// Allow the Royalists to try to rebuild the NW island base
+	camEnableTruck(camGetTrucksFromBase("nwIslandBase")[0]);
 }
 
 // Make the AMPHOS commander go attack the player. 

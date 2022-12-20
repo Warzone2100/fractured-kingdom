@@ -139,7 +139,7 @@ AMPPITCHMSG6		_("Just keep your distance from our main island base, and I'll kee
 AMPNEGOMSG1			_("Well, it appears that Alice was right about you.")
 AMPNEGOMSG2			_("You've managed to push back against the Royalists and cleared us breathing room.")
 AMPNEGOMSG3			_("And you've not only done so by yourself, without any assistance from us, but also while our forces were actively working against you.")
-AMPNEGOMSG4			_("You really are something incredible. Do not think we will forget this extraordinary favor that you have done for us.")
+AMPNEGOMSG4			_("You really are something incredible; do not think we will forget this extraordinary favor that you have done for us.")
 AMPNEGOMSG5			_("Commander, as president of the AMPHOS board of directors, I hereby offer to negotiate an alliance with you at the designated location.")
 AMPNEGOMSG6			_("Once the negotiations are through, we will share our technology and support your forces as you strike back against the Royalists!")
 AMPNEGOMSG7			_("...")
