@@ -402,8 +402,8 @@ function eventDestroyed(obj)
 		}
 		else if (obj.type === DROID && attacker.player === CAM_HUMAN_PLAYER && allianceExistsBetween(CAM_HUMAN_PLAYER, player))
 		{
-			oopsieDaisies++;
-			if (oopsieDaisies >= 20)
+			gameState.oopsieDaisies++;
+			if (gameState.oopsieDaisies >= 20)
 			{
 				// Don't worry, I'm sure you didn't mean to
 				achievementMessage("Woops!", "Destroy 20 allied units");
