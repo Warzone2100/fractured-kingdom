@@ -193,7 +193,7 @@ function camDetectEnemyBase(blabel)
 function camBaseChangeToFriendly(blabel)
 {
 	var bi = __camEnemyBases[blabel];
-	if (camDef(bi.detectMsg) && bi.detected && !bi.eliminated) // remove the beacon
+	if (camDef(bi.detectMsg) && bi.detected && !bi.eliminated && !bi.friendly) // remove the beacon
 	{
 		hackRemoveMessage(bi.detectMsg, PROX_MSG, CAM_HUMAN_PLAYER);
 	}

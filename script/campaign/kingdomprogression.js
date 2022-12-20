@@ -989,7 +989,6 @@ function allyAmphos()
 	camBaseChangeToFriendly("westIslandBase");
 	camBaseChangeToFriendly("ampNWIsleRepBase");
 	camBaseChangeToFriendly("northIslandBase");
-	camBaseChangeToFriendly("northIslandBase");
 	camBaseChangeToFriendly("ampSouthGateLZ");
 
 	hackRemoveMessage("AMP_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
