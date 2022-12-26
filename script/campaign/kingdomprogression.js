@@ -180,7 +180,7 @@ function initializeMapGroups()
 	});
 
 	camManageGroup(camMakeGroup("royAssaultCommander"), CAM_ORDER_DEFEND, {
-		pos: camMakePos("royMainAssembly"),
+		pos: camMakePos("innerPos1"),
 		repair: 40
 	});
 
@@ -642,7 +642,7 @@ function camEnemyBaseEliminated_resistanceMainBase()
 {
 	queue("expandMap", camSecondsToMilliseconds(15));
 
-	camDisableTruck(camGetTrucksFromBase("resistanceMainBase")[0])
+	camDisableTruck("resistanceMainBase");
 }
 
 // Reveal the rest of the map after the Resistance is dealt with
@@ -846,7 +846,7 @@ function camEnemyBaseEliminated_nwIslandBase()
 	if (gameState.amphos.allianceState === "NEUTRAL")
 	{
 		// Don't allow the Royalists to rebuild this base if the player is trying to let AMPHOS take it
-		camDisableTruck(camGetTrucksFromBase("nwIslandBase")[0]);
+		camDisableTruck("nwIslandBase");
 	}
 }
 
@@ -1128,7 +1128,7 @@ function allyAmphos()
 	}
 
 	// Allow the Royalists to try to rebuild the NW island base
-	camEnableTruck(camGetTrucksFromBase("nwIslandBase")[0]);
+	camEnableTruck("nwIslandBase");
 }
 
 // Live Queen Reaction
@@ -1250,7 +1250,7 @@ function aggroAmphos()
 	camCallOnce("setPhaseTwo");
 
 	// Allow the Royalists to try to rebuild the NW island base
-	camEnableTruck(camGetTrucksFromBase("nwIslandBase")[0]);
+	camEnableTruck("nwIslandBase");
 }
 
 // Make the AMPHOS commander go attack the player. 
@@ -1302,6 +1302,12 @@ function helPitch()
 	else // Mantis Tracks on Insane
 	{
 		camManageTrucks(HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hehtruckt, camChangeOnDiff(camSecondsToMilliseconds(150)));
+	}
+
+	if (difficulty === INSANE)
+	{
+		camTruckObsoleteStructure(HELLRAISERS, "GuardTower2", "GuardTower1");
+		camTruckObsoleteStructure(HELLRAISERS, "PillBox2", "PillBox1");
 	}
 
 	// Calculate how many structs need to be rebuilt before negotiations may begin
@@ -1562,6 +1568,7 @@ function aggroHellraisers()
 	{
 		camTruckObsoleteStructure(HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02");
 		camTruckObsoleteStructure(HELLRAISERS, "GuardTower2", "GuardTower3");
+		camTruckObsoleteStructure(HELLRAISERS, "GuardTower1", "GuardTower3");
 		camTruckObsoleteStructure(HELLRAISERS, "PillBox2", "PillBox1");
 		camTruckObsoleteStructure(HELLRAISERS, "PillBox5", "Tower-Projector");
 		camTruckObsoleteStructure(HELLRAISERS, "WallTower02", "WallTower03");
@@ -2140,7 +2147,6 @@ function aggroCoalition()
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
 		setAlliance(THE_COALITION, THE_RESISTANCE, false);
-		camManageTrucks(THE_RESISTANCE, "resistanceSubBase", structSets.resistanceCoalitionSubBaseStructs, cTempl.remtruck, camChangeOnDiff(camSecondsToMilliseconds(60)));
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
@@ -2174,6 +2180,11 @@ function aggroCoalition()
 	camSetFactoryTemplates("coalitionVtolFactory", coaVtolTemplates);
 
 	queue("coaCommanderAttack", camChangeOnDiff(camMinutesToMilliseconds(16)));
+
+	// Get the Coalition's VTOLs on the attack
+	gameState.coalition.mainVTOLGroup.order = CAM_ORDER_ATTACK;
+	gameState.coalition.mainVTOLGroup.data = { targetPlayer: CAM_HUMAN_PLAYER, pos: camMakePos("playerBasePos") };
+
 	camCallOnce("setPhaseTwo");
 }
 
@@ -2446,7 +2457,7 @@ function setupRoyalistNegotiations()
 	if (assltCommander !== null)
 	{
 		camManageGroup(assltCommander.group, CAM_ORDER_DEFEND, {
-			pos: camMakePos("royMainAssembly"),
+			pos: camMakePos("innerPos1"),
 			repair: 40
 		});
 	}
@@ -2476,7 +2487,7 @@ function setupRoyalistNegotiations()
 		removeTimer("checkAssaultStatus");
 		removeTimer("navigateAssaultGroups");
 		gameState.royalists.assaultPhase = 0;
-		camManageGroup(gameState.royalists.assaultGroup.id, CAM_ORDER_DEFEND, {pos: camMakePos("royMainAssembly")});
+		camManageGroup(gameState.royalists.assaultGroup.id, CAM_ORDER_DEFEND, {pos: camMakePos("innerPos1")});
 		queueStartProduction(ROYALISTS, "ASSAULT");
 	}
 
@@ -2947,7 +2958,9 @@ function checkErad(player)
 		if (hasBases(player)) return;
 
 		// All bases gone, check for any units
-		if (countDroid(DROID_ANY, player) > 0) return;
+		// HACK: If a faction has no bases and it's last unit is destroyed, it will still "exist" when this function is called
+		// so check if there is more than 1 droid remaining instead of more than 0
+		if (countDroid(DROID_ANY, player) > 1) return;
 	}
 
 	// This faction has no bases or units, consider them eradicated
@@ -3020,6 +3033,7 @@ function checkErad(player)
 			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION))
 			{
 				achievementMessage("Union Buster", "Eradicate the Coalition");
+				checkErad(THE_RESISTANCE);
 				checkPhaseThree();
 				if (gameState.amphos.allianceState === "ALLIED" 
 					|| gameState.amphos.allianceState === "ERADICATED")

@@ -412,7 +412,7 @@
         "label": "royTransSpawn"
     },
     "position_103": {
-        "pos": [29549, 3703],
+        "pos": [29303, 3527],
         "label": "royMainAssembly"
     },
 
@@ -1214,7 +1214,7 @@
         "label": "coaOliveTruck"
     },
     "object_81": {
-        "id": 3797,
+        "id": 4364,
         "type": 0,
         "player": 5,
         "label": "royOliveTruck"

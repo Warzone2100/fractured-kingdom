@@ -85,7 +85,7 @@ ROYAMSG2			_("Well I've gotta to hand it to you kid, you've got some real guts m
 ROYAMSG3			_("And it seems like you've really stirred up the hopes of those poor things you call your 'allies'. Without you I bet they couldn't even fend for themselves.")
 ROYAMSG4			_("But don't think it'll amount to anything.")
 ROYAMSG5			_("Do you even realize who I am?")
-ROYAMSG6			_("I'm the Queen of the Royalists, and this is MY kingdom you've stepped on.")
+ROYAMSG6			_("I'm the Queen of the Royalists, and this is MY kingdom you're stepping on.")
 ROYAMSG7			_("I control the most powerful military this kingdom has ever seen!")
 ROYAMSG8			_("... Does that not matter to you in the slightest?")
 ROYAMSG9			_("Well!")
@@ -99,7 +99,7 @@ ROYEMSG3			_("You must not be from around here, isn't that right?")
 ROYEMSG4			_("And if the Resistance isn't with you...")
 ROYEMSG5			_("...")
 ROYEMSG6			_("You've got no idea who you are messing with, do you? Do you even realize who I am?")
-ROYEMSG7			_("I'm the Queen of the Royalists, and this is MY kingdom you've stepped on.")
+ROYEMSG7			_("I'm the Queen of the Royalists, and this is MY kingdom you're stepping on.")
 ROYEMSG8			_("I have more pressing matters to attend to for now, but I'll be seeing you around, buddy.")
 
 /* AMPHOS Introduction (From Resistance) */
@@ -448,8 +448,8 @@ COAALLYMSG3			_("But just because we're working together doesn't mean what comes
 COAALLYMSG4			_("There's only two entrances to the main base: from the west and from the south.")
 COAALLYMSG5			_("Both are heavily guarded by plenty of ground defenses and artillery.")
 COAALLYMSG6			_("Additionally, there's a hill absolutely saturated in anti-air defenses just beyond the western entrance.")
-COAALLYMSG7			_("And to top it all off, each entrance is guarded by a gigantic death fortress, each with enough firepower to blow apart anything that gets within range.")
-COAALLYMSG8			_("Once we're inside, we'll likely have to face the best the Royalists have to offer.")
+COAALLYMSG7			_("And to top it all off, each entrance is guarded by a gigantic death fortress, each with enough firepower to blow apart any ground target that gets within range.")
+COAALLYMSG8			_("Once we're inside, we'll have to face the best the Royalists have to offer.")
 COAALLYMSG9			_("But with our combined forces, I'm sure we'll be able to handle anything the Royalists can throw at us.")
 COAALLYMSG10		_("We'll bring down the Queen's base, then I'll drag her off her throne myself!")
 
@@ -535,8 +535,8 @@ RESALERTMSG1		_("Heads up, we've intercepted some Royalist radio transmissions i
 RESALERTMSG2		_("Brace yourself, Commander. I think things are about to get nasty.")
 
 /* AMPHOS Assault Alert */
-AMPALERTMSG1		_("We have detected a large Royalist force ammassing within their base.")
-AMPALERTMSG2		_("Their size and composition is unkown, but it is likely that they're preparing to launch an assualt against us.")
+AMPALERTMSG1		_("We have detected a large Royalist force amassing within their base.")
+AMPALERTMSG2		_("Their size and composition is unkown, but it is likely that they're preparing to launch an assault against us.")
 AMPALERTMSG3		_("Any assistance in dealing with this would be greatly appreciated, Commander.")
 
 /* Hellraiser Assault Alert */
@@ -573,7 +573,7 @@ ROYERADATTACKMSG5	_("But you're either stupid or crazy if you think you can defe
 ROYERADATTACKMSG6	_("I am NOT to be pushed around!  I'm the Queen!")
 ROYERADATTACKMSG7	_("I've triumphed over every foe before you, and I'll do the same to you!")
 ROYERADATTACKMSG8	_("You're nothing special! You will KNEEL before me.")
-ROYERADATTACKMSG9	_("And when I'm done with you, you'll be nothing but a bad memory!")
+ROYERADATTACKMSG9	_("And when I'm done with you, you'll be nothing more than a bad memory!")
 
 /* Royalist Outer Base Eradicated */
 ROYOUTERMSG1		_("H-Hold it!")
@@ -583,7 +583,7 @@ ROYOUTERMSG4		_("N-Not you.")
 ROYOUTERMSG5		_("Not Max.")
 ROYOUTERMSG6		_("Not James!")
 ROYOUTERMSG7		_("ME!")
-ROYOUTERMSG8		_("I've come to far to lose this kingdom now...")
+ROYOUTERMSG8		_("I-I've come to far to lose this kingdom now...")
 ROYOUTERMSG9		_("A-And I WON'T let you take it from me!")
 ROYOUTERMSG10		_("Do you h-hear me?")
 ROYOUTERMSG11		_("T-THIS ISN'T OVER.")

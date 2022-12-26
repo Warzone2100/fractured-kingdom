@@ -606,8 +606,8 @@
         "text": [
             "Computer Technology Breakthrough",
             "Improved Command and Control systems allow for more efficient communication between HQ and units on the field",
-            "Increases the maximum amount of total active units by 10.",
-            "Increases the maximum amount of active trucks by 2."
+            "Increases the maximum amount of total active units by 10 (to 110).",
+            "Increases the maximum amount of active trucks by 2 (to 17)."
         ]
     },
     "RES_CCUP2": {
@@ -616,9 +616,9 @@
         "sequenceName": "res_com.ogg",
         "text": [
             "Computer Technology Breakthrough",
-            "Improved Command and Control systems further increases the effectiveness of coordination between HQ and deployed units",
-            "Increases the maximum amount of total active units by 10.",
-            "Increases the maximum amount of active trucks by 2."
+            "Improved Command and Control systems further increases the efficiency of coordination between HQ and deployed units",
+            "Increases the maximum amount of total active units by 10 (to 120).",
+            "Increases the maximum amount of active trucks by 2 (to 19)."
         ]
     },
     "RES_CCUP3": {
@@ -628,8 +628,8 @@
         "text": [
             "Computer Technology Breakthrough",
             "Improved Command and Control systems further increases capabilities of HQ to communicate with units on the field",
-            "Increases the maximum amount of total active units by 10.",
-            "Increases the maximum amount of active trucks by 2."
+            "Increases the maximum amount of total active units by 10 (to 130).",
+            "Increases the maximum amount of active trucks by 2 (to 21)."
         ]
     },
     "RES_CCUP4": {
@@ -638,9 +638,9 @@
         "sequenceName": "res_com.ogg",
         "text": [
             "Computer Technology Breakthrough",
-            "Advanced Command and Control systems maximise the efficiency in which units are organized and coordinated",
-            "Increases the maximum amount of total active units by 20.",
-            "Increases the maximum amount of active trucks by 4."
+            "Advanced Command and Control systems maximises the efficiency in which units are organized and coordinated",
+            "Increases the maximum amount of total active units by 20 (to 150).",
+            "Increases the maximum amount of active trucks by 4 (to 25)."
         ]
     },
     "RES_W_RK_BALAT": {

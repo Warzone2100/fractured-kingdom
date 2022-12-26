@@ -47,16 +47,50 @@ function camManageTrucks(player, blabel, structset, template, respawnDelay, truc
 }
 
 // Stop managing a given truck.
-function camDisableTruck(index)
+function camDisableTruck(what)
 {
-	__camTruckInfo[index].enabled = false;
+	if (camIsString(what))
+	{
+		what = camGetTrucksFromBase(what);
+	}
+	else if (isInteger(what))
+	{
+		what = [what];
+	}
+	else if (!(what instanceof Array))
+	{
+		camDebug("Invalid input; must be truck index or base label.");
+		return;
+	}
+
+	for (var index in what)
+	{
+		__camTruckInfo[index].enabled = false;
+	}
 }
 
 // Resume managing a given truck.
-function camEnableTruck(index)
+function camEnableTruck(what)
 {
-	__camTruckInfo[index].enabled = true;
-	camRebuildTruck(index, false);
+	if (camIsString(what))
+	{
+		what = camGetTrucksFromBase(what);
+	}
+	else if (isInteger(what))
+	{
+		what = [what];
+	}
+	else if (!(what instanceof Array))
+	{
+		camDebug("Invalid input; must be truck index or base label.");
+		return;
+	}
+	
+	for (var index in what)
+	{
+		__camTruckInfo[index].enabled = true;
+		camRebuildTruck(index, false);
+	}
 }
 
 //;; ## camTruckObsoleteStructure(player, obsoleteStruct, newStruct[, noObsolete])

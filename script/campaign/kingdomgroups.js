@@ -188,7 +188,7 @@ function assignDroidCoalition(droid)
 	}
 
 	// Special check to make sure units don't go unmanaged if the Coalition is focused on the Royalists and isn't allied with the player
-	if (gameState.coalition.offensive && gameTime.coalition.allianceState !== "HOSTILE")
+	if (gameState.coalition.offensive && gameState.coalition.allianceState !== "HOSTILE")
 	{
 		// Force add it to the "support" group
 		groupAdd(gameState.coalition.groups.playerSupportGroup.id, droid);
@@ -1665,7 +1665,7 @@ function setupRoyalistAssaults()
 		{
 			comTemplate = cTempl.romcommh; // Command Turret Retribution Hover
 		}
-		camQueueDroidProduction(ROYALISTS, comTemplate, camMakePos("royMainAssembly"));
+		camQueueDroidProduction(ROYALISTS, comTemplate, camMakePos("innerPos1"));
 	}
 }
 
@@ -1850,7 +1850,7 @@ function checkAssaultStatus()
 	if (camDef(commander) && commander !== null && difficulty >= HARD)
 	{
 		camManageGroup(commander.group, CAM_ORDER_DEFEND, {
-			pos: camMakePos("royMainAssembly"),
+			pos: camMakePos("innerPos1"),
 			repair: 95 // Get healed up too
 		});
 	}

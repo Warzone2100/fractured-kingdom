@@ -243,7 +243,7 @@ function eventDroidBuilt(droid, structure)
 				camManageGroup(commandGroup.id, commandGroup.order, commandGroup.data);
 
 				camManageGroup(camMakeGroup("royAssaultCommander"), CAM_ORDER_DEFEND, {
-					pos: basePos,
+					pos: camMakePos("innerPos1"),
 					repair: 40
 				});
 				break; // Commander assigned, all done.
@@ -400,7 +400,8 @@ function eventDestroyed(obj)
 			// Note, this achievement is granted even if an ally gets the kill
 			achievementMessage("No-Fly Zone", "Shoot down an enemy transport while it's in the air");
 		}
-		else if (obj.type === DROID && attacker.player === CAM_HUMAN_PLAYER && allianceExistsBetween(CAM_HUMAN_PLAYER, player))
+		else if (obj.type === DROID && attacker.player === CAM_HUMAN_PLAYER 
+			&& allianceExistsBetween(CAM_HUMAN_PLAYER, player) && player !== CAM_HUMAN_PLAYER)
 		{
 			gameState.oopsieDaisies++;
 			if (gameState.oopsieDaisies >= 20)
@@ -920,7 +921,8 @@ function eventAttacked(victim, attacker)
 	// Check if the player has met the Resistance (after eradicating them)
 	if (((vPlayer === CAM_HUMAN_PLAYER && aPlayer === THE_RESISTANCE) 
 		|| (vPlayer === THE_RESISTANCE && aPlayer === CAM_HUMAN_PLAYER))
-		&& gameState.resistance.allianceState === "ERADICATED" && gameState.coalition.allianceState === "HOSTILE")
+		&& gameState.resistance.allianceState === "ERADICATED" 
+		&& (gameState.coalition.proxyHostile || gameState.coalition.allianceState === "HOSTILE"))
 	{
 		gameState.resistance.allianceState = "HOSTILE";
 	}
@@ -1972,6 +1974,11 @@ function eventStartLevel()
 	camUpgradeOnMapStructures("A0HardcreteMk1Wall", "CollectiveWall", ROYALISTS);
 	camUpgradeOnMapStructures("Emplacement-RotMor", "CO-Emp-RotMor", ROYALISTS);
 	// camUpgradeOnMapStructures("Emplacement-HvyATrocket", "Emplacement-Ballista", ROYALISTS);
+	if (difficulty === INSANE)
+	{
+		camUpgradeOnMapStructures("GuardTower2", "GuardTower1", HELLRAISERS);
+		camUpgradeOnMapStructures("PillBox2", "PillBox1", HELLRAISERS);
+	}
 
 	initializeGameInfo();
 
