@@ -851,7 +851,12 @@ function transportTick()
 			// Find which LZ the transport is at
 			for (var lzName in gameState.coalition.lzRequests)
 			{
-				if (camWithinArea(transport, lzName))
+				// Get Coalition-friendly structures at the LZ
+				var lzStructs = enumArea(lzName, ALL_PLAYERS, false).filter(function(obj) {
+					return (obj.type === STRUCTURE && obj.stattype === DEFENSE 
+						&& allianceExistsBetween(THE_COALITION, obj.player))
+				});
+				if (camWithinArea(transport, lzName) && lzStructs.length > 0)
 				{
 					spawnTransportDroids(THE_COALITION, camMakePos(lzName));
 					gameState.coalition.lzRequests[lzName] = false; // Reinforcements have arrived
@@ -885,7 +890,11 @@ function transportTick()
 			// Find which LZ the transport is at
 			for (var lzName in gameState.royalists.lzRequests)
 			{
-				if (camWithinArea(transport, lzName))
+				// Get Royalist structures at the LZ
+				var lzStructs = enumArea(lzName, ROYALISTS, false).filter(function(obj) {
+					return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+				});
+				if (camWithinArea(transport, lzName) && lzStructs.length > 0)
 				{
 					spawnTransportDroids(ROYALISTS, camMakePos(lzName));
 					gameState.royalists.lzRequests[lzName] = false; // Reinforcements have arrived

@@ -2297,6 +2297,7 @@ function setPhaseThree()
 	var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romhvcant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 	// if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohbalt);
 	var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romacanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+	if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 	var mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 	if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
 	if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
