@@ -2013,8 +2013,8 @@ function allyCoalition()
 	checkCoalitionGroups();
 
 	// Start checking if we can send transports to attack the Royalist base
-	setTimer("westGateLZTransRequest", camChangeOnDiff(camMinutesToMilliseconds(5.5), true));
-	setTimer("southGateLZTransRequest", camChangeOnDiff(camMinutesToMilliseconds(5), true));
+	setTimer("westGateLZTransRequest", camChangeOnDiff(camMinutesToMilliseconds(6.5), true));
+	setTimer("southGateLZTransRequest", camChangeOnDiff(camMinutesToMilliseconds(7), true));
 
 	// Get Coalition patrol groups back to whatever they were doing
 	var groupInfo = gameState.coalition.groups.eastPatrolGroup;
