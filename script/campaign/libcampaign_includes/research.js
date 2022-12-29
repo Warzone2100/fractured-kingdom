@@ -76,7 +76,7 @@ function camIsResearched(resName)
 	return false; // Didn't find it.
 }
 
-function getResearchLog()
+function camGetResearchLog()
 {
 	return __camResearchLog;
 }

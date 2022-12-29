@@ -305,7 +305,7 @@ function removeEncounterGroups()
 // Tell the resistance truck to run away if damaged
 function manageEncounterTruck()
 {
-	var truck = getObject("resEncounterTruck")
+	var truck = getObject("resEncounterTruck");
 
 	if (!camDef(truck) || truck === null)
 	{
@@ -366,7 +366,7 @@ camAreaEvent("resOliveZone", function(droid)
 		var droids = enumArea("resOliveZone", CAM_HUMAN_PLAYER, false);
 		var resAtTable = (enumArea("resOliveZone", THE_RESISTANCE, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Resistance has arrived in the zone
-		if (onlyTrucks(droids) & resAtTable)
+		if (onlyTrucks(droids) && resAtTable)
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -427,7 +427,7 @@ function allyResistance()
 	if (difficulty === INSANE) camSetDroidRank(getObject("resCommander"), "Green");
 
 	// Donate some power to the player
-	setPower(playerPower(CAM_HUMAN_PLAYER) + camChangeOnDiff(2000), CAM_HUMAN_PLAYER)
+	setPower(playerPower(CAM_HUMAN_PLAYER) + camChangeOnDiff(2000), CAM_HUMAN_PLAYER);
 
 	// Donate the two outer oil derricks to the player (if the player hasn't already taken them)
 	var giftStructs = enumArea("resGiftZone", THE_RESISTANCE, false);
@@ -468,7 +468,7 @@ function allyResistance()
 	camRemoveArtifact("resSarissa");
 
 	// Share research with Resistance
-	camCompleteRes(getResearchLog(), THE_RESISTANCE);
+	camCompleteRes(camGetResearchLog(), THE_RESISTANCE);
 
 	// Quietly remove python tank
 	camSafeRemoveObject(getObject("resPython"));
@@ -681,14 +681,14 @@ function expandMap()
 		}
 
 		// Swap the artifact in the Royalist Cyborg Factory 
-		camAddArtifact({"royalistSouthCyborgFac": { tech: "R-Cyborg-Metals03", req: "R-Cyborg-Metals02" }}) // Cyborg Composite Alloys Mk3 (requires Mk2)
+		camAddArtifact({"royalistSouthCyborgFac": { tech: "R-Cyborg-Metals03", req: "R-Cyborg-Metals02" }}); // Cyborg Composite Alloys Mk3 (requires Mk2)
 		camRemoveArtifact("helResearch1"); // Remove the artifact in the Hellraiser base
 		camRemoveArtifact("royCompositeTank"); // Remove the artifact in the Royalist tank north of the river
 	}
 
 	// Ready the Royalist's Heavy commander
 	var group = gameState.royalists.groundGroups.heavyCommanderGroup;
-	droids = enumArea("royHeavyCommGroup", ROYALISTS, false);
+	var droids = enumArea("royHeavyCommGroup", ROYALISTS, false);
 	for (var i = 0; i < droids.length; i++)
 	{
 		groupAdd(group.id, droids[i]);
@@ -943,7 +943,7 @@ camAreaEvent("ampOliveZone", function(droid)
 		var droids = enumArea("ampOliveZone", CAM_HUMAN_PLAYER, false);
 		var ampAtTable = (enumArea("ampOliveZone", AMPHOS, false).length >= 1);
 		// Make sure trucks are the only things inside, and AMPHOS has arrived in the zone
-		if (onlyTrucks(droids) & ampAtTable) 
+		if (onlyTrucks(droids) && ampAtTable) 
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -1078,7 +1078,7 @@ function allyAmphos()
 	camRemoveArtifact("ampHQ");
 
 	// Share research with AMPHOS
-	camCompleteRes(getResearchLog(), AMPHOS);
+	camCompleteRes(camGetResearchLog(), AMPHOS);
 
 	// Get all AMPHOS groups up to snuff
 	updateAllyTemplates();
@@ -1355,7 +1355,7 @@ camAreaEvent("helOliveZone", function(droid)
 		var droids = enumArea("helOliveZone", CAM_HUMAN_PLAYER, false);
 		var helAtTable = (enumArea("helOliveZone", HELLRAISERS, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Hellraisers have arrived in the zone
-		if (onlyTrucks(droids) & helAtTable) 
+		if (onlyTrucks(droids) && helAtTable) 
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -1470,7 +1470,7 @@ function allyHellraisers()
 	// Remove oil drums from the Hellraiser base
 	var drums = enumArea("hellraiserBase", ALL_PLAYERS, false).filter(function(obj)
 	{
-		return (obj.type === FEATURE && obj.stattype === OIL_DRUM)
+		return (obj.type === FEATURE && obj.stattype === OIL_DRUM);
 	});
 	for (var i = drums.length - 1; i >= 0; i--)
 	{
@@ -1478,7 +1478,7 @@ function allyHellraisers()
 	}
 
 	// Share research with the Hellraisers
-	camCompleteRes(getResearchLog(), HELLRAISERS);
+	camCompleteRes(camGetResearchLog(), HELLRAISERS);
 
 	// Get all Hellraiser groups up to snuff
 	updateAllyTemplates();
@@ -1920,7 +1920,7 @@ camAreaEvent("coaOliveZone", function(droid)
 		var droids = enumArea("coaOliveZone", CAM_HUMAN_PLAYER, false);
 		var coaAtTable = (enumArea("coaOliveZone", THE_COALITION, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Coalition has arrived in the zone
-		if (onlyTrucks(droids) & coaAtTable) 
+		if (onlyTrucks(droids) && coaAtTable) 
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -2006,7 +2006,7 @@ function allyCoalition()
 	camRemoveArtifact("coaResearch3");
 
 	// Share research with the Coalition
-	camCompleteRes(getResearchLog(), THE_COALITION);
+	camCompleteRes(camGetResearchLog(), THE_COALITION);
 
 	// Get all Coalition groups up to snuff
 	updateAllyTemplates();
@@ -2338,7 +2338,7 @@ function compenArtifactIncenMortar()
 	var researchFacility = getObject(9, 144, ROYALISTS);
 	if (researchFacility !== null)
 	{
-		addLabel(researchFacility, "royalistHelRepResearchFacility")
+		addLabel(researchFacility, "royalistHelRepResearchFacility");
 		camAddArtifact({"royalistHelRepResearchFacility": { tech: "R-Wpn-Mortar-Incendiary" }});
 	}
 }
@@ -2349,7 +2349,7 @@ function compenArtifactHowitzer()
 	var researchFacility = getObject(9, 60, ROYALISTS);
 	if (researchFacility !== null)
 	{
-		addLabel(researchFacility, "royalistCoaRepResearchFacility")
+		addLabel(researchFacility, "royalistCoaRepResearchFacility");
 		camAddArtifact({"royalistCoaRepResearchFacility": { tech: "R-Wpn-HowitzerMk1" }});
 	}
 }
@@ -2360,7 +2360,7 @@ function compenArtifactRippleRockets()
 	var factory = getObject(245, 141, ROYALISTS);
 	if (factory !== null)
 	{
-		addLabel(factory, "royalistHelRepResearchFacility")
+		addLabel(factory, "royalistHelRepResearchFacility");
 		camAddArtifact({"royalistHelRepResearchFacility": { tech: "R-Wpn-Rocket06-IDF", req: "R-Wpn-Rocket02-MRL" }});
 	}
 }
@@ -2507,7 +2507,7 @@ camAreaEvent("royOliveZone", function(droid)
 		var droids = enumArea("royOliveZone", CAM_HUMAN_PLAYER, false);
 		var royAtTable = (enumArea("royOliveZone", ROYALISTS, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Coalition has arrived in the zone
-		if (onlyTrucks(droids) & royAtTable) 
+		if (onlyTrucks(droids) && royAtTable) 
 		{
 			console("Negotiations beginning...");
 			queue("endRoyalistNegotiations", camSecondsToMilliseconds(6));
@@ -2922,7 +2922,7 @@ function endCountdown()
 		}
 		if (gameTime <= camMinutesToMilliseconds(280))
 		{
-			achievementMessage("Fortnight Of Fun", "Defeat the Royalists in under two in-game weeks (4 hours & 40 minutes)");
+			achievementMessage("Fortnight Of Fun", "Defeat the Royalists in under two in-game weeks (4 hours && 40 minutes)");
 		}
 
 		// List out the names of all earned achievements
@@ -3223,7 +3223,7 @@ function updateAlliedStructs(resName)
 	if (!camDef(resName))
 	{
 		// Cycle through everything the player has researched
-		var researchList = getResearchLog();
+		var researchList = camGetResearchLog();
 		for (var i = 0; i < researchList.length; i++)
 		{
 			updateAlliedStructs(researchList[i]);

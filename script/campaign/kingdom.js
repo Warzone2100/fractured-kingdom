@@ -159,7 +159,7 @@ function eventDroidBuilt(droid, structure)
 					var groupID = camMakeGroup(droid);
 					groupList[vtolTower.id] = groupID;
 					var towerLabel = "vtolTower_" + vtolTower.id;
-					addLabel(getObject(STRUCTURE, vtolPlayer, vtolTower.id), towerLabel)
+					addLabel(getObject(STRUCTURE, vtolPlayer, vtolTower.id), towerLabel);
 
 					camManageGroup(groupID, CAM_ORDER_FOLLOW, {
 						leader: towerLabel,
@@ -451,7 +451,7 @@ function eventDestroyed(obj)
 			}
 		}
 		// Ground unit handling
-		else (obj.droidType !== DROID_CONSTRUCT)
+		else if (obj.droidType !== DROID_CONSTRUCT)
 		{
 			// Check faction group sizes and see if we need to resume production
 			switch (player)
@@ -551,7 +551,7 @@ function eventDestroyed(obj)
 		if (player === HELLRAISERS && gameState.hellraisers.lzDiscovered)
 		{
 			var lzExists = enumArea("hellraiserLZ", HELLRAISERS, false).filter(function(obj) {
-				return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+				return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 			}).length > 0;
 			if (!lzExists)
 			{
@@ -562,7 +562,7 @@ function eventDestroyed(obj)
 
 				// Cleanup any remaining walls/gates
 				var leftovers = enumArea("hellraiserLZ", HELLRAISERS, false).filter(function(obj) {
-					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE))
+					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE));
 				});
 				for (var i = leftovers.length - 1; i >= 0; i--)
 				{
@@ -573,7 +573,7 @@ function eventDestroyed(obj)
 		if (player === ROYALISTS && gameState.royalists.coastLzDiscovered)
 		{
 			var lzExists = enumArea("coastLZ", ROYALISTS, false).filter(function(obj) {
-				return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+				return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 			}).length > 0;
 			if (!lzExists)
 			{
@@ -584,7 +584,7 @@ function eventDestroyed(obj)
 
 				// Cleanup any remaining walls/gates
 				var leftovers = enumArea("coastLZ", ROYALISTS, false).filter(function(obj) {
-					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE))
+					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE));
 				});
 				for (var i = leftovers.length - 1; i >= 0; i--)
 				{
@@ -595,7 +595,7 @@ function eventDestroyed(obj)
 		if (player === ROYALISTS && gameState.royalists.howitzerLzDiscovered)
 		{
 			var lzExists = enumArea("howitzerLZ", ROYALISTS, false).filter(function(obj) {
-				return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+				return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 			}).length > 0;
 			if (!lzExists)
 			{
@@ -606,7 +606,7 @@ function eventDestroyed(obj)
 
 				// Cleanup any remaining walls/gates
 				var leftovers = enumArea("howitzerLZ", ROYALISTS, false).filter(function(obj) {
-					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE))
+					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE));
 				});
 				for (var i = leftovers.length - 1; i >= 0; i--)
 				{
@@ -1072,7 +1072,7 @@ function eventAttacked(victim, attacker)
 		if ((vPlayer === ROYALISTS || aPlayer === ROYALISTS) && !gameState.royalists.fakeout)
 		{
 			// Get the Royalist VTOLs to target the area that the player is fighting in
-			groupInfo = gameState.royalists.mainVTOLGroup;
+			var groupInfo = gameState.royalists.mainVTOLGroup;
 			groupInfo.data = { targetPlayer: CAM_HUMAN_PLAYER, pos: pos };
 			groupInfo.order = CAM_ORDER_ATTACK;
 			manageGroupBySize(groupInfo, false);
@@ -1094,19 +1094,19 @@ function eventResearched(research, structure, player)
 		// Share what the player has researched with their allies
 		if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
 		{
-			camCompleteRes(resName, THE_RESISTANCE)
+			camCompleteRes(resName, THE_RESISTANCE);
 		}
 		if (allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS))
 		{
-			camCompleteRes(resName, AMPHOS)
+			camCompleteRes(resName, AMPHOS);
 		}
 		if (allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS))
 		{
-			camCompleteRes(resName, HELLRAISERS)
+			camCompleteRes(resName, HELLRAISERS);
 		}
 		if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION))
 		{
-			camCompleteRes(resName, THE_COALITION)
+			camCompleteRes(resName, THE_COALITION);
 		}
 
 		// Upgrade allied unit templates when the player researches a new component
@@ -1452,15 +1452,15 @@ function eventGroupSeen(viewer, group)
 		{
 			if (difficulty <= MEDIUM)
 			{
-				missionMessage("COACOMMANDERELITEMSG", "INTEL")
+				missionMessage("COACOMMANDERELITEMSG", "INTEL");
 			}
 			else if (difficulty === HARD)
 			{
-				missionMessage("COACOMMANDERSPECIALMSG", "INTEL")
+				missionMessage("COACOMMANDERSPECIALMSG", "INTEL");
 			}
 			else
 			{
-				missionMessage("COACOMMANDERHEROMSG", "INTEL")
+				missionMessage("COACOMMANDERHEROMSG", "INTEL");
 			}
 		}
 	}
@@ -1660,7 +1660,7 @@ function funnyEffects()
 		var rCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "CyborgRepair" };
 		var bTank = { body: "Body2SUP", prop: "tracked03", weap: "Rocket-BB" };
 		var rTank = { body: "Body6SUPP", prop: "tracked03", weap: "HeavyRepair" };
-		var cTank = { body: "Body11ABT", prop: "tracked03", weap: "Cannon375mmMk1" }
+		var cTank = { body: "Body11ABT", prop: "tracked03", weap: "Cannon375mmMk1" };
 		var aTank = { body: "Body10MBT", prop: "tracked03", weap: "QuadRotAAGun" };
 		var funnyTank = { body: "Body14SUP", prop: "tracked03", weap1: "Missile-HvySAM", weap2: "Cannon6TwinAslt" };
 		var pos = camMakePos("startPosition");
@@ -1769,7 +1769,7 @@ function missionMessage(message, introSound)
 		var voiceAlert = "pcv455.ogg"; // "Incoming Transmission"
 		if (introSound === "INTEL")
 		{
-			voiceAlert = "pcv456.ogg" // "Incoming Intelligence Report"
+			voiceAlert = "pcv456.ogg"; // "Incoming Intelligence Report"
 		}
 
 		camPlayVideos([voiceAlert, {video: message, type: MISS_MSG}]);
@@ -1892,7 +1892,7 @@ function displayFactionInfo()
 		}
 		console(_("Destroy the Royalist central factory base (") + status + _(")"));
 
-		console(_("No Coalition bases may be attacked"))
+		console(_("No Coalition bases may be attacked"));
 	}
 	else if (gameState.coalition.allianceState === "OFFER")
 	{

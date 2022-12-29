@@ -27,6 +27,10 @@ function camToggleDayCycle()
 	{
 		console(_("Day/Night cycle disabled."));
 
+		var r;
+		var g;
+		var b;
+
 		if (tilesetType === "ARIZONA")
 		{
 			r = CAM_ARIZONA_FOG_RGB.r;

@@ -1,0 +1,7 @@
+v1.0.2
+- Fixed errors involving undefined droid id's and propulsions due to structures being added to unit groups stemming from camUpgradeOnMapStructures()
+- Various script tidying and cleanups (missing semicolons, etc.)
+
+v1.0.1
+- Widened the tighter areas of the canyon in the central mountain areas.
+- Also added a new route connecting the trench with the east coast area.

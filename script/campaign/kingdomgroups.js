@@ -260,7 +260,7 @@ function assignGroundDroidRoyalists(droid)
 		var commander = getObject("royAssaultCommander");
 		if (commander !== null && groupSize < camGetCommanderMaxGroupSize(commander))
 		{
-			groupAdd(groupInfo.id, droid);
+			groupAdd(gameState.royalists.assaultCommandGroup.id, droid);
 		}
 		return;
 	}
@@ -854,7 +854,7 @@ function transportTick()
 				// Get Coalition-friendly structures at the LZ
 				var lzStructs = enumArea(lzName, ALL_PLAYERS, false).filter(function(obj) {
 					return (obj.type === STRUCTURE && obj.stattype === DEFENSE 
-						&& allianceExistsBetween(THE_COALITION, obj.player))
+						&& allianceExistsBetween(THE_COALITION, obj.player));
 				});
 				if (camWithinArea(transport, lzName) && lzStructs.length > 0)
 				{
@@ -892,7 +892,7 @@ function transportTick()
 			{
 				// Get Royalist structures at the LZ
 				var lzStructs = enumArea(lzName, ROYALISTS, false).filter(function(obj) {
-					return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+					return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 				});
 				if (camWithinArea(transport, lzName) && lzStructs.length > 0)
 				{
@@ -1118,7 +1118,7 @@ function hellraiserLZTransRequest()
 {
 	var transport = getObject("coaTransport");
 	var lzExists = enumArea("hellraiserLZ", HELLRAISERS, false).filter(function(obj) {
-		return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+		return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 	}).length > 0;
 	if (!lzExists || transport === null)
 	{
@@ -1195,7 +1195,7 @@ function coastLZTransRequest()
 {
 	var transport = getObject("royTransport");
 	var lzExists = enumArea("coastLZ", ROYALISTS, false).filter(function(obj) {
-		return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+		return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 	}).length > 0;
 	if (!lzExists || transport === null)
 	{
@@ -1218,7 +1218,7 @@ function howitzerLZTransRequest()
 {
 	var transport = getObject("royTransport");
 	var lzExists = enumArea("howitzerLZ", ROYALISTS, false).filter(function(obj) {
-		return (obj.type === STRUCTURE && obj.stattype === DEFENSE)
+		return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 	}).length > 0;
 	if (!lzExists || transport === null)
 	{
@@ -1549,7 +1549,7 @@ function setupRoyalistAssaults()
 	var cybTemplates = [];
 	var mainThrottle;
 	var cybThrottle;
-	var allowTA = gameState.royalists.allowTwinAssault
+	var allowTA = gameState.royalists.allowTwinAssault;
 
 	if (roy.assaultMethod === "GROUND")
 	{
@@ -1918,7 +1918,7 @@ function recallSupportGroups()
 			pos: camMakePos("resHeavyFacAssembly"),
 			radius: 20,
 			repair: 65
-		}
+		};
 		camManageGroup(groupInfo.id, groupInfo.order, groupInfo.data);
 	}
 
@@ -1948,7 +1948,7 @@ function recallSupportGroups()
 			pos: camMakePos("eastPos2"),
 			radius: 30,
 			repair: 75
-		}
+		};
 		camManageGroup(groupInfo.id, groupInfo.order, groupInfo.data);
 	}
 
@@ -1962,7 +1962,7 @@ function recallSupportGroups()
 			pos: camMakePos("helFactoryAssembly"),
 			radius: 22,
 			repair: 30
-		}
+		};
 
 		camManageGroup(groupInfo.id, groupInfo.order, groupInfo.data);
 	}

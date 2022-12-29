@@ -351,7 +351,7 @@ function camUpgradeOnMapStructures(struct1, struct2, player, excluded)
 		{
 			addLabel(newStruct, label);
 		}
-		if (camDef(group))
+		if (group !== null)
 		{
 			groupAdd(group, newStruct);
 		}

@@ -342,13 +342,13 @@ function __camTruckTick()
 						{
 							case FACTORY:
 							case VTOL_FACTORY:
-								moduleType = "A0FacMod1"
+								moduleType = "A0FacMod1";
 								break;
 							case POWER_GEN:
-								moduleType = "A0PowMod1"
+								moduleType = "A0PowMod1";
 								break;
 							case RESEARCH_LAB:
-								moduleType = "A0ResearchModule1"
+								moduleType = "A0ResearchModule1";
 								break;
 						}
 
@@ -450,7 +450,7 @@ function __camTruckTick()
 			{
 				// We didn't find any obsolete structures
 				// so there's no point in looking again.
-				checkForObsolete = false;
+				ti.checkForObsolete = false;
 			}
 		}
 
