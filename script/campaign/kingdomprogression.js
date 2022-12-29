@@ -2922,7 +2922,7 @@ function endCountdown()
 		}
 		if (gameTime <= camMinutesToMilliseconds(280))
 		{
-			achievementMessage("Fortnight Of Fun", "Defeat the Royalists in under two in-game weeks (4 hours && 40 minutes)");
+			achievementMessage("Fortnight Of Fun", "Defeat the Royalists in under two in-game weeks (4 hours & 40 minutes)");
 		}
 
 		// List out the names of all earned achievements
