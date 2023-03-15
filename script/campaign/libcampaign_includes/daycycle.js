@@ -194,15 +194,15 @@ function __camSetSun()
 		x: (__camDayTime < (CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? lightPos : -0.6 * lightPos, // Move less at night
 		y: -0.5,
 		z: (__camDayTime < (CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? 0.3 : -0.2, // Put the "moon" in a slightly different position
-		ar: 0.3 + (0.2 * intensityMultiplier),
-		ag: 0.3 + (0.2 * intensityMultiplier),
-		ab: 0.3 + (0.2 * intensityMultiplier),
-		dr: 0.4 + (0.6 * intensityMultiplier),
-		dg: 0.4 + (0.6 * intensityMultiplier),
-		db: 0.4 + (0.6 * intensityMultiplier),
-		sr: 0.4 + (0.6 * intensityMultiplier),
-		sg: 0.4 + (0.6 * intensityMultiplier),
-		sb: 0.4 + (0.6 * intensityMultiplier)
+		ar: 0.4 + (0.1 * intensityMultiplier),
+		ag: 0.4 + (0.1 * intensityMultiplier),
+		ab: 0.4 + (0.1 * intensityMultiplier),
+		dr: 0.5 + (0.5 * intensityMultiplier),
+		dg: 0.5 + (0.5 * intensityMultiplier),
+		db: 0.5 + (0.5 * intensityMultiplier),
+		sr: 0.5 + (0.5 * intensityMultiplier),
+		sg: 0.5 + (0.5 * intensityMultiplier),
+		sb: 0.5 + (0.5 * intensityMultiplier)
 	}
 
 	setSunPosition(sun.x, sun.y, sun.z);

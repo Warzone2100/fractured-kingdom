@@ -1456,6 +1456,7 @@ function allyHellraisers()
 	enableResearch("R-Wpn-MG3Mk1", CAM_HUMAN_PLAYER); // Heavy Machinegun
 	camRemoveArtifact("ampMGTow");
 	enableResearch("R-Vehicle-Metals03", CAM_HUMAN_PLAYER); // Composite Alloys Mk 3
+	camRemoveArtifact("royCompositeTank"); // Remove the artifact in the Royalist tank north of the river
 	enableResearch("R-Wpn-Flamer-Damage03", CAM_HUMAN_PLAYER); // High Temperature Flamer Gel Mk 3
 	
 	playSound("pcv485.ogg"); // "Technology transferred"

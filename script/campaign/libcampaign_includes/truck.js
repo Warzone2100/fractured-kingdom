@@ -53,7 +53,7 @@ function camDisableTruck(what)
 	{
 		what = camGetTrucksFromBase(what);
 	}
-	else if (isInteger(what))
+	else if (Number.isInteger(what))
 	{
 		what = [what];
 	}
@@ -63,7 +63,7 @@ function camDisableTruck(what)
 		return;
 	}
 
-	for (var index in what)
+	for (var index of what)
 	{
 		__camTruckInfo[index].enabled = false;
 	}
@@ -76,7 +76,7 @@ function camEnableTruck(what)
 	{
 		what = camGetTrucksFromBase(what);
 	}
-	else if (isInteger(what))
+	else if (Number.isInteger(what))
 	{
 		what = [what];
 	}
@@ -86,7 +86,7 @@ function camEnableTruck(what)
 		return;
 	}
 	
-	for (var index in what)
+	for (var index of what)
 	{
 		__camTruckInfo[index].enabled = true;
 		camRebuildTruck(index, false);
