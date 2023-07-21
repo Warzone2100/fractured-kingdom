@@ -1,3 +1,9 @@
+v1.0.4
+- Fixed some Royalist VTOL CB towers being incorrectly rebuilt as VTOL Strike towers when destroyed.
+- Fixed transports flying back and forth forever when an LZ is destroyed while a transport is en route.
+- Coalition transport reinforcements stop after the Royalists' outer base is destroyed, to reduce traffic in the final area.
+- Coalition transport reinforcements no longer bring mobile repair units when allied.
+
 v1.0.3
 - Fixed errors in camDisableTruck() and camEnableTruck().
 - Properly remove a duplicate artifact for Composite Alloys Mk3 if the Hellraisers are allied.

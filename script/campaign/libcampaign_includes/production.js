@@ -289,7 +289,7 @@ function camUpgradeOnMapTemplates(t1, t2, player, excluded)
 	}
 }
 
-//;; ## camUpgradeOnMapStructures(struct1Name, struct2, player, [excluded object IDs])
+//;; ## camUpgradeOnMapStructures(struct1, struct2, player, [excluded object IDs])
 //;;
 //;; Search for struct1, save its coordinates, remove it, and then replace with it
 //;; with struct2. A fourth parameter can be specified to ignore specific object
@@ -337,7 +337,7 @@ function camUpgradeOnMapStructures(struct1, struct2, player, excluded)
 			}
 		}
 
-		//Cehck if this object has a label and/or group assigned to it
+		//Check if this object has a label and/or group assigned to it
 		// FIXME: O(n) lookup here
 		let label = (getLabel(structure));
 		let group = (structure.group);

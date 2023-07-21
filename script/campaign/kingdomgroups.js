@@ -856,10 +856,13 @@ function transportTick()
 					return (obj.type === STRUCTURE && obj.stattype === DEFENSE 
 						&& allianceExistsBetween(THE_COALITION, obj.player));
 				});
-				if (camWithinArea(transport, lzName) && lzStructs.length > 0)
+				if (camWithinArea(transport, lzName))
 				{
-					spawnTransportDroids(THE_COALITION, camMakePos(lzName));
-					gameState.coalition.lzRequests[lzName] = false; // Reinforcements have arrived
+					if (lzStructs.length > 0)
+					{
+						spawnTransportDroids(THE_COALITION, camMakePos(lzName));
+					}
+					gameState.coalition.lzRequests[lzName] = false; // Transport has arrived
 				}
 			}
 		}
@@ -894,10 +897,13 @@ function transportTick()
 				var lzStructs = enumArea(lzName, ROYALISTS, false).filter(function(obj) {
 					return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 				});
-				if (camWithinArea(transport, lzName) && lzStructs.length > 0)
+				if (camWithinArea(transport, lzName))
 				{
-					spawnTransportDroids(ROYALISTS, camMakePos(lzName));
-					gameState.royalists.lzRequests[lzName] = false; // Reinforcements have arrived
+					if (lzStructs.length > 0)
+					{
+						spawnTransportDroids(ROYALISTS, camMakePos(lzName));
+					}
+					gameState.royalists.lzRequests[lzName] = false; // Transport has arrived
 				}
 			}
 		}
@@ -942,8 +948,8 @@ function spawnTransportDroids(player, pos)
 		}
 		else
 		{
-			droidPool = [cTempl.cohhcan, cTempl.comhmort, cTempl.comsenst, cTempl.comhrepht]; // Tanks
-			droidPool = droidPool.concat([cTempl.cybrp, cTempl.cybgr]); // Cyborgs
+			droidPool = [cTempl.cohhcan, cTempl.comhmort, cTempl.comsenst]; // Tanks
+			droidPool = droidPool.concat([cTempl.cybgr]); // Cyborgs
 			if (camIsResearched("R-Wpn-MG4"))
 			{
 				droidPool.push(cTempl.cybag); // Add Assault Gunner
@@ -1135,18 +1141,18 @@ function hellraiserLZTransRequest()
 
 function westGateLZTransRequest()
 {
-	if (camBaseIsEliminated("coaWestGateLZ"))
+	if (camBaseIsEliminated("coaWestGateLZ") || camBaseIsEliminated("royalistOuterGate"))
 	{
-		return; // LZ is gone (for now)
+		return; // LZ is gone (for now), or the Royalist outer base is destroyed.
 	}
 	gameState.coalition.lzRequests.westGateLZ = true;
 }
 
 function southGateLZTransRequest()
 {
-	if (camBaseIsEliminated("ampSouthGateLZ"))
+	if (camBaseIsEliminated("ampSouthGateLZ") || camBaseIsEliminated("royalistOuterGate"))
 	{
-		return; // LZ is gone (for now)
+		return; // LZ is gone (for now), or the Royalist outer base is destroyed.
 	}
 	gameState.coalition.lzRequests.coastLZ = true;
 }
