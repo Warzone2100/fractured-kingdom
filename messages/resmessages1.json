@@ -234,6 +234,17 @@
             "Defensive Strength: Bunker"
         ]
     },
+    "RES_PB_ATR2": {
+        "id": "RES_PB_ATR2",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Armored bunker with Lancer AT rocket",
+            "Automatically targets enemies within sensor range",
+            "Defensive Strength: Bunker"
+        ]
+    },
     "RES_PB_FL": {
         "id": "RES_PB_FL",
         "imdName": "MICAPSUL.pie",

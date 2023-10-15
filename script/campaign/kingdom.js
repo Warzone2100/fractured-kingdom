@@ -1577,6 +1577,38 @@ function adaptFactionColours()
 	}
 }
 
+// Grant the player momentary vision of all allied objects
+function viewAlliedObjects()
+{
+	let objList = [];
+
+	if (gameState.resistance.allianceState === "ALLIED")
+	{
+		objList = objList.concat(enumStruct(THE_RESISTANCE));
+		objList = objList.concat(enumDroid(THE_RESISTANCE));
+	}
+	if (gameState.amphos.allianceState === "ALLIED")
+	{
+		objList = objList.concat(enumStruct(AMPHOS));
+		objList = objList.concat(enumDroid(AMPHOS));
+	}
+	if (gameState.hellraisers.allianceState === "ALLIED")
+	{
+		objList = objList.concat(enumStruct(HELLRAISERS));
+		objList = objList.concat(enumDroid(HELLRAISERS));
+	}
+	if (gameState.coalition.allianceState === "ALLIED")
+	{
+		objList = objList.concat(enumStruct(THE_COALITION));
+		objList = objList.concat(enumDroid(THE_COALITION));
+	}
+
+	for (let i = 0; i < objList.length; i++)
+	{
+		addSpotter(objList[i].x, objList[i].y, CAM_HUMAN_PLAYER, 512, false, gameTime + camSecondsToMilliseconds(1));
+	}
+}
+
 // Check if the player has the big debt
 function recessionCheck()
 {
@@ -1973,6 +2005,8 @@ function eventStartLevel()
 	camUpgradeOnMapStructures("WallTower-TwinAssaultGun", "CO-WallTower-TwinAssaultGun", ROYALISTS);
 	camUpgradeOnMapStructures("A0HardcreteMk1Wall", "CollectiveWall", ROYALISTS);
 	camUpgradeOnMapStructures("Emplacement-RotMor", "CO-Emp-RotMor", ROYALISTS);
+	camUpgradeOnMapStructures("Emplacement-HvyATrocket", "CO-PillBoxTK", ROYALISTS);
+	camUpgradeOnMapStructures("Emplacement-HPVcannon", "CO-PillBoxHPC", ROYALISTS);
 	// camUpgradeOnMapStructures("Emplacement-HvyATrocket", "Emplacement-Ballista", ROYALISTS);
 	if (difficulty === INSANE)
 	{

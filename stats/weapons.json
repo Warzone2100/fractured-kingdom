@@ -866,7 +866,7 @@
         "weaponEffect": "ALL ROUNDER",
         "weaponSubClass": "CANNON",
         "weaponWav": "hivelcan.ogg",
-        "weight": 2000
+        "weight": 1250
     },
     "Cannon4AUTOMk1": {
         "buildPoints": 700,
@@ -906,7 +906,7 @@
         "weaponEffect": "ALL ROUNDER",
         "weaponSubClass": "CANNON",
         "weaponWav": "hivelcan.ogg",
-        "weight": 3000
+        "weight": 2500
     },
     "Cannon5Vulcan-VTOL": {
         "buildPoints": 700,
@@ -947,7 +947,7 @@
         "weaponEffect": "ALL ROUNDER",
         "weaponSubClass": "CANNON",
         "weaponWav": "rapdcan.ogg",
-        "weight": 1250
+        "weight": 2000
     },
     "Cannon5VulcanMk1": {
         "buildPoints": 700,
@@ -987,7 +987,7 @@
         "weaponEffect": "ALL ROUNDER",
         "weaponSubClass": "CANNON",
         "weaponWav": "rapdcan.ogg",
-        "weight": 2500
+        "weight": 3000
     },
     "Cannon6TwinAslt": {
         "buildPoints": 800,
@@ -1119,7 +1119,7 @@
         "flags": "ShootAir",
         "flightGfx": "FXBeam.PIE",
         "flightSpeed": 2500,
-        "hitGfx": "FXSFlms.PIE",
+        "hitGfx": "FXSroc.PIE",
         "hitpoints": 500,
         "id": "CommandTurret1",
         "lightWorld": 1,
@@ -1128,7 +1128,7 @@
         "maxElevation": 90,
         "minElevation": -30,
         "minimumDamage": 33,
-        "missGfx": "FXSFlms.PIE",
+        "missGfx": "FXSroc.PIE",
         "model": "GNLCMD1.PIE",
         "mountModel": "TRLCMD1.PIE",
         "movement": "HOMING-DIRECT",
@@ -1138,7 +1138,7 @@
         "rotate": 180,
         "shortHit": 100,
         "shortRange": 1536,
-        "waterGfx": "FXSFlms.PIE",
+        "waterGfx": "FXSroc.PIE",
         "weaponClass": "HEAT",
         "weaponEffect": "ALL ROUNDER",
         "weaponSubClass": "COMMAND",

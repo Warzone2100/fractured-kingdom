@@ -1018,7 +1018,7 @@ function spawnTransportDroids(player, pos)
 		}
 		else if (gameState.phase === 2) // Mid game
 		{
-			droidPool = [cTempl.romhrept, cTempl.romacant, cTempl.romhvcant, cTempl.rominft, cTempl.romsenst]; // Tanks
+			droidPool = [cTempl.romhrept, cTempl.romacant, cTempl.romacant, cTempl.rominft, cTempl.romsenst]; // Tanks
 			droidPool = droidPool.concat([cTempl.cybag, cTempl.cybth, cTempl.scyhc, cTempl.scyac]); // Cyborgs
 			if (difficulty !== INSANE)
 			{
@@ -1048,7 +1048,7 @@ function spawnTransportDroids(player, pos)
 		}
 		else if (gameState.phase === 3) // Late game
 		{
-			droidPool = [cTempl.romhrept, cTempl.romacant, cTempl.romhvcant, cTempl.rominft, cTempl.romsenst]; // Tanks
+			droidPool = [cTempl.romhrept, cTempl.romacant, cTempl.romacant, cTempl.rominft, cTempl.romsenst]; // Tanks
 			droidPool = droidPool.concat([cTempl.cybag, cTempl.cybth, cTempl.scyhc, cTempl.scyac]); // Cyborgs
 			if (difficulty <= EASY)
 			{
@@ -1569,14 +1569,14 @@ function setupRoyalistAssaults()
 				if (difficulty >= MEDIUM) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.rollant, cTempl.romtkt);
 				break;
 			case "CANNON RUSH":
-				mainTemplates = [cTempl.romacant, cTempl.romhvcant, cTempl.romacant, cTempl.rohhcant];
+				mainTemplates = [cTempl.romacant, cTempl.romacant, cTempl.romacant, cTempl.rohhcant];
 				cybTemplates = [cTempl.scyac, cTempl.scyhc, cTempl.scyac, cTempl.cybag];
 				mainThrottle = camChangeOnDiff(camSecondsToMilliseconds(45));
 				cybThrottle = camChangeOnDiff(camSecondsToMilliseconds(40));
 				if (difficulty === INSANE || allowTA) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romacant, cTempl.rohtacant);
 				break;
 			case "HEAVIES":
-				mainTemplates = [cTempl.romacant, cTempl.romhvcant, cTempl.romtkt, cTempl.rohhcant, cTempl.romagt, cTempl.rohhcant/*, cTempl.rohbalt*/];
+				mainTemplates = [cTempl.romacant, cTempl.romacant, cTempl.romtkt, cTempl.rohhcant, cTempl.romagt, cTempl.rohhcant/*, cTempl.rohbalt*/];
 				cybTemplates = [cTempl.scyhc, cTempl.scytk, cTempl.cybla, cTempl.scyac];
 				mainThrottle = camChangeOnDiff(camSecondsToMilliseconds(35));
 				cybThrottle = camChangeOnDiff(camSecondsToMilliseconds(50));
@@ -1632,15 +1632,15 @@ function setupRoyalistAssaults()
 				// if (difficulty >= MEDIUM) mainTemplates.push(cTempl.rohbalh);
 				break;
 			case "CANNON RUSH":
-				mainTemplates = [cTempl.romacanh, cTempl.romhvcanh, cTempl.romacanh, cTempl.rohhcanh];
+				mainTemplates = [cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.rohhcanh];
 				mainThrottle = camChangeOnDiff(camSecondsToMilliseconds(30));
-				if (difficulty === INSANE || allowTA) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romacanh, cTempl.rohtacanh);
+				if (difficulty === INSANE || allowTA) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romhvcanh, cTempl.rohtacanh);
 				break;
 			case "HEAVIES":
-				mainTemplates = [cTempl.romacanh, cTempl.romhvcanh, cTempl.romtkh, cTempl.rohhcanh, cTempl.romagh, cTempl.rohhcanh];
+				mainTemplates = [cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romtkh, cTempl.rohhcanh, cTempl.romagh, cTempl.rohhcanh];
 				mainThrottle = camChangeOnDiff(camSecondsToMilliseconds(30));
 				// if (difficulty >= MEDIUM) mainTemplates.push(cTempl.rohbalh);
-				if (difficulty === INSANE || allowTA) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romacanh, cTempl.rohtacanh);
+				if (difficulty === INSANE || allowTA) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romhvcanh, cTempl.rohtacanh);
 				if (difficulty === INSANE || allowTA) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romagh, cTempl.rohtagh);
 				if (difficulty === INSANE) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romtkh, cTempl.rohtkh);
 				mainTemplates.push(cTempl.romsensh);
@@ -1648,7 +1648,7 @@ function setupRoyalistAssaults()
 				if (gameState.royalists.allowIncenHowit) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.rohhowh, cTempl.rohihowh);
 				break;
 			case "SIEGE":
-				mainTemplates = [cTempl.romrmorh, cTempl.romsensh, cTempl.rohhowh, cTempl.romacanh, cTempl.rohriph];
+				mainTemplates = [cTempl.romrmorh, cTempl.romsensh, cTempl.rohhowh, cTempl.romhvcanh, cTempl.rohriph];
 				mainThrottle = camChangeOnDiff(camSecondsToMilliseconds(30));
 				// if (difficulty >= MEDIUM) mainTemplates.push(cTempl.rohbalh);
 				if (gameState.royalists.allowIncenHowit) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.rohhowh, cTempl.rohihowh);
@@ -1659,7 +1659,7 @@ function setupRoyalistAssaults()
 				break;
 			case "MIXED":
 			default:
-				mainTemplates = [cTempl.rollanh, cTempl.romacanh, cTempl.romsensh, cTempl.rohhcanh, cTempl.romagh, cTempl.romrmorh];
+				mainTemplates = [cTempl.rollanh, cTempl.romhvcanh, cTempl.romsensh, cTempl.rohhcanh, cTempl.romagh, cTempl.romrmorh];
 				mainThrottle = camChangeOnDiff(camSecondsToMilliseconds(30));
 				if (difficulty >= MEDIUM) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.rollanh, cTempl.romtkh);
 				break;

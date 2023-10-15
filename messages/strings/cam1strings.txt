@@ -190,7 +190,7 @@ ROYAMPEMSG5			_("What? Did you really think that alliance was going to last?")
 ROYAMPEMSG6			_("AMPHOS was not loyal to me, they only had their own interests in mind.")
 ROYAMPEMSG7			_("And there is only one cure for that.")
 ROYAMPEMSG8			_("...")
-ROYAMPEMSG9			_("Oh, don't worry Commander. Your turn is comming up soon.")
+ROYAMPEMSG9			_("Oh, don't worry Commander. Your turn is coming up soon.")
 
 /* Hellraiser Introduction (From Resistance) */
 RESHELMSG1			_("Careful, those structures in the hills belong to the Hellraisers.")
@@ -203,6 +203,11 @@ RESHELMSG7			_("Just be cautious when in their territory, that whole place is on
 RESHELMSG8			_("Those cragged hills don't leave much room for maneuvering around. And the Hellraisers are fanatical about incendiary weapons.")
 RESHELMSG9			_("Their patrols are armed with flamethrowers, and they've placed bunkers around every corner.")
 RESHELMSG10			_("They've even modified their mortars to leave burning areas where they hit.")
+
+/* Hellraiser Bridge Warning (From Resistance) */
+RESHELWARN1			_("Heads up Commander, that bridge leads straight into Royalist territory.")
+RESHELWARN2			_("We should probably deal with the Hellraisers before trying to pick fights with the Royalists.")
+RESHELWARN3			_("Otherwise we might end up with more trouble on our hands than we can handle.")
 
 /* Hellraiser Pitch */
 HELPITCHMSG1		_("Attention interlopers!")
@@ -226,7 +231,7 @@ HELNEGOMSG5			_("Once they are complete, we can then join our forces and inciner
 HELAGGRMSG1			_("Well, it seems you have made the wrong choice!")
 HELAGGRMSG2			_("You are very brave, Commander. But also very foolish if you think you can best us.")
 HELAGGRMSG3			_("These transgressions of yours shall not go unpunished!")
-HELAGGRMSG4			_("We will purge your forces from our land like a wilfire tearing through a forest.")
+HELAGGRMSG4			_("We will purge your forces from our land like a wildfire tearing through a forest.")
 HELAGGRMSG5			_("Perhaps once we've razed your vile base down to smoldering piles of ash, we will hear you beg for our mercy!")
 
 /* Hellraiser Betrayal Message */
@@ -535,8 +540,8 @@ RESALERTMSG1		_("Heads up, we've intercepted some Royalist radio transmissions i
 RESALERTMSG2		_("Brace yourself, Commander. I think things are about to get nasty.")
 
 /* AMPHOS Assault Alert */
-AMPALERTMSG1		_("We have detected a large Royalist force amassing within their base.")
-AMPALERTMSG2		_("Their size and composition is unkown, but it is likely that they're preparing to launch an assault against us.")
+AMPALERTMSG1		_("We have detected signs that a large Royalist force amassing within their base.")
+AMPALERTMSG2		_("Their size and composition is unknown, but it is likely that they're preparing to launch an assault against us.")
 AMPALERTMSG3		_("Any assistance in dealing with this would be greatly appreciated, Commander.")
 
 /* Hellraiser Assault Alert */

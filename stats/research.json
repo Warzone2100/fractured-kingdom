@@ -51,7 +51,7 @@
 		"resultComponents": [
 			"Cyb-Hvywpn-Acannon"
 		],
-		"statID": "Cannon5VulcanMk1"
+		"statID": "Cyb-Hvywpn-Acannon"
 	},
 	"R-Cyborg-Hvywpn-HPV": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -70,7 +70,7 @@
 		"resultComponents": [
 			"Cyb-Hvywpn-HPV"
 		],
-		"statID": "Cannon4AUTOMk1"
+		"statID": "Cyb-Hvywpn-HPV"
 	},
 	"R-Cyborg-Hvywpn-Mcannon": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -86,7 +86,7 @@
 		"resultComponents": [
 			"Cyb-Hvywpn-Mcannon"
 		],
-		"statID": "Cannon2A-TMk1"
+		"statID": "Cyb-Hvywpn-Mcannon"
 	},
 	"R-Cyborg-Hvywpn-TK": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -102,7 +102,7 @@
 		"resultComponents": [
 			"Cyb-Hvywpn-TK"
 		],
-		"statID": "Rocket-VTOL-HvyA-T"
+		"statID": "Cyb-Hvywpn-TK"
 	},
 	"R-Cyborg-Metals01": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -614,7 +614,7 @@
 		"resultComponents": [
 			"CyborgCannon"
 		],
-		"statID": "Cannon1Mk1"
+		"statID": "CyborgCannon"
 	},
 	"R-Cyb-Wpn-Grenade": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -630,7 +630,7 @@
 		"resultComponents": [
 			"Cyb-Wpn-Grenade"
 		],
-		"statID": "Mortar1Mk1"
+		"statID": "Cyb-Wpn-Grenade"
 	},
 	"R-Cyborg-Wpn-Flamer": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -646,7 +646,7 @@
 		"resultComponents": [
 			"CyborgFlamer01"
 		],
-		"statID": "Flame1Mk1"
+		"statID": "CyborgFlamer01"
 	},
 	"R-Cyb-Wpn-Thermite": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -668,7 +668,7 @@
 		"resultComponents": [
 			"Cyb-Wpn-Thermite"
 		],
-		"statID": "Flame2"
+		"statID": "Cyb-Wpn-Thermite"
 	},
 	"R-Cyb-Sys-Repair": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -683,7 +683,7 @@
 		"resultComponents": [
 			"CyborgRepair"
 		],
-		"statID": "LightRepair1"
+		"statID": "CyborgRepair"
 	},
 	"R-Cyb-Sys-Construct": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -698,7 +698,7 @@
 		"resultComponents": [
 			"CyborgSpade"
 		],
-		"statID": "Spade1Mk1"
+		"statID": "CyborgSpade"
 	},
 	"R-Cyborg-Wpn-MG": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -716,7 +716,7 @@
 			"CyborgHeavyBody",
 			"CyborgLightBody"
 		],
-		"statID": "MG1Mk1"
+		"statID": "CyborgChaingun"
 	},
 	"R-Cyborg-Wpn-Rocket": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -732,7 +732,7 @@
 		"resultComponents": [
 			"CyborgRocket"
 		],
-		"statID": "Rocket-LtA-T"
+		"statID": "CyborgRocket"
 	},
 	"R-Cyborg-Wpn-RotMG": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -750,7 +750,7 @@
 		"resultComponents": [
 			"CyborgRotMG"
 		],
-		"statID": "MG4ROTARYMk1"
+		"statID": "CyborgRotMG"
 	},
 	"R-Cyborg-Wpn-Laser1": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
@@ -765,7 +765,7 @@
 		"resultComponents": [
 			"Cyb-Wpn-Laser"
 		],
-		"statID": "Laser3BEAMMk1"
+		"statID": "Cyb-Wpn-Laser"
 	},
 	"R-Defense-HardcreteGate": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -893,6 +893,25 @@
 			"PillBox6"
 		],
 		"statID": "PillBox6"
+	},
+	"R-Defense-PillboxLance": {
+		"iconID": "IMAGE_RES_DEFENCE",
+		"id": "R-Defense-PillboxLance",
+		"msgName": "RES_PB_ATR2",
+		"name": "Lancer Bunker",
+		"requiredResearch": [
+			"R-Wpn-Rocket01-LtAT",
+			"R-Defense-HardcreteWall"
+		],
+		"researchPoints": 1650,
+		"researchPower": 67,
+		"resultStructures": [
+			"PillBoxLance"
+		],
+		"redStructures": [
+			"PillBox6"
+		],
+		"statID": "PillBoxLance"
 	},
 	"R-Defense-LancerTower": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -3022,16 +3041,19 @@
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-Emplacement-HPVcannon",
 		"msgName": "RES_EMP_HPV",
-		"name": "Hyper Velocity Cannon Emplacement",
+		"name": "Hyper Velocity Cannon Bunker",
 		"requiredResearch": [
 			"R-Wpn-Cannon4AMk1"
 		],
 		"researchPoints": 2000,
 		"researchPower": 100,
 		"resultStructures": [
-			"Emplacement-HPVcannon"
+			"PillBoxHPC"
 		],
-		"statID": "Emplacement-HPVcannon"
+		"redStructures": [
+			"PillBox4"	
+		],
+		"statID": "PillBoxHPC"
 	},
 	"R-Defense-Howitzer": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -5281,16 +5303,19 @@
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-HvyA-Trocket",
 		"msgName": "RES_EMP_HVATR",
-		"name": "Tank Killer Emplacement",
+		"name": "Tank Killer Bunker",
 		"requiredResearch": [
 			"R-Wpn-Rocket07-Tank-Killer"
 		],
 		"researchPoints": 4800,
 		"researchPower": 150,
 		"resultStructures": [
-			"Emplacement-HvyATrocket"
+			"PillBoxTK"
 		],
-		"statID": "Emplacement-HvyATrocket"
+		"redStructures": [
+			"PillBoxLance"
+		],
+		"statID": "PillBoxTK"
 	},
 	"R-Defense-Ballista": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -5311,16 +5336,16 @@
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-PrisLas",
 		"msgName": "RES_EMP_PrisLas",
-		"name": "Flashlight Emplacement",
+		"name": "Flashlight Bunker",
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
 		"researchPoints": 2800,
 		"researchPower": 450,
 		"resultStructures": [
-			"Emplacement-PrisLas"
+			"PillBoxFlash"
 		],
-		"statID": "Emplacement-PrisLas"
+		"statID": "PillBoxFlash"
 	},
 	"R-Defense-WallTower-HvyA-Trocket": {
 		"iconID": "IMAGE_RES_DEFENCE",

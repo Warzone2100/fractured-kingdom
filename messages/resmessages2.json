@@ -129,9 +129,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Hyper-Velocity Cannon",
+            "Armored bunker with Hyper-Velocity Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_HVATR": {
@@ -140,9 +140,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Tank Killer rocket",
+            "Armored bunker with Tank Killer rocket",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_BALAT": {
@@ -162,9 +162,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Inferno Flamer",
+            "Armored bunker with Inferno Flamer",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_HvHOW": {

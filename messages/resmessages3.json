@@ -217,9 +217,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Flashlight laser",
+            "Armored bunker with Flashlight laser",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_PulseLas": {

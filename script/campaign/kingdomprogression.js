@@ -470,12 +470,16 @@ function allyResistance()
 	// Share research with Resistance
 	camCompleteRes(camGetResearchLog(), THE_RESISTANCE);
 
-	// Quietly remove python tank
+	// Quietly remove Python tank and Sarissa bunkers
 	camSafeRemoveObject(getObject("resPython"));
+	camUpgradeOnMapStructures("PillBox6", "PillBox4", THE_RESISTANCE);
 
 	// Get all Resistance groups up to snuff
 	updateAllyTemplates();
 	checkResistanceGroups();
+
+	// Grant vision of all their stuff
+	viewAlliedObjects();
 
 	queue("expandMap", camSecondsToMilliseconds(25));
 }
@@ -733,6 +737,25 @@ camAreaEvent("spyFOB", function(droid)
 	}
 });
 
+// Triggered when the player starts to cross the bridge toward the northern Royalists
+camAreaEvent("royBridgeTrigger", function(droid)
+{
+	// Only trigger if the player moves a droid in
+	if (droid.player === CAM_HUMAN_PLAYER)
+	{
+		if ((gameState.hellraisers.allianceState !== "ERADICATED" || gameState.hellraisers.allianceState !== "ALLIED") 
+			&& gameState.resistance.allianceState === "ALLIED")
+		{
+			// Warn the player about attacking the Royalists before dealing with the Hellraisers
+			missionMessage("RESHELWARN", "TRANS");
+		}
+	}
+	else
+	{
+		resetLabel("royBridgeTrigger", CAM_HUMAN_PLAYER);
+	}
+});
+
 function camEnemyBaseDetected_spyBase()
 {
 	camCallOnce("activateSpyLZ");
@@ -784,6 +807,17 @@ function camEnemyBaseDetected_portBase()
 	camManageTrucks(AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	camManageTrucks(AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	camManageTrucks(AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
+
+	// If on Normal, have Sarissa bunkers replaced with Lancer ones when destroyed
+	// If on Hard+, demolish Sarissa bunkers and replace with Lancers ones
+	if (difficulty === MEDIUM)
+	{
+		camTruckObsoleteStructure(AMPHOS, "PillBox6", "PillBoxLance", true); // Don't demolish
+	}
+	else if (difficulty >= HARD)
+	{
+		camTruckObsoleteStructure(AMPHOS, "PillBox6", "PillBoxLance"); // Do demolish
+	}
 }
 
 function camEnemyBaseEliminated_southIslandBase()
@@ -1126,6 +1160,9 @@ function allyAmphos()
 		// Allow Royalists to start getting late-game research.
 		camCallOnce("grantRoyalistTier2Research");
 	}
+
+	// Grant vision of all their stuff
+	viewAlliedObjects();
 
 	// Allow the Royalists to try to rebuild the NW island base
 	camEnableTruck("nwIslandBase");
@@ -1484,6 +1521,9 @@ function allyHellraisers()
 	// Get all Hellraiser groups up to snuff
 	updateAllyTemplates();
 	checkHellraiserGroups();
+
+	// Grant vision of all their stuff
+	viewAlliedObjects();
 
 	queue("coaPitch", camSecondsToMilliseconds(40));
 	camCallOnce("setPhaseTwo");
@@ -2054,6 +2094,9 @@ function allyCoalition()
 		// Allow Royalists to start getting late-game research.
 		camCallOnce("grantRoyalistTier2Research");
 	}
+
+	// Grant vision of all their stuff
+	viewAlliedObjects();
 }
 
 function coaAllyMessage()
@@ -2293,11 +2336,11 @@ function setPhaseThree()
 	gameState.royalists.mainVTOLGroup.maxSize += difficulty + 2;
 	var royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
 	if (difficulty >= MEDIUM) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rolhmgt, cTempl.romagt);
-	if (difficulty >= MEDIUM) royCentralFactoryTemplates.push(cTempl.romhvcant);
+	if (difficulty >= MEDIUM) royCentralFactoryTemplates.push(cTempl.romacant);
 	if (difficulty >= HARD) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rollant, cTempl.romtkt);
-	var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romhvcant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
+	var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 	// if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohbalt);
-	var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romacanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+	var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 	if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 	var mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 	if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
@@ -2646,12 +2689,12 @@ camAreaEvent("royalistOuterBase", function(droid)
 		// and normal group management will stop (except for commander and VTOL groups)
 		// Bunker Busters will also never be produced from the Royalists's base factories in this state
 		gameState.royalists.underAttack = true;
-		var royOuterFactoryTemplates = [ cTempl.romhvcant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept ];
+		var royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept ];
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohhcant);
-		var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romacanh, cTempl.romagh, cTempl.rommrah ];
+		var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rohhcanh);
-		var royMainFactoryTemplates = [ cTempl.romhvcant, cTempl.rohtacant, cTempl.romsenst, cTempl.romtkt, cTempl.romrmort, cTempl.rohtagt, cTempl.rominft ];
+		var royMainFactoryTemplates = [ cTempl.romacant, cTempl.rohtacant, cTempl.romsenst, cTempl.romtkt, cTempl.romrmort, cTempl.rohtagt, cTempl.rominft ];
 		if (difficulty >= MEDIUM) royMainFactoryTemplates.push(cTempl.rohraat);
 		// if (difficulty >= MEDIUM) royMainFactoryTemplates.push(cTempl.rohbalt);
 		var royMainCybTemplates = [ cTempl.scyac, cTempl.cybag, cTempl.cybla, cTempl.scyhc, cTempl.scytk ];
@@ -2697,12 +2740,12 @@ function royOuterBaseClear()
 
 		// All is well and good, resume normal group and factory management
 		gameState.royalists.underAttack = false;
-		var royOuterFactoryTemplates = [ cTempl.romhvcant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept, cTempl.romsenst, cTempl.romrmorht ];
+		var royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept, cTempl.romsenst, cTempl.romrmorht ];
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rombbt);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.romrmorht, cTempl.romrmort);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rohhcant);
-		var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romacanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+		var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 		var mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 		if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
@@ -3271,8 +3314,8 @@ function updateAlliedStructs(resName)
 			newStruct = "WallTower04"; // Medium / HVC / Assault Cannon Hardpoint -> Heavy Cannon Hardpoint
 			break;
 		case "R-Wpn-Cannon4AMk1": // Hyper Velocity Cannon
-			oldStruct = "WallTower03";
-			newStruct = "WallTower-HPVcannon"; // Medium Cannon Hardpoint -> Hyper Velocity Cannon Hardpoint
+			oldStruct = ["WallTower03", "PillBox4"];
+			newStruct = ["WallTower-HPVcannon", "PillBoxHPC"]; // Medium Cannon Hardpoint -> Hyper Velocity Cannon Hardpoint, Light Cannon Bunker -> HVC Bunker
 			break;
 		case "R-Wpn-Cannon5": // Assault Cannon
 			oldStruct = "WallTower03";
@@ -3286,6 +3329,10 @@ function updateAlliedStructs(resName)
 		case "R-Wpn-MG4": // Assault Gun
 			oldStruct = ["GuardTower3", "PillBox1", "WallTower01"];
 			newStruct = ["GuardTower-RotMg", "Pillbox-RotMG", "Wall-RotMg"]; // HMG Tower -> AG Tower, HMG Bunker -> RotMG Bunker, HMG Hardpoint -> AG Hardpoint
+			break;
+		case "R-Wpn-Rocket01-LtAT": // Lancer
+			oldStruct = "PillBox6";
+			newStruct = "PillBoxLance"; // Sarissa Bunker -> Lancer Bunker
 			break;
 		// Mortars (Resistance only)
 		case "R-Wpn-Mortar-Incendiary": // Incendiary Mortar
@@ -3317,8 +3364,8 @@ function updateAlliedStructs(resName)
 			}
 			break;
 		case "R-Wpn-Rocket07-Tank-Killer": // Tank Killer
-			oldStruct = "WallTower06";
-			newStruct = "WallTower-HvATrocket"; // Lancer Hardpoint -> Tank Killer Hardpoint
+			oldStruct = ["WallTower06", "PillBoxLance"];
+			newStruct = ["WallTower-HvATrocket", "PillBoxTK"];; // Lancer Hardpoint -> Tank Killer Hardpoint, Lancer Bunker -> Tank Killer Bunker
 			break;
 		// Howitzers (Resistance only)
 		case "R-Wpn-HowitzerMk1": // Howitzer

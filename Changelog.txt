@@ -1,3 +1,19 @@
+v1.0.5
+- Replaced the objectively terrible Hyper Velocity Cannon and Tank Killer Emplacements with cooler bunker versions.
+- Un-banished the Lancer Bunker from the void.
+- Widened a bunch of chokepoints and high-traffic areas.
+- Assault Cannon and Hyper Velocity Cannon weights have been swapped.
+- Royalists now prefer the Hyper Velocity Cannon for hover units.
+- Royalists now prefer the Assault Cannon for tracked units.
+- Added an extra pathway to the Royalist main base.
+- The Resistance now properly cover up any evidence of having Sarissas when allied.
+- Tweaked the Command Turret's visual effects.
+- Added a warning transmission about crossing the Hellraiser bridge too early.
+- Fixed some typos in various transmissions.
+- Made the Super Auto-Cannon Cyborg's weapon actually look like the Assault Cannon, instead of the Hyper Velocity Cannon.
+- Made cyborg weapons in the research menu display the actual cyborg weapon.
+- Allying with a faction will grant (a brief) vision of all their units and structures.
+
 v1.0.4
 - Fixed some Royalist VTOL CB towers being incorrectly rebuilt as VTOL Strike towers when destroyed.
 - Fixed transports flying back and forth forever when an LZ is destroyed while a transport is en route.

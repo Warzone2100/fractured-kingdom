@@ -726,6 +726,11 @@
         "pos2": [3456, 15104],
         "label": "helAggroTrigger4"
     },
+    "area_62": {
+        "pos1": [11520, 17920],
+        "pos2": [12032, 18944],
+        "label": "royBridgeTrigger"
+    },
 
     "object_0": {
         "id": 58,
