@@ -1,3 +1,6 @@
+v1.0.6
+- Prevented truck "wandering" behavior from potentially freezing the game via an infinite loop.
+
 v1.0.5
 - Replaced the objectively terrible Hyper Velocity Cannon and Tank Killer Emplacements with cooler bunker versions.
 - Un-banished the Lancer Bunker from the void.
