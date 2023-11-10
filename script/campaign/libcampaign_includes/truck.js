@@ -422,6 +422,8 @@ function __camTruckTick()
 				var x = structSet[j].x;
 				var y = structSet[j].y;
 				var structure = getObject(x, y);
+				// If spot is empty for some reason
+				if (structure === null) continue;
 
 				for (var k = 0; k < obsoleteSet.length; k++)
 				{
@@ -466,14 +468,20 @@ function __camTruckTick()
 			let baseStartx = (baseArea.x < baseArea.x2) ? baseArea.x : baseArea.x2;
 			let baseStarty = (baseArea.y < baseArea.y2) ? baseArea.y : baseArea.y2;
 
+			// Limit the amount of times we scan for a location
+			let accumulator = 0;
+
 			do
 			{
 				// Find a position within the base area that the truck can reach
 				pos = {x: camRand(baseWidth), y: camRand(baseHeight)};
 				pos.x += baseStartx;
 				pos.y += baseStarty;
-			} while (getObject(pos.x, pos.y) !== null
-				|| !propulsionCanReach(truck.propulsion, truck.x, truck.y, pos.x, pos.y));
+
+				// Give up searching for a good spot after 10 tries
+				accumulator++;
+			} while ((accumulator <= 10) && (getObject(pos.x, pos.y) !== null
+				|| !propulsionCanReach(truck.propulsion, truck.x, truck.y, pos.x, pos.y)));
 
 			// Order the truck to go to the chosen spot
 			// DORDER_SCOUT is used so the truck will stop
