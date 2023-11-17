@@ -1,11 +1,14 @@
+const VTOL_TOWER_GROUP_SIZE = Math.max(difficulty, 1); // At least 1 VTOL
+const ROYALIST_GARRISON_SIZE = difficulty + 1;
+
 // Structures to unlock for the player
-const PLAYER_STRUCTS = [
+const mis_playerStructs = [
 		"A0CommandCentre", "A0PowerGenerator", "A0ResourceExtractor",
 		"A0ResearchFacility", "A0LightFactory", "A0CyborgFactory",
 ];
 
 // Player starting research
-const PLAYER_RES = [
+const mis_playerRes = [
 	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1",
 	"R-Vehicle-Prop-Wheels", "R-Comp-SynapticLink", "R-Cyborg-Wpn-MG",
 	"R-Cyb-Sys-Construct", "R-Vehicle-Prop-Halftracks","R-Wpn-Cannon1Mk1",
@@ -16,7 +19,7 @@ const PLAYER_RES = [
 ];
 
 // AMPHOS starting research
-const AMPHOS_RES = [
+const mis_amphosRes = [
 	"R-Sys-Engineering02", "R-Wpn-Rocket-ROF02", "R-Wpn-Rocket-Damage03",
 	"R-Wpn-Rocket-Accuracy03", "R-Wpn-MG-Damage03", "R-Wpn-MG-ROF01",
 	"R-Vehicle-Metals03", "R-Wpn-Flamer-Damage02", "R-Wpn-Flamer-ROF01",
@@ -25,7 +28,7 @@ const AMPHOS_RES = [
 ];
 
 // Hellraiser starting research
-const HELLRAISER_RES = [
+const mis_hellraiserRes = [
 	"R-Sys-Engineering01", "R-Wpn-Flamer-Damage03", "R-Wpn-Flamer-ROF02",
 	"R-Wpn-MG-Damage02", "R-Wpn-AAGun-Damage01", "R-Wpn-Mortar-Damage01",
 	"R-Vehicle-Metals02", "R-Cyborg-Metals02", "R-Vehicle-Engine02",
@@ -35,7 +38,7 @@ const HELLRAISER_RES = [
 ];
 
 // Coalition starting research
-const COALITION_START_RES = [
+const mis_coalitionStartRes = [
 	"R-Sys-Engineering02", "R-Wpn-Rocket-ROF02", "R-Wpn-Rocket-Accuracy03",
 	"R-Wpn-MG-ROF02", "R-Wpn-Flamer-ROF02", "R-Defense-WallUpgrade03",
 	"R-Struc-Materials03", "R-Wpn-AAGun-ROF02", "R-Wpn-Cannon-ROF02",
@@ -44,7 +47,7 @@ const COALITION_START_RES = [
 ];
 
 // Coalition research granted after the map expands
-const COALITION_EXPANSION_RES = [
+const mis_coalitionExpansionRes = [
 	"R-Wpn-Rocket-Damage03", "R-Wpn-MG-Damage04", "R-Vehicle-Metals04",
 	"R-Cyborg-Metals04", "R-Wpn-Flamer-Damage04", "R-Wpn-AAGun-Damage01",
 	"R-Wpn-Cannon-Damage03", "R-Wpn-Mortar-Damage03", "R-Cyborg-Armor-Heat01",
@@ -52,7 +55,7 @@ const COALITION_EXPANSION_RES = [
 ];
 
 // Royalist research given at the start of the game
-const ROYALIST_START_RES = [
+const mis_royalistStartRes = [
 	"R-Sys-Engineering02", "R-Wpn-Rocket-ROF02", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Rocket-Accuracy02", "R-Wpn-MG-Damage02", "R-Wpn-MG-ROF02",
 	"R-Vehicle-Metals03", "R-Cyborg-Metals03", "R-Wpn-Flamer-Damage03",
@@ -66,7 +69,7 @@ const ROYALIST_START_RES = [
 // Royalist research granted over time starting from phase 2
 // Note that every iteration of an upgrade must be present, since "required" tech will not be granted
 // e.g. rocket damage upgrades 04 and 05 must be here, not just 05.
-const ROYALIST_PROGRESSIVE_RES1 = [
+const mis_royalistProgressiveRes1 = [
 	"R-Wpn-Rocket-Damage03", "R-Wpn-Rocket-Damage04", "R-Wpn-Rocket-Accuracy02",
 	"R-Wpn-Rocket-Accuracy03", "R-Wpn-MG-Damage03", "R-Wpn-MG-Damage04",
 	"R-Vehicle-Metals04", "R-Cyborg-Metals04", "R-Cyborg-Metals05",
@@ -82,7 +85,7 @@ const ROYALIST_PROGRESSIVE_RES1 = [
 ];
 
 // Royalist research granted over time starting from phase 3
-const ROYALIST_PROGRESSIVE_RES2 = [
+const mis_royalistProgressiveRes2 = [
 	"R-Wpn-Rocket-Accuracy04", "R-Wpn-MG-Damage05", "R-Vehicle-Metals05",
 	"R-Vehicle-Metals06","R-Cyborg-Metals06", "R-Wpn-Flamer-Damage05",
 	"R-Wpn-Flamer-Damage06", "R-Defense-WallUpgrade05", "R-Defense-WallUpgrade06",
@@ -102,226 +105,226 @@ const ROYALIST_PROGRESSIVE_HARD_RES = [
 ];
 
 // Royalist research granted over time after the player gets VTOLs
-const ROYALIST_PROGRESSIVE_AA_RES = [
+const mis_royalistProgressiveAARes = [
 	"R-Wpn-AAGun-Damage02", "R-Wpn-AAGun-ROF02", "R-Wpn-AAGun-ROF03",
 	"R-Wpn-AAGun-Accuracy01", "R-Wpn-AAGun-Accuracy02",
 ];
 
 // All of the bases (built and unbuilt) on the map
-var baseData = {
+const mis_baseData = {
 	"resistanceMainBase": {
 		cleanup: "resistanceBase",
-		player: THE_RESISTANCE,
+		player: CAM_THE_RESISTANCE,
 		detectMsg: "RESIS_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"portBase": {
 		cleanup: "portFOB",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "PORT_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"southIslandBase": {
 		cleanup: "southIslandFOB",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "SISLAND_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"westIslandBase": {
 		cleanup: "westIslandFOB",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "WISLAND_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"nwIslandBase": {
 		cleanup: "nwIslandFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "NWISLAND_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"northIslandBase": {
 		cleanup: "northIslandFOB",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "NISLAND_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"amphosMainBase": {
 		cleanup: "amphosBase",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "AMPHOS_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"hellraiserMainBase": {
 		cleanup: "hellraiserBase",
-		player: HELLRAISERS,
+		player: CAM_HELLRAISERS,
 		detectMsg: "HELLRAISER_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"coalitionBridgeBase": {
 		cleanup: "coalitionBridgeFOB",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "COBRIDGE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"seCoalitionBase": {
 		cleanup: "seCoalitionFOB",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "SECO_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"riverDeltaBase": {
 		cleanup: "riverDeltaFOB",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "RIVDELT_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"sunkenPlainsBase": {
 		cleanup: "sunkenPlainsFOB",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "SPLAINS_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"neCoalitionBase": {
 		cleanup: "neCoalitionFOB",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "NECO_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"coalitionMainBase": {
 		cleanup: "coalitionBase",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "COALITION_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"southBase": {
 		cleanup: "southFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "SOUTH_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"spyBase": {
 		cleanup: "spyLZ",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "SPY_BASE",
 		detectSnd: "pcv382.ogg",
 		eliminateSnd: "pcv665.ogg"
 	},
 	"riverTownBase": {
 		cleanup: "riverTownFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "RIVTOWN_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"riverLZBase": {
 		cleanup: "riverLZ",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "RIVLZ_BASE",
 		detectSnd: "pcv382.ogg",
 		eliminateSnd: "pcv665.ogg"
 	},
 	"eastCoastBase": {
 		cleanup: "eastCoastFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "COAST_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"southGate": {
 		cleanup: "southGateBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "SOUTHGATE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalistCentralFactoryZone": {
 		cleanup: "royalistCentralFactoryBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "FACTORY_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"westGate": {
 		cleanup: "westGateBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "WESTGATE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalistMountainCheckpoint": {
 		cleanup: "royalistCheckpoint",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "CHECK_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalistHowitzerFOB": {
 		cleanup: "royalistHowitzerBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "HOWIT_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"southRoyalWhirlwindHill": {
 		cleanup: "southWhirlwindHill",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "WHIRL_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalistVtolBase": {
 		cleanup: "vtolBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "VTOL_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalistMainBaseGate": {
 		cleanup: "royalistMainBaseDefenses",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "MAINDEF_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalMainBase": {
 		cleanup: "royalistMainBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "MAIN_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royalistOuterGate": {
 		cleanup: "royalistOuterBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "OUTER_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"northLakeBase": {
 		cleanup: "northLakeFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "NORTHLAKE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"mountainLZBase": {
 		cleanup: "mountainLZ",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "MLZ_BASE",
 		detectSnd: "pcv382.ogg",
 		eliminateSnd: "pcv665.ogg"
@@ -329,91 +332,91 @@ var baseData = {
 	// These bases start off unbuilt
 	"royCoalitionRepBase": {
 		cleanup: "coalitionBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "COALITION_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royPlainsRepBase": {
 		cleanup: "sunkenPlainsFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "SPLAINS_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royDeltaRepBase": {
 		cleanup: "riverDeltaFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "RIVDELT_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royBridgeRepBase": {
 		cleanup: "coalitionBridgeFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "COBRIDGE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"roySWIsleRepBase": {
 		cleanup: "southIslandFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "SISLAND_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royPortRepBase": {
 		cleanup: "portFOB",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "PORT_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royAmphosRepBase": {
 		cleanup: "amphosBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "AMPHOS_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"royHellraiserRepBase": {
 		cleanup: "hellraiserBase",
-		player: ROYALISTS,
+		player: CAM_ROYALISTS,
 		detectMsg: "HELLRAISER_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"ampNWIsleRepBase": {
 		cleanup: "nwIslandFOB",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "NWISLAND_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"ampSouthGateLZ": {
 		cleanup: "coastLZ",
-		player: AMPHOS,
+		player: CAM_AMPHOS,
 		detectMsg: "SOUTHGATE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"coaWestGateLZ": {
 		cleanup: "westGateLZ",
-		player: THE_COALITION,
+		player: CAM_THE_COALITION,
 		detectMsg: "WESTGATE_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"resistanceSubBase": {
 		cleanup: "resSubBase",
-		player: THE_RESISTANCE,
+		player: CAM_THE_RESISTANCE,
 		detectMsg: "SUB_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
 	"resistanceRiverRepairBase": {
 		cleanup: "riverTownFOB",
-		player: THE_RESISTANCE,
+		player: CAM_THE_RESISTANCE,
 		detectMsg: "RIVTOWN_BASE",
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
@@ -1442,147 +1445,180 @@ function initializeGameInfo()
 	});
 
 	// Decide (starting) templates for all factories
+	let resFactoryTemplates;
+	let resHvyFactoryTemplates;
+	let resCybFactoryTemplates1;
+	let resCybFactoryTemplates2;
+
+	let ampPortTemplates;
+	let ampMainTemplates1;
+	let ampMainTemplates2;
+	let ampVtolTemplates;
+
+	let helFactoryTemplates;
+	let helCybTemplates1;
+	let helCybTemplates2;
+
+	let coaMainTemplates1;
+	let coaMainTemplates2;
+	let coaCybTemplates1;
+	let coaCybTemplates2;
+	let coaCybTemplates3;
+	let coaVtolTemplates;
+
+	let royCentralFactoryTemplates;
+	let royOuterFactoryTemplates;
+	let royHoverFactoryTemplates;
+	let royMainFactoryTemplates;
+	let roySouthCybTemplates;
+	let royHowitzerCybTemplates;
+	let royOuterCybTemplates;
+	let royMainCybTemplates;
+	let royVtolTemplates;
+
+	let resSubTemplates;
+	let resSubCybTemplates;
 	switch (difficulty)
 	{
 		case INSANE:
-			var resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodht, cTempl.relflamht, cTempl.relsar ];
-			var resHvyFactoryTemplates = [ cTempl.remlcan, cTempl.remmor, cTempl.relsar, cTempl.reltwmght, cTempl.relsensht ];
-			var resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybca ];
+			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodht, cTempl.relflamht, cTempl.relsar ];
+			resHvyFactoryTemplates = [ cTempl.remlcan, cTempl.remmor, cTempl.relsar, cTempl.reltwmght, cTempl.relsensht ];
+			resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybca ];
 
-			var ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod, cTempl.ammmra, cTempl.ammlan ];
-			var ampMainTemplates1 = [ cTempl.amhlan, cTempl.ammhmg, cTempl.ammlan, cTempl.amlpod ];
-			var ampMainTemplates2 = [ cTempl.ammlan, cTempl.ammmra, cTempl.ammpod ];
-			var ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
+			ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod, cTempl.ammmra, cTempl.ammlan ];
+			ampMainTemplates1 = [ cTempl.amhlan, cTempl.ammhmg, cTempl.ammlan, cTempl.amlpod ];
+			ampMainTemplates2 = [ cTempl.ammlan, cTempl.ammmra, cTempl.ammpod ];
+			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
-			var helFactoryTemplates = [ cTempl.hehinf, cTempl.hellrep, cTempl.helhmg, cTempl.hemflam, cTempl.hemlcan, cTempl.hehinf ];
-			var helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
-			var helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
+			helFactoryTemplates = [ cTempl.hehinf, cTempl.hellrep, cTempl.helhmg, cTempl.hemflam, cTempl.hemlcan, cTempl.hehinf ];
+			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
-			var coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.cohhcan, cTempl.comhmg, cTempl.comhrepht ];
-			var coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
-			var coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			var coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			var coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv, cTempl.colpbomv ];
+			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.cohhcan, cTempl.comhmg, cTempl.comhrepht ];
+			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
+			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv, cTempl.colpbomv ];
 
-			var royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
-			var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt/*, cTempl.rohbalt*/ ];
-			var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
-			var royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			var roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
-			var royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
-			var royOuterCybTemplates = [ cTempl.scytk, cTempl.cybag, cTempl.cybth, cTempl.scytk, cTempl.cybag, cTempl.cybth ];
-			var royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			var royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv, cTempl.romacanv ];
+			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
+			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt/*, cTempl.rohbalt*/ ];
+			royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
+			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
+			royOuterCybTemplates = [ cTempl.scytk, cTempl.cybag, cTempl.cybth, cTempl.scytk, cTempl.cybag, cTempl.cybth ];
+			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv, cTempl.romacanv ];
 
-			var resSubTemplates = [ cTempl.rehhcanht, cTempl.rehhmg, cTempl.rempod, cTempl.remsens, cTempl.rehhmor, cTempl.rehinf, cTempl.rehhcant ];
-			var resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
+			resSubTemplates = [ cTempl.rehhcanht, cTempl.rehhmg, cTempl.rempod, cTempl.remsens, cTempl.rehhmor, cTempl.rehinf, cTempl.rehhcant ];
+			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
 			break;
 		case HARD:
-			var resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodht, cTempl.relflamht ];
-			var resHvyFactoryTemplates = [ cTempl.remlcan, cTempl.relmor, cTempl.relsar, cTempl.reltwmght, cTempl.relsensht ];
-			var resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybca ];
+			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodht, cTempl.relflamht ];
+			resHvyFactoryTemplates = [ cTempl.remlcan, cTempl.relmor, cTempl.relsar, cTempl.reltwmght, cTempl.relsensht ];
+			resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybca ];
 
-			var ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod, cTempl.ammmra ];
-			var ampMainTemplates1 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar, cTempl.amlpod ];
-			var ampMainTemplates2 = [ cTempl.ammlan, cTempl.ammmra, cTempl.amlpod ];
-			var ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
+			ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod, cTempl.ammmra ];
+			ampMainTemplates1 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar, cTempl.amlpod ];
+			ampMainTemplates2 = [ cTempl.ammlan, cTempl.ammmra, cTempl.amlpod ];
+			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
-			var helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.helhmg, cTempl.helflam, cTempl.hemlcan, cTempl.hehinf ];
-			var helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
-			var helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
+			helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.helhmg, cTempl.helflam, cTempl.hemlcan, cTempl.hehinf ];
+			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
-			var coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
-			var coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
-			var coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			var coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			var coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
+			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
+			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
+			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
-			var royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft, cTempl.romhrept ];
-			var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
-			var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
-			var royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			var roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
-			var royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
-			var royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
-			var royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			var royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv ];
+			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft, cTempl.romhrept ];
+			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
+			royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
+			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
+			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
+			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv ];
 
-			var resSubTemplates = [ cTempl.rehmcanht, cTempl.remhmgt, cTempl.rempod, cTempl.remsens, cTempl.remhmor, cTempl.reminf, cTempl.rehhcant ];
-			var resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
+			resSubTemplates = [ cTempl.rehmcanht, cTempl.remhmgt, cTempl.rempod, cTempl.remsens, cTempl.remhmor, cTempl.reminf, cTempl.rehhcant ];
+			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
 			break;
 		case MEDIUM:
-			var resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodw, cTempl.relflamht ];
-			var resHvyFactoryTemplates = [ cTempl.remlcan, cTempl.relmor, cTempl.relsar, cTempl.reltwmght, cTempl.relsensw ];
-			var resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybmg, cTempl.cybca ];
+			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodw, cTempl.relflamht ];
+			resHvyFactoryTemplates = [ cTempl.remlcan, cTempl.relmor, cTempl.relsar, cTempl.reltwmght, cTempl.relsensw ];
+			resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybmg, cTempl.cybca ];
 
-			var ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod ];
-			var ampMainTemplates1 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar ];
-			var ampMainTemplates2 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod ];
-			var ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
+			ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod ];
+			ampMainTemplates1 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar ];
+			ampMainTemplates2 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod ];
+			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
-			var helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.heltwmg, cTempl.helflam, cTempl.hemlcan, cTempl.hehinf ];
-			var helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
-			var helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
+			helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.heltwmg, cTempl.helflam, cTempl.hemlcan, cTempl.hehinf ];
+			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
-			var coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
-			var coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan, cTempl.cohhow ];
-			var coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			var coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			var coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
+			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
+			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan, cTempl.cohhow ];
+			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
-			var royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft ];
-			var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.romagt, cTempl.rombbt ];
-			var royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
-			var royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			var roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
-			var royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
-			var royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
-			var royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			var royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv ];
+			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft ];
+			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.romagt, cTempl.rombbt ];
+			royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
+			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
+			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
+			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
+			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv ];
 
-			var resSubTemplates = [ cTempl.remmcan, cTempl.remhmgt, cTempl.rempod, cTempl.relsenst, cTempl.remmor, cTempl.remflam, cTempl.rehmcant ];
-			var resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg ];
+			resSubTemplates = [ cTempl.remmcan, cTempl.remhmgt, cTempl.rempod, cTempl.relsenst, cTempl.remmor, cTempl.remflam, cTempl.rehmcant ];
+			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg ];
 			break;
 		default:
-			var resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmgw, cTempl.relpodw, cTempl.relflamw ];
-			var resHvyFactoryTemplates = [ cTempl.rellcan, cTempl.relmor, cTempl.relpodw, cTempl.reltwmgw, cTempl.relsensw ];
-			var resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybmg, cTempl.cybca ];
+			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmgw, cTempl.relpodw, cTempl.relflamw ];
+			resHvyFactoryTemplates = [ cTempl.rellcan, cTempl.relmor, cTempl.relpodw, cTempl.reltwmgw, cTempl.relsensw ];
+			resCybFactoryTemplates1 = [ cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			resCybFactoryTemplates2 = [ cTempl.cybca, cTempl.cybmg, cTempl.cybca ];
 
-			var ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod ];
-			var ampMainTemplates1 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar ];
-			var ampMainTemplates2 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod ];
-			var ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
+			ampPortTemplates = [ cTempl.amlpod, cTempl.amlsar, cTempl.amlpod ];
+			ampMainTemplates1 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar ];
+			ampMainTemplates2 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod ];
+			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
-			var helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.heltwmg, cTempl.helflam, cTempl.hellcan ];
-			var helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
-			var helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
+			helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.heltwmg, cTempl.helflam, cTempl.hellcan ];
+			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
-			var coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg ];
-			var coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan ];
-			var coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			var coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			var coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
-			var coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
+			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg ];
+			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan ];
+			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
-			var royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra ];
-			var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.rolhmgt ];
-			var royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.rolhmgh, cTempl.rommrah ];
-			var royMainFactoryTemplates = [ cTempl.rollant, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmorht ];
-			var roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla ];
-			var royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
-			var royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
-			var royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			var royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv ];
+			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra ];
+			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.rolhmgt ];
+			royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.rolhmgh, cTempl.rommrah ];
+			royMainFactoryTemplates = [ cTempl.rollant, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmorht ];
+			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla ];
+			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
+			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
+			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv ];
 
-			var resSubTemplates = [ cTempl.remmcan, cTempl.remhmgt, cTempl.relpodht, cTempl.relsenst, cTempl.remmor, cTempl.remflam ];
-			var resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg ];
+			resSubTemplates = [ cTempl.remmcan, cTempl.remhmgt, cTempl.relpodht, cTempl.relsenst, cTempl.remmor, cTempl.remflam ];
+			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg ];
 			break;
 	}
 
@@ -2000,199 +2036,199 @@ function initializeGameInfo()
 	});
 
 	// Used to reassign factories if they have been rebuilt
-	var factoryPlacementData = [
+	const mis_factoryPlacementData = [
 		{
 			label: "resistanceFactory",
-			player: THE_RESISTANCE,
+			player: CAM_THE_RESISTANCE,
 			x: getObject("resistanceFactory").x,
 			y: getObject("resistanceFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "resistanceHeavyFactory",
-			player: THE_RESISTANCE,
+			player: CAM_THE_RESISTANCE,
 			x: getObject("resistanceHeavyFactory").x,
 			y: getObject("resistanceHeavyFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "resistanceCybFact1",
-			player: THE_RESISTANCE,
+			player: CAM_THE_RESISTANCE,
 			x: getObject("resistanceCybFact1").x,
 			y: getObject("resistanceCybFact1").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "resistanceCybFact2",
-			player: THE_RESISTANCE,
+			player: CAM_THE_RESISTANCE,
 			x: getObject("resistanceCybFact2").x,
 			y: getObject("resistanceCybFact2").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "amphosPortFactory",
-			player: AMPHOS,
+			player: CAM_AMPHOS,
 			x: getObject("amphosPortFactory").x,
 			y: getObject("amphosPortFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "amphosMainFactory1",
-			player: AMPHOS,
+			player: CAM_AMPHOS,
 			x: getObject("amphosMainFactory1").x,
 			y: getObject("amphosMainFactory1").y,
 			stattype: FACTORY
 		},
 		{
 			label: "amphosMainFactory2",
-			player: AMPHOS,
+			player: CAM_AMPHOS,
 			x: getObject("amphosMainFactory2").x,
 			y: getObject("amphosMainFactory2").y,
 			stattype: FACTORY
 		},
 		{
 			label: "amphosVtolFactory",
-			player: AMPHOS,
+			player: CAM_AMPHOS,
 			x: getObject("amphosVtolFactory").x,
 			y: getObject("amphosVtolFactory").y,
 			stattype: VTOL_FACTORY
 		},
 		{
 			label: "hellraiserFactory",
-			player: HELLRAISERS,
+			player: CAM_HELLRAISERS,
 			x: getObject("hellraiserFactory").x,
 			y: getObject("hellraiserFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "hellraiserCybFac1",
-			player: HELLRAISERS,
+			player: CAM_HELLRAISERS,
 			x: getObject("hellraiserCybFac1").x,
 			y: getObject("hellraiserCybFac1").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "hellraiserCybFac2",
-			player: HELLRAISERS,
+			player: CAM_HELLRAISERS,
 			x: getObject("hellraiserCybFac2").x,
 			y: getObject("hellraiserCybFac2").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "coalitionFactory1",
-			player: THE_COALITION,
+			player: CAM_THE_COALITION,
 			x: getObject("coalitionFactory1").x,
 			y: getObject("coalitionFactory1").y,
 			stattype: FACTORY
 		},
 		{
 			label: "coalitionFactory2",
-			player: THE_COALITION,
+			player: CAM_THE_COALITION,
 			x: getObject("coalitionFactory2").x,
 			y: getObject("coalitionFactory2").y,
 			stattype: FACTORY
 		},
 		{
 			label: "coalitionCybFactory1",
-			player: THE_COALITION,
+			player: CAM_THE_COALITION,
 			x: getObject("coalitionCybFactory1").x,
 			y: getObject("coalitionCybFactory1").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "coalitionCybFactory2",
-			player: THE_COALITION,
+			player: CAM_THE_COALITION,
 			x: getObject("coalitionCybFactory2").x,
 			y: getObject("coalitionCybFactory2").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "coalitionCybFactory3",
-			player: THE_COALITION,
+			player: CAM_THE_COALITION,
 			x: getObject("coalitionCybFactory3").x,
 			y: getObject("coalitionCybFactory3").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "coalitionVtolFactory",
-			player: THE_COALITION,
+			player: CAM_THE_COALITION,
 			x: getObject("coalitionVtolFactory").x,
 			y: getObject("coalitionVtolFactory").y,
 			stattype: VTOL_FACTORY
 		},
 		{
 			label: "royalistCentralFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistCentralFactory").x,
 			y: getObject("royalistCentralFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistOuterFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistOuterFactory").x,
 			y: getObject("royalistOuterFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistHoverFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistHoverFactory").x,
 			y: getObject("royalistHoverFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistMainFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistMainFactory").x,
 			y: getObject("royalistMainFactory").y,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistSouthCyborgFac",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistSouthCyborgFac").x,
 			y: getObject("royalistSouthCyborgFac").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "royalistHowitCyborgFac",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistHowitCyborgFac").x,
 			y: getObject("royalistHowitCyborgFac").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "royalistOuterCyborgFac",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistOuterCyborgFac").x,
 			y: getObject("royalistOuterCyborgFac").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "royalistMainCyborgFac",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistMainCyborgFac").x,
 			y: getObject("royalistMainCyborgFac").y,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "royalistOuterVtolFac",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistOuterVtolFac").x,
 			y: getObject("royalistOuterVtolFac").y,
 			stattype: VTOL_FACTORY
 		},
 		{
 			label: "royalistMainVtolFac1",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistMainVtolFac1").x,
 			y: getObject("royalistMainVtolFac1").y,
 			stattype: VTOL_FACTORY
 		},
 		{
 			label: "royalistMainVtolFac2",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: getObject("royalistMainVtolFac2").x,
 			y: getObject("royalistMainVtolFac2").y,
 			stattype: VTOL_FACTORY
@@ -2200,56 +2236,56 @@ function initializeGameInfo()
 		// These factories start off unbuilt
 		{
 			label: "resistanceSubFactory",
-			player: THE_RESISTANCE,
+			player: CAM_THE_RESISTANCE,
 			x: 20,
 			y: 70,
 			stattype: FACTORY
 		},
 		{
 			label: "resistanceSubCybFactory",
-			player: THE_RESISTANCE,
+			player: CAM_THE_RESISTANCE,
 			x: 25,
 			y: 70,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "royalistCoaRepFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: 5,
 			y: 49,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistCoaRepCybFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: 6,
 			y: 46,
 			stattype: CYBORG_FACTORY
 		},
 		{
 			label: "royalistAmpRepFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: 245,
 			y: 141,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistAmpRepVtolFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: 245,
 			y: 147,
 			stattype: VTOL_FACTORY
 		},
 		{
 			label: "royalistPortFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: 140,
 			y: 178,
 			stattype: FACTORY
 		},
 		{
 			label: "royalistHelRepCybFactory",
-			player: ROYALISTS,
+			player: CAM_ROYALISTS,
 			x: 22,
 			y: 135,
 			stattype: CYBORG_FACTORY
@@ -2433,8 +2469,8 @@ function initializeGameInfo()
 			allianceState: "NEUTRAL",
 			groundFactoryState: "DISABLED",
 			pitched: false,
-			totalStructs: enumStruct(HELLRAISERS).length, // Max number of Hellraiser structs
-			structThreshold: enumStruct(HELLRAISERS).length, // How many Hellraiser structs must exist to start negotiations
+			totalStructs: enumStruct(CAM_HELLRAISERS).length, // Max number of Hellraiser structs
+			structThreshold: enumStruct(CAM_HELLRAISERS).length, // How many Hellraiser structs must exist to start negotiations
 			lzDiscovered: false, // Whether there is a beacon on the Hellraiser's LZ
 			groups: {
 				playerSupportGroup: { // Assists the player in combat
@@ -2596,12 +2632,12 @@ function initializeGameInfo()
 			howitzerLzDiscovered: false,
 			coastLzDiscovered: false,
 			commanderSpotted: false, // Whether the player has spotted the Royalist heavy command tank
-			assaultTarget: THE_COALITION, // Player index of the assault's main target
+			assaultTarget: CAM_THE_COALITION, // Player index of the assault's main target
 			assaultMethod: "GROUND", // What type of units will be used? "GROUND" or "HOVER"
 			assaultComp: (difficulty < HARD) ? "MIXED" : "HEAVIES", // Decide the overall unit composition for the assault force.
 			assaultPhase: 0, // Used to more finely control the way the assault force moves towards it's target
 			assaultFull: false, // Whether the assault group was allowed to be filled completely
-			pResList: ROYALIST_PROGRESSIVE_RES1, // A list of upgrades slowly given to the Royalists over time
+			pResList: mis_royalistProgressiveRes1, // A list of upgrades slowly given to the Royalists over time
 			underAttack: false, // Whether the Royalist main base is under attack, causes alternate group management
 			attacked: false, // Whether the Royalist main base has been attacked before
 			fakeout: false, // Whether the Royalists are offering negotiations with the player
@@ -2954,11 +2990,11 @@ function initializeGameInfo()
 				coastLZ: false
 			}
 		},
-		coalitionVTOLTowers: enumStruct(THE_COALITION, "Sys-VTOL-RadarTower01").concat(enumStruct(THE_COALITION, "Sys-VTOL-CB-Tower01")),
-		royalistVTOLTowers: enumStruct(ROYALISTS, "Sys-CO-VTOL-RadarTower01").concat(enumStruct(ROYALISTS, "Sys-CO-VTOL-CB-Tower01")),
+		coalitionVTOLTowers: enumStruct(CAM_THE_COALITION, "Sys-VTOL-RadarTower01").concat(enumStruct(CAM_THE_COALITION, "Sys-VTOL-CB-Tower01")),
+		royalistVTOLTowers: enumStruct(CAM_ROYALISTS, "Sys-CO-VTOL-RadarTower01").concat(enumStruct(CAM_ROYALISTS, "Sys-CO-VTOL-CB-Tower01")),
 		coalitionVTOLTowerGroups: {}, // These hold the group IDs for VTOLs assigned to VTOL towers
 		royalistVTOLTowerGroups: {},
 		// This data is used to re-manage factories after being rebuilt
-		factoryLabelInfo: factoryPlacementData
+		factoryLabelInfo: mis_factoryPlacementData
 	}
 }

@@ -5,17 +5,17 @@
 function endCrashScene()
 {
 	// Spawn fire effects
-	for (var i = 1; i <= 8; i++)
+	for (let i = 1; i <= 8; i++)
 	{
-		var x = 125 + camRand(5);
-		var y = 216 + camRand(5);
-		fireWeaponAtLoc("FlameEffect", x, y, CAM_HUMAN_PLAYER);
+		const X_COORD = 125 + camRand(5);
+		const Y_COORD = 216 + camRand(5);
+		fireWeaponAtLoc("FlameEffect", X_COORD, Y_COORD, CAM_HUMAN_PLAYER);
 	}
 
 	// Grant and pre-damage the player's units and transport
-	var pos = camMakePos("startPosition");
-	var stuff = enumDroid(6).concat(enumStruct(6));
-	for (var i = 0; i < stuff.length; i++)
+	const pos = camMakePos("startPosition");
+	const stuff = enumDroid(6).concat(enumStruct(6));
+	for (let i = 0; i < stuff.length; i++)
 	{
 		donateObject(stuff[i], CAM_HUMAN_PLAYER);
 		setHealth(stuff[i], 60 + camRand(21)); // 60% to 80% HP
@@ -79,9 +79,9 @@ function rankCommanders()
 function gatherCommanderUnits()
 {
 	// Resistance commander
-	var group = gameState.resistance.groups.commanderGroup;
-	var droids = enumArea("resCommanderGroup", THE_RESISTANCE, false);
-	for (var i = 0; i < droids.length; i++)
+	let group = gameState.resistance.groups.commanderGroup;
+	let droids = enumArea("resCommanderGroup", CAM_THE_RESISTANCE, false);
+	for (let i = 0; i < droids.length; i++)
 	{
 		groupAdd(group.id, droids[i]);
 	}
@@ -95,8 +95,8 @@ function gatherCommanderUnits()
 
 	// Coalition commander
 	group = gameState.coalition.groups.commanderGroup;
-	droids = enumArea("coaCommanderGroup", THE_COALITION, false);
-	for (var i = 0; i < droids.length; i++)
+	droids = enumArea("coaCommanderGroup", CAM_THE_COALITION, false);
+	for (let i = 0; i < droids.length; i++)
 	{
 		groupAdd(group.id, droids[i]);
 	}
@@ -105,8 +105,8 @@ function gatherCommanderUnits()
 
 	// Royalist central commander
 	group = gameState.royalists.groundGroups.centralCommanderGroup;
-	droids = enumArea("royCentralCommGroup", ROYALISTS, false);
-	for (var i = 0; i < droids.length; i++)
+	droids = enumArea("royCentralCommGroup", CAM_ROYALISTS, false);
+	for (let i = 0; i < droids.length; i++)
 	{
 		groupAdd(group.id, droids[i]);
 	}
@@ -115,8 +115,8 @@ function gatherCommanderUnits()
 
 	// Royalist hover commander
 	group = gameState.royalists.hoverGroups.hoverCommanderGroup;
-	droids = enumArea("royHoverCommGroup", ROYALISTS, false);
-	for (var i = 0; i < droids.length; i++)
+	droids = enumArea("royHoverCommGroup", CAM_ROYALISTS, false);
+	for (let i = 0; i < droids.length; i++)
 	{
 		groupAdd(group.id, droids[i]);
 	}
@@ -209,10 +209,10 @@ function initializeMapGroups()
 	});
 
 	// Spawn in Royalist and Coalition transporters (and label them)
-	var pos1 = camMakePos("coaTransSpawn");
-	var pos2 = camMakePos("royTransSpawn");
-	addLabel(addDroid(THE_COALITION, pos1.x, pos1.y, _("Transport"), "TransporterBody", "V-Tol", "", "", "MG3-VTOL"), "coaTransport");
-	addLabel(addDroid(ROYALISTS, pos2.x, pos2.y, _("Transport"), "TransporterBody", "V-Tol", "", "", "MG4ROTARY-VTOL"), "royTransport");
+	const pos1 = camMakePos("coaTransSpawn");
+	const pos2 = camMakePos("royTransSpawn");
+	addLabel(addDroid(CAM_THE_COALITION, pos1.x, pos1.y, _("Transport"), "TransporterBody", "V-Tol", "", "", "MG3-VTOL"), "coaTransport");
+	addLabel(addDroid(CAM_ROYALISTS, pos2.x, pos2.y, _("Transport"), "TransporterBody", "V-Tol", "", "", "MG4ROTARY-VTOL"), "royTransport");
 
 	// Make a dummy group for the Resistance Python tank
 	addLabel({ type: GROUP, id: camMakeGroup(getObject("resPython")) }, "resPythonST", false);
@@ -289,12 +289,12 @@ camAreaEvent("resEncounter2Trigger", function(droid)
 // Quietly remove the encounter groups
 function removeEncounterGroups()
 {
-	var droids = [];
-	var r = gameState.resistance;
+	let droids = [];
+	const r = gameState.resistance;
 	droids = droids.concat(enumGroup(r.cyborgEncounterGroup),
 	 enumGroup(r.sensorEncounterGroup), enumGroup(r.secondEncounterGroup));
 
-	for (var i = droids.length - 1; i >= 0; i--)
+	for (let i = droids.length - 1; i >= 0; i--)
 	{
 		camSafeRemoveObject(droids[i], false);
 	}
@@ -305,7 +305,7 @@ function removeEncounterGroups()
 // Tell the resistance truck to run away if damaged
 function manageEncounterTruck()
 {
-	var truck = getObject("resEncounterTruck");
+	const truck = getObject("resEncounterTruck");
 
 	if (!camDef(truck) || truck === null)
 	{
@@ -315,7 +315,7 @@ function manageEncounterTruck()
 
 	if (truck.health <= 65)
 	{
-		var pos = camMakePos("resCyborgAssembly");
+		const pos = camMakePos("resCyborgAssembly");
 		orderDroidLoc(truck, DORDER_MOVE, pos.x, pos.y);
 	}
 }
@@ -352,21 +352,21 @@ function setupResistanceNegotiations()
 	gameState.resistance.allianceState = "OFFER";
 
 	// Move the truck to the negotiation zone 
-	var oliveTruck = getObject("resOliveTruck");
-	var pos = camMakePos("resOliveZone");
+	const oliveTruck = getObject("resOliveTruck");
+	const pos = camMakePos("resOliveZone");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 }
 
 camAreaEvent("resOliveZone", function(droid)
 {
 	// Only trigger if the player moves a droid in while the Resistance is offering an alliance
-	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === THE_RESISTANCE) && gameState.resistance.allianceState === "OFFER")
+	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === CAM_THE_RESISTANCE) && gameState.resistance.allianceState === "OFFER")
 	{
 		// Find all the player's droids in this area
-		var droids = enumArea("resOliveZone", CAM_HUMAN_PLAYER, false);
-		var resAtTable = (enumArea("resOliveZone", THE_RESISTANCE, false).length >= 1);
+		const droids = enumArea("resOliveZone", CAM_HUMAN_PLAYER, false);
+		const RESISTANCE_AT_TABLE = (enumArea("resOliveZone", CAM_THE_RESISTANCE, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Resistance has arrived in the zone
-		if (onlyTrucks(droids) && resAtTable)
+		if (onlyTrucks(droids) && RESISTANCE_AT_TABLE)
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -400,7 +400,7 @@ function allyResistance()
 
 	console("The Resistance has allied with you!");
 	gameState.resistance.allianceState = "ALLIED"; // Besties :)
-	setAlliance(CAM_HUMAN_PLAYER, THE_RESISTANCE, true);
+	setAlliance(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE, true);
 	playSound("pcv477.ogg"); // "Alliance accepted!"
 	achievementMessage("BFFs", "Form an alliance with the Resistance");
 
@@ -411,16 +411,16 @@ function allyResistance()
 	hackRemoveMessage("RES_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
 
 	// Move the olive truck back to base
-	var oliveTruck = getObject("resOliveTruck");
-	var pos = camMakePos("resCyborgAssembly");
+	const oliveTruck = getObject("resOliveTruck");
+	const pos = camMakePos("resCyborgAssembly");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 	queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 
 	// Give the Resistance a truck to manage their base
-	camManageTrucks(THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckw, camSecondsToMilliseconds(60));
+	camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckw, camSecondsToMilliseconds(60));
 
 	// Set up a truck to eventually build a base by the river
-	camManageTrucks(THE_RESISTANCE, "resistanceRiverRepairBase", structSets.resistanceRiverTownRepairStructs, cTempl.remtruck, camSecondsToMilliseconds(60));
+	camManageTrucks(CAM_THE_RESISTANCE, "resistanceRiverRepairBase", structSets.resistanceRiverTownRepairStructs, cTempl.remtruck, camSecondsToMilliseconds(60));
 
 	// Give the Resistance commander a rank depending on the difficulty
 	if (difficulty <= HARD) camSetDroidRank(getObject("resCommander"), "Trained");
@@ -430,10 +430,10 @@ function allyResistance()
 	setPower(playerPower(CAM_HUMAN_PLAYER) + camChangeOnDiff(2000), CAM_HUMAN_PLAYER);
 
 	// Donate the two outer oil derricks to the player (if the player hasn't already taken them)
-	var giftStructs = enumArea("resGiftZone", THE_RESISTANCE, false);
+	const giftStructs = enumArea("resGiftZone", CAM_THE_RESISTANCE, false);
 	if (giftStructs.length > 0)
 	{
-		for (var i = 0; i < giftStructs.length; i++)
+		for (let i = 0; i < giftStructs.length; i++)
 		{
 			if (giftStructs[i].type === STRUCTURE)
 			{
@@ -468,11 +468,11 @@ function allyResistance()
 	camRemoveArtifact("resSarissa");
 
 	// Share research with Resistance
-	camCompleteRes(camGetResearchLog(), THE_RESISTANCE);
+	camCompleteRes(camGetResearchLog(), CAM_THE_RESISTANCE);
 
 	// Quietly remove Python tank and Sarissa bunkers
 	camSafeRemoveObject(getObject("resPython"));
-	camUpgradeOnMapStructures("PillBox6", "PillBox4", THE_RESISTANCE);
+	camUpgradeOnMapStructures("PillBox6", "PillBox4", CAM_THE_RESISTANCE);
 
 	// Get all Resistance groups up to snuff
 	updateAllyTemplates();
@@ -499,22 +499,22 @@ function aggroResistance()
 	missionMessage("RESAGGRMSG", "TRANS");
 
 	gameState.resistance.allianceState = "HOSTILE"; // very angry >:(
-	queueStartProduction(THE_RESISTANCE, "GROUND"); // Rev up those factories
+	queueStartProduction(CAM_THE_RESISTANCE, "GROUND"); // Rev up those factories
 
 	hackRemoveMessage("RES_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
 
 	// Get a truck for the Resistance to defend their base
 	if (difficulty <= MEDIUM) // Resistance gets wheeled truck on difficulties below Hard
 	{
-		camManageTrucks(THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckw, camSecondsToMilliseconds(90));
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckw, camSecondsToMilliseconds(90));
 	}
 	else
 	{
-		camManageTrucks(THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckht, camSecondsToMilliseconds(90));
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckht, camSecondsToMilliseconds(90));
 	}
 	if (difficulty === INSANE) // They also get a bonus Engineer on Insane
 	{
-		camManageTrucks(THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.cyben, camSecondsToMilliseconds(60));
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.cyben, camSecondsToMilliseconds(60));
 	}
 
 	// Give the Resistance commander a rank depending on the difficulty
@@ -523,19 +523,19 @@ function aggroResistance()
 	if (difficulty <= EASY)
 	{
 		camSafeRemoveObject(getObject("resCommander"));
-		var group = gameState.resistance.groups.commanderGroup;
+		const group = gameState.resistance.groups.commanderGroup;
 		if (difficulty === EASY) 
 		{
 			// Replace it with a Viper commander
-			var pos = camMakePos("resCommanderGroup");
-			addLabel(addDroid(THE_RESISTANCE, pos.x, pos.y, _("Command Turret Viper Half-tracks"), "Body1REC", "HalfTrack", "", "", "CommandBrain01"), "resCommander");
+			const pos = camMakePos("resCommanderGroup");
+			addLabel(addDroid(CAM_THE_RESISTANCE, pos.x, pos.y, _("Command Turret Viper Half-tracks"), "Body1REC", "HalfTrack", "", "", "CommandBrain01"), "resCommander");
 			camManageGroup(group.id, group.order, group.data); // Set the group order
 		}
 		else if (difficulty === SUPEREASY)
 		{
 			// Remove the commander's units
-			var droids = enumGroup(group.id);
-			for (var i = 0; i < droids.length; i++)
+			const droids = enumGroup(group.id);
+			for (let i = 0; i < droids.length; i++)
 			{
 				camSafeRemoveObject(droids[i]);
 			}
@@ -543,21 +543,21 @@ function aggroResistance()
 	}
 	
 
-	var oliveTruck = getObject("resOliveTruck");
+	const oliveTruck = getObject("resOliveTruck");
 	if (oliveTruck !== null)
 	{
 		// Olive truck is (somehow) still alive. Tell it to retreat to base.
-		var pos = camMakePos("resCyborgAssembly");
+		const pos = camMakePos("resCyborgAssembly");
 		orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 		queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 	}
 
 	// Form a sneaky alliance between the Resistance and Coalition/Hellraisers
-	setAlliance(THE_RESISTANCE, THE_COALITION, true);
-	setAlliance(THE_RESISTANCE, HELLRAISERS, true);
+	setAlliance(CAM_THE_RESISTANCE, CAM_THE_COALITION, true);
+	setAlliance(CAM_THE_RESISTANCE, CAM_HELLRAISERS, true);
 	// And place a Coalition transport at the Resistance LZ
-	var pos = camMakePos("resTransSpawn");
-	addLabel(addDroid(THE_COALITION, pos.x, pos.y, _("Transport"), "TransporterBody", "V-Tol", "", "", "MG3-VTOL"), "coaResTransport");
+	const pos = camMakePos("resTransSpawn");
+	addLabel(addDroid(CAM_THE_COALITION, pos.x, pos.y, _("Transport"), "TransporterBody", "V-Tol", "", "", "MG3-VTOL"), "coaResTransport");
 	// Set a dummy group so we check if the player has spotted the transport
 	addLabel({ type: GROUP, id: camMakeGroup(getObject("coaResTransport")) }, "coaResTransportST", false);
 	resetLabel("coaResTransportST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen
@@ -616,21 +616,21 @@ function resCommanderAttack()
 // Called when the player spots the transport
 function coalitionEvac()
 {
-	var evacPos = camMakePos("coaTransSpawn");
+	const evacPos = camMakePos("coaTransSpawn");
 	orderDroidLoc(getObject("coaResTransport"), DORDER_MOVE, evacPos.x, evacPos.y);
 	queue("removeCoaResTransport", camSecondsToMilliseconds(6));
 
 	if (difficulty >= HARD)
 	{
 		// On Hard+, the transport also drops some Coalition units to fight the player
-		var droidList = [];
-		var dropPos = camMakePos("resTransSpawn");
-		var spawnList = [cTempl.cybmg, cTempl.cybmg, cTempl.cybmg, cTempl.cybmg];
+		const droidList = [];
+		const dropPos = camMakePos("resTransSpawn");
+		const spawnList = [cTempl.cybmg, cTempl.cybmg, cTempl.cybmg, cTempl.cybmg];
 		if (difficulty === INSANE) spawnList.push(cTempl.cybgr, cTempl.cybgr, cTempl.commcan);
 
-		for (var template of spawnList)
+		for (const template of spawnList)
 		{
-			droidList.push(addDroid(THE_COALITION, dropPos.x, dropPos.y, camNameTemplate(template), template.body, template.prop, "", "", template.weap));
+			droidList.push(addDroid(CAM_THE_COALITION, dropPos.x, dropPos.y, camNameTemplate(template), template.body, template.prop, "", "", template.weap));
 		}
 
 		camManageGroup(camMakeGroup(droidList), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
@@ -659,29 +659,29 @@ function expandMap()
 
 	gameState.phase = 1;
 	queue("enableSouthCybFactory", camChangeOnDiff(camMinutesToMilliseconds(10)));
-	queueStartProduction(HELLRAISERS, "GROUND");
-	camCompleteRequiredResearch(COALITION_EXPANSION_RES, THE_COALITION);
+	queueStartProduction(CAM_HELLRAISERS, "GROUND");
+	camCompleteRequiredResearch(mis_coalitionExpansionRes, CAM_THE_COALITION);
 
 	if (gameState.resistance.allianceState === "ERADICATED")
 	{
 		// If the resistance was eradicated by the player, set them up with a small base next to the Coalition's
-		var pos = camMakePos("resSubBase");
-		var truckDroid = addDroid(THE_RESISTANCE, pos.x, pos.y, _("Truck Cobra Half-tracks"), "Body5REC", "HalfTrack", "", "", "Spade1Mk1");
-		camManageTrucks(THE_RESISTANCE, "resistanceSubBase", structSets.resistanceCoalitionSubBaseStructs.concat(structSets.resistanceSecondCommandCenter),
+		const pos = camMakePos("resSubBase");
+		const truckDroid = addDroid(CAM_THE_RESISTANCE, pos.x, pos.y, _("Truck Cobra Half-tracks"), "Body5REC", "HalfTrack", "", "", "Spade1Mk1");
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceSubBase", structSets.resistanceCoalitionSubBaseStructs.concat(structSets.resistanceSecondCommandCenter),
 		 cTempl.remtruck, camChangeOnDiff(camSecondsToMilliseconds(60)), truckDroid);
 		// Give them Coalition upgrades too
-		camCompleteRequiredResearch(COALITION_START_RES, THE_RESISTANCE);
-		camCompleteRequiredResearch(COALITION_EXPANSION_RES, THE_RESISTANCE);
+		camCompleteRequiredResearch(mis_coalitionStartRes, CAM_THE_RESISTANCE);
+		camCompleteRequiredResearch(mis_coalitionExpansionRes, CAM_THE_RESISTANCE);
 
 		// Edit Resistance truck data
 		if (difficulty >= HARD)
 		{
-			camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-MortarPit02");
-			camTruckObsoleteStructure(THE_RESISTANCE, "PillBox5", "Tower-Projector");
+			camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-MortarPit02");
+			camTruckObsoleteStructure(CAM_THE_RESISTANCE, "PillBox5", "Tower-Projector");
 		}
 		if (difficulty === INSANE)
 		{
-			camTruckObsoleteStructure(THE_RESISTANCE, "WallTower03", "WallTower04");
+			camTruckObsoleteStructure(CAM_THE_RESISTANCE, "WallTower03", "WallTower04");
 		}
 
 		// Swap the artifact in the Royalist Cyborg Factory 
@@ -691,9 +691,9 @@ function expandMap()
 	}
 
 	// Ready the Royalist's Heavy commander
-	var group = gameState.royalists.groundGroups.heavyCommanderGroup;
-	var droids = enumArea("royHeavyCommGroup", ROYALISTS, false);
-	for (var i = 0; i < droids.length; i++)
+	const group = gameState.royalists.groundGroups.heavyCommanderGroup;
+	const droids = enumArea("royHeavyCommGroup", CAM_ROYALISTS, false);
+	for (let i = 0; i < droids.length; i++)
 	{
 		groupAdd(group.id, droids[i]);
 	}
@@ -777,7 +777,7 @@ function enableSouthCybFactory()
 function camEnemyBaseEliminated_southBase()
 {
 	// Introduction message from the Royalists
-	if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+	if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		missionMessage("ROYAMSG", "TRANS");
 	}
@@ -792,31 +792,31 @@ function camEnemyBaseEliminated_southBase()
 function camEnemyBaseDetected_portBase()
 {
 	// Message introducing AMPHOS
-	if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+	if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		missionMessage("RESAMPMSG", "INTEL");
 	}
 
-	queueStartProduction(AMPHOS, "GROUND");
+	queueStartProduction(CAM_AMPHOS, "GROUND");
 	camEnableFactory("amphosPortFactory");
 
 	// Set up AMPHOS trucks
-	camManageTrucks(AMPHOS, "southIslandBase", structSets.amphosSWIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(AMPHOS, "westIslandBase", structSets.amphosWIsleStructs.concat(structSets.amphosBunkerIsleStructs), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(AMPHOS, "northIslandBase", structSets.amphosNIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
+	camManageTrucks(CAM_AMPHOS, "southIslandBase", structSets.amphosSWIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "westIslandBase", structSets.amphosWIsleStructs.concat(structSets.amphosBunkerIsleStructs), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "northIslandBase", structSets.amphosNIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
 
 	// If on Normal, have Sarissa bunkers replaced with Lancer ones when destroyed
 	// If on Hard+, demolish Sarissa bunkers and replace with Lancers ones
 	if (difficulty === MEDIUM)
 	{
-		camTruckObsoleteStructure(AMPHOS, "PillBox6", "PillBoxLance", true); // Don't demolish
+		camTruckObsoleteStructure(CAM_AMPHOS, "PillBox6", "PillBoxLance", true); // Don't demolish
 	}
 	else if (difficulty >= HARD)
 	{
-		camTruckObsoleteStructure(AMPHOS, "PillBox6", "PillBoxLance"); // Do demolish
+		camTruckObsoleteStructure(CAM_AMPHOS, "PillBox6", "PillBoxLance"); // Do demolish
 	}
 }
 
@@ -856,11 +856,11 @@ function camEnemyBaseDetected_amphosMainBase()
 function ampPitch()
 {
 	// AMPHOS pitch message
-	if (!allianceExistsBetween(ROYALISTS, AMPHOS))
+	if (!allianceExistsBetween(CAM_ROYALISTS, CAM_AMPHOS))
 	{
 		missionMessage("AMPBEGMSG", "TRANS");
 	}
-	else if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+	else if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		missionMessage("RESAMPPITCHMSG", "TRANS");
 	}
@@ -933,32 +933,32 @@ function setupAmphosNegotiations()
 	gameState.amphos.allianceState = "OFFER";
 
 	// Move the truck to the negotiation zone 
-	var oliveTruck = getObject("ampOliveTruck");
-	var pos = camMakePos("ampOliveZone");
+	const oliveTruck = getObject("ampOliveTruck");
+	const pos = camMakePos("ampOliveZone");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_RESISTANCE, AMPHOS, true);
+		setAlliance(CAM_THE_RESISTANCE, CAM_AMPHOS, true);
 	}
 	if (gameState.hellraisers.allianceState === "ALLIED")
 	{
-		setAlliance(HELLRAISERS, AMPHOS, true);
+		setAlliance(CAM_HELLRAISERS, CAM_AMPHOS, true);
 	}
 	if (gameState.coalition.allianceState === "ALLIED")
 	{
-		setAlliance(THE_COALITION, AMPHOS, true);
+		setAlliance(CAM_THE_COALITION, CAM_AMPHOS, true);
 	}
 
 	// Recall patrol groups that operate around the olive zone
 	// (We wouldn't want them interrupting negotiations, would we?)
-	var groupInfo = gameState.amphos.groups.southPatrolGroup;
+	const groupInfo = gameState.amphos.groups.southPatrolGroup;
 	groupInfo.order = CAM_ORDER_DEFEND;
 	groupInfo.data = {
 		pos: camMakePos("eastPos1"),
 		repair: 75
 	};
 	manageGroupBySize(groupInfo, false);
-	var commander = getObject("ampCommander");
+	const commander = getObject("ampCommander");
 	if (commander !== null)
 	{
 		camManageGroup(commander.group, CAM_ORDER_DEFEND, {
@@ -971,13 +971,13 @@ function setupAmphosNegotiations()
 camAreaEvent("ampOliveZone", function(droid)
 {
 	// Only trigger if the player moves a droid in while AMPHOS is offering an alliance
-	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === AMPHOS) && gameState.amphos.allianceState === "OFFER")
+	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === CAM_AMPHOS) && gameState.amphos.allianceState === "OFFER")
 	{
 		// Find all the player's droids in this area
-		var droids = enumArea("ampOliveZone", CAM_HUMAN_PLAYER, false);
-		var ampAtTable = (enumArea("ampOliveZone", AMPHOS, false).length >= 1);
+		const droids = enumArea("ampOliveZone", CAM_HUMAN_PLAYER, false);
+		const AMPHOS_AT_TABLE = (enumArea("ampOliveZone", CAM_AMPHOS, false).length >= 1);
 		// Make sure trucks are the only things inside, and AMPHOS has arrived in the zone
-		if (onlyTrucks(droids) && ampAtTable) 
+		if (onlyTrucks(droids) && AMPHOS_AT_TABLE) 
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -1010,8 +1010,8 @@ function allyAmphos()
 	console("AMPHOS has broken their alliance with the Royalists!");
 	gameState.amphos.allianceState = "ALLIED";
 	playSound("pcv477.ogg"); // "Alliance accepted!"
-	setAlliance(CAM_HUMAN_PLAYER, AMPHOS, true);
-	setAlliance(ROYALISTS, AMPHOS, false);
+	setAlliance(CAM_HUMAN_PLAYER, CAM_AMPHOS, true);
+	setAlliance(CAM_ROYALISTS, CAM_AMPHOS, false);
 	// if (!gameState.amphos.requireNW)
 	// {
 	// 	// achievementMessage("Last-Minute Friendship", "Form an alliance with AMPHOS in their time of need");
@@ -1028,16 +1028,16 @@ function allyAmphos()
 	hackRemoveMessage("AMP_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
 
 	// Move the olive truck back to base
-	var oliveTruck = getObject("ampOliveTruck");
-	var pos = camMakePos("ampVTOLAssembly");
+	const oliveTruck = getObject("ampOliveTruck");
+	const pos = camMakePos("ampVTOLAssembly");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 	queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 
 	// Give AMPHOS another truck
-	camManageTrucks(AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 
 	// Donate the southeast oil derrick to the player (if the player hasn't already taken it)
-	var giftDerrick = getObject("ampGiftDerrick");
+	const giftDerrick = getObject("ampGiftDerrick");
 	if (camDef(giftDerrick) && giftDerrick !== null)
 	{
 		donateObject(giftDerrick, CAM_HUMAN_PLAYER);
@@ -1047,7 +1047,7 @@ function allyAmphos()
 	if (gameState.amphos.requireNW) 
 	{
 		// Fine the player depending on how much AMPHOS stuff they destroyed
-		var powerFine = 4000; // Max amount of power to fine the player
+		let powerFine = 4000; // Max amount of power to fine the player
 		if (gameState.resistance.allianceState === "ALLIED")
 		{
 			// Resistance will talk down their prices
@@ -1092,7 +1092,7 @@ function allyAmphos()
 		enableResearch("R-Vehicle-Prop-VTOL", CAM_HUMAN_PLAYER); // VTOL Propulsion
 		camRemoveArtifact("coalitionVtolFactory");
 		camRemoveArtifact("royalistOuterVtolFac");
-		camManageTrucks(AMPHOS, "ampSouthGateLZ", structSets.amphosSouthGateLZStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
+		camManageTrucks(CAM_AMPHOS, "ampSouthGateLZ", structSets.amphosSouthGateLZStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
 		achievementMessage("Master Negotiator", "Form an alliance with all factions");
 	}
 	playSound("pcv485.ogg"); // "Technology transferred"
@@ -1112,15 +1112,15 @@ function allyAmphos()
 	camRemoveArtifact("ampHQ");
 
 	// Share research with AMPHOS
-	camCompleteRes(camGetResearchLog(), AMPHOS);
+	camCompleteRes(camGetResearchLog(), CAM_AMPHOS);
 
 	// Get all AMPHOS groups up to snuff
 	updateAllyTemplates();
 	checkAmphosGroups();
-	queueStartProduction(AMPHOS, "VTOL");
+	queueStartProduction(CAM_AMPHOS, "VTOL");
 
 	// Get AMPHOS patrol groups back to whatever they were doing
-	var groupInfo = gameState.amphos.groups.southPatrolGroup;
+	const groupInfo = gameState.amphos.groups.southPatrolGroup;
 	groupInfo.order = CAM_ORDER_PATROL;
 	groupInfo.data = {
 		pos: [
@@ -1132,7 +1132,7 @@ function allyAmphos()
 		repair: 75
 	};
 	manageGroupBySize(groupInfo, false);
-	var commander = getObject("ampCommander");
+	const commander = getObject("ampCommander");
 	if (commander !== null)
 	{
 		camManageGroup(commander.group, CAM_ORDER_PATROL, {
@@ -1194,7 +1194,7 @@ function aggroAmphos()
 		missionMessage("AMPBTRYMSG", "TRANS");
 
 		// Get AMPHOS patrol groups back to whatever they were doing
-		var groupInfo = gameState.amphos.groups.southPatrolGroup;
+		const groupInfo = gameState.amphos.groups.southPatrolGroup;
 		groupInfo.order = CAM_ORDER_PATROL;
 		groupInfo.data = {
 			pos: [
@@ -1206,7 +1206,7 @@ function aggroAmphos()
 			repair: 75
 		};
 		manageGroupBySize(groupInfo, false);
-		var commander = getObject("ampCommander");
+		const commander = getObject("ampCommander");
 		if (commander !== null)
 		{
 			camManageGroup(commander.group, CAM_ORDER_PATROL, {
@@ -1231,51 +1231,51 @@ function aggroAmphos()
 	}
 
 	gameState.amphos.allianceState = "HOSTILE";
-	queueStartProduction(AMPHOS, "GROUND");
-	queueStartProduction(AMPHOS, "VTOL");
+	queueStartProduction(CAM_AMPHOS, "GROUND");
+	queueStartProduction(CAM_AMPHOS, "VTOL");
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_RESISTANCE, AMPHOS, false);
+		setAlliance(CAM_THE_RESISTANCE, CAM_AMPHOS, false);
 	}
 	if (gameState.hellraisers.allianceState === "ALLIED")
 	{
-		setAlliance(HELLRAISERS, AMPHOS, false);
+		setAlliance(CAM_HELLRAISERS, CAM_AMPHOS, false);
 	}
 	if (gameState.coalition.allianceState === "ALLIED")
 	{
-		setAlliance(THE_COALITION, AMPHOS, false);
+		setAlliance(CAM_THE_COALITION, CAM_AMPHOS, false);
 	}
 
 	// Get an extra truck for the AMPHOS main base
 	if (difficulty <= MEDIUM) 
 	{
-		camManageTrucks(AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+		camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	}
 	else // AMPHOS gets a Python truck on Hard and above
 	{
-		camManageTrucks(AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+		camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	}
 	if (difficulty === INSANE) // And another extra truck on Insane
 	{
-		camManageTrucks(AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+		camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	}
 
-	var oliveTruck = getObject("ampOliveTruck");
+	const oliveTruck = getObject("ampOliveTruck");
 	if (oliveTruck !== null)
 	{
 		// Tell the olive truck to retreat to base.
-		var pos = camMakePos("ampVTOLAssembly");
+		const pos = camMakePos("ampVTOLAssembly");
 		orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 		queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 	}
 
 	// Update the templates in AMPHOS factories
-	var ampMainTemplates1 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod, cTempl.ammsens ];
+	let ampMainTemplates1 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod, cTempl.ammsens ];
 	if (difficulty >= MEDIUM) ampMainTemplates1.push(cTempl.amhrip);
 	if (difficulty >= HARD) ampMainTemplates1 = camArrayReplaceWith(ampMainTemplates1, cTempl.amlpod, cTempl.ammpod);
 	if (difficulty === INSANE) ampMainTemplates1.push(cTempl.amhtk);
-	var ampMainTemplates2 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar ];
+	let ampMainTemplates2 = [ cTempl.ammlan, cTempl.ammhmg, cTempl.amlsar ];
 	if (difficulty >= MEDIUM) ampMainTemplates2.push(cTempl.ammbb);
 	if (difficulty >= HARD) ampMainTemplates2 = camArrayReplaceWith(ampMainTemplates2, cTempl.amlsar, cTempl.amhlan);
 	if (difficulty >= HARD) ampMainTemplates2 = camArrayReplaceWith(ampMainTemplates2, cTempl.ammbb, cTempl.amhbb);
@@ -1331,28 +1331,28 @@ function helPitch()
 	gameState.resistance.groups.playerSupportGroup.maxSize += 4;
 
 	// Give the Hellraisers some trucks to start rebuilding structures
-	camManageTrucks(HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hemtruckt, camChangeOnDiff(camSecondsToMilliseconds(150)));
+	camManageTrucks(CAM_HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hemtruckt, camChangeOnDiff(camSecondsToMilliseconds(150)));
 	if (difficulty <= HARD)
 	{
-		camManageTrucks(HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hemtruckht, camChangeOnDiff(camSecondsToMilliseconds(150)));
+		camManageTrucks(CAM_HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hemtruckht, camChangeOnDiff(camSecondsToMilliseconds(150)));
 	}
 	else // Mantis Tracks on Insane
 	{
-		camManageTrucks(HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hehtruckt, camChangeOnDiff(camSecondsToMilliseconds(150)));
+		camManageTrucks(CAM_HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.hehtruckt, camChangeOnDiff(camSecondsToMilliseconds(150)));
 	}
 
 	if (difficulty === INSANE)
 	{
-		camTruckObsoleteStructure(HELLRAISERS, "GuardTower2", "GuardTower1");
-		camTruckObsoleteStructure(HELLRAISERS, "PillBox2", "PillBox1");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "GuardTower2", "GuardTower1");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "PillBox2", "PillBox1");
 	}
 
 	// Calculate how many structs need to be rebuilt before negotiations may begin
 	// This number will either be the total amount of Hellraiser structures, or the
 	// current number of structures + 20, depending on which is lower
-	if (enumStruct(HELLRAISERS).length + 20 < gameState.hellraisers.totalStructs)
+	if (enumStruct(CAM_HELLRAISERS).length + 20 < gameState.hellraisers.totalStructs)
 	{
-		gameState.hellraisers.structThreshold = enumStruct(HELLRAISERS).length + 20;
+		gameState.hellraisers.structThreshold = enumStruct(CAM_HELLRAISERS).length + 20;
 	}
 	// By default, structThreshold equals the original amount of structures
 }
@@ -1369,30 +1369,30 @@ function setupHellraiserNegotiations()
 	gameState.hellraisers.allianceState = "OFFER";
 
 	// Move the truck to the negotiation zone 
-	var oliveTruck = getObject("helOliveTruck");
-	var pos = camMakePos("helOliveZone");
+	const oliveTruck = getObject("helOliveTruck");
+	const pos = camMakePos("helOliveZone");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_RESISTANCE, HELLRAISERS, true);
+		setAlliance(CAM_THE_RESISTANCE, CAM_HELLRAISERS, true);
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		setAlliance(AMPHOS, HELLRAISERS, true);
+		setAlliance(CAM_AMPHOS, CAM_HELLRAISERS, true);
 	}
 }
 
 camAreaEvent("helOliveZone", function(droid)
 {
 	// Only trigger if the player moves a droid in while the Hellraisers are offering an alliance
-	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === HELLRAISERS) && gameState.hellraisers.allianceState === "OFFER")
+	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === CAM_HELLRAISERS) && gameState.hellraisers.allianceState === "OFFER")
 	{
 		// Find all the player's droids in this area
-		var droids = enumArea("helOliveZone", CAM_HUMAN_PLAYER, false);
-		var helAtTable = (enumArea("helOliveZone", HELLRAISERS, false).length >= 1);
+		const droids = enumArea("helOliveZone", CAM_HUMAN_PLAYER, false);
+		const HELLRAISERS_AT_TABLE = (enumArea("helOliveZone", CAM_HELLRAISERS, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Hellraisers have arrived in the zone
-		if (onlyTrucks(droids) && helAtTable) 
+		if (onlyTrucks(droids) && HELLRAISERS_AT_TABLE) 
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -1462,14 +1462,14 @@ function allyHellraisers()
 	console("The Hellraisers have allied with you!");
 	gameState.hellraisers.allianceState = "ALLIED";
 	playSound("pcv477.ogg"); // "Alliance accepted!"
-	setAlliance(CAM_HUMAN_PLAYER, HELLRAISERS, true);
+	setAlliance(CAM_HUMAN_PLAYER, CAM_HELLRAISERS, true);
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_RESISTANCE, HELLRAISERS, true);
+		setAlliance(CAM_THE_RESISTANCE, CAM_HELLRAISERS, true);
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		setAlliance(AMPHOS, HELLRAISERS, true);
+		setAlliance(CAM_AMPHOS, CAM_HELLRAISERS, true);
 	}
 	achievementMessage("Firestarter", "Ally with the Hellraisers");
 
@@ -1478,13 +1478,13 @@ function allyHellraisers()
 	hackRemoveMessage("HEL_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
 
 	// Move the olive truck back to base
-	var oliveTruck = getObject("helOliveTruck");
-	var pos = camMakePos("helCyborgAssembly1");
+	const oliveTruck = getObject("helOliveTruck");
+	const pos = camMakePos("helCyborgAssembly1");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 	queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 
 	// Give the Hellraisers an extra Engineer
-	camManageTrucks(HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.cyben, camSecondsToMilliseconds(60));
+	camManageTrucks(CAM_HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.cyben, camSecondsToMilliseconds(60));
 
 	// Upgrade Hellraiser structures if the player has already researched better tech
 	updateAlliedStructs();
@@ -1506,17 +1506,16 @@ function allyHellraisers()
 	camRemoveArtifact("helResearch2");
 
 	// Remove oil drums from the Hellraiser base
-	var drums = enumArea("hellraiserBase", ALL_PLAYERS, false).filter(function(obj)
-	{
-		return (obj.type === FEATURE && obj.stattype === OIL_DRUM);
-	});
-	for (var i = drums.length - 1; i >= 0; i--)
+	const drums = enumArea("hellraiserBase", ALL_PLAYERS, false).filter((obj) => (
+		obj.type === FEATURE && obj.stattype === OIL_DRUM
+	));
+	for (let i = drums.length - 1; i >= 0; i--)
 	{
 		camSafeRemoveObject(drums[i]);
 	}
 
 	// Share research with the Hellraisers
-	camCompleteRes(camGetResearchLog(), HELLRAISERS);
+	camCompleteRes(camGetResearchLog(), CAM_HELLRAISERS);
 
 	// Get all Hellraiser groups up to snuff
 	updateAllyTemplates();
@@ -1547,31 +1546,31 @@ function aggroHellraisers()
 	}
 
 	gameState.hellraisers.allianceState = "HOSTILE";
-	queueStartProduction(HELLRAISERS, "GROUND");
+	queueStartProduction(CAM_HELLRAISERS, "GROUND");
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_RESISTANCE, HELLRAISERS, false);
+		setAlliance(CAM_THE_RESISTANCE, CAM_HELLRAISERS, false);
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		setAlliance(AMPHOS, HELLRAISERS, false);
+		setAlliance(CAM_AMPHOS, CAM_HELLRAISERS, false);
 	}
 
 	// Give the Hellraisers an Engineer
-	camManageTrucks(HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.cyben, camSecondsToMilliseconds(90));
+	camManageTrucks(CAM_HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.cyben, camSecondsToMilliseconds(90));
 
-	var oliveTruck = getObject("helOliveTruck");
+	const oliveTruck = getObject("helOliveTruck");
 	if (oliveTruck !== null)
 	{
 		// Tell the olive truck to retreat to base.
-		var pos = camMakePos("helCyborgAssembly1");
+		const pos = camMakePos("helCyborgAssembly1");
 		orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 		queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 	}
 
 	// Update the templates in Hellraiser factories
-	var helFactoryTemplates = [ cTempl.hehinf, cTempl.hellrep, cTempl.heltwmg, cTempl.helflam, cTempl.hemlcan, cTempl.helsensw ];
+	let helFactoryTemplates = [ cTempl.hehinf, cTempl.hellrep, cTempl.heltwmg, cTempl.helflam, cTempl.hemlcan, cTempl.helsensw ];
 	if (difficulty >= MEDIUM) helFactoryTemplates = camArrayReplaceWith(helFactoryTemplates, cTempl.heltwmg, cTempl.helhmg);
 	if (difficulty >= MEDIUM) helFactoryTemplates = camArrayReplaceWith(helFactoryTemplates, cTempl.helsensw, cTempl.helsensht);
 	if (difficulty >= MEDIUM) helFactoryTemplates.push(cTempl.hemimorht);
@@ -1582,9 +1581,9 @@ function aggroHellraisers()
 	if (difficulty === INSANE) helFactoryTemplates = camArrayReplaceWith(helFactoryTemplates, cTempl.hemflam, cTempl.heminf);
 	if (difficulty === INSANE) helFactoryTemplates = camArrayReplaceWith(helFactoryTemplates, cTempl.hemlcan, cTempl.hemmcanht);
 	if (difficulty === INSANE) helFactoryTemplates = camArrayReplaceWith(helFactoryTemplates, cTempl.helsensht, cTempl.hemsensht);
-	var helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+	let helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
 	if (difficulty >= HARD) helCybTemplates1 = camArrayReplaceWith(helCybTemplates1, cTempl.cybfl, cTempl.cybth);
-	var helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
+	let helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 	if (difficulty >= HARD) helCybTemplates2 = camArrayReplaceWith(helCybTemplates2, cTempl.cybfl, cTempl.cybth);
 	if (difficulty >= MEDIUM && camIsResearched("R-Struc-VTOLFactory")) helFactoryTemplates.push(cTempl.hemlaa);
 	camSetFactoryTemplates("hellraiserFactory", helFactoryTemplates);
@@ -1594,30 +1593,30 @@ function aggroHellraisers()
 	// Update truck data
 	if (difficulty === MEDIUM)
 	{
-		camTruckObsoleteStructure(HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02", true); // Don't demolish
-		camTruckObsoleteStructure(HELLRAISERS, "GuardTower2", "GuardTower1", true);
-		camTruckObsoleteStructure(HELLRAISERS, "PillBox2", "PillBox1", true);
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02", true); // Don't demolish
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "GuardTower2", "GuardTower1", true);
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "PillBox2", "PillBox1", true);
 	}
 	else if (difficulty === HARD)
 	{
-		camTruckObsoleteStructure(HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02"); // Do demolish
-		camTruckObsoleteStructure(HELLRAISERS, "GuardTower2", "GuardTower1");
-		camTruckObsoleteStructure(HELLRAISERS, "PillBox2", "PillBox1");
-		camTruckObsoleteStructure(HELLRAISERS, "PillBox5", "Tower-Projector");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02"); // Do demolish
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "GuardTower2", "GuardTower1");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "PillBox2", "PillBox1");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "PillBox5", "Tower-Projector");
 	}
 	else if (difficulty === INSANE)
 	{
-		camTruckObsoleteStructure(HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02");
-		camTruckObsoleteStructure(HELLRAISERS, "GuardTower2", "GuardTower3");
-		camTruckObsoleteStructure(HELLRAISERS, "GuardTower1", "GuardTower3");
-		camTruckObsoleteStructure(HELLRAISERS, "PillBox2", "PillBox1");
-		camTruckObsoleteStructure(HELLRAISERS, "PillBox5", "Tower-Projector");
-		camTruckObsoleteStructure(HELLRAISERS, "WallTower02", "WallTower03");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "Sys-SensoTower01", "Sys-SensoTower02");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "GuardTower2", "GuardTower3");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "GuardTower1", "GuardTower3");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "PillBox2", "PillBox1");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "PillBox5", "Tower-Projector");
+		camTruckObsoleteStructure(CAM_HELLRAISERS, "WallTower02", "WallTower03");
 	}
 
 	// Start requesting reinforcements
-	var coaReinforceMinutes = 9;
-	if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+	let coaReinforceMinutes = 9;
+	if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		// Transports come in slower, but Resistance units are also sent over land
 		coaReinforceMinutes = 12;
@@ -1738,67 +1737,67 @@ function setPhaseTwo()
 	checkRoyalistHoverGroups();
 
 	// Start VTOL production
-	queueStartProduction(THE_COALITION, "VTOL");
-	queueStartProduction(ROYALISTS, "VTOL");
+	queueStartProduction(CAM_THE_COALITION, "VTOL");
+	queueStartProduction(CAM_ROYALISTS, "VTOL");
 
-	var truckTime = camChangeOnDiff(camSecondsToMilliseconds(120));
-	var cybTime = camChangeOnDiff(camSecondsToMilliseconds(60));
+	const TRUCK_TIME = camChangeOnDiff(camSecondsToMilliseconds(120));
+	const CYBORG_TIME = camChangeOnDiff(camSecondsToMilliseconds(60));
 
 	// Truckpocalypse
-	camManageTrucks(THE_COALITION, "coalitionBridgeBase", structSets.coalitionBridgeStructs, cTempl.comtruckt, truckTime);
-	camManageTrucks(THE_COALITION, "seCoalitionBase", structSets.coalitionSEStructs, cTempl.comtruckht, truckTime);
-	camManageTrucks(THE_COALITION, "riverDeltaBase", structSets.coalitionDeltaStructs, cTempl.comtruckt, truckTime);
-	camManageTrucks(THE_COALITION, "sunkenPlainsBase", structSets.coalitionsunkenPlainsStructs, cTempl.comtruckt, truckTime);
-	camManageTrucks(THE_COALITION, "sunkenPlainsBase", structSets.coalitionsunkenPlainsStructs, cTempl.cyben, cybTime);
-	camManageTrucks(THE_COALITION, "neCoalitionBase", structSets.coalitionNEStructs, cTempl.comtruckht, truckTime);
-	camManageTrucks(THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.comtruckht, truckTime);
-	camManageTrucks(THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.comtruckt, truckTime);
-	camManageTrucks(THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.cyben, cybTime);
+	camManageTrucks(CAM_THE_COALITION, "coalitionBridgeBase", structSets.coalitionBridgeStructs, cTempl.comtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "seCoalitionBase", structSets.coalitionSEStructs, cTempl.comtruckht, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "riverDeltaBase", structSets.coalitionDeltaStructs, cTempl.comtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "sunkenPlainsBase", structSets.coalitionsunkenPlainsStructs, cTempl.comtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "sunkenPlainsBase", structSets.coalitionsunkenPlainsStructs, cTempl.cyben, CYBORG_TIME);
+	camManageTrucks(CAM_THE_COALITION, "neCoalitionBase", structSets.coalitionNEStructs, cTempl.comtruckht, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.comtruckht, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.comtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.cyben, CYBORG_TIME);
 
-	camManageTrucks(ROYALISTS, "southBase", structSets.royalistSouthStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "riverTownBase", structSets.royalistRiverTownStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "riverLZBase", structSets.royalistRiverLZStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "eastCoastBase", structSets.royalistEastCoastStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "southGate", structSets.royalistSouthGateStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royalistCentralFactoryZone", structSets.royalistCentralFactoryStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "westGate", structSets.royalistwestGateStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royalistMountainCheckpoint", structSets.royalistCheckpointStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royalistHowitzerFOB", structSets.royalistHowitzerBaseStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "southRoyalWhirlwindHill", structSets.royalistsouthWhirlwindHillStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royalistVtolBase", structSets.royalistvtolBaseStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royalistMainBaseGate", structSets.royalistMainDefenceStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royalMainBase", structSets.royalistMainBaseStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royalistOuterGate", structSets.royalistOuterBaseStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royalistOuterGate", structSets.royalistOuterBaseStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "northLakeBase", structSets.royalistNorthLakeStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "nwIslandBase", structSets.royalistNWIsleStructs, cTempl.romtruckh, truckTime);
+	camManageTrucks(CAM_ROYALISTS, "southBase", structSets.royalistSouthStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "riverTownBase", structSets.royalistRiverTownStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "riverLZBase", structSets.royalistRiverLZStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "eastCoastBase", structSets.royalistEastCoastStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "southGate", structSets.royalistSouthGateStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistCentralFactoryZone", structSets.royalistCentralFactoryStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "westGate", structSets.royalistwestGateStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistMountainCheckpoint", structSets.royalistCheckpointStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistHowitzerFOB", structSets.royalistHowitzerBaseStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "southRoyalWhirlwindHill", structSets.royalistsouthWhirlwindHillStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistVtolBase", structSets.royalistvtolBaseStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistMainBaseGate", structSets.royalistMainDefenceStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalMainBase", structSets.royalistMainBaseStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistOuterGate", structSets.royalistOuterBaseStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistOuterGate", structSets.royalistOuterBaseStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "northLakeBase", structSets.royalistNorthLakeStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "nwIslandBase", structSets.royalistNWIsleStructs, cTempl.romtruckh, TRUCK_TIME);
 
-	camManageTrucks(ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royPlainsRepBase", structSets.royalistPlainsRepStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royDeltaRepBase", structSets.royalistDeltaRepStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royBridgeRepBase", structSets.royalistBridgeRepStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "roySWIsleRepBase", structSets.royalistSWIsleRepStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royPortRepBase", structSets.royalistPortRepStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, truckTime);
-	camManageTrucks(ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, truckTime);
-	camManageTrucks(ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, truckTime);
+	camManageTrucks(CAM_ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royPlainsRepBase", structSets.royalistPlainsRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royDeltaRepBase", structSets.royalistDeltaRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royBridgeRepBase", structSets.royalistBridgeRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "roySWIsleRepBase", structSets.royalistSWIsleRepStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royPortRepBase", structSets.royalistPortRepStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, TRUCK_TIME);
 
 	// Update Coalition truck data
 	if (difficulty === MEDIUM)
 	{
-		camTruckObsoleteStructure(THE_COALITION, "Emplacement-MortarPit01", "Emplacement-MortarPit02", true);
+		camTruckObsoleteStructure(CAM_THE_COALITION, "Emplacement-MortarPit01", "Emplacement-MortarPit02", true);
 	}
 	else if (difficulty === HARD)
 	{
-		camTruckObsoleteStructure(THE_COALITION, "Emplacement-MortarPit01", "Emplacement-MortarPit02");
-		camTruckObsoleteStructure(THE_COALITION, "WallTower03", "WallTower04", true);
+		camTruckObsoleteStructure(CAM_THE_COALITION, "Emplacement-MortarPit01", "Emplacement-MortarPit02");
+		camTruckObsoleteStructure(CAM_THE_COALITION, "WallTower03", "WallTower04", true);
 	}
 	else if (difficulty === INSANE)
 	{
-		camTruckObsoleteStructure(THE_COALITION, "Emplacement-MortarPit01", "Emplacement-MortarPit02");
-		camTruckObsoleteStructure(THE_COALITION, "WallTower03", "WallTower04");
+		camTruckObsoleteStructure(CAM_THE_COALITION, "Emplacement-MortarPit01", "Emplacement-MortarPit02");
+		camTruckObsoleteStructure(CAM_THE_COALITION, "WallTower03", "WallTower04");
 	}
 }
 
@@ -1818,7 +1817,7 @@ function coaPitch()
 		}
 		gameState.coalition.allowAlliance = true;
 	}
-	else if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+	else if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		missionMessage("COAWARN1MSG", "TRANS");
 	}
@@ -1837,7 +1836,7 @@ function coaPitch()
 
 function resCoaResponse()
 {
-	if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+	if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		return;
 	}
@@ -1895,13 +1894,13 @@ function camEnemyBaseDetected_royalistMountainCheckpoint()
 		manageGroupBySize(gameState.coalition.mainVTOLGroup, false);
 
 		gameState.coalition.groups.playerSupportGroup.order = CAM_ORDER_COMPROMISE;
-		gameState.coalition.groups.playerSupportGroup.data = {targetPlayer: ROYALISTS, pos: camMakePos("outerPos11"), repair: 40};
+		gameState.coalition.groups.playerSupportGroup.data = {targetPlayer: CAM_ROYALISTS, pos: camMakePos("outerPos11"), repair: 40};
 		checkCoalitionGroups();
 
-		var commander = getObject("coaCommander");
+		const commander = getObject("coaCommander");
 		if (commander !== null)
 		{
-			camManageGroup(commander.group, CAM_ORDER_COMPROMISE, {targetPlayer: ROYALISTS, pos: camMakePos("outerPos11"), repair: 65});
+			camManageGroup(commander.group, CAM_ORDER_COMPROMISE, {targetPlayer: CAM_ROYALISTS, pos: camMakePos("outerPos11"), repair: 65});
 		}
 	}
 }
@@ -1918,8 +1917,8 @@ function setupCoalitionNegotiations()
 	gameState.coalition.allianceState = "OFFER";
 
 	// Move the truck to the negotiation zone 
-	var oliveTruck = getObject("coaOliveTruck");
-	var pos = camMakePos("coaOliveZone");
+	const oliveTruck = getObject("coaOliveTruck");
+	const pos = camMakePos("coaOliveZone");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 
 	// The Coalition will become immediately hostile if the player destroys any units.
@@ -1927,22 +1926,22 @@ function setupCoalitionNegotiations()
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_COALITION, THE_RESISTANCE, true);
+		setAlliance(CAM_THE_COALITION, CAM_THE_RESISTANCE, true);
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		setAlliance(THE_COALITION, AMPHOS, true);
+		setAlliance(CAM_THE_COALITION, CAM_AMPHOS, true);
 	}
 
 	// Recall patrol groups that operate around the olive zone
-	var groupInfo = gameState.coalition.groups.eastPatrolGroup;
+	const groupInfo = gameState.coalition.groups.eastPatrolGroup;
 	groupInfo.order = CAM_ORDER_DEFEND;
 	groupInfo.data = {
 		pos: camMakePos("westPos2"),
 		repair: 40
 	};
 	manageGroupBySize(groupInfo, false);
-	var commander = getObject("coaCommander");
+	const commander = getObject("coaCommander");
 	if (commander !== null)
 	{
 		camManageGroup(commander.group, CAM_ORDER_DEFEND, {
@@ -1955,13 +1954,13 @@ function setupCoalitionNegotiations()
 camAreaEvent("coaOliveZone", function(droid)
 {
 	// Only trigger if the player moves a droid in while the Coalition is offering an alliance
-	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === THE_COALITION) && gameState.coalition.allianceState === "OFFER")
+	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === CAM_THE_COALITION) && gameState.coalition.allianceState === "OFFER")
 	{
 		// Find all the player's droids in this area
-		var droids = enumArea("coaOliveZone", CAM_HUMAN_PLAYER, false);
-		var coaAtTable = (enumArea("coaOliveZone", THE_COALITION, false).length >= 1);
+		const droids = enumArea("coaOliveZone", CAM_HUMAN_PLAYER, false);
+		const COALITION_AT_TABLE = (enumArea("coaOliveZone", CAM_THE_COALITION, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Coalition has arrived in the zone
-		if (onlyTrucks(droids) && coaAtTable) 
+		if (onlyTrucks(droids) && COALITION_AT_TABLE) 
 		{
 			console("Negotiations beginning...");
 			// Try to ally after a few seconds
@@ -1991,8 +1990,8 @@ function allyCoalition()
 	console("The Coalition has allied with you!");
 	gameState.coalition.allianceState = "ALLIED";
 	playSound("pcv477.ogg"); // "Alliance accepted!"
-	setAlliance(CAM_HUMAN_PLAYER, THE_COALITION, true);
-	setAlliance(THE_RESISTANCE, THE_COALITION, true);
+	setAlliance(CAM_HUMAN_PLAYER, CAM_THE_COALITION, true);
+	setAlliance(CAM_THE_RESISTANCE, CAM_THE_COALITION, true);
 	achievementMessage("Unionized", "Unite with the Coalition against the Royalists");
 
 	camBaseChangeToFriendly("coalitionBridgeBase");
@@ -2006,8 +2005,8 @@ function allyCoalition()
 	hackRemoveMessage("COA_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
 
 	// Move the olive truck back to base
-	var oliveTruck = getObject("coaOliveTruck");
-	var pos = camMakePos("coaVTOLAssembly");
+	const oliveTruck = getObject("coaOliveTruck");
+	const pos = camMakePos("coaVTOLAssembly");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 	queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 
@@ -2028,13 +2027,13 @@ function allyCoalition()
 		enableResearch("R-Vehicle-Prop-VTOL", CAM_HUMAN_PLAYER); // VTOL Propulsion
 		camRemoveArtifact("amphosVtolFactory");
 		camRemoveArtifact("royalistOuterVtolFac");
-		camManageTrucks(AMPHOS, "ampSouthGateLZ", structSets.amphosSouthGateLZStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
+		camManageTrucks(CAM_AMPHOS, "ampSouthGateLZ", structSets.amphosSouthGateLZStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
 		achievementMessage("Master Negotiator", "Form an alliance with all factions");
 	}
 	playSound("pcv485.ogg"); // "Technology transferred"
 	
-	camManageTrucks(THE_RESISTANCE, "resistanceSubBase", structSets.resistanceCoalitionSubBaseStructs, cTempl.remtruck, camChangeOnDiff(camSecondsToMilliseconds(60)));
-	camManageTrucks(THE_COALITION, "coaWestGateLZ", structSets.coalitionWestGateLZStructs, cTempl.comtruckht, camChangeOnDiff(camSecondsToMilliseconds(80)));
+	camManageTrucks(CAM_THE_RESISTANCE, "resistanceSubBase", structSets.resistanceCoalitionSubBaseStructs, cTempl.remtruck, camChangeOnDiff(camSecondsToMilliseconds(60)));
+	camManageTrucks(CAM_THE_COALITION, "coaWestGateLZ", structSets.coalitionWestGateLZStructs, cTempl.comtruckht, camChangeOnDiff(camSecondsToMilliseconds(80)));
 
 	// Remove Coalition artifacts
 	camRemoveArtifact("coaAASite");
@@ -2047,7 +2046,7 @@ function allyCoalition()
 	camRemoveArtifact("coaResearch3");
 
 	// Share research with the Coalition
-	camCompleteRes(camGetResearchLog(), THE_COALITION);
+	camCompleteRes(camGetResearchLog(), CAM_THE_COALITION);
 
 	// Get all Coalition groups up to snuff
 	updateAllyTemplates();
@@ -2058,7 +2057,7 @@ function allyCoalition()
 	setTimer("southGateLZTransRequest", camChangeOnDiff(camMinutesToMilliseconds(7), true));
 
 	// Get Coalition patrol groups back to whatever they were doing
-	var groupInfo = gameState.coalition.groups.eastPatrolGroup;
+	const groupInfo = gameState.coalition.groups.eastPatrolGroup;
 	groupInfo.order = CAM_ORDER_PATROL;
 	groupInfo.data = {
 		pos: [
@@ -2072,7 +2071,7 @@ function allyCoalition()
 		repair: 40
 	};
 	manageGroupBySize(groupInfo, false);
-	var commander = getObject("coaCommander");
+	const commander = getObject("coaCommander");
 	if (commander !== null)
 	{
 		camManageGroup(commander.group, CAM_ORDER_PATROL, {
@@ -2116,7 +2115,7 @@ function aggroCoalition()
 	if (gameState.coalition.allianceState === "OFFER")
 	{
 		// Message about being betrayed
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS))
 		{
 			missionMessage("COABTRYMSGALT", "TRANS");
 		}
@@ -2129,7 +2128,7 @@ function aggroCoalition()
 		hackRemoveMessage("COA_OLIVE", PROX_MSG, CAM_HUMAN_PLAYER);
 
 		// Get Coalition patrol groups back to whatever they were doing
-		var groupInfo = gameState.amphos.groups.eastPatrolGroup;
+		const groupInfo = gameState.amphos.groups.eastPatrolGroup;
 		groupInfo.order = CAM_ORDER_PATROL;
 		groupInfo.data = {
 			pos: [
@@ -2143,7 +2142,7 @@ function aggroCoalition()
 			repair: 40
 		};
 		manageGroupBySize(groupInfo, false);
-		var commander = getObject("coaCommander");
+		const commander = getObject("coaCommander");
 		if (commander !== null)
 		{
 			camManageGroup(commander.group, CAM_ORDER_PATROL, {
@@ -2169,12 +2168,12 @@ function aggroCoalition()
 		{
 			// Message about aggro'ing after the player attacks both the Resistance and Hellraisers
 			if ((gameState.hellraisers.allianceState === "HOSTILE" || gameState.hellraisers.allianceState === "ERADICATED") 
-				&& !allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+				&& !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 			{
 				missionMessage("COASUPERAGGRMSG", "TRANS");
 			}
 			// Message about aggro'ing after warning the player
-			else if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+			else if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 			{
 				missionMessage("COAAGGRWMSG", "TRANS");
 			}
@@ -2186,38 +2185,38 @@ function aggroCoalition()
 	}
 
 	gameState.coalition.allianceState = "HOSTILE";
-	queueStartProduction(THE_COALITION, "GROUND");
+	queueStartProduction(CAM_THE_COALITION, "GROUND");
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		setAlliance(THE_COALITION, THE_RESISTANCE, false);
+		setAlliance(CAM_THE_COALITION, CAM_THE_RESISTANCE, false);
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		setAlliance(THE_COALITION, AMPHOS, false);
+		setAlliance(CAM_THE_COALITION, CAM_AMPHOS, false);
 	}
 	if (gameState.hellraisers.allianceState === "ALLIED")
 	{
 		// Hellraisers will side with the player over the Coalition
 		console("The Hellraisers have broken their alliance with the Coalition!");
-		setAlliance(HELLRAISERS, THE_COALITION, false);
+		setAlliance(CAM_HELLRAISERS, CAM_THE_COALITION, false);
 		if (gameState.resistance.allianceState !== "ALLIED")
 		{
-			setAlliance(HELLRAISERS, THE_RESISTANCE, false);
+			setAlliance(CAM_HELLRAISERS, CAM_THE_RESISTANCE, false);
 		}
 	}
 
-	var oliveTruck = getObject("coaOliveTruck");
+	const oliveTruck = getObject("coaOliveTruck");
 	if (oliveTruck !== null)
 	{
 		// Tell the olive truck to retreat to base.
-		var pos = camMakePos("coaFactoryAssembly");
+		const pos = camMakePos("coaFactoryAssembly");
 		orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 		queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 	}
 
 	// Update the templates in the Coalition VTOL factory
-	var coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
+	let coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 	if (difficulty >= MEDIUM) coaVtolTemplates.push(cTempl.comhbomv);
 	if (difficulty >= HARD) coaVtolTemplates.push(cTempl.colpbomv);
 	if (difficulty === INSANE) coaVtolTemplates = camArrayReplaceWith(coaVtolTemplates, cTempl.colcbomv, cTempl.comhbomv);
@@ -2265,9 +2264,9 @@ function camEnemyBaseDetected_coalitionMainBase()
 		}
 		else
 		{
-			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS))
+			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_HELLRAISERS))
 			{
-				if (!allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS) && gameState.amphos.allianceState === "ERADICATED")
+				if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS) && gameState.amphos.allianceState === "ERADICATED")
 				{
 					// Resistance and Hellraisers are against the player, and AMPHOS is dead
 					missionMessage("COAAMPERADTAUNTMSG", "TRANS");
@@ -2290,14 +2289,14 @@ function camEnemyBaseDetected_coalitionMainBase()
 // allied/eradicated _either_ the Coalition or AMPHOS (and the Hellraisers)
 function checkPhaseThree()
 {
-	var ampDone = (gameState.amphos.allianceState === "ALLIED" || gameState.amphos.allianceState === "ERADICATED");
-	var helDone = (gameState.hellraisers.allianceState === "ALLIED" || gameState.hellraisers.allianceState === "ERADICATED");
-	var coaDone = (gameState.coalition.allianceState === "ALLIED" || gameState.coalition.allianceState === "ERADICATED");
-	if (ampDone && coaDone)
+	const AMPHOS_DONE = (gameState.amphos.allianceState === "ALLIED" || gameState.amphos.allianceState === "ERADICATED");
+	const HELLRAISERS_DONE = (gameState.hellraisers.allianceState === "ALLIED" || gameState.hellraisers.allianceState === "ERADICATED");
+	const COALITION_DONE = (gameState.coalition.allianceState === "ALLIED" || gameState.coalition.allianceState === "ERADICATED");
+	if (AMPHOS_DONE && COALITION_DONE)
 	{
 		camCallOnce("setPhaseThree");
 	}
-	else if (difficulty >= HARD && (coaDone || (ampDone && helDone)))
+	else if (difficulty >= HARD && (COALITION_DONE || (AMPHOS_DONE && HELLRAISERS_DONE)))
 	{
 		camCallOnce("setPhaseThree");
 	}
@@ -2325,8 +2324,8 @@ function setPhaseThree()
 	}
 
 	// Replace any HMG bunkers and towers with Assault Guns
-	camTruckObsoleteStructure(ROYALISTS, "CO-HMGBunker", "CO-ROTMGBunker");
-	camTruckObsoleteStructure(ROYALISTS, "CO-Tower-MG3", "CO-Tower-RotMG");
+	camTruckObsoleteStructure(CAM_ROYALISTS, "CO-HMGBunker", "CO-ROTMGBunker");
+	camTruckObsoleteStructure(CAM_ROYALISTS, "CO-Tower-MG3", "CO-Tower-RotMG");
 
 	// Increase the sizes of Resistance and Hellraiser support groups
 	gameState.resistance.groups.playerSupportGroup.maxSize += 6;
@@ -2334,18 +2333,18 @@ function setPhaseThree()
 
 	// Increase the size of the Royalist VTOL group (and grant Royalists access to more templates)
 	gameState.royalists.mainVTOLGroup.maxSize += difficulty + 2;
-	var royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
+	let royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
 	if (difficulty >= MEDIUM) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rolhmgt, cTempl.romagt);
 	if (difficulty >= MEDIUM) royCentralFactoryTemplates.push(cTempl.romacant);
 	if (difficulty >= HARD) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rollant, cTempl.romtkt);
-	var royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
+	const royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 	// if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohbalt);
-	var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+	const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 	if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
-	var mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
+	let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 	if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
 	if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
-	var hvyVtolTemplates = [ cTempl.romacanv, cTempl.romhbomv, cTempl.romtkv ];
+	const hvyVtolTemplates = [ cTempl.romacanv, cTempl.romhbomv, cTempl.romtkv ];
 	if (difficulty >= HARD) hvyVtolTemplates.push(cTempl.romtbomv);
 	camSetFactoryTemplates("royalistOuterFactory", royOuterFactoryTemplates);
 	camSetFactoryTemplates("royalistHoverFactory", royHoverFactoryTemplates);
@@ -2361,7 +2360,7 @@ function setPhaseThree()
 	camCallOnce("activateSpyLZ");
 
 	// Start royalist production of Royalist assault units
-	queueStartProduction(ROYALISTS, "ASSAULT");
+	queueStartProduction(CAM_ROYALISTS, "ASSAULT");
 	if (gameState.coalition.allianceState !== "ALLIED")
 	{
 		gameState.royalists.assaultTarget = CAM_HUMAN_PLAYER;
@@ -2379,7 +2378,7 @@ function phaseThreeMessage()
 // Place an artifact for the Incendiary Mortar in a Royalist Research Facility
 function compenArtifactIncenMortar()
 {
-	var researchFacility = getObject(9, 144, ROYALISTS);
+	const researchFacility = getObject(9, 144, CAM_ROYALISTS);
 	if (researchFacility !== null)
 	{
 		addLabel(researchFacility, "royalistHelRepResearchFacility");
@@ -2390,7 +2389,7 @@ function compenArtifactIncenMortar()
 // Place an artifact for the Howitzer in a Royalist Research Facility
 function compenArtifactHowitzer()
 {
-	var researchFacility = getObject(9, 60, ROYALISTS);
+	const researchFacility = getObject(9, 60, CAM_ROYALISTS);
 	if (researchFacility !== null)
 	{
 		addLabel(researchFacility, "royalistCoaRepResearchFacility");
@@ -2401,7 +2400,7 @@ function compenArtifactHowitzer()
 // Place an artifact for Ripple Rockets in a Royalist Factory
 function compenArtifactRippleRockets()
 {
-	var factory = getObject(245, 141, ROYALISTS);
+	const factory = getObject(245, 141, CAM_ROYALISTS);
 	if (factory !== null)
 	{
 		addLabel(factory, "royalistHelRepResearchFacility");
@@ -2414,7 +2413,7 @@ function compenArtifactRippleRockets()
 function royalistBetrayal()
 {
 	console("The Royalists have broken their alliance with AMPHOS!");
-	setAlliance(ROYALISTS, AMPHOS, false);
+	setAlliance(CAM_ROYALISTS, CAM_AMPHOS, false);
 
 	gameState.amphos.requireNW = false;
 	if (gameState.amphos.pitched)
@@ -2432,8 +2431,8 @@ function royalistBetrayal()
 function setupRoyalistNegotiations()
 {
 	// Add Twin Assault Artifacts
-	var vtolFactory = getObject("royalistOuterVtolFac");
-	var researchLab = getObject("royResearchOuter");
+	const vtolFactory = getObject("royalistOuterVtolFac");
+	const researchLab = getObject("royResearchOuter");
 	if (camDef(vtolFactory) && vtolFactory !== null)
 	{
 		camAddArtifact({"royalistOuterVtolFac": { tech: "R-Wpn-MG5", req: "R-Wpn-MG4" }}); // Twin Assault Gun (requires Assault Gun)
@@ -2448,7 +2447,7 @@ function setupRoyalistNegotiations()
 		return;
 	}
 
-	var oliveTruck = getObject("royOliveTruck");
+	const oliveTruck = getObject("royOliveTruck");
 	if (gameState.royalists.underAttack || gameState.royalists.attacked || oliveTruck === null)
 	{
 		return; // Don't try to fakeout if under attack or has been attacked
@@ -2464,7 +2463,7 @@ function setupRoyalistNegotiations()
 	gameState.royalists.fakeoutTime = gameTime;
 
 	// Move the truck to the negotiation zone 
-	var pos = camMakePos("royOliveZone");
+	const pos = camMakePos("royOliveZone");
 	orderDroidLoc(oliveTruck, DORDER_MOVE, pos.x, pos.y);
 
 	// During the fakeout all commander groups, reclaimer groups,
@@ -2474,10 +2473,10 @@ function setupRoyalistNegotiations()
 	// structure after 30 seconds, or completes the negotiation
 
 	// Commander groups
-	var hvyCommander = getObject("royHvyCommander");
-	var centralCommander = getObject("royCentralCommander");
-	var hoverCommander = getObject("royHoverCommander");
-	var assltCommander = getObject("royAssaultCommander");
+	const hvyCommander = getObject("royHvyCommander");
+	const centralCommander = getObject("royCentralCommander");
+	const hoverCommander = getObject("royHoverCommander");
+	const assltCommander = getObject("royAssaultCommander");
 	if (hvyCommander !== null)
 	{
 		camManageGroup(hvyCommander.group, CAM_ORDER_DEFEND, {
@@ -2508,16 +2507,16 @@ function setupRoyalistNegotiations()
 	}
 
 	// Reclaimer groups
-	var grGroup = gameState.royalists.groundGroups.groundReclaimerGroup;
-	var hrGroup = gameState.royalists.hoverGroups.hoverReclaimerGroup;
+	const grGroup = gameState.royalists.groundGroups.groundReclaimerGroup;
+	const hrGroup = gameState.royalists.hoverGroups.hoverReclaimerGroup;
 	grGroup.data.pos = camMakePos("royOuterFactoryAssembly");
 	hrGroup.data.pos = camMakePos("royHoverAssembly");
 	manageGroupBySize(grGroup, true);
 	manageGroupBySize(hrGroup, true);
 
 	// Patrol groups
-	var plainsGroup = gameState.royalists.groundGroups.plainsPatrolGroup;
-	var lakeGroup = gameState.royalists.hoverGroups.lakePatrolGroup;
+	const plainsGroup = gameState.royalists.groundGroups.plainsPatrolGroup;
+	const lakeGroup = gameState.royalists.hoverGroups.lakePatrolGroup;
 	plainsGroup.data.pos = camMakePos("outerPos6");
 	lakeGroup.data.pos = camMakePos("outerPos6");
 	plainsGroup.data.order = CAM_ORDER_DEFEND;
@@ -2533,7 +2532,7 @@ function setupRoyalistNegotiations()
 		removeTimer("navigateAssaultGroups");
 		gameState.royalists.assaultPhase = 0;
 		camManageGroup(gameState.royalists.assaultGroup.id, CAM_ORDER_DEFEND, {pos: camMakePos("innerPos1")});
-		queueStartProduction(ROYALISTS, "ASSAULT");
+		queueStartProduction(CAM_ROYALISTS, "ASSAULT");
 	}
 
 	// VTOLs
@@ -2545,13 +2544,13 @@ function setupRoyalistNegotiations()
 camAreaEvent("royOliveZone", function(droid)
 {
 	// Only trigger if the player moves a droid in while the Royalists are offering an alliance
-	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === ROYALISTS) && gameState.royalists.fakeout)
+	if ((droid.player === CAM_HUMAN_PLAYER || droid.player === CAM_ROYALISTS) && gameState.royalists.fakeout)
 	{
 		// Find all the player's droids in this area
-		var droids = enumArea("royOliveZone", CAM_HUMAN_PLAYER, false);
-		var royAtTable = (enumArea("royOliveZone", ROYALISTS, false).length >= 1);
+		const droids = enumArea("royOliveZone", CAM_HUMAN_PLAYER, false);
+		const ROYALISTS_AT_TABLE = (enumArea("royOliveZone", CAM_ROYALISTS, false).length >= 1);
 		// Make sure trucks are the only things inside, and the Coalition has arrived in the zone
-		if (onlyTrucks(droids) && royAtTable) 
+		if (onlyTrucks(droids) && ROYALISTS_AT_TABLE) 
 		{
 			console("Negotiations beginning...");
 			queue("endRoyalistNegotiations", camSecondsToMilliseconds(6));
@@ -2591,9 +2590,9 @@ function dropFakeout()
 	camSafeRemoveObject(getObject("royOliveTruck"), true); // Blow up the Olive truck
 
 	// Commander groups
-	var hvyCommander = getObject("royHvyCommander");
-	var centralCommander = getObject("royCentralCommander");
-	var hoverCommander = getObject("royHoverCommander");
+	const hvyCommander = getObject("royHvyCommander");
+	const centralCommander = getObject("royCentralCommander");
+	const hoverCommander = getObject("royHoverCommander");
 	if (hvyCommander !== null)
 	{
 		camManageGroup(hvyCommander.group, CAM_ORDER_PATROL, {
@@ -2630,8 +2629,8 @@ function dropFakeout()
 	updateReclaimerData();
 
 	// Patrol groups
-	var plainsGroup = gameState.royalists.groundGroups.plainsPatrolGroup;
-	var lakeGroup = gameState.royalists.hoverGroups.lakePatrolGroup;
+	const plainsGroup = gameState.royalists.groundGroups.plainsPatrolGroup;
+	const lakeGroup = gameState.royalists.hoverGroups.lakePatrolGroup;
 	plainsGroup.data.pos = [
 		camMakePos("westPos4"),
 		camMakePos("westPos5"),
@@ -2689,18 +2688,18 @@ camAreaEvent("royalistOuterBase", function(droid)
 		// and normal group management will stop (except for commander and VTOL groups)
 		// Bunker Busters will also never be produced from the Royalists's base factories in this state
 		gameState.royalists.underAttack = true;
-		var royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept ];
+		let royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept ];
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohhcant);
-		var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
+		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rohhcanh);
-		var royMainFactoryTemplates = [ cTempl.romacant, cTempl.rohtacant, cTempl.romsenst, cTempl.romtkt, cTempl.romrmort, cTempl.rohtagt, cTempl.rominft ];
+		const royMainFactoryTemplates = [ cTempl.romacant, cTempl.rohtacant, cTempl.romsenst, cTempl.romtkt, cTempl.romrmort, cTempl.rohtagt, cTempl.rominft ];
 		if (difficulty >= MEDIUM) royMainFactoryTemplates.push(cTempl.rohraat);
 		// if (difficulty >= MEDIUM) royMainFactoryTemplates.push(cTempl.rohbalt);
-		var royMainCybTemplates = [ cTempl.scyac, cTempl.cybag, cTempl.cybla, cTempl.scyhc, cTempl.scytk ];
+		let royMainCybTemplates = [ cTempl.scyac, cTempl.cybag, cTempl.cybla, cTempl.scyhc, cTempl.scytk ];
 		if (difficulty <= EASY) royMainCybTemplates = camArrayReplaceWith(royMainCybTemplates, cTempl.scytk, cTempl.cybla);
 		if (difficulty >= HARD) royMainCybTemplates = camArrayReplaceWith(royMainCybTemplates, cTempl.cybla, cTempl.scytk);
-		var mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
+		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 		if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
 		camSetFactoryTemplates("royalistOuterFactory", royOuterFactoryTemplates);
 		camSetFactoryTemplates("royalistHoverFactory", royHoverFactoryTemplates);
@@ -2710,9 +2709,9 @@ camAreaEvent("royalistOuterBase", function(droid)
 		camSetFactoryTemplates("royalistMainVtolFac1", mainVtolTemplates);
 
 		// Get Royalist factories crankin' out units
-		queueStartProduction(ROYALISTS, "GROUND");
-		queueStartProduction(ROYALISTS, "HOVER");
-		queueStartProduction(ROYALISTS, "ASSAULT");
+		queueStartProduction(CAM_ROYALISTS, "GROUND");
+		queueStartProduction(CAM_ROYALISTS, "HOVER");
+		queueStartProduction(CAM_ROYALISTS, "ASSAULT");
 
 		// If there was an assault force being produced, get them
 		// moving now rather than let them sit around in the main base
@@ -2734,20 +2733,20 @@ camAreaEvent("royalistOuterBase", function(droid)
 // Check if the Royalist Outer base exists and has no hostiles
 function royOuterBaseClear()
 {
-	if (!camBaseIsEliminated("royalistOuterGate") && camAreaSecure("royalistOuterBase", ROYALISTS))
+	if (!camBaseIsEliminated("royalistOuterGate") && camAreaSecure("royalistOuterBase", CAM_ROYALISTS))
 	{
 		removeTimer("royOuterBaseClear");
 
 		// All is well and good, resume normal group and factory management
 		gameState.royalists.underAttack = false;
-		var royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept, cTempl.romsenst, cTempl.romrmorht ];
+		let royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept, cTempl.romsenst, cTempl.romrmorht ];
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rombbt);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.romrmorht, cTempl.romrmort);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rohhcant);
-		var royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
-		var mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
+		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 		if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
 		if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
 		camSetFactoryTemplates("royalistOuterFactory", royOuterFactoryTemplates);
@@ -2850,27 +2849,27 @@ function endCountdown()
 	if (gameState.endCountdownTime === 28)
 	{
 		// Play ending cutscenes
-		var msgName;
-		var resAllied = gameState.resistance.allianceState === "ALLIED";
-		var resEradic = gameState.resistance.allianceState === "ERADICATED";
-		var ampAllied = gameState.amphos.allianceState === "ALLIED";
-		var ampEradic = gameState.amphos.allianceState === "ERADICATED";
-		var helAllied = gameState.hellraisers.allianceState === "ALLIED";
-		var helEradic = gameState.hellraisers.allianceState === "ERADICATED";
-		var coaAllied = gameState.coalition.allianceState === "ALLIED";
-		var coaEradic = gameState.coalition.allianceState === "ERADICATED";
+		let msgName;
+		const RESISTANCE_ALLIED = gameState.resistance.allianceState === "ALLIED";
+		const RESISTANCE_ERADICATED = gameState.resistance.allianceState === "ERADICATED";
+		const AMPHOS_ALLIED = gameState.amphos.allianceState === "ALLIED";
+		const AMPHOS_ERADICATED = gameState.amphos.allianceState === "ERADICATED";
+		const HELLRAISERS_ALLIED = gameState.hellraisers.allianceState === "ALLIED";
+		const HELLRAISERS_ERADICATED = gameState.hellraisers.allianceState === "ERADICATED";
+		const COALITION_ALLIED = gameState.coalition.allianceState === "ALLIED";
+		const COALITION_ERADICATED = gameState.coalition.allianceState === "ERADICATED";
 
-		var numAllied = 0;
-		if (resAllied) numAllied++;
-		if (ampAllied) numAllied++;
-		if (helAllied) numAllied++;
-		if (coaAllied) numAllied++;
+		let numAllied = 0;
+		if (RESISTANCE_ALLIED) numAllied++;
+		if (AMPHOS_ALLIED) numAllied++;
+		if (HELLRAISERS_ALLIED) numAllied++;
+		if (COALITION_ALLIED) numAllied++;
 
-		var numEradic = 0;
-		if (resEradic) numEradic++;
-		if (ampEradic) numEradic++;
-		if (helEradic) numEradic++;
-		if (coaEradic) numEradic++;
+		let numEradic = 0;
+		if (RESISTANCE_ERADICATED) numEradic++;
+		if (AMPHOS_ERADICATED) numEradic++;
+		if (HELLRAISERS_ERADICATED) numEradic++;
+		if (COALITION_ERADICATED) numEradic++;
 
 		// Check if all allied
 		if (numAllied === 4) 
@@ -2883,12 +2882,12 @@ function endCountdown()
 			msgName = "OUTMSGALLE";
 		}
 		// Check if all ignored (without Resistance)
-		else if (resAllied && numAllied === 1 && numEradic === 0)
+		else if (RESISTANCE_ALLIED && numAllied === 1 && numEradic === 0)
 		{
 			msgName = "OUTMSGALLI";
 		}
 		// Check if all ignored (with Resistance)
-		else if (!resAllied && numAllied === 0 && numEradic === 1)
+		else if (!RESISTANCE_ALLIED && numAllied === 0 && numEradic === 1)
 		{
 			msgName = "OUTMSGALLIR";
 		}
@@ -2897,10 +2896,10 @@ function endCountdown()
 		{
 			msgName = "OUTMSG";
 
-			if (resAllied) msgName += "R";
-			if (ampAllied) msgName += "A";
-			if (helAllied) msgName += "H";
-			if (coaAllied) msgName += "C";
+			if (RESISTANCE_ALLIED) msgName += "R";
+			if (AMPHOS_ALLIED) msgName += "A";
+			if (HELLRAISERS_ALLIED) msgName += "H";
+			if (COALITION_ALLIED) msgName += "C";
 
 			if (numEradic === 0)
 			{
@@ -2910,7 +2909,7 @@ function endCountdown()
 			{
 				msgName += "VT2";
 			}
-			else if (resAllied && numEradic >= 2)
+			else if (RESISTANCE_ALLIED && numEradic >= 2)
 			{
 				msgName += "VT3";
 			}
@@ -2937,16 +2936,16 @@ function endCountdown()
 		{
 			achievementMessage("Non Compos Mentis", "Defeat the Royalists on Insane difficulty");
 		}
-		if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE) && gameState.resistance.allianceState === "ERADICATED"
-			&& !allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS) && gameState.amphos.allianceState === "ERADICATED"
-			&& !allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS) && gameState.hellraisers.allianceState === "ERADICATED"
-			&& !allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION) && gameState.coalition.allianceState === "ERADICATED")
+		if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE) && gameState.resistance.allianceState === "ERADICATED"
+			&& !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS) && gameState.amphos.allianceState === "ERADICATED"
+			&& !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_HELLRAISERS) && gameState.hellraisers.allianceState === "ERADICATED"
+			&& !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_COALITION) && gameState.coalition.allianceState === "ERADICATED")
 		{
 			achievementMessage("Walking Apocalypse", "Defeat the Royalists after eradicating all other factions");
 		}
-		// if (allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS) && gameState.amphos.allianceState === "ERADICATED"
-		// 	&& allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS) && gameState.hellraisers.allianceState === "ERADICATED"
-		// 	&& allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION) && gameState.coalition.allianceState === "ERADICATED")
+		// if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS) && gameState.amphos.allianceState === "ERADICATED"
+		// 	&& allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_HELLRAISERS) && gameState.hellraisers.allianceState === "ERADICATED"
+		// 	&& allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_COALITION) && gameState.coalition.allianceState === "ERADICATED")
 		// {
 		// 	achievementMessage("Ultimate Comeback", "Defeat the Royalists after every faction (other than the Resistance) has been eradicated by them");
 		// }
@@ -2997,7 +2996,7 @@ function endCountdown()
 // Check if the given faction has been eradicated (no bases and units remaining)
 function checkErad(player)
 {
-	if (player !== ROYALISTS)
+	if (player !== CAM_ROYALISTS)
 	{
 		// Check any bases still exist
 		if (hasBases(player)) return;
@@ -3011,20 +3010,20 @@ function checkErad(player)
 	// This faction has no bases or units, consider them eradicated
 	switch (player)
 	{
-		case THE_RESISTANCE:
+		case CAM_THE_RESISTANCE:
 			gameState.resistance.allianceState = "ERADICATED";
-			if (gameState.phase === 0 && !allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+			if (gameState.phase === 0 && !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 			{
 				achievementMessage("First Blood", "Eradicate the Resistance");
 			}
-			else if (gameState.phase >= 2 && !allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+			else if (gameState.phase >= 2 && !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 			{
 				achievementMessage("For Real This Time", "Eradicate the Resistance again");
 			}
 			break;
-		case AMPHOS:
+		case CAM_AMPHOS:
 			gameState.amphos.allianceState = "ERADICATED";
-			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS))
+			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS))
 			{
 				achievementMessage("Drowned Out", "Eradicate AMPHOS");
 				checkPhaseThree();
@@ -3049,14 +3048,14 @@ function checkErad(player)
 				camCallOnce("royAmpEradMessage");
 			}
 			break;
-		case HELLRAISERS:
+		case CAM_HELLRAISERS:
 			gameState.hellraisers.allianceState = "ERADICATED";
-			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS))
+			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_HELLRAISERS))
 			{
 				achievementMessage("Scorched Earth", "Eradicate the Hellraisers");
 				checkPhaseThree();
 				// Determine what the Coalition should do
-				if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+				if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 				{
 					// Become aggressive against the player
 					camCallOnce("aggroCoalition");
@@ -3073,12 +3072,12 @@ function checkErad(player)
 				gameState.royalists.allowIncenHowit = true;
 			}
 			break;
-		case THE_COALITION:
+		case CAM_THE_COALITION:
 			gameState.coalition.allianceState = "ERADICATED";
-			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION))
+			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_COALITION))
 			{
 				achievementMessage("Union Buster", "Eradicate the Coalition");
-				checkErad(THE_RESISTANCE);
+				checkErad(CAM_THE_RESISTANCE);
 				checkPhaseThree();
 				if (gameState.amphos.allianceState === "ALLIED" 
 					|| gameState.amphos.allianceState === "ERADICATED")
@@ -3093,7 +3092,7 @@ function checkErad(player)
 				}
 			}
 			break;
-		case ROYALISTS:
+		case CAM_ROYALISTS:
 			// Check if these main bases are destroyed
 			if (camBaseIsEliminated("royalMainBase") && camBaseIsEliminated("royalistVtolBase"))
 			{
@@ -3124,7 +3123,7 @@ function checkErad(player)
 // Gloat to the player about destroying their friends
 function royAmpEradMessage()
 {
-	var numAllies = 0;
+	let numAllies = 0;
 	if (gameState.hellraisers.allianceState === "ALLIED") numAllies++;
 	if (gameState.coalition.allianceState === "ALLIED") numAllies++;
 
@@ -3144,7 +3143,7 @@ function royAmpEradMessage()
 
 function royHelEradMessage()
 {
-	var numAllies = 0;
+	let numAllies = 0;
 	if (gameState.amphos.allianceState === "ALLIED") numAllies++;
 	if (gameState.coalition.allianceState === "ALLIED") numAllies++;
 
@@ -3164,7 +3163,7 @@ function royHelEradMessage()
 
 function royCoaEradMessage()
 {
-	var numAllies = 0;
+	let numAllies = 0;
 	if (gameState.amphos.allianceState === "ALLIED") numAllies++;
 	if (gameState.hellraisers.allianceState === "ALLIED") numAllies++;
 
@@ -3186,7 +3185,7 @@ function royCoaEradMessage()
 function checkNegotiations(oliveZoneLabel, oliveTruckLabel)
 {
 	// Make sure the player still only has trucks in the zone
-	var droids = enumArea(oliveZoneLabel, CAM_HUMAN_PLAYER, false);
+	const droids = enumArea(oliveZoneLabel, CAM_HUMAN_PLAYER, false);
 	if (!onlyTrucks(droids))
 	{
 		resetLabel(oliveZoneLabel, CAM_HUMAN_PLAYER);
@@ -3203,7 +3202,7 @@ function checkNegotiations(oliveZoneLabel, oliveTruckLabel)
 	}
 
 	// Is the olive truck dead?
-	var oliveTruck = getObject(oliveTruckLabel);
+	const oliveTruck = getObject(oliveTruckLabel);
 	if (oliveTruck === null)
 	{
 		// Olive truck is dead; continue no further.
@@ -3217,7 +3216,7 @@ function checkNegotiations(oliveZoneLabel, oliveTruckLabel)
 // Grants a random upgrade to the Royalists
 function grantRoyalistResearch()
 {
-	var resList = gameState.royalists.pResList;
+	const resList = gameState.royalists.pResList;
 	if (gameState.royalists.tier2Granted && resList.length < 10)
 	{
 		// Allow the Royalists to start building twin assault tanks
@@ -3230,17 +3229,17 @@ function grantRoyalistResearch()
 	}
 
 	// Choose a random upgrade from the list, and grant it to the Royalists 
-	var index = camRand(resList.length);
-	camCompleteRes(resList[index], ROYALISTS);
+	const RESEARCH_INDEX = camRand(resList.length);
+	camCompleteRes(resList[RESEARCH_INDEX], CAM_ROYALISTS);
 	// Then remove it from the list
-	resList.splice(index, 1);
+	resList.splice(RESEARCH_INDEX, 1);
 }
 
 // Allows the Royalists to research more upgrades, and increases the rate in which they get them
 // Called when both the Coalition and AMPHOS have been dealt with, or the player attacks the Royalist main base
 function grantRoyalistTier2Research()
 {
-	gameState.royalists.pResList = gameState.royalists.pResList.concat(ROYALIST_PROGRESSIVE_RES2);
+	gameState.royalists.pResList = gameState.royalists.pResList.concat(mis_royalistProgressiveRes2);
 	gameState.royalists.tier2Granted = true;
 
 	if (difficulty >= HARD)
@@ -3257,7 +3256,7 @@ function grantRoyalistTier2Research()
 // Add AA upgrades to the list of progressive Royalist research
 function grantRoyalistAAResearch()
 {
-	gameState.royalists.pResList = gameState.royalists.pResList.concat(ROYALIST_PROGRESSIVE_AA_RES);
+	gameState.royalists.pResList = gameState.royalists.pResList.concat(mis_royalistProgressiveAARes);
 }
 
 // Upgrades the structures of all the player's allies
@@ -3267,16 +3266,16 @@ function updateAlliedStructs(resName)
 	if (!camDef(resName))
 	{
 		// Cycle through everything the player has researched
-		var researchList = camGetResearchLog();
-		for (var i = 0; i < researchList.length; i++)
+		const researchList = camGetResearchLog();
+		for (let i = 0; i < researchList.length; i++)
 		{
 			updateAlliedStructs(researchList[i]);
 		}
 		return;
 	}
 
-	var oldStruct;
-	var newStruct;
+	let oldStruct;
+	let newStruct;
 
 	switch (resName)
 	{
@@ -3338,29 +3337,29 @@ function updateAlliedStructs(resName)
 		case "R-Wpn-Mortar-Incendiary": // Incendiary Mortar
 			if (gameState.resistance.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-MortarPit-Incendiary"); // Mortar Pit -> Incendiary Mortar Pit
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-MortarPit-Incendiary"); // Mortar Pit -> Incendiary Mortar Pit
 			}
 			break;
 		case "R-Wpn-Mortar02Hvy": // Bombard
 			if (gameState.resistance.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-MortarPit02"); // Mortar Pit -> Bombard Pit
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-MortarPit02"); // Mortar Pit -> Bombard Pit
 			}
 			break;
 		case "R-Wpn-Mortar3": // Pepperpot
 			if (gameState.resistance.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-RotMor"); // Mortar Pit -> Pepperpot Pit
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-RotMor"); // Mortar Pit -> Pepperpot Pit
 			}
 			break;
 		// Rockets
 		case "R-Wpn-Rocket06-IDF": // Ripple Rockets (Resistance only)
 			if (gameState.resistance.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-Rocket06-IDF"); // Mortar Pit -> Ripple Rocket Battery
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit-Incendiary", "Emplacement-Rocket06-IDF"); // Incendiary Mortar Pit -> Ripple Rocket Battery
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit02", "Emplacement-Rocket06-IDF"); // Bombard Pit -> Ripple Rocket Battery
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-RotMor", "Emplacement-Rocket06-IDF"); // Pepperpot Pit -> Ripple Rocket Battery
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-Rocket06-IDF"); // Mortar Pit -> Ripple Rocket Battery
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit-Incendiary", "Emplacement-Rocket06-IDF"); // Incendiary Mortar Pit -> Ripple Rocket Battery
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit02", "Emplacement-Rocket06-IDF"); // Bombard Pit -> Ripple Rocket Battery
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-RotMor", "Emplacement-Rocket06-IDF"); // Pepperpot Pit -> Ripple Rocket Battery
 			}
 			break;
 		case "R-Wpn-Rocket07-Tank-Killer": // Tank Killer
@@ -3371,10 +3370,10 @@ function updateAlliedStructs(resName)
 		case "R-Wpn-HowitzerMk1": // Howitzer
 			if (gameState.resistance.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-Howitzer105"); // Mortar Pit -> Howitzer Emplacement
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit-Incendiary", "Emplacement-Howitzer105"); // Incendiary Mortar Pit -> Howitzer Emplacement
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-MortarPit02", "Emplacement-Howitzer105"); // Bombard Pit -> Howitzer Emplacement
-				camTruckObsoleteStructure(THE_RESISTANCE, "Emplacement-RotMor", "Emplacement-Howitzer105"); // Pepperpot Pit -> Howitzer Emplacement
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit01", "Emplacement-Howitzer105"); // Mortar Pit -> Howitzer Emplacement
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit-Incendiary", "Emplacement-Howitzer105"); // Incendiary Mortar Pit -> Howitzer Emplacement
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-MortarPit02", "Emplacement-Howitzer105"); // Bombard Pit -> Howitzer Emplacement
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-RotMor", "Emplacement-Howitzer105"); // Pepperpot Pit -> Howitzer Emplacement
 			}
 			break;
 		// AA Weapons
@@ -3401,11 +3400,11 @@ function updateAlliedStructs(resName)
 		// Upgrade the modules of the given structure
 		if (gameState.resistance.allianceState === "ALLIED")
 		{
-			camTruckUpgradeModule(THE_RESISTANCE, oldStruct);
+			camTruckUpgradeModule(CAM_THE_RESISTANCE, oldStruct);
 		}
 		if (gameState.hellraisers.allianceState === "ALLIED")
 		{
-			camTruckUpgradeModule(HELLRAISERS, oldStruct);
+			camTruckUpgradeModule(CAM_HELLRAISERS, oldStruct);
 		}
 		// AMPHOS and Coalition start with all modules already
 		return;
@@ -3413,9 +3412,9 @@ function updateAlliedStructs(resName)
 
 	if (!camIsString(oldStruct)) // Array of structures to replace
 	{
-		for (var i = 0; i < oldStruct.length; i++)
+		for (let i = 0; i < oldStruct.length; i++)
 		{
-			var repStruct = newStruct;
+			let repStruct = newStruct;
 			if (!camIsString(newStruct)) // Array of structures to replace with
 			{
 				repStruct = newStruct[i];
@@ -3423,19 +3422,19 @@ function updateAlliedStructs(resName)
 
 			if (gameState.resistance.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_RESISTANCE, oldStruct[i], repStruct);
+				camTruckObsoleteStructure(CAM_THE_RESISTANCE, oldStruct[i], repStruct);
 			}
 			if (gameState.amphos.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(AMPHOS, oldStruct[i], repStruct);
+				camTruckObsoleteStructure(CAM_AMPHOS, oldStruct[i], repStruct);
 			}
 			if (gameState.hellraisers.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(HELLRAISERS, oldStruct[i], repStruct);
+				camTruckObsoleteStructure(CAM_HELLRAISERS, oldStruct[i], repStruct);
 			}
 			if (gameState.coalition.allianceState === "ALLIED")
 			{
-				camTruckObsoleteStructure(THE_COALITION, oldStruct[i], repStruct);
+				camTruckObsoleteStructure(CAM_THE_COALITION, oldStruct[i], repStruct);
 			}
 		}
 	}
@@ -3443,19 +3442,19 @@ function updateAlliedStructs(resName)
 	{
 		if (gameState.resistance.allianceState === "ALLIED")
 		{
-			camTruckObsoleteStructure(THE_RESISTANCE, oldStruct, newStruct);
+			camTruckObsoleteStructure(CAM_THE_RESISTANCE, oldStruct, newStruct);
 		}
 		if (gameState.amphos.allianceState === "ALLIED")
 		{
-			camTruckObsoleteStructure(AMPHOS, oldStruct, newStruct);
+			camTruckObsoleteStructure(CAM_AMPHOS, oldStruct, newStruct);
 		}
 		if (gameState.hellraisers.allianceState === "ALLIED")
 		{
-			camTruckObsoleteStructure(HELLRAISERS, oldStruct, newStruct);
+			camTruckObsoleteStructure(CAM_HELLRAISERS, oldStruct, newStruct);
 		}
 		if (gameState.coalition.allianceState === "ALLIED")
 		{
-			camTruckObsoleteStructure(THE_COALITION, oldStruct, newStruct);
+			camTruckObsoleteStructure(CAM_THE_COALITION, oldStruct, newStruct);
 		}
 	}
 }
@@ -3467,7 +3466,7 @@ function onlyTrucks(droids)
 	{
 		return false;
 	}
-	for (var i = 0; i < droids.length; i++)
+	for (let i = 0; i < droids.length; i++)
 	{
 		if (droids[i].droidType !== DROID_CONSTRUCT)
 		{
@@ -3482,22 +3481,22 @@ function hasBases(player)
 {
 	switch (player)
 	{
-		case THE_RESISTANCE:
+		case CAM_THE_RESISTANCE:
 			if (!camBaseIsEliminated("resistanceMainBase")) return true;
 			if (!camBaseIsEliminated("resistanceSubBase")) return true;
 			if (!camBaseIsEliminated("resistanceRiverRepairBase")) return true;
 			break;
-		case AMPHOS:
+		case CAM_AMPHOS:
 			if (!camBaseIsEliminated("southIslandBase")) return true;
 			if (!camBaseIsEliminated("westIslandBase")) return true;
 			if (!camBaseIsEliminated("northIslandBase")) return true;
 			if (!camBaseIsEliminated("ampNWIsleRepBase")) return true;
 			if (!camBaseIsEliminated("amphosMainBase")) return true;
 			break;
-		case HELLRAISERS:
+		case CAM_HELLRAISERS:
 			if (!camBaseIsEliminated("hellraiserMainBase")) return true;
 			break;
-		case THE_COALITION:
+		case CAM_THE_COALITION:
 			if (!camBaseIsEliminated("coalitionBridgeBase")) return true;
 			if (!camBaseIsEliminated("seCoalitionBase")) return true;
 			if (!camBaseIsEliminated("riverDeltaBase")) return true;
@@ -3516,37 +3515,37 @@ function hasBases(player)
 // after they break the given structure
 function forgivableStruct(structName, player)
 {
-	var forgivables = [];
+	let forgivables = [];
 
 	switch (player)
 	{
-		case THE_RESISTANCE:
+		case CAM_THE_RESISTANCE:
 			// Stuff found outside of the main Resistance base
 			forgivables = [_("Twin Machinegun Guard Tower"), _("Tank Traps"), _("Oil Derrick")];
 			break;
-		case AMPHOS:
+		case CAM_AMPHOS:
 			// Stuff that can trigger a CB attack
 			forgivables = [_("Mini-Rocket Battery"), _("Ripple Rocket Battery")];
 			break;
-		case HELLRAISERS:
+		case CAM_HELLRAISERS:
 			// The only unforgivable structures to the Hellraisers are base 
 			// structures, excluding Oil Derricks
-			var unforgivables = [
+			const unforgivables = [
 			_("Factory"), _("Cyborg Factory"), _("Command Center"),
 			_("Power Generator"), _("Research Facility"), _("Repair Facility")];
 
-			for (var i = 0; i < unforgivables.length; i++)
+			for (let i = 0; i < unforgivables.length; i++)
 			{
 				if (structName === unforgivables[i]) return false;
 			}
 
 			// Didn't match any of the unforgivable structures.
 			return true;
-		case THE_COALITION:
+		case CAM_THE_COALITION:
 			// Stuff that can trigger a CB attack
 			forgivables = [_("Mortar Pit"), _("Bombard Pit"), _("Howitzer Emplacement")];
 			break;
-		case ROYALISTS:
+		case CAM_ROYALISTS:
 			// Stuff that can trigger a CB attack
 			forgivables = [_("Pepperpot Pit"), _("Ripple Rocket Battery"), _("Howitzer Emplacement")];
 			break;
@@ -3554,7 +3553,7 @@ function forgivableStruct(structName, player)
 			break;
 	}
 
-	for (var i = 0; i < forgivables.length; i++)
+	for (let i = 0; i < forgivables.length; i++)
 	{
 		if (structName === forgivables[i]) return true;
 	}

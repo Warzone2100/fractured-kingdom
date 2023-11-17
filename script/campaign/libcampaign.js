@@ -1,31 +1,45 @@
-//;; # libcampaign.js documentation
+//;; # `libcampaign.js` documentation
 //;;
-//;; ```libcampaign.js``` is a JavaScript library supplied with the game,
+//;; `libcampaign.js` is a JavaScript library supplied with the game,
 //;; which contains reusable code for campaign scenarios. It is designed to
 //;; make scenario development as high-level and declarative as possible.
 //;; It also contains a few simple convenient wrappers.
-//;; Public API functions of ```libcampaign.js``` are prefixed with
-//;; ```cam```. To use ```libcampaign.js```, add the following include
-//;; into your scenario code:
+//;; Public API functions of `libcampaign.js` are prefixed with `cam`.
+//;; To use `libcampaign.js`, add the following include into your scenario code:
 //;;
-//;; ```javascript
+//;; ```js
 //;; include("script/campaign/libcampaign.js");
 //;; ```
 //;;
-//;; Also, most of the ```libcampaign.js``` features require some of the
-//;; game events handled by the library. Transparent JavaScript pre-hooks are
-//;; therefore injected into your global event handlers upon include. For
-//;; example, if ```camSetArtifacts()``` was called to let
-//;; ```libcampaign.js``` manage scenario artifacts, then
-//;; ```eventPickup()``` will be first handled by the library, and only then
-//;; your handler will be called, if any.
+//;; Also, most of the `libcampaign.js` features require some of the game
+//;; events handled by the library. Transparent JavaScript pre-hooks are
+//;; therefore injected into your global event handlers upon include.
+//;; For example, if `camSetArtifacts()` was called to let `libcampaign.js`
+//;; manage scenario artifacts, then `eventPickup()` will be first handled
+//;; by the library, and only then your handler will be called, if any.
 //;; All of this happens automagically and does not normally require
 //;; your attention.
 //;;
 
 /*
-	Private vars and functions are prefixed with `__cam'.
+	Private vars and functions are prefixed with `__cam`.
+	Private consts are prefixed with `__CAM_` or `__cam_`.
+	Public vars/functions are prefixed with `cam`, consts with `CAM_` or `cam_`.
 	Please do not use private stuff in scenario code, use only public API.
+
+	It is encouraged to prefix any local consts with `__` in any function in the
+	library if they are not objects/arrays. Mission scripts may use a `_` but
+	only if the name seems like it could clash with a JS API global.
+
+	Please CAPITALIZE const names for consistency for most of everything.
+	The only exception to these rules is when the const is declared in a loop
+	initialization or will be assigned as a global-context callback function,
+	or if it will be a JS object/array as these aren't truly immutable. Follow
+	standard camel case style as usual.
+
+	Also, in the event you want a top level const for a mission script
+	(and any include file) please prefix it with `MIS_` or `mis_` depending on
+	if it's an object/array or not.
 
 	We CANNOT put our private vars into an anonymous namespace, even though
 	it's a common JS trick -
@@ -79,40 +93,40 @@ namespace("cam_");
 //////////global vars start
 //These are campaign player numbers.
 const CAM_HUMAN_PLAYER = 0;
-const NEW_PARADIGM = 1;
-const THE_COLLECTIVE = 2;
-const NEXUS = 3;
-const SCAV_6 = 6;
-const SCAV_7 = 7;
+const CAM_NEW_PARADIGM = 1;
+const CAM_THE_COLLECTIVE = 2;
+const CAM_NEXUS = 3;
+const CAM_SCAV_6 = 6;
+const CAM_SCAV_7 = 7;
 
-const THE_RESISTANCE = 1;
-const AMPHOS = 2;
-const HELLRAISERS = 3;
-const THE_COALITION = 4;
-const ROYALISTS = 5;
+const CAM_THE_RESISTANCE = 1;
+const CAM_AMPHOS = 2;
+const CAM_HELLRAISERS = 3;
+const CAM_THE_COALITION = 4;
+const CAM_ROYALISTS = 5;
 
-const CAM_MAX_PLAYERS = 8;
-const CAM_TICKS_PER_FRAME = 100;
-const AI_POWER = 999999;
-const INCLUDE_PATH = "script/campaign/libcampaign_includes/";
+const __CAM_MAX_PLAYERS = 8;
+const __CAM_TICKS_PER_FRAME = 100;
+const __CAM_AI_POWER = 999999;
+const __CAM_INCLUDE_PATH = "script/campaign/libcampaign_includes/";
 
 //level load codes here for reference. Might be useful for later code.
-const ALPHA_CAMPAIGN_NUMBER = 1;
-const BETA_CAMPAIGN_NUMBER = 2;
-const GAMMA_CAMPAIGN_NUMBER = 3;
 const CAM_GAMMA_OUT = "GAMMA_OUT"; //Fake next level for the final Gamma mission.
-const UNKNOWN_CAMPAIGN_NUMBER = 1000;
-const ALPHA_LEVELS = [
+const __CAM_ALPHA_CAMPAIGN_NUMBER = 1;
+const __CAM_BETA_CAMPAIGN_NUMBER = 2;
+const __CAM_GAMMA_CAMPAIGN_NUMBER = 3;
+const __CAM_UNKNOWN_CAMPAIGN_NUMBER = 1000;
+const __cam_alphaLevels = [
 	"CAM_1A", "CAM_1B", "SUB_1_1S", "SUB_1_1", "SUB_1_2S", "SUB_1_2", "SUB_1_3S",
 	"SUB_1_3", "CAM_1C", "CAM_1CA", "SUB_1_4AS", "SUB_1_4A", "SUB_1_5S", "SUB_1_5",
 	"CAM_1A-C", "SUB_1_7S", "SUB_1_7", "SUB_1_DS", "SUB_1_D", "CAM_1END"
 ];
-const BETA_LEVELS = [
+const __cam_betaLevels = [
 	"CAM_2A", "SUB_2_1S", "SUB_2_1", "CAM_2B", "SUB_2_2S", "SUB_2_2", "CAM_2C",
 	"SUB_2_5S", "SUB_2_5", "SUB_2DS", "SUB_2D", "SUB_2_6S", "SUB_2_6", "SUB_2_7S",
 	"SUB_2_7", "SUB_2_8S", "SUB_2_8", "CAM_2END"
 ];
-const GAMMA_LEVELS = [
+const __cam_gammaLevels = [
 	"CAM_3A", "SUB_3_1S", "SUB_3_1", "CAM_3B", "SUB_3_2S", "SUB_3_2", "CAM3A-B",
 	"CAM3C", "CAM3A-D1", "CAM3A-D2", "CAM_3_4S", "CAM_3_4"
 ];
@@ -137,8 +151,14 @@ var __camDebuggedOnce = {};
 var __camTracedOnce = {};
 
 //events
-var __camLastHitTime = 0;
 var __camSaveLoading;
+
+//keep track of the colour of fog
+//these values are given values every level
+//this is hacky and stoopid
+var __camFogR;
+var __camFogG;
+var __camFogB;
 
 //group
 var __camNewGroupCounter;
@@ -150,20 +170,21 @@ var __camOriginalEvents = {};
 //misc
 var __camCalledOnce = {};
 var __camAttackLog; // Keep track of who attacked what at the current game time
+var __camExpLevel;
 
 //nexus
-const DEFENSE_ABSORBED = "defabsrd.ogg";
-const DEFENSE_NEUTRALIZE = "defnut.ogg";
-const LAUGH1 = "laugh1.ogg";
-const LAUGH2 = "laugh2.ogg";
-const LAUGH3 = "laugh3.ogg";
-const PRODUCTION_COMPLETE = "pordcomp.ogg";
-const RES_ABSORBED = "resabsrd.ogg";
-const STRUCTURE_ABSORBED = "strutabs.ogg";
-const STRUCTURE_NEUTRALIZE = "strutnut.ogg";
-const SYNAPTICS_ACTIVATED = "synplnk.ogg";
-const UNIT_ABSORBED = "untabsrd.ogg";
-const UNIT_NEUTRALIZE = "untnut.ogg";
+const CAM_DEFENSE_ABSORBED_SND = "defabsrd.ogg";
+const CAM_DEFENSE_NEUTRALIZE_SND = "defnut.ogg";
+const CAM_LAUGH1_SND = "laugh1.ogg";
+const CAM_LAUGH2_SND = "laugh2.ogg";
+const CAM_LAUGH3_SND = "laugh3.ogg";
+const CAM_PRODUCTION_COMPLETE_SND = "pordcomp.ogg";
+const CAM_RES_ABSORBED_SND = "resabsrd.ogg";
+const CAM_STRUCTURE_ABSORBED_SND = "strutabs.ogg";
+const CAM_STRUCTURE_NEUTRALIZE_SND = "strutnut.ogg";
+const CAM_SYNAPTICS_ACTIVATED_SND = "synplnk.ogg";
+const CAM_UNIT_ABSORBED_SND = "untabsrd.ogg";
+const CAM_UNIT_NEUTRALIZE_SND = "untnut.ogg";
 var __camLastNexusAttack;
 var __camNexusActivated;
 
@@ -194,9 +215,9 @@ const DORDER_DROIDREPAIR = 26; // Until I figure out where the other orders are 
 const DORDER_RTR_SPECIFIED = 35;
 
 //time
-const MILLISECONDS_IN_SECOND = 1000;
-const SECONDS_IN_MINUTE = 60;
-const MINUTES_IN_HOUR = 60;
+const CAM_MILLISECONDS_IN_SECOND = 1000;
+const CAM_SECONDS_IN_MINUTE = 60;
+const CAM_MINUTES_IN_HOUR = 60;
 
 //transport
 var __camNumTransporterExits;
@@ -233,10 +254,10 @@ var __camVideoSequences;
 var __camVtolDataSystem;
 
 //daycycle
-const CAM_SECONDS_IN_A_DAY_CYCLE = 1200; // Twenty minutes for a complete day/night cycle
-const CAM_ARIZONA_FOG_RGB = {r:176, g:143, b:95}; // RGB for noon arizona fog. IDEALLY, these would be read from palette.txt
-const CAM_URBAN_FOG_RGB = {r:16, g:16, b:64}; // RGB for noon urban fog.
-const CAM_ROCKY_FOG_RGB = {r:182, g:225, b:236}; // RGB for noon rocky fog.
+const __CAM_SECONDS_IN_A_DAY_CYCLE = 1200; // Twenty minutes for a complete day/night cycle
+const __CAM_ARIZONA_FOG_RGB = {r:176, g:143, b:95}; // RGB for noon arizona fog. IDEALLY, these would be read from palette.txt
+const __CAM_URBAN_FOG_RGB = {r:16, g:16, b:64}; // RGB for noon urban fog.
+const __CAM_ROCKY_FOG_RGB = {r:182, g:225, b:236}; // RGB for noon rocky fog.
 var __camDayCycleActive;
 var __camNightSkyboxSet;
 var __camDayTime;
@@ -250,23 +271,23 @@ var __camDayTime;
 // yet at the time scripts are loaded. (Yes, function name needs to be quoted.)
 hackDoNotSave("__camOriginalEvents");
 
-include(INCLUDE_PATH + "misc.js");
-include(INCLUDE_PATH + "debug.js");
-include(INCLUDE_PATH + "hook.js");
-include(INCLUDE_PATH + "events.js");
+include(__CAM_INCLUDE_PATH + "misc.js");
+include(__CAM_INCLUDE_PATH + "debug.js");
+include(__CAM_INCLUDE_PATH + "hook.js");
+include(__CAM_INCLUDE_PATH + "events.js");
 
-include(INCLUDE_PATH + "time.js");
-include(INCLUDE_PATH + "research.js");
-include(INCLUDE_PATH + "artifact.js");
-include(INCLUDE_PATH + "base.js");
-include(INCLUDE_PATH + "reinforcements.js");
-include(INCLUDE_PATH + "tactics.js");
-include(INCLUDE_PATH + "production.js");
-include(INCLUDE_PATH + "truck.js");
-include(INCLUDE_PATH + "victory.js");
-include(INCLUDE_PATH + "transport.js");
-include(INCLUDE_PATH + "vtol.js");
-include(INCLUDE_PATH + "nexus.js");
-include(INCLUDE_PATH + "group.js");
-include(INCLUDE_PATH + "video.js");
-include(INCLUDE_PATH + "daycycle.js");
+include(__CAM_INCLUDE_PATH + "time.js");
+include(__CAM_INCLUDE_PATH + "research.js");
+include(__CAM_INCLUDE_PATH + "artifact.js");
+include(__CAM_INCLUDE_PATH + "base.js");
+include(__CAM_INCLUDE_PATH + "reinforcements.js");
+include(__CAM_INCLUDE_PATH + "tactics.js");
+include(__CAM_INCLUDE_PATH + "production.js");
+include(__CAM_INCLUDE_PATH + "truck.js");
+include(__CAM_INCLUDE_PATH + "victory.js");
+include(__CAM_INCLUDE_PATH + "transport.js");
+include(__CAM_INCLUDE_PATH + "vtol.js");
+include(__CAM_INCLUDE_PATH + "nexus.js");
+include(__CAM_INCLUDE_PATH + "group.js");
+include(__CAM_INCLUDE_PATH + "video.js");
+include(__CAM_INCLUDE_PATH + "daycycle.js");

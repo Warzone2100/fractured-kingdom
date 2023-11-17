@@ -16,10 +16,10 @@ function eventStructureBuilt(struct, droid)
 		return;
 	}
 
-	if (struct.player === HELLRAISERS && gameState.hellraisers.allianceState === "NEUTRAL" && gameState.hellraisers.pitched)
+	if (struct.player === CAM_HELLRAISERS && gameState.hellraisers.allianceState === "NEUTRAL" && gameState.hellraisers.pitched)
 	{
 		// Check if the Hellraisers have rebuilt enough of their structures
-		if (enumStruct(HELLRAISERS).length >= gameState.hellraisers.structThreshold)
+		if (enumStruct(CAM_HELLRAISERS).length >= gameState.hellraisers.structThreshold)
 		{
 			camCallOnce("setupHellraiserNegotiations");
 		}
@@ -28,33 +28,33 @@ function eventStructureBuilt(struct, droid)
 	if (struct.name === _("VTOL Radar Tower") || struct.name === _("VTOL CB Tower"))
 	{
 		// The Coalition have built a new VTOL Tower
-		gameState.coalitionVTOLTowers = enumStruct(THE_COALITION, "Sys-VTOL-RadarTower01").concat(
-			enumStruct(THE_COALITION, "Sys-VTOL-CB-Tower01"));
+		gameState.coalitionVTOLTowers = enumStruct(CAM_THE_COALITION, "Sys-VTOL-RadarTower01").concat(
+			enumStruct(CAM_THE_COALITION, "Sys-VTOL-CB-Tower01"));
 	}
 	if (struct.name === _("Collective VTOL Radar Tower") || struct.name === _("Collective VTOL CB Tower"))
 	{
 		// The Royalists have built a new VTOL Tower
-		gameState.royalistVTOLTowers = enumStruct(ROYALISTS, "Sys-CO-VTOL-RadarTower01").concat(
-			enumStruct(ROYALISTS, "Sys-CO-VTOL-CB-Tower01"));
+		gameState.royalistVTOLTowers = enumStruct(CAM_ROYALISTS, "Sys-CO-VTOL-RadarTower01").concat(
+			enumStruct(CAM_ROYALISTS, "Sys-CO-VTOL-CB-Tower01"));
 	}
 
-	if (struct.player === ROYALISTS)
+	if (struct.player === CAM_ROYALISTS)
 	{
 		if (struct.stattype === RESEARCH_LAB 
 			&& struct.x === 9 && struct.y === 144 
-			&& allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS))
+			&& allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_HELLRAISERS))
 		{
 			camCallOnce("compenArtifactIncenMortar");
 		}
 		if (struct.stattype === RESEARCH_LAB 
 			&& struct.x === 9 && struct.y === 60
-			&& allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION))
+			&& allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_COALITION))
 		{
 			camCallOnce("compenArtifactHowitzer");
 		}
 		if (struct.stattype === FACTORY 
 			&& struct.x === 245 && struct.y === 141
-			&& allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS))
+			&& allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS))
 		{
 			camCallOnce("compenArtifactRippleRockets");
 		}
@@ -64,17 +64,17 @@ function eventStructureBuilt(struct, droid)
 	// If it has, then start managing it again.
 	if (struct.stattype === FACTORY || struct.stattype === CYBORG_FACTORY || struct.stattype === VTOL_FACTORY)
 	{
-		var player = struct.player;
-		var x = struct.x;
-		var y = struct.y;
-		var stattype = struct.stattype;
+		const PLAYER = struct.player;
+		const X_COORD = struct.x;
+		const Y_COORD = struct.y;
+		const stattype = struct.stattype;
 
-		for (var i = 0; i < gameState.factoryLabelInfo.length; i++)
+		for (let i = 0; i < gameState.factoryLabelInfo.length; i++)
 		{
-			var labelInfo = gameState.factoryLabelInfo[i];
+			const labelInfo = gameState.factoryLabelInfo[i];
 
 			// Determine if this newly built factory is the same as the old one
-			if (player === labelInfo.player && x === labelInfo.x && y === labelInfo.y 
+			if (PLAYER === labelInfo.player && X_COORD === labelInfo.x && Y_COORD === labelInfo.y 
 				&& stattype === labelInfo.stattype)
 			{
 				// Everything matches, set the label to refer to the
@@ -117,29 +117,29 @@ function eventDroidBuilt(droid, structure)
 	// VTOL unit assignment
 	if (droid.isVTOL)
 	{
-		var towerList;
-		var groupList;
-		var vtolPlayer;
-		var mainGroup;
+		let towerList;
+		let groupList;
+		let vtolPlayer;
+		let mainGroup;
 
-		if (droid.player === AMPHOS)
+		if (droid.player === CAM_AMPHOS)
 		{
 			towerList = []; // AMPHOS has no VTOL towers
-			vtolPlayer = AMPHOS;
+			vtolPlayer = CAM_AMPHOS;
 			mainGroup = gameState.amphos.mainVTOLGroup;
 		}
-		else if (droid.player === THE_COALITION)
+		else if (droid.player === CAM_THE_COALITION)
 		{
 			towerList = gameState.coalitionVTOLTowers;
 			groupList = gameState.coalitionVTOLTowerGroups;
-			vtolPlayer = THE_COALITION;
+			vtolPlayer = CAM_THE_COALITION;
 			mainGroup = gameState.coalition.mainVTOLGroup;
 		}
-		else if (droid.player === ROYALISTS)
+		else if (droid.player === CAM_ROYALISTS)
 		{
 			towerList = gameState.royalistVTOLTowers;
 			groupList = gameState.royalistVTOLTowerGroups;
-			vtolPlayer = ROYALISTS;
+			vtolPlayer = CAM_ROYALISTS;
 			mainGroup = gameState.royalists.mainVTOLGroup;
 		}
 		else
@@ -148,32 +148,32 @@ function eventDroidBuilt(droid, structure)
 		}
 
 		// Don't add Bunker Buster VTOLs to tower groups
-		if (droid.weapons[0].name !== "Rocket-BB")
+		if (droid.weapons[0].name !== "Rocket-VTOL-BB")
 		{
-			for (var i = 0; i < towerList.length; i++) // Won't run for AMPHOS, their array is empty
+			for (let i = 0; i < towerList.length; i++) // Won't run for AMPHOS, their array is empty
 			{
-				var vtolTower = towerList[i];
+				const vtolTower = towerList[i];
 				if (!camDef(groupList[vtolTower.id]))
 				{
 					// VTOL Tower with no group; create a new group and add this VTOL to it
-					var groupID = camMakeGroup(droid);
-					groupList[vtolTower.id] = groupID;
-					var towerLabel = "vtolTower_" + vtolTower.id;
-					addLabel(getObject(STRUCTURE, vtolPlayer, vtolTower.id), towerLabel);
+					const GROUP_ID = camMakeGroup(droid);
+					groupList[vtolTower.id] = GROUP_ID;
+					const TOWER_LABEL = "vtolTower_" + vtolTower.id;
+					addLabel(getObject(STRUCTURE, vtolPlayer, vtolTower.id), TOWER_LABEL);
 
-					camManageGroup(groupID, CAM_ORDER_FOLLOW, {
-						leader: towerLabel,
+					camManageGroup(GROUP_ID, CAM_ORDER_FOLLOW, {
+						leader: TOWER_LABEL,
 						order: CAM_ORDER_ATTACK // Dummy line, will be overwriten if tower dies
 					});
 
 					return; // VTOL assigned; all done
 				}
 
-				var groupID = groupList[vtolTower.id];
-				if (enumGroup(groupID).length < VTOL_TOWER_GROUP_SIZE)
+				const GROUP_ID = groupList[vtolTower.id];
+				if (enumGroup(GROUP_ID).length < VTOL_TOWER_GROUP_SIZE)
 				{
 					// VTOL Tower with understaffed group; add this VTOL to it
-					groupAdd(groupID, droid);
+					groupAdd(GROUP_ID, droid);
 
 					return; // VTOL assigned; all done
 				}
@@ -183,13 +183,13 @@ function eventDroidBuilt(droid, structure)
 		// All VTOL tower groups are full. Assign the VTOL to the main group
 		groupAdd(mainGroup.id, droid);
 
-		var groupSize = enumGroup(mainGroup.id).length;
-		if (groupSize >= mainGroup.maxSize) // Is the group full?
+		const GROUP_SIZE = enumGroup(mainGroup.id).length;
+		if (GROUP_SIZE >= mainGroup.maxSize) // Is the group full?
 		{
 			// Stop building VTOLs
 			setProduction(vtolPlayer, "VTOL", false);
 		}
-		if (groupSize === mainGroup.minSize) // Was the group below minimum size?
+		if (GROUP_SIZE === mainGroup.minSize) // Was the group below minimum size?
 		{
 			// libcampaign automatically stops managing groups if it becomes empty.
 			// start re-managing it here in case it had become empty before
@@ -202,14 +202,14 @@ function eventDroidBuilt(droid, structure)
 	// Non-VTOL unit assignment
 	switch (droid.player)
 	{
-		case THE_RESISTANCE:
+		case CAM_THE_RESISTANCE:
 			if (droid.droidType === DROID_COMMAND)
 			{
 				// Main Commander has been rebuilt
 				addLabel(droid, "resCommander");
 				setDroidExperience(droid, gameState.resistance.storedRank);
 
-				var group = gameState.resistance.groups.commanderGroup;
+				const group = gameState.resistance.groups.commanderGroup;
 				camManageGroup(group.id, group.order, group.data); // Reassign any leftover commander units
 				checkResistanceGroups(); // Check if we need to produce more.
 			}
@@ -218,16 +218,16 @@ function eventDroidBuilt(droid, structure)
 				assignDroidResistance(droid);
 			}
 			break;
-		case AMPHOS:
+		case CAM_AMPHOS:
 			assignDroidAmphos(droid);
 			break;
-		case HELLRAISERS:
+		case CAM_HELLRAISERS:
 			assignDroidHellraisers(droid);
 			break;
-		case THE_COALITION:
+		case CAM_THE_COALITION:
 			assignDroidCoalition(droid);
 			break;
-		case ROYALISTS:
+		case CAM_ROYALISTS:
 			if (droid.droidType === DROID_COMMAND)
 			{
 				// The droid is a new assault commander
@@ -239,7 +239,7 @@ function eventDroidBuilt(droid, structure)
 				if (difficulty >= HARD) camSetDroidRank(commander, "Professional");
 
 				// Assign units to the commander
-				var commandGroup = gameState.royalists.assaultCommandGroup;
+				const commandGroup = gameState.royalists.assaultCommandGroup;
 				camManageGroup(commandGroup.id, commandGroup.order, commandGroup.data);
 
 				camManageGroup(camMakeGroup("royAssaultCommander"), CAM_ORDER_DEFEND, {
@@ -248,10 +248,10 @@ function eventDroidBuilt(droid, structure)
 				});
 				break; // Commander assigned, all done.
 			}
-			var mainFac = getObject("royalistMainFactory");
-			var mainCybFac = getObject("royalistMainCyborgFac");
-			var hoverFac = getObject("royalistHoverFactory");
-			var hoverRepFac = getObject("royalistAmpRepFactory");
+			const mainFac = getObject("royalistMainFactory");
+			const mainCybFac = getObject("royalistMainCyborgFac");
+			const hoverFac = getObject("royalistHoverFactory");
+			const hoverRepFac = getObject("royalistAmpRepFactory");
 			if ((mainFac !== null && structure.id === mainFac.id) || (mainCybFac !== null && structure.id === mainCybFac.id))
 			{
 				// Droid came from one of the main factories
@@ -288,10 +288,10 @@ function eventDroidBuilt(droid, structure)
 
 function eventDestroyed(obj)
 {
-	var attacker = camWhoAttacked(obj);
-	var player = obj.player;
+	const attacker = camWhoAttacked(obj);
+	const VICTIM_PLAYER = obj.player;
 
-	if (player === CAM_HUMAN_PLAYER && obj.type === DROID)
+	if (VICTIM_PLAYER === CAM_HUMAN_PLAYER && obj.type === DROID)
 	{
 		// The player may no longer get the "Stainless" achievement
 		gameState.unitLost = true;
@@ -301,32 +301,32 @@ function eventDestroyed(obj)
 	if (camDef(attacker) && attacker.player === CAM_HUMAN_PLAYER)
 	{
 		// Check if the Resistance should become aggressive
-		if (gameState.resistance.allianceState === "OFFER" && player === THE_RESISTANCE 
-			&& (obj.type === DROID || !forgivableStruct(obj.name, THE_RESISTANCE)))
+		if (gameState.resistance.allianceState === "OFFER" && VICTIM_PLAYER === CAM_THE_RESISTANCE 
+			&& (obj.type === DROID || !forgivableStruct(obj.name, CAM_THE_RESISTANCE)))
 		{
 			// The player has destroyed a Resistance unit or important structure
 			// while the Resistance was offering an alliance.
 			camCallOnce("aggroResistance");
 		}
 		// Check if AMPHOS should become aggressive
-		else if (gameState.amphos.allianceState === "NEUTRAL" && player === AMPHOS 
-			&& obj.type === STRUCTURE && !forgivableStruct(obj.name, AMPHOS)
+		else if (gameState.amphos.allianceState === "NEUTRAL" && VICTIM_PLAYER === CAM_AMPHOS 
+			&& obj.type === STRUCTURE && !forgivableStruct(obj.name, CAM_AMPHOS)
 			&& camWithinArea(obj, "amphosBase"))
 		{
 			// The player has destroyed an important structure in 
 			// the AMPHOS main base.
 			camCallOnce("aggroAmphos");
 		}
-		else if (gameState.amphos.allianceState === "OFFER" && player === AMPHOS 
-			&& (obj.type === DROID || !forgivableStruct(obj.name, AMPHOS)))
+		else if (gameState.amphos.allianceState === "OFFER" && VICTIM_PLAYER === CAM_AMPHOS 
+			&& (obj.type === DROID || !forgivableStruct(obj.name, CAM_AMPHOS)))
 		{
 			// The player has destroyed an AMPHOS unit or important structure
 			// while AMPHOS was offering an alliance.
 			camCallOnce("aggroAmphos");
 		}
 		// Check if the Hellraisers should pitch an offer to the player
-		else if (gameState.hellraisers.allianceState === "NEUTRAL" && player === HELLRAISERS 
-			&& obj.type === STRUCTURE && forgivableStruct(obj.name, HELLRAISERS)
+		else if (gameState.hellraisers.allianceState === "NEUTRAL" && VICTIM_PLAYER === CAM_HELLRAISERS 
+			&& obj.type === STRUCTURE && forgivableStruct(obj.name, CAM_HELLRAISERS)
 			&& camWithinArea(obj, "hellraiserBase"))
 		{
 			// The player has destroyed an unimportant structure
@@ -334,20 +334,20 @@ function eventDestroyed(obj)
 			camCallOnce("helPitch");
 		}
 		// Check if the Hellraisers should become aggressive
-		else if (gameState.hellraisers.allianceState !== "ALLIED" && player === HELLRAISERS 
-			&& obj.type === STRUCTURE && !forgivableStruct(obj.name, HELLRAISERS))
+		else if (gameState.hellraisers.allianceState !== "ALLIED" && VICTIM_PLAYER === CAM_HELLRAISERS 
+			&& obj.type === STRUCTURE && !forgivableStruct(obj.name, CAM_HELLRAISERS))
 		{
 			// The player has destroyed an important structure
 			camCallOnce("aggroHellraisers");
 		}
 		// Check if the Coalition should become aggressive
-		else if (gameState.coalition.allianceState !== "ALLIED" && player === THE_COALITION 
-			&& obj.type === STRUCTURE && !forgivableStruct(obj.name, THE_COALITION))
+		else if (gameState.coalition.allianceState !== "ALLIED" && VICTIM_PLAYER === CAM_THE_COALITION 
+			&& obj.type === STRUCTURE && !forgivableStruct(obj.name, CAM_THE_COALITION))
 		{
 			// The player has destroyed an important structure
 			camCallOnce("aggroCoalition");
 		}
-		else if (gameState.coalition.allianceState !== "ALLIED" && player === THE_COALITION 
+		else if (gameState.coalition.allianceState !== "ALLIED" && VICTIM_PLAYER === CAM_THE_COALITION 
 			&& obj.type === DROID && !obj.isVTOL && gameState.coalition.pitched)
 		{
 			// The player has destroyed a unit
@@ -360,7 +360,7 @@ function eventDestroyed(obj)
 		}
 		// Check if the Royalists should drop the fakeout act
 		else if (gameState.royalists.fakeout && gameTime > gameState.royalists.fakeoutTime + 30000
-			&& player === ROYALISTS && obj.type === STRUCTURE && !forgivableStruct(obj.name, ROYALISTS))
+			&& VICTIM_PLAYER === CAM_ROYALISTS && obj.type === STRUCTURE && !forgivableStruct(obj.name, CAM_ROYALISTS))
 		{
 			// Give up the fakeout act
 			missionMessage("ROYBTRYMSG", "TRANS");
@@ -368,7 +368,7 @@ function eventDestroyed(obj)
 		}
 
 		// Keep track of how much AMPHOS stuff has been destroyed before negotiations
-		if (gameState.amphos.allianceState === "NEUTRAL" && player === AMPHOS 
+		if (gameState.amphos.allianceState === "NEUTRAL" && VICTIM_PLAYER === CAM_AMPHOS 
 			&& (obj.type === DROID || (obj.type === STRUCTURE && obj.stattype !== WALL)))
 		{
 			gameState.amphos.numDestroyed++;
@@ -379,14 +379,14 @@ function eventDestroyed(obj)
 	if (camDef(attacker) && allianceExistsBetween(CAM_HUMAN_PLAYER, attacker.player))
 	{
 		if (obj.type === DROID && obj.body === "CyborgHeavyBody"
-			&& attacker.player === CAM_HUMAN_PLAYER && player !== CAM_HUMAN_PLAYER
+			&& attacker.player === CAM_HUMAN_PLAYER && VICTIM_PLAYER !== CAM_HUMAN_PLAYER
 			&& attacker.type === DROID && camDef(attacker.weapons[0])
 			&& (attacker.weapons[0].name === "Rocket-BB" || attacker.weapons[0].name === "Rocket-VTOL-BB"))
 		{
 			achievementMessage("Why", "Destroy an enemy Super Cyborg with a Bunker Buster Rocket");
 		}
 		else if (obj.type === DROID && obj.isVTOL && attacker.type === DROID && attacker.isVTOL
-			&& attacker.player === CAM_HUMAN_PLAYER && player !== CAM_HUMAN_PLAYER)
+			&& attacker.player === CAM_HUMAN_PLAYER && VICTIM_PLAYER !== CAM_HUMAN_PLAYER)
 		{
 			achievementMessage("Interceptor", "Shoot down a VTOL with another VTOL");
 		}
@@ -401,7 +401,7 @@ function eventDestroyed(obj)
 			achievementMessage("No-Fly Zone", "Shoot down an enemy transport while it's in the air");
 		}
 		else if (obj.type === DROID && attacker.player === CAM_HUMAN_PLAYER 
-			&& allianceExistsBetween(CAM_HUMAN_PLAYER, player) && player !== CAM_HUMAN_PLAYER)
+			&& allianceExistsBetween(CAM_HUMAN_PLAYER, VICTIM_PLAYER) && VICTIM_PLAYER !== CAM_HUMAN_PLAYER)
 		{
 			gameState.oopsieDaisies++;
 			if (gameState.oopsieDaisies >= 20)
@@ -412,30 +412,30 @@ function eventDestroyed(obj)
 		}
 	}
 
-	if (player === CAM_HUMAN_PLAYER)
+	if (VICTIM_PLAYER === CAM_HUMAN_PLAYER)
 	{
 		return;
 	}
 
 	// Check if a faction has been eradicated
-	checkErad(player);
+	checkErad(VICTIM_PLAYER);
 
 	if (obj.type === DROID)
 	{
 		// VTOL handling
 		if (obj.isVTOL)
 		{
-			var mainGroup;
+			let mainGroup;
 			
-			switch (player)
+			switch (VICTIM_PLAYER)
 			{
-				case AMPHOS:
+				case CAM_AMPHOS:
 					mainGroup = gameState.amphos.mainVTOLGroup;
 					break;
-				case THE_COALITION:
+				case CAM_THE_COALITION:
 					mainGroup = gameState.coalition.mainVTOLGroup;
 					break;
-				case ROYALISTS:
+				case CAM_ROYALISTS:
 					mainGroup = gameState.royalists.mainVTOLGroup;
 					break;
 				default:
@@ -443,20 +443,20 @@ function eventDestroyed(obj)
 			}
 
 			// Check if the main VTOL group is undermanned
-			var groupDroids = enumGroup(mainGroup.id);
+			const groupDroids = enumGroup(mainGroup.id);
 			if (groupDroids.length < mainGroup.maxSize)
 			{
 				// Enable VTOL production
-				queueStartProduction(player, "VTOL");
+				queueStartProduction(VICTIM_PLAYER, "VTOL");
 			}
 		}
 		// Ground unit handling
 		else if (obj.droidType !== DROID_CONSTRUCT)
 		{
 			// Check faction group sizes and see if we need to resume production
-			switch (player)
+			switch (VICTIM_PLAYER)
 			{
-				case THE_RESISTANCE:
+				case CAM_THE_RESISTANCE:
 					checkResistanceGroups();
 					if (getLabel(obj) === "resCommander" && gameState.resistance.allianceState === "ALLIED")
 					{
@@ -465,7 +465,7 @@ function eventDestroyed(obj)
 						queue("rebuildResistanceCommander", camChangeOnDiff(camMinutesToMilliseconds(2), true));
 					}
 					break;
-				case AMPHOS:
+				case CAM_AMPHOS:
 					checkAmphosGroups();
 					if (getLabel(obj) === "ampCommander")
 					{
@@ -473,10 +473,10 @@ function eventDestroyed(obj)
 						gameState.amphos.groups.playerSupportGroup.maxSize += 10;
 					}
 					break;
-				case HELLRAISERS:
+				case CAM_HELLRAISERS:
 					checkHellraiserGroups();
 					break;
-				case THE_COALITION:
+				case CAM_THE_COALITION:
 					checkCoalitionGroups();
 					if (getLabel(obj) === "coaCommander")
 					{
@@ -484,12 +484,12 @@ function eventDestroyed(obj)
 						if (gameState.coalition.offensive && gameState.coalition.allianceState !== "HOSTILE")
 						{
 							// Make sure any leftover commander units don't go after the player
-							camManageGroup(gameState.coalition.groups.commanderGroup.id, CAM_ORDER_ATTACK, {targetPlayer: ROYALISTS, repair: 65});
+							camManageGroup(gameState.coalition.groups.commanderGroup.id, CAM_ORDER_ATTACK, {targetPlayer: CAM_ROYALISTS, repair: 65});
 						}
 						gameState.coalition.groups.playerSupportGroup.maxSize += 12;
 					}
 					break;
-				case ROYALISTS:
+				case CAM_ROYALISTS:
 					if (gameState.royalists.fakeout && getLabel(obj) === "royOliveTruck")
 					{
 						missionMessage("ROYBTRYMSG", "TRANS");
@@ -506,17 +506,17 @@ function eventDestroyed(obj)
 
 	if (obj.type === STRUCTURE)
 	{
-		if (player === THE_COALITION)
+		if (VICTIM_PLAYER === CAM_THE_COALITION)
 		{
 			if (obj.name === _("VTOL Radar Tower") || obj.name === _("VTOL CB Tower"))
 			{
 				// The Coalition have lost a VTOL Tower
-				gameState.coalitionVTOLTowers = enumStruct(THE_COALITION, "Sys-VTOL-RadarTower01").concat(
-					enumStruct(THE_COALITION, "Sys-VTOL-CB-Tower01"));
+				gameState.coalitionVTOLTowers = enumStruct(CAM_THE_COALITION, "Sys-VTOL-RadarTower01").concat(
+					enumStruct(CAM_THE_COALITION, "Sys-VTOL-CB-Tower01"));
 				// Move all VTOLs from the dead tower's group to the main group
-				var towerGroup = gameState.coalitionVTOLTowerGroups[obj.id];
-				var towerGroupVtols = enumGroup(towerGroup);
-				for (var vtol of towerGroupVtols)
+				const towerGroup = gameState.coalitionVTOLTowerGroups[obj.id];
+				const towerGroupVtols = enumGroup(towerGroup);
+				for (const vtol of towerGroupVtols)
 				{
 					// This can exceed the main group's max size, but that's OK
 					groupAdd(gameState.coalition.mainVTOLGroup.id, vtol);
@@ -527,17 +527,17 @@ function eventDestroyed(obj)
 			}
 		}
 		
-		if (player === ROYALISTS)
+		if (VICTIM_PLAYER === CAM_ROYALISTS)
 		{
 			if (obj.name === _("Collective VTOL Radar Tower") || obj.name === _("Collective VTOL CB Tower"))
 			{
 				// The Royalists have lost a VTOL Tower
-				gameState.royalistVTOLTowers = enumStruct(ROYALISTS, "Sys-CO-VTOL-RadarTower01").concat(
-					enumStruct(ROYALISTS, "Sys-CO-VTOL-CB-Tower01"));
+				gameState.royalistVTOLTowers = enumStruct(CAM_ROYALISTS, "Sys-CO-VTOL-RadarTower01").concat(
+					enumStruct(CAM_ROYALISTS, "Sys-CO-VTOL-CB-Tower01"));
 				// Move all VTOLs from the dead tower's group to the main group
-				var towerGroup = gameState.royalistVTOLTowerGroups[obj.id];
-				var towerGroupVtols = enumGroup(towerGroup);
-				for (var vtol of towerGroupVtols)
+				const towerGroup = gameState.royalistVTOLTowerGroups[obj.id];
+				const towerGroupVtols = enumGroup(towerGroup);
+				for (const vtol of towerGroupVtols)
 				{
 					groupAdd(gameState.royalists.mainVTOLGroup.id, vtol);
 				}
@@ -548,12 +548,12 @@ function eventDestroyed(obj)
 		}
 
 		// Remove the beacons of LZs inside larger bases
-		if (player === HELLRAISERS && gameState.hellraisers.lzDiscovered)
+		if (VICTIM_PLAYER === CAM_HELLRAISERS && gameState.hellraisers.lzDiscovered)
 		{
-			var lzExists = enumArea("hellraiserLZ", HELLRAISERS, false).filter(function(obj) {
+			const LZ_EXISTS = enumArea("hellraiserLZ", CAM_HELLRAISERS, false).filter(function(obj) {
 				return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 			}).length > 0;
-			if (!lzExists)
+			if (!LZ_EXISTS)
 			{
 				// The LZ inside of the Hellraiser base has been destroyed (for now)
 				hackRemoveMessage("HELLRAISER_LZ", PROX_MSG, CAM_HUMAN_PLAYER);
@@ -561,21 +561,21 @@ function eventDestroyed(obj)
 				gameState.hellraisers.lzDiscovered = false;
 
 				// Cleanup any remaining walls/gates
-				var leftovers = enumArea("hellraiserLZ", HELLRAISERS, false).filter(function(obj) {
+				const leftovers = enumArea("hellraiserLZ", CAM_HELLRAISERS, false).filter(function(obj) {
 					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE));
 				});
-				for (var i = leftovers.length - 1; i >= 0; i--)
+				for (let i = leftovers.length - 1; i >= 0; i--)
 				{
 					camSafeRemoveObject(leftovers[i], true);
 				}
 			}
 		}
-		if (player === ROYALISTS && gameState.royalists.coastLzDiscovered)
+		if (VICTIM_PLAYER === CAM_ROYALISTS && gameState.royalists.coastLzDiscovered)
 		{
-			var lzExists = enumArea("coastLZ", ROYALISTS, false).filter(function(obj) {
+			const LZ_EXISTS = enumArea("coastLZ", CAM_ROYALISTS, false).filter(function(obj) {
 				return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 			}).length > 0;
-			if (!lzExists)
+			if (!LZ_EXISTS)
 			{
 				// The LZ inside of the south gate base has been destroyed (for now)
 				hackRemoveMessage("COAST_LZ", PROX_MSG, CAM_HUMAN_PLAYER);
@@ -583,21 +583,21 @@ function eventDestroyed(obj)
 				gameState.royalists.coastLzDiscovered = false;
 
 				// Cleanup any remaining walls/gates
-				var leftovers = enumArea("coastLZ", ROYALISTS, false).filter(function(obj) {
+				const leftovers = enumArea("coastLZ", CAM_ROYALISTS, false).filter(function(obj) {
 					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE));
 				});
-				for (var i = leftovers.length - 1; i >= 0; i--)
+				for (let i = leftovers.length - 1; i >= 0; i--)
 				{
 					camSafeRemoveObject(leftovers[i], true);
 				}
 			}
 		}
-		if (player === ROYALISTS && gameState.royalists.howitzerLzDiscovered)
+		if (VICTIM_PLAYER === CAM_ROYALISTS && gameState.royalists.howitzerLzDiscovered)
 		{
-			var lzExists = enumArea("howitzerLZ", ROYALISTS, false).filter(function(obj) {
+			const LZ_EXISTS = enumArea("howitzerLZ", CAM_ROYALISTS, false).filter(function(obj) {
 				return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
 			}).length > 0;
-			if (!lzExists)
+			if (!LZ_EXISTS)
 			{
 				// The LZ inside of the south gate base has been destroyed (for now)
 				hackRemoveMessage("HOWITZER_LZ", PROX_MSG, CAM_HUMAN_PLAYER);
@@ -605,10 +605,10 @@ function eventDestroyed(obj)
 				gameState.royalists.howitzerLzDiscovered = false;
 
 				// Cleanup any remaining walls/gates
-				var leftovers = enumArea("howitzerLZ", ROYALISTS, false).filter(function(obj) {
+				const leftovers = enumArea("howitzerLZ", CAM_ROYALISTS, false).filter(function(obj) {
 					return (obj.type === STRUCTURE && (obj.stattype === WALL || obj.stattype === GATE));
 				});
-				for (var i = leftovers.length - 1; i >= 0; i--)
+				for (let i = leftovers.length - 1; i >= 0; i--)
 				{
 					camSafeRemoveObject(leftovers[i], true);
 				}
@@ -618,14 +618,16 @@ function eventDestroyed(obj)
 
 	// Artifact updating
 	// O(n) lookup here
-	var label = getLabel(obj);
-	if (!camDef(label))
+	const ARTI_LABEL = getLabel(obj);
+	if (!camDef(ARTI_LABEL))
 	{
 		return; // Wasn't important
 	}
 
 	// Duplicate artifact management
-	switch (label)
+	let tech;
+	let req;
+	switch (ARTI_LABEL)
 	{
 		// Chaingun/Assault Gun progression
 		case "resResearch2":
@@ -636,8 +638,6 @@ function eventDestroyed(obj)
 		case "royLZAGTow":
 			gameState.artifacts.chainGunProgression++;
 			// Get the next artifact tech
-			var tech;
-			var req;
 			if (gameState.artifacts.chainGunProgression === 1)
 			{
 				tech = "R-Wpn-MG-ROF02"; // Rapid Fire Chaingun Upgrade
@@ -656,11 +656,11 @@ function eventDestroyed(obj)
 			if (gameState.artifacts.chainGunProgression === 4) 
 			{
 				// No more artifacts left, disable the remaining locations
-				if (label !== "royHMGTow" && getObject("royHMGTow") !== null) camRemoveArtifact("royHMGTow");
-				if (label !== "royHowitAGTow" && getObject("royHowitAGTow") !== null) camRemoveArtifact("royHowitAGTow");
-				if (label !== "roySpyAGTow" && getObject("roySpyAGTow") !== null) camRemoveArtifact("roySpyAGTow");
-				if (label !== "royIslandAGTow" && getObject("royIslandAGTow") !== null) camRemoveArtifact("royIslandAGTow");
-				if (label !== "royLZAGTow" && getObject("royLZAGTow") !== null) camRemoveArtifact("royLZAGTow");
+				if (ARTI_LABEL !== "royHMGTow" && getObject("royHMGTow") !== null) camRemoveArtifact("royHMGTow");
+				if (ARTI_LABEL !== "royHowitAGTow" && getObject("royHowitAGTow") !== null) camRemoveArtifact("royHowitAGTow");
+				if (ARTI_LABEL !== "roySpyAGTow" && getObject("roySpyAGTow") !== null) camRemoveArtifact("roySpyAGTow");
+				if (ARTI_LABEL !== "royIslandAGTow" && getObject("royIslandAGTow") !== null) camRemoveArtifact("royIslandAGTow");
+				if (ARTI_LABEL !== "royLZAGTow" && getObject("royLZAGTow") !== null) camRemoveArtifact("royLZAGTow");
 				break;
 			}
 			if (gameState.artifacts.chainGunProgression > 4) 
@@ -697,8 +697,6 @@ function eventDestroyed(obj)
 		case "coaHQ":
 			gameState.artifacts.commandProgression++;
 			// Get the next artifact tech
-			var tech;
-			var req;
 			if (gameState.artifacts.commandProgression === 1)
 			{
 				tech = "R-Sys-CommandUpgrade02";
@@ -718,7 +716,7 @@ function eventDestroyed(obj)
 			{
 				// No more artifacts left.
 				// Note, all locations except ampHQ have other tech too, so just remove ampHQ artifact if no more tech is left
-				if (label !== "ampHQ") camRemoveArtifact("ampHQ");
+				if (ARTI_LABEL !== "ampHQ") camRemoveArtifact("ampHQ");
 				break;
 			}
 			if (gameState.artifacts.commandProgression > 4)
@@ -749,8 +747,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.sarissaDrop = true;
-			if (label !== "resSarissa") camRemoveArtifact("resSarissa");
-			if (label !== "ampSarissa") camRemoveArtifact("ampSarissa");
+			if (ARTI_LABEL !== "resSarissa") camRemoveArtifact("resSarissa");
+			if (ARTI_LABEL !== "ampSarissa") camRemoveArtifact("ampSarissa");
 			break;
 		// Duplicate Heavy Machinegun artifacts
 		case "ampMGTow":
@@ -760,8 +758,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.hmgDrop = true;
-			if (label !== "ampMGTow") camRemoveArtifact("ampMGTow");
-			if (label !== "helMGTow") camRemoveArtifact("helMGTow");
+			if (ARTI_LABEL !== "ampMGTow") camRemoveArtifact("ampMGTow");
+			if (ARTI_LABEL !== "helMGTow") camRemoveArtifact("helMGTow");
 			break;
 		// Duplicate Composite Alloys Mk3 artifacts
 		case "helResearch1":
@@ -771,8 +769,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.compositeDrop = true;
-			if (label !== "helResearch1") camRemoveArtifact("helResearch1");
-			if (label !== "royCompositeTank") camRemoveArtifact("royCompositeTank");
+			if (ARTI_LABEL !== "helResearch1") camRemoveArtifact("helResearch1");
+			if (ARTI_LABEL !== "royCompositeTank") camRemoveArtifact("royCompositeTank");
 			break;
 		// Duplicate Lancer artifacts
 		case "ampLancerTow":
@@ -783,9 +781,9 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.lancerDrop = true;
-			if (label !== "ampLancerTow") camRemoveArtifact("ampLancerTow");
-			if (label !== "royLancerTow1") camRemoveArtifact("royLancerTow1");
-			if (label !== "royLancerTow2") camRemoveArtifact("royLancerTow2");
+			if (ARTI_LABEL !== "ampLancerTow") camRemoveArtifact("ampLancerTow");
+			if (ARTI_LABEL !== "royLancerTow1") camRemoveArtifact("royLancerTow1");
+			if (ARTI_LABEL !== "royLancerTow2") camRemoveArtifact("royLancerTow2");
 			break;
 		// Duplicate Cyclone artifacts
 		case "ampAASite":
@@ -795,8 +793,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.cycloneDrop = true;
-			if (label !== "ampAASite") camRemoveArtifact("ampAASite");
-			if (label !== "coaAASite") camRemoveArtifact("coaAASite");
+			if (ARTI_LABEL !== "ampAASite") camRemoveArtifact("ampAASite");
+			if (ARTI_LABEL !== "coaAASite") camRemoveArtifact("coaAASite");
 			break;
 		// Duplicate Power Module artifacts
 		case "ampPowerGen":
@@ -807,9 +805,9 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.powModDrop = true;
-			if (label !== "ampPowerGen") camRemoveArtifact("ampPowerGen");
-			if (label !== "royPowerGen") camRemoveArtifact("royPowerGen");
-			if (label !== "coaPowerGen") camRemoveArtifact("coaPowerGen");
+			if (ARTI_LABEL !== "ampPowerGen") camRemoveArtifact("ampPowerGen");
+			if (ARTI_LABEL !== "royPowerGen") camRemoveArtifact("royPowerGen");
+			if (ARTI_LABEL !== "coaPowerGen") camRemoveArtifact("coaPowerGen");
 			break;
 		// Duplicate Research Module artifacts
 		case "royResearchLake":
@@ -819,8 +817,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.resModDrop = true;
-			if (label !== "royResearchLake") camRemoveArtifact("royResearchLake");
-			if (label !== "coaResearch2") camRemoveArtifact("coaResearch2");
+			if (ARTI_LABEL !== "royResearchLake") camRemoveArtifact("royResearchLake");
+			if (ARTI_LABEL !== "coaResearch2") camRemoveArtifact("coaResearch2");
 			break;
 		// Duplicate VTOL Propulsion artifacts
 		case "amphosVtolFactory":
@@ -831,9 +829,9 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.vtolDrop = true;
-			if (label !== "amphosVtolFactory") camRemoveArtifact("amphosVtolFactory");
-			if (label !== "coalitionVtolFactory") camRemoveArtifact("coalitionVtolFactory");
-			if (label !== "royalistOuterVtolFac") camRemoveArtifact("royalistOuterVtolFac");
+			if (ARTI_LABEL !== "amphosVtolFactory") camRemoveArtifact("amphosVtolFactory");
+			if (ARTI_LABEL !== "coalitionVtolFactory") camRemoveArtifact("coalitionVtolFactory");
+			if (ARTI_LABEL !== "royalistOuterVtolFac") camRemoveArtifact("royalistOuterVtolFac");
 			break;
 		// Duplicate Inferno artifacts
 		case "hellraiserFactory":
@@ -843,8 +841,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.infernoDrop = true;
-			if (label !== "hellraiserFactory") camRemoveArtifact("hellraiserFactory");
-			if (label !== "royInfBunker") camRemoveArtifact("royInfBunker");
+			if (ARTI_LABEL !== "hellraiserFactory") camRemoveArtifact("hellraiserFactory");
+			if (ARTI_LABEL !== "royInfBunker") camRemoveArtifact("royInfBunker");
 			break;
 		// Duplicate Heavy Cannon artifacts
 		case "coalitionFactory2":
@@ -854,8 +852,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.hvyCanDrop = true;
-			if (label !== "coalitionFactory2") camRemoveArtifact("coalitionFactory2");
-			if (label !== "royResearchOuter") camRemoveArtifact("royResearchOuter");
+			if (ARTI_LABEL !== "coalitionFactory2") camRemoveArtifact("coalitionFactory2");
+			if (ARTI_LABEL !== "royResearchOuter") camRemoveArtifact("royResearchOuter");
 			break;
 		// Duplicate Improved Engineering artifacts
 		case "coaResearch3":
@@ -865,8 +863,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.engineerDrop = true;
-			if (label !== "coaResearch3") camRemoveArtifact("coaResearch3");
-			if (label !== "ampResearchInner") camRemoveArtifact("ampResearchInner");
+			if (ARTI_LABEL !== "coaResearch3") camRemoveArtifact("coaResearch3");
+			if (ARTI_LABEL !== "ampResearchInner") camRemoveArtifact("ampResearchInner");
 			break;
 		// Duplicate Retribution artifacts
 		case "royRelay":
@@ -876,8 +874,8 @@ function eventDestroyed(obj)
 				break;
 			}
 			gameState.artifacts.retriDrop = true;
-			if (label !== "royRelay") camRemoveArtifact("royRelay");
-			if (label !== "royAssaultCommander") camRemoveArtifact("royAssaultCommander");
+			if (ARTI_LABEL !== "royRelay") camRemoveArtifact("royRelay");
+			if (ARTI_LABEL !== "royAssaultCommander") camRemoveArtifact("royAssaultCommander");
 			break;
 	}
 }
@@ -889,38 +887,38 @@ function eventAttacked(victim, attacker)
 		return;
 	}
 
-	var vPlayer = victim.player;
-	var aPlayer = attacker.player;
+	const VICT_PLAYER = victim.player;
+	const ATK_PLAYER = attacker.player;
 
 	// Check if the player has met the Royalists
-	if ((vPlayer === CAM_HUMAN_PLAYER && aPlayer === ROYALISTS) 
-		|| (vPlayer === ROYALISTS && aPlayer === CAM_HUMAN_PLAYER))
+	if ((VICT_PLAYER === CAM_HUMAN_PLAYER && ATK_PLAYER === CAM_ROYALISTS) 
+		|| (VICT_PLAYER === CAM_ROYALISTS && ATK_PLAYER === CAM_HUMAN_PLAYER))
 	{
 		if (gameState.phase > 0) {
 			camCallOnce("enableSouthCybFactory");
 		}
 
 		// Message introducing the Royalists
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 		{
 			missionMessage("RESROYMSG", "INTEL");
 		}
 	}
 
 	// Check if the player has met the Hellraisers
-	if ((vPlayer === CAM_HUMAN_PLAYER && aPlayer === HELLRAISERS) 
-		|| (vPlayer === HELLRAISERS && aPlayer === CAM_HUMAN_PLAYER))
+	if ((VICT_PLAYER === CAM_HUMAN_PLAYER && ATK_PLAYER === CAM_HELLRAISERS) 
+		|| (VICT_PLAYER === CAM_HELLRAISERS && ATK_PLAYER === CAM_HUMAN_PLAYER))
 	{
 		// Message introducing the Hellraisers
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 		{
 			missionMessage("RESHELMSG", "INTEL");
 		}
 	}
 
 	// Check if the player has met the Resistance (after eradicating them)
-	if (((vPlayer === CAM_HUMAN_PLAYER && aPlayer === THE_RESISTANCE) 
-		|| (vPlayer === THE_RESISTANCE && aPlayer === CAM_HUMAN_PLAYER))
+	if (((VICT_PLAYER === CAM_HUMAN_PLAYER && ATK_PLAYER === CAM_THE_RESISTANCE) 
+		|| (VICT_PLAYER === CAM_THE_RESISTANCE && ATK_PLAYER === CAM_HUMAN_PLAYER))
 		&& gameState.resistance.allianceState === "ERADICATED" 
 		&& (gameState.coalition.proxyHostile || gameState.coalition.allianceState === "HOSTILE"))
 	{
@@ -928,8 +926,8 @@ function eventAttacked(victim, attacker)
 	}
 
 	// Check if the player has encountered the Coalition after the've launched their suprise offensive
-	if (((vPlayer === CAM_HUMAN_PLAYER && aPlayer === THE_COALITION) 
-		|| (vPlayer === THE_COALITION && aPlayer === CAM_HUMAN_PLAYER))
+	if (((VICT_PLAYER === CAM_HUMAN_PLAYER && ATK_PLAYER === CAM_THE_COALITION) 
+		|| (VICT_PLAYER === CAM_THE_COALITION && ATK_PLAYER === CAM_HUMAN_PLAYER))
 		&& gameState.coalition.offensive)
 	{
 		missionMessage("COAOFFENSMSG", "TRANS");
@@ -943,49 +941,49 @@ function eventAttacked(victim, attacker)
 	}
 
 	// Check if factions should support the player in combat
-	if (!allianceExistsBetween(vPlayer, aPlayer) && gameTime > gameState.lastSupportUpdate + 10000 // 10 seconds
-		&& ((victim.type === DROID && vPlayer === CAM_HUMAN_PLAYER) || (attacker.type === DROID && aPlayer === CAM_HUMAN_PLAYER)))
+	if (!allianceExistsBetween(VICT_PLAYER, ATK_PLAYER) && gameTime > gameState.lastSupportUpdate + 10000 // 10 seconds
+		&& ((victim.type === DROID && VICT_PLAYER === CAM_HUMAN_PLAYER) || (attacker.type === DROID && ATK_PLAYER === CAM_HUMAN_PLAYER)))
 	{
 		gameState.lastSupportUpdate = gameTime;
 		// Either a player unit is attacking an enemy, or an enemy is attacking a player unit
-		var pos;
-		var targetPlayer;
-		if (vPlayer === CAM_HUMAN_PLAYER)
+		let pos;
+		let targetPlayer;
+		if (VICT_PLAYER === CAM_HUMAN_PLAYER)
 		{
 			pos = camMakePos(victim);
-			targetPlayer = aPlayer;
+			targetPlayer = ATK_PLAYER;
 		}
 		else
 		{
 			pos = camMakePos(attacker);
-			targetPlayer = vPlayer;
+			targetPlayer = VICT_PLAYER;
 		}
 		
 		// Resistance support
-		var refPos = camMakePos("resFactoryAssembly");
+		let refPos = camMakePos("resFactoryAssembly");
 		if (gameState.resistance.allianceState === "ALLIED" && propulsionCanReach("wheeled01", refPos.x, refPos.y, pos.x, pos.y))
 		{
-			var commander = getObject("resCommander");
+			const commander = getObject("resCommander");
 			if (commander !== null)
 			{
 				// In an attempt to have the Resistance not get distracted by the Hellraisers as much
-				var radius = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
+				const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
 				// Tell the Resistance commander support the player
 				camManageGroup(commander.group, CAM_ORDER_ATTACK, {
 					targetPlayer: targetPlayer,
-					radius: radius,
+					radius: ATTACK_RADIUS,
 					pos: pos,
 					repair: 65
 				});
 			}
 
-			var radius = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
+			const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
 			// Tell the player support group to... support the player
-			var groupInfo = gameState.resistance.groups.playerSupportGroup;
+			const groupInfo = gameState.resistance.groups.playerSupportGroup;
 			groupInfo.order = CAM_ORDER_ATTACK;
 			groupInfo.data = {
 				targetPlayer: targetPlayer,
-				radius: radius,
+				radius: ATTACK_RADIUS,
 				pos: pos,
 				repair: 65
 			};
@@ -996,7 +994,7 @@ function eventAttacked(victim, attacker)
 		refPos = camMakePos("ampVTOLAssembly");
 		if (gameState.amphos.allianceState === "ALLIED" && propulsionCanReach("hover01", refPos.x, refPos.y, pos.x, pos.y))
 		{
-			var commander = getObject("ampCommander");
+			const commander = getObject("ampCommander");
 			if (commander !== null)
 			{
 				// Tell the AMPHOS commander to support the player
@@ -1007,7 +1005,7 @@ function eventAttacked(victim, attacker)
 				});
 			}
 			// Send the support group
-			var groupInfo = gameState.amphos.groups.playerSupportGroup;
+			let groupInfo = gameState.amphos.groups.playerSupportGroup;
 			groupInfo.order = CAM_ORDER_ATTACK;
 			groupInfo.data = {
 				targetPlayer: targetPlayer,
@@ -1027,7 +1025,7 @@ function eventAttacked(victim, attacker)
 		if (gameState.hellraisers.allianceState === "ALLIED" && propulsionCanReach("wheeled01", refPos.x, refPos.y, pos.x, pos.y))
 		{
 			// Tell the Hellraisers to support the player
-			var groupInfo = gameState.hellraisers.groups.playerSupportGroup;
+			const groupInfo = gameState.hellraisers.groups.playerSupportGroup;
 			groupInfo.order = CAM_ORDER_ATTACK;
 			groupInfo.data = {
 				targetPlayer: targetPlayer,
@@ -1042,7 +1040,7 @@ function eventAttacked(victim, attacker)
 		refPos = camMakePos("coaFactoryAssembly");
 		if (gameState.coalition.allianceState === "ALLIED" && propulsionCanReach("wheeled01", refPos.x, refPos.y, pos.x, pos.y))
 		{
-			var commander = getObject("coaCommander");
+			const commander = getObject("coaCommander");
 			if (commander !== null)
 			{
 				// Tell the Coalition commander support the player
@@ -1053,7 +1051,7 @@ function eventAttacked(victim, attacker)
 				});
 			}
 			// Send the support group
-			var groupInfo = gameState.coalition.groups.playerSupportGroup;
+			let groupInfo = gameState.coalition.groups.playerSupportGroup;
 			groupInfo.order = CAM_ORDER_ATTACK;
 			groupInfo.data = {
 				targetPlayer: targetPlayer,
@@ -1069,10 +1067,10 @@ function eventAttacked(victim, attacker)
 		}
 
 		// Royalist VTOL focusing
-		if ((vPlayer === ROYALISTS || aPlayer === ROYALISTS) && !gameState.royalists.fakeout)
+		if ((VICT_PLAYER === CAM_ROYALISTS || ATK_PLAYER === CAM_ROYALISTS) && !gameState.royalists.fakeout)
 		{
 			// Get the Royalist VTOLs to target the area that the player is fighting in
-			var groupInfo = gameState.royalists.mainVTOLGroup;
+			const groupInfo = gameState.royalists.mainVTOLGroup;
 			groupInfo.data = { targetPlayer: CAM_HUMAN_PLAYER, pos: pos };
 			groupInfo.order = CAM_ORDER_ATTACK;
 			manageGroupBySize(groupInfo, false);
@@ -1082,35 +1080,35 @@ function eventAttacked(victim, attacker)
 
 function eventResearched(research, structure, player)
 {
-	var resName = research.name;
+	const RESEARCH_NAME = research.name;
 	if (player === CAM_HUMAN_PLAYER)
 	{
 		// Achievements
-		if (resName === "R-Wpn-Laser01")
+		if (RESEARCH_NAME === "R-Wpn-Laser01")
 		{
 			achievementMessage("Illuminator", "Acquire the Flashlight Laser");
 		}
 
 		// Share what the player has researched with their allies
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_RESISTANCE))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 		{
-			camCompleteRes(resName, THE_RESISTANCE);
+			camCompleteRes(RESEARCH_NAME, CAM_THE_RESISTANCE);
 		}
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, AMPHOS))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_AMPHOS))
 		{
-			camCompleteRes(resName, AMPHOS);
+			camCompleteRes(RESEARCH_NAME, CAM_AMPHOS);
 		}
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, HELLRAISERS))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_HELLRAISERS))
 		{
-			camCompleteRes(resName, HELLRAISERS);
+			camCompleteRes(RESEARCH_NAME, CAM_HELLRAISERS);
 		}
-		if (allianceExistsBetween(CAM_HUMAN_PLAYER, THE_COALITION))
+		if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_COALITION))
 		{
-			camCompleteRes(resName, THE_COALITION);
+			camCompleteRes(RESEARCH_NAME, CAM_THE_COALITION);
 		}
 
 		// Upgrade allied unit templates when the player researches a new component
-		switch (resName)
+		switch (RESEARCH_NAME)
 		{
 			// Miscellaneous
 			case "R-Vehicle-Body11": // Python
@@ -1151,17 +1149,17 @@ function eventResearched(research, structure, player)
 		// Upgrade/replace allied structures when the player researches a cooler one
 		if (camDef(structure) && structure !== null)
 		{
-			updateAlliedStructs(resName);
+			updateAlliedStructs(RESEARCH_NAME);
 		}
 
 		// Special case research progression/events
-		switch (resName)
+		switch (RESEARCH_NAME)
 		{
 			case "R-Sys-CommandUpgrade01":
 			case "R-Sys-CommandUpgrade02":
 			case "R-Sys-CommandUpgrade03":
 			case "R-Sys-CommandUpgrade04":
-				var commandScore = 0;
+				let commandScore = 0;
 				if (camIsResearched("R-Sys-CommandUpgrade01")) commandScore++;
 				if (camIsResearched("R-Sys-CommandUpgrade02")) commandScore++;
 				if (camIsResearched("R-Sys-CommandUpgrade03")) commandScore++;
@@ -1172,11 +1170,11 @@ function eventResearched(research, structure, player)
 			case "R-Vehicle-Body11":
 			case "R-Vehicle-Metals01":
 				// Enable Composite Alloys Mk2 if the player researches the Python and Composite Alloys
-				if (resName === "R-Vehicle-Body11" && camIsResearched("R-Vehicle-Metals01"))
+				if (RESEARCH_NAME === "R-Vehicle-Body11" && camIsResearched("R-Vehicle-Metals01"))
 				{
 					enableResearch("R-Vehicle-Metals02");
 				}
-				else if (resName === "R-Vehicle-Metals01" && camIsResearched("R-Vehicle-Body11"))
+				else if (RESEARCH_NAME === "R-Vehicle-Metals01" && camIsResearched("R-Vehicle-Body11"))
 				{
 					enableResearch("R-Vehicle-Metals02");
 				}
@@ -1184,19 +1182,19 @@ function eventResearched(research, structure, player)
 			case "R-Vehicle-Body03":
 			case "R-Sys-Engineering01":
 				// Enable Improved Engineering if the player researches the Retaliation and Engineering
-				if (resName === "R-Vehicle-Body03" && camIsResearched("R-Sys-Engineering01"))
+				if (RESEARCH_NAME === "R-Vehicle-Body03" && camIsResearched("R-Sys-Engineering01"))
 				{
 					enableResearch("R-Sys-Engineering02");
 					camRemoveArtifact("ampResearchInner");
 					camRemoveArtifact("coaResearch3");
 				}
-				else if (resName === "R-Sys-Engineering01" && camIsResearched("R-Vehicle-Body03"))
+				else if (RESEARCH_NAME === "R-Sys-Engineering01" && camIsResearched("R-Vehicle-Body03"))
 				{
 					enableResearch("R-Sys-Engineering02");
 					camRemoveArtifact("ampResearchInner");
 					camRemoveArtifact("coaResearch3");
 				}
-				if (resName === "R-Vehicle-Body03")
+				if (RESEARCH_NAME === "R-Vehicle-Body03")
 				{
 					// Remove the artifact for Dense Composite Alloys
 					camRemoveArtifact("coaResearch");
@@ -1211,20 +1209,20 @@ function eventResearched(research, structure, player)
 			case "R-Cyborg-Metals01":
 			case "R-Cyborg-Metals03":
 				// Enable Cyborg Composite Alloys Mk2 if the player researches Composite Alloys Mk2 and Cyborg Composite Alloys
-				if (resName === "R-Vehicle-Metals02" && camIsResearched("R-Cyborg-Metals01"))
+				if (RESEARCH_NAME === "R-Vehicle-Metals02" && camIsResearched("R-Cyborg-Metals01"))
 				{
 					enableResearch("R-Cyborg-Metals02");
 				}
-				else if (resName === "R-Cyborg-Metals01" && camIsResearched("R-Vehicle-Metals02"))
+				else if (RESEARCH_NAME === "R-Cyborg-Metals01" && camIsResearched("R-Vehicle-Metals02"))
 				{
 					enableResearch("R-Cyborg-Metals02");
 				}
 				// Enable Composite Alloys Mk3 if the player researches Composite Alloys Mk2 and Cyborg Composite Alloys Mk3
-				if (resName === "R-Cyborg-Metals03" && camIsResearched("R-Vehicle-Metals02"))
+				if (RESEARCH_NAME === "R-Cyborg-Metals03" && camIsResearched("R-Vehicle-Metals02"))
 				{
 					enableResearch("R-Vehicle-Metals03");
 				}
-				else if (resName === "R-Vehicle-Metals02" && camIsResearched("R-Cyborg-Metals03"))
+				else if (RESEARCH_NAME === "R-Vehicle-Metals02" && camIsResearched("R-Cyborg-Metals03"))
 				{
 					enableResearch("R-Vehicle-Metals03");
 				}
@@ -1232,11 +1230,11 @@ function eventResearched(research, structure, player)
 			case "R-Cyborg-Armor-Heat01":
 			case "R-Wpn-Flamer-Damage01":
 				// Enable High Temperature Flamer Gel Mk2 if the player researches Cyborg Thermal Armor and High Temperature Flamer Gel
-				if (resName === "R-Cyborg-Armor-Heat01" && camIsResearched("R-Wpn-Flamer-Damage01"))
+				if (RESEARCH_NAME === "R-Cyborg-Armor-Heat01" && camIsResearched("R-Wpn-Flamer-Damage01"))
 				{
 					enableResearch("R-Cyborg-Metals02");
 				}
-				else if (resName === "R-Wpn-Flamer-Damage01" && camIsResearched("R-Cyborg-Armor-Heat01"))
+				else if (RESEARCH_NAME === "R-Wpn-Flamer-Damage01" && camIsResearched("R-Cyborg-Armor-Heat01"))
 				{
 					enableResearch("R-Wpn-Flamer-Damage02");
 				}
@@ -1258,12 +1256,12 @@ function eventResearched(research, structure, player)
 			case "R-Wpn-Cannon-Damage05":
 				// When the player researches one of these three cannons, unlock the next damage upgrade.
 				// We don't know which cannon the player will get first.
-				var cannonScore = 0;
+				let cannonScore = 0;
 				if (camIsResearched("R-Wpn-Cannon3Mk1")) cannonScore++;
 				if (camIsResearched("R-Wpn-Cannon4AMk1")) cannonScore++;
 				if (camIsResearched("R-Wpn-Cannon5")) cannonScore++;
 
-				var damageScore = 0;
+				let damageScore = 0;
 				if (camIsResearched("R-Wpn-Cannon-Damage03")) damageScore++;
 				if (camIsResearched("R-Wpn-Cannon-Damage04")) damageScore++;
 				if (camIsResearched("R-Wpn-Cannon-Damage05")) damageScore++;
@@ -1299,7 +1297,7 @@ function eventResearched(research, structure, player)
 // Allow the player to change to colors via text chat
 function eventChat(from, to, message)
 {
-	var colour = 0;
+	let colour = 0;
 	switch (message)
 	{
 		case "green me":
@@ -1337,6 +1335,32 @@ function eventChat(from, to, message)
 		case "white me":
 			colour = 10; // White
 			break;
+		case "bright blue me":
+		case "bright me":
+			colour = 11; // Bright Blue
+			break;
+		case "neon green me":
+		case "neon me":
+		case "bright green me":
+			colour = 12; // Neon Green
+			break;
+		case "infrared me":
+		case "infra red me":
+		case "infra me":
+		case "dark red me":
+			colour = 13; // Infrared
+			break;
+		case "ultraviolet me":
+		case "ultra violet me":
+		case "ultra me":
+		case "uv me":
+		case "dark blue me":
+			colour = 14; // Ultraviolet
+			break;
+		case "brown me":
+		case "dark green me":
+			colour = 15; // Brown
+			break;
 		case "green them":
 		case "orange them":
 		case "grey them":
@@ -1350,6 +1374,22 @@ function eventChat(from, to, message)
 		case "yellow them":
 		case "purple them":
 		case "white them":
+		case "bright blue them":
+		case "bright them":
+		case "neon green them":
+		case "neon them":
+		case "bright green them":
+		case "infrared them":
+		case "infra red them":
+		case "infra them":
+		case "dark red them":
+		case "ultraviolet them":
+		case "ultra violet them":
+		case "ultra them":
+		case "uv them":
+		case "dark blue them":
+		case "brown them":
+		case "dark green them":
 			if (!gameState.allowColourChange)
 			{
 				playSound("beep8.ogg");
@@ -1384,11 +1424,11 @@ function eventChat(from, to, message)
 			{
 				// Change every player color to white
 				changePlayerColour(CAM_HUMAN_PLAYER, 10);
-				changePlayerColour(THE_RESISTANCE, 10);
-				changePlayerColour(AMPHOS, 10);
-				changePlayerColour(HELLRAISERS, 10);
-				changePlayerColour(THE_COALITION, 10);
-				changePlayerColour(ROYALISTS, 10);
+				changePlayerColour(CAM_THE_RESISTANCE, 10);
+				changePlayerColour(CAM_AMPHOS, 10);
+				changePlayerColour(CAM_HELLRAISERS, 10);
+				changePlayerColour(CAM_THE_COALITION, 10);
+				changePlayerColour(CAM_ROYALISTS, 10);
 				gameState.allowColourChange = false;
 				// Grant "Whiteout" achievement
 				achievementMessage("Whiteout", "Now look at what you've done");
@@ -1431,9 +1471,9 @@ function eventGroupSeen(viewer, group)
 	// the Royalist's heavy commander (a droid with the label "royHvyCommander") is part of a labeled
 	// group with the name ("royHvyCommanderST"), which will call this event when seen. We can then
 	// tell what was seen by comparing `group` with the object's group.
-	var coaTransport = getObject("coaResTransport");
-	var royCommander = getObject("royHvyCommander");
-	var resPython = getObject("resPython");
+	const coaTransport = getObject("coaResTransport");
+	const royCommander = getObject("royHvyCommander");
+	const resPython = getObject("resPython");
 
 	if (camDef(coaTransport) && coaTransport !== null && group === coaTransport.group)
 	{
@@ -1479,19 +1519,19 @@ function eventGroupSeen(viewer, group)
 function eventGameLoaded()
 {
 	// These triggers get removed on save-load, remake them here
-	var transport = getObject("coaResTransport");
+	const transport = getObject("coaResTransport");
 	if (camDef(transport) && transport !== null)
 	{
 		addLabel({ type: GROUP, id: camMakeGroup(transport) }, "coaResTransportST", false);
 		resetLabel("coaResTransportST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen
 	}
-	var python = getObject("resPython");
+	const python = getObject("resPython");
 	if (!gameState.resistance.pythonSpotted && camDef(python) && python !== null)
 	{
 		addLabel({ type: GROUP, id: camMakeGroup(python) }, "resPythonST", false);
 		resetLabel("resPythonST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen
 	}
-	var commander = getObject("royHvyCommander");
+	const commander = getObject("royHvyCommander");
 	if (gameState.phase >= 1 && !gameState.royalists.commanderSpotted && camDef(commander) && commander !== null)
 	{
 		// This specific commander is only set up after the map expands to sidestep some wackiness
@@ -1519,61 +1559,61 @@ function eventGameLoaded()
 // Makes sure that no faction is the same color as the player
 function adaptFactionColours()
 {
-	var pc = gameState.playerColour;
+	const PLAYER_COLOR = gameState.playerColour;
 	// Resistance
-	if (pc !== 5) // player is not blue?
+	if (PLAYER_COLOR !== 5) // player is not blue?
 	{
 		// Set to blue
-		changePlayerColour(THE_RESISTANCE, 5);
+		changePlayerColour(CAM_THE_RESISTANCE, 5);
 	}
 	else
 	{
 		// Set to green
-		changePlayerColour(THE_RESISTANCE, 0);
+		changePlayerColour(CAM_THE_RESISTANCE, 0);
 	}
 	// AMPHOS
-	if (pc !== 10) // player is not white?
+	if (PLAYER_COLOR !== 10) // player is not white?
 	{
 		// Set to white
-		changePlayerColour(AMPHOS, 10);
+		changePlayerColour(CAM_AMPHOS, 10);
 	}
 	else
 	{
 		// Set to green
-		changePlayerColour(AMPHOS, 0);
+		changePlayerColour(CAM_AMPHOS, 0);
 	}
 	// Hellraisers
-	if (pc !== 4) // player is not red?
+	if (PLAYER_COLOR !== 4) // player is not red?
 	{
 		// Set to red
-		changePlayerColour(HELLRAISERS, 4);
+		changePlayerColour(CAM_HELLRAISERS, 4);
 	}
 	else
 	{
 		// Set to orange
-		changePlayerColour(HELLRAISERS, 1);
+		changePlayerColour(CAM_HELLRAISERS, 1);
 	}
 	// Coalition
-	if (pc !== 7) // player is not cyan?
+	if (PLAYER_COLOR !== 7) // player is not cyan?
 	{
 		// Set to cyan
-		changePlayerColour(THE_COALITION, 7);
+		changePlayerColour(CAM_THE_COALITION, 7);
 	}
 	else
 	{
 		// Set to gray
-		changePlayerColour(THE_COALITION, 2);
+		changePlayerColour(CAM_THE_COALITION, 2);
 	}
 	// Royalists
-	if (pc !== 9) // player is not purple?
+	if (PLAYER_COLOR !== 9) // player is not purple?
 	{
 		// Set to purple
-		changePlayerColour(ROYALISTS, 9);
+		changePlayerColour(CAM_ROYALISTS, 9);
 	}
 	else
 	{
 		// Set to black
-		changePlayerColour(ROYALISTS, 3);
+		changePlayerColour(CAM_ROYALISTS, 3);
 	}
 }
 
@@ -1584,23 +1624,23 @@ function viewAlliedObjects()
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(THE_RESISTANCE));
-		objList = objList.concat(enumDroid(THE_RESISTANCE));
+		objList = objList.concat(enumStruct(CAM_THE_RESISTANCE));
+		objList = objList.concat(enumDroid(CAM_THE_RESISTANCE));
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(AMPHOS));
-		objList = objList.concat(enumDroid(AMPHOS));
+		objList = objList.concat(enumStruct(CAM_AMPHOS));
+		objList = objList.concat(enumDroid(CAM_AMPHOS));
 	}
 	if (gameState.hellraisers.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(HELLRAISERS));
-		objList = objList.concat(enumDroid(HELLRAISERS));
+		objList = objList.concat(enumStruct(CAM_HELLRAISERS));
+		objList = objList.concat(enumDroid(CAM_HELLRAISERS));
 	}
 	if (gameState.coalition.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(THE_COALITION));
-		objList = objList.concat(enumDroid(THE_COALITION));
+		objList = objList.concat(enumStruct(CAM_THE_COALITION));
+		objList = objList.concat(enumDroid(CAM_THE_COALITION));
 	}
 
 	for (let i = 0; i < objList.length; i++)
@@ -1612,8 +1652,8 @@ function viewAlliedObjects()
 // Check if the player has the big debt
 function recessionCheck()
 {
-	var debt = queuedPower(CAM_HUMAN_PLAYER) - playerPower(CAM_HUMAN_PLAYER);
-	if (debt >= 2100)
+	const DEBT = queuedPower(CAM_HUMAN_PLAYER) - playerPower(CAM_HUMAN_PLAYER);
+	if (DEBT >= 2100)
 	{
 		achievementMessage("Recession", "Reach negative 2100 power");
 		removeTimer("recessionCheck");
@@ -1623,8 +1663,8 @@ function recessionCheck()
 // Check if the player has a Hero-ranked unit
 function heroCheck()
 {
-	var playerDroids = enumDroid(CAM_HUMAN_PLAYER);
-	for (var droid of playerDroids)
+	const playerDroids = enumDroid(CAM_HUMAN_PLAYER);
+	for (const droid of playerDroids)
 	{
 		if (camGetDroidRank(droid) >= 8)
 		{
@@ -1637,7 +1677,7 @@ function heroCheck()
 // Checks if any ENEMY base has been destroyed twice
 function baseCheck()
 {
-	for (var blabel in baseData)
+	for (const blabel in mis_baseData)
 	{
 		if (!camBaseIsFriendly(blabel) && camBaseDestroyedCount(blabel) >= 2)
 		{
@@ -1678,7 +1718,7 @@ function funnyEffects()
 	if (gameState.funny === 16)
 	{
 		// Clear the crash site (in a funny way)
-		var pos = camMakePos("startPosition"); // Funny origin point
+		const pos = camMakePos("startPosition"); // Funny origin point
 		cameraSlide(pos.x * 128, pos.y * 128); // Make sure the player sees the funny
 		fireWeaponAtLoc("LasSat", camMakePos("startPosition").x, camMakePos("startPosition").y, 6); // Funny laser
 		return;
@@ -1686,34 +1726,34 @@ function funnyEffects()
 	if (gameState.funny === 20)
 	{
 		// Add funny enemies
-		var lCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "Cyb-Wpn-Laser" };
-		var fCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "Cyb-Wpn-Thermite" };
-		var tCyborg = { body: "CyborgHeavyBody", prop: "CyborgLegs03", weap: "Cyb-Hvywpn-TK" };
-		var rCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "CyborgRepair" };
-		var bTank = { body: "Body2SUP", prop: "tracked03", weap: "Rocket-BB" };
-		var rTank = { body: "Body6SUPP", prop: "tracked03", weap: "HeavyRepair" };
-		var cTank = { body: "Body11ABT", prop: "tracked03", weap: "Cannon375mmMk1" };
-		var aTank = { body: "Body10MBT", prop: "tracked03", weap: "QuadRotAAGun" };
-		var funnyTank = { body: "Body14SUP", prop: "tracked03", weap1: "Missile-HvySAM", weap2: "Cannon6TwinAslt" };
-		var pos = camMakePos("startPosition");
-		for (var i = 1; i <= 8; i++)
+		const lCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "Cyb-Wpn-Laser" };
+		const fCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "Cyb-Wpn-Thermite" };
+		const tCyborg = { body: "CyborgHeavyBody", prop: "CyborgLegs03", weap: "Cyb-Hvywpn-TK" };
+		const rCyborg = { body: "CyborgLightBody", prop: "CyborgLegs03", weap: "CyborgRepair" };
+		const bTank = { body: "Body2SUP", prop: "tracked03", weap: "Rocket-BB" };
+		const rTank = { body: "Body6SUPP", prop: "tracked03", weap: "HeavyRepair" };
+		const cTank = { body: "Body11ABT", prop: "tracked03", weap: "Cannon375mmMk1" };
+		const aTank = { body: "Body10MBT", prop: "tracked03", weap: "QuadRotAAGun" };
+		const funnyTank = { body: "Body14SUP", prop: "tracked03", weap1: "Missile-HvySAM", weap2: "Cannon6TwinAslt" };
+		const pos = camMakePos("startPosition");
+		for (let i = 1; i <= 8; i++)
 		{
 			addDroid(6, pos.x, pos.y, camNameTemplate(lCyborg), lCyborg.body, lCyborg.prop, "", "", lCyborg.weap);
 		}
-		for (var i = 1; i <= 4; i++)
+		for (let i = 1; i <= 4; i++)
 		{
 			addDroid(6, pos.x, pos.y, camNameTemplate(fCyborg), fCyborg.body, fCyborg.prop, "", "", fCyborg.weap);
 			addDroid(6, pos.x, pos.y, camNameTemplate(tCyborg), tCyborg.body, tCyborg.prop, "", "", tCyborg.weap);
 			addDroid(6, pos.x, pos.y, camNameTemplate(rCyborg), rCyborg.body, rCyborg.prop, "", "", rCyborg.weap);
 			addDroid(6, pos.x, pos.y, camNameTemplate(bTank), bTank.body, bTank.prop, "", "", bTank.weap);
 		}
-		for (var i = 1; i <= 2; i++)
+		for (let i = 1; i <= 2; i++)
 		{
 			addDroid(6, pos.x, pos.y, camNameTemplate(rTank), rTank.body, rTank.prop, "", "", rTank.weap);
 			addDroid(6, pos.x, pos.y, camNameTemplate(cTank), cTank.body, cTank.prop, "", "", cTank.weap);
 			addDroid(6, pos.x, pos.y, camNameTemplate(aTank), aTank.body, aTank.prop, "", "", aTank.weap);
 		}
-		var funnyDroid = addDroid(6, pos.x, pos.y, _("NOT CANNON"), funnyTank.body, funnyTank.prop, "", "", funnyTank.weap1, funnyTank.weap2);
+		const funnyDroid = addDroid(6, pos.x, pos.y, _("NOT CANNON"), funnyTank.body, funnyTank.prop, "", "", funnyTank.weap1, funnyTank.weap2);
 		addLabel(funnyDroid, "flashlightHolder");
 		camAddArtifact({"flashlightHolder": { tech: "R-Wpn-Laser01" }});
 		camManageGroup(camMakeGroup(enumDroid(6, DROID_ANY)), CAM_ORDER_ATTACK, { repair: 40, targetPlayer: CAM_HUMAN_PLAYER});
@@ -1743,8 +1783,8 @@ function funnyEffects()
 // Also checks to make sure achievements can't be "earned" twice
 function achievementMessage(name, desc)
 {
-	var aLog = gameState.achievementLog;
-	for (var i = 0; i < aLog.length; i++)
+	const aLog = gameState.achievementLog;
+	for (let i = 0; i < aLog.length; i++)
 	{
 		if (aLog[i] === name)
 		{
@@ -1760,8 +1800,8 @@ function achievementMessage(name, desc)
 // Prints all the achievements the player has earned to the console
 function printAchievements()
 {
-	var aMessage = "";
-	for (var i = 0; i < gameState.achievementLog.length; i++)
+	let aMessage = "";
+	for (let i = 0; i < gameState.achievementLog.length; i++)
 	{
 		if (aMessage === "")
 		{
@@ -1786,8 +1826,8 @@ function printAchievements()
 // Also checks to make sure messages aren't given twice
 function missionMessage(message, introSound)
 {
-	var mLog = gameState.messageLog;
-	for (var i = 0; i < mLog.length; i++)
+	const mLog = gameState.messageLog;
+	for (let i = 0; i < mLog.length; i++)
 	{
 		if (mLog[i] === message)
 		{
@@ -1798,7 +1838,7 @@ function missionMessage(message, introSound)
 
 	if (camDef(introSound))
 	{
-		var voiceAlert = "pcv455.ogg"; // "Incoming Transmission"
+		let voiceAlert = "pcv455.ogg"; // "Incoming Transmission"
 		if (introSound === "INTEL")
 		{
 			voiceAlert = "pcv456.ogg"; // "Incoming Intelligence Report"
@@ -1839,7 +1879,7 @@ function displayFactionInfo()
 		// Describe steps to alliance
 		console(_("AMPHOS CONDITIONS FOR NEGOTIATIONS:"));
 
-		var status = "NOT DONE";
+		let status = "NOT DONE";
 		if (getObject("royHoverCommander") === null)
 		{
 			status = "DONE";
@@ -1856,7 +1896,7 @@ function displayFactionInfo()
 			console(_("Destroy the Royalist island base (") + status + _(")"));
 		}
 
-		var numBases = 0;
+		let numBases = 0;
 		if (!camBaseIsEliminated("southIslandBase")) numBases++;
 		if (!camBaseIsEliminated("westIslandBase")) numBases++;
 		if (!camBaseIsEliminated("northIslandBase")) numBases++;
@@ -1876,10 +1916,10 @@ function displayFactionInfo()
 	{
 		console(_("AMPHOS: OFFERING ALLIANCE"));
 	}
-	else if (gameState.amphos.allianceState === "HOSTILE" && !hasBases(AMPHOS))
+	else if (gameState.amphos.allianceState === "HOSTILE" && !hasBases(CAM_AMPHOS))
 	{
 		// Give the player a tip on how many units are left
-		console(_("AMPHOS: ") + countDroid(DROID_ANY, AMPHOS) + _(" UNITS REMAINING"));
+		console(_("AMPHOS: ") + countDroid(DROID_ANY, CAM_AMPHOS) + _(" UNITS REMAINING"));
 	}
 	else if (gameState.amphos.allianceState !== "NEUTRAL")
 	{
@@ -1892,8 +1932,8 @@ function displayFactionInfo()
 		// Describe steps to alliance
 		console(_("HELLRAISERS CONDITIONS FOR NEGOTIATIONS:"));
 
-		var numStructs = gameState.hellraisers.structThreshold - enumStruct(HELLRAISERS).length;
-		console(_("Allow the Hellraisers to rebuild structures (") + numStructs + _(" remaining)"));
+		const NUM_STRUCTS = gameState.hellraisers.structThreshold - enumStruct(CAM_HELLRAISERS).length;
+		console(_("Allow the Hellraisers to rebuild structures (") + NUM_STRUCTS + _(" remaining)"));
 
 		console(_("The Hellraiser main base must not be attacked"));
 	}
@@ -1901,10 +1941,10 @@ function displayFactionInfo()
 	{
 		console(_("HELLRAISERS: OFFERING ALLIANCE"));
 	}
-	else if (gameState.hellraisers.allianceState === "HOSTILE" && !hasBases(HELLRAISERS))
+	else if (gameState.hellraisers.allianceState === "HOSTILE" && !hasBases(CAM_HELLRAISERS))
 	{
 		// Give the player a tip on how many units are left
-		console(_("HELLRAISERS: ") + countDroid(DROID_ANY, HELLRAISERS) + _(" UNITS REMAINING"));
+		console(_("HELLRAISERS: ") + countDroid(DROID_ANY, CAM_HELLRAISERS) + _(" UNITS REMAINING"));
 	}
 	else if (gameState.hellraisers.allianceState !== "NEUTRAL")
 	{
@@ -1917,7 +1957,7 @@ function displayFactionInfo()
 		// Describe steps to alliance
 		console(_("COALITION CONDITIONS FOR NEGOTIATIONS:"));
 
-		var status = "NOT DONE";
+		let status = "NOT DONE";
 		if (camBaseIsEliminated("royalistCentralFactoryZone"))
 		{
 			status = "DONE";
@@ -1930,10 +1970,10 @@ function displayFactionInfo()
 	{
 		console(_("COALITION: OFFERING ALLIANCE"));
 	}
-	else if (gameState.coalition.allianceState === "HOSTILE" && !hasBases(THE_COALITION))
+	else if (gameState.coalition.allianceState === "HOSTILE" && !hasBases(CAM_THE_COALITION))
 	{
 		// Give the player a tip on how many units are left
-		console(_("COALITION: ") + countDroid(DROID_ANY, THE_COALITION) + _(" UNITS REMAINING"));
+		console(_("COALITION: ") + countDroid(DROID_ANY, CAM_THE_COALITION) + _(" UNITS REMAINING"));
 	}
 	else if (gameState.coalition.allianceState === "NEUTRAL" && gameState.coalition.proxyHostile)
 	{
@@ -1955,32 +1995,32 @@ function displayFactionInfo()
 function eventStartLevel()
 {
 	// Set the camera near the crashed transport
-	var startpos = getObject("startPosition");
+	const startpos = getObject("startPosition");
 	centreView(startpos.x, startpos.y);
 
 	setPower(camChangeOnDiff(2000), CAM_HUMAN_PLAYER);
 
-	setAlliance(ROYALISTS, AMPHOS, true);
-	setAlliance(THE_COALITION, HELLRAISERS, true);
+	setAlliance(CAM_ROYALISTS, CAM_AMPHOS, true);
+	setAlliance(CAM_THE_COALITION, CAM_HELLRAISERS, true);
 
 	// Give each faction its starting research
-	camCompleteRequiredResearch(PLAYER_RES, CAM_HUMAN_PLAYER);
-	if (difficulty > EASY) camCompleteRes(["R-Sys-Engineering01"], THE_RESISTANCE);
-	camCompleteRequiredResearch(["R-Comp-CommandTurret01"], THE_RESISTANCE); // Required so that they can rebuild commanders
-	camCompleteRequiredResearch(AMPHOS_RES, AMPHOS);
-	camCompleteRequiredResearch(HELLRAISER_RES, HELLRAISERS);
-	camCompleteRequiredResearch(COALITION_START_RES, THE_COALITION);
-	camCompleteRequiredResearch(ROYALIST_START_RES, ROYALISTS);
+	camCompleteRequiredResearch(mis_playerRes, CAM_HUMAN_PLAYER);
+	if (difficulty > EASY) camCompleteRes(["R-Sys-Engineering01"], CAM_THE_RESISTANCE);
+	camCompleteRequiredResearch(["R-Comp-CommandTurret01"], CAM_THE_RESISTANCE); // Required so that they can rebuild commanders
+	camCompleteRequiredResearch(mis_amphosRes, CAM_AMPHOS);
+	camCompleteRequiredResearch(mis_hellraiserRes, CAM_HELLRAISERS);
+	camCompleteRequiredResearch(mis_coalitionStartRes, CAM_THE_COALITION);
+	camCompleteRequiredResearch(mis_royalistStartRes, CAM_ROYALISTS);
 
-	for (var i = 0; i < PLAYER_STRUCTS.length; ++i)
+	for (let i = 0; i < mis_playerStructs.length; ++i)
 	{
-		enableStructure(PLAYER_STRUCTS[i], CAM_HUMAN_PLAYER);
+		enableStructure(mis_playerStructs[i], CAM_HUMAN_PLAYER);
 	}
 
 	if (difficulty !== SUPEREASY) 
 	{
-		var playerDroids = enumDroid(6, DROID_ANY);
-		for (var i = 0; i < playerDroids.length; i++)
+		const playerDroids = enumDroid(6, DROID_ANY);
+		for (let i = 0; i < playerDroids.length; i++)
 		{
 			// Starting droids get higher XP on higher difficulties
 			camSetDroidRank(playerDroids[i], difficulty - 1);
@@ -1990,28 +2030,28 @@ function eventStartLevel()
 	// Set the time to night
 	camSetDayTime(850);
 
-	camSetEnemyBases(baseData);
+	camSetEnemyBases(mis_baseData);
 
 	// Change a bunch of normal structures to their Collective-styled counterparts for the Royalists
-	camUpgradeOnMapStructures("PillBox1", "CO-HMGBunker", ROYALISTS);
-	camUpgradeOnMapStructures("Pillbox-RotMG", "CO-ROTMGBunker", ROYALISTS);
-	camUpgradeOnMapStructures("Sys-SensoTower02", "Sys-CO-SensoTower", ROYALISTS);
-	camUpgradeOnMapStructures("Sys-CB-Tower01", "Sys-COCB-Tower01", ROYALISTS);
-	camUpgradeOnMapStructures("Sys-VTOL-CB-Tower01", "Sys-CO-VTOL-CB-Tower01", ROYALISTS);
-	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-CO-VTOL-RadarTower01", ROYALISTS);
-	camUpgradeOnMapStructures("WallTower-QuadRotAAGun", "CO-WallTower-QuadRotAAGun", ROYALISTS);
-	camUpgradeOnMapStructures("X-Super-Cannon", "COX-Super-Cannon", ROYALISTS);
-	camUpgradeOnMapStructures("X-Super-Rocket", "COX-Super-Rocket", ROYALISTS);
-	camUpgradeOnMapStructures("WallTower-TwinAssaultGun", "CO-WallTower-TwinAssaultGun", ROYALISTS);
-	camUpgradeOnMapStructures("A0HardcreteMk1Wall", "CollectiveWall", ROYALISTS);
-	camUpgradeOnMapStructures("Emplacement-RotMor", "CO-Emp-RotMor", ROYALISTS);
-	camUpgradeOnMapStructures("Emplacement-HvyATrocket", "CO-PillBoxTK", ROYALISTS);
-	camUpgradeOnMapStructures("Emplacement-HPVcannon", "CO-PillBoxHPC", ROYALISTS);
-	// camUpgradeOnMapStructures("Emplacement-HvyATrocket", "Emplacement-Ballista", ROYALISTS);
+	camUpgradeOnMapStructures("PillBox1", "CO-HMGBunker", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Pillbox-RotMG", "CO-ROTMGBunker", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Sys-SensoTower02", "Sys-CO-SensoTower", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Sys-CB-Tower01", "Sys-COCB-Tower01", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Sys-VTOL-CB-Tower01", "Sys-CO-VTOL-CB-Tower01", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-CO-VTOL-RadarTower01", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("WallTower-QuadRotAAGun", "CO-WallTower-QuadRotAAGun", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("X-Super-Cannon", "COX-Super-Cannon", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("X-Super-Rocket", "COX-Super-Rocket", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("WallTower-TwinAssaultGun", "CO-WallTower-TwinAssaultGun", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("A0HardcreteMk1Wall", "CollectiveWall", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Emplacement-RotMor", "CO-Emp-RotMor", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Emplacement-HvyATrocket", "CO-PillBoxTK", CAM_ROYALISTS);
+	camUpgradeOnMapStructures("Emplacement-HPVcannon", "CO-PillBoxHPC", CAM_ROYALISTS);
+	// camUpgradeOnMapStructures("Emplacement-HvyATrocket", "Emplacement-Ballista", CAM_ROYALISTS);
 	if (difficulty === INSANE)
 	{
-		camUpgradeOnMapStructures("GuardTower2", "GuardTower1", HELLRAISERS);
-		camUpgradeOnMapStructures("PillBox2", "PillBox1", HELLRAISERS);
+		camUpgradeOnMapStructures("GuardTower2", "GuardTower1", CAM_HELLRAISERS);
+		camUpgradeOnMapStructures("PillBox2", "PillBox1", CAM_HELLRAISERS);
 	}
 
 	initializeGameInfo();
@@ -2035,8 +2075,8 @@ function eventStartLevel()
 	if (difficulty < HARD)
 	{
 		// Remove defensive structures around the two Resistance oil derricks
-		var oilStructs = enumArea("resGiftZone", THE_RESISTANCE, false);
-		for (var i = oilStructs.length - 1; i >= 0; i--)
+		const oilStructs = enumArea("resGiftZone", CAM_THE_RESISTANCE, false);
+		for (let i = oilStructs.length - 1; i >= 0; i--)
 		{
 			if (oilStructs[i].type === STRUCTURE && oilStructs[i].stattype !== RESOURCE_EXTRACTOR)
 			{

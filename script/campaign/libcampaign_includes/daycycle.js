@@ -27,27 +27,27 @@ function camToggleDayCycle()
 	{
 		console(_("Day/Night cycle disabled."));
 
-		var r;
-		var g;
-		var b;
+		let r;
+		let g;
+		let b;
 
 		if (tilesetType === "ARIZONA")
 		{
-			r = CAM_ARIZONA_FOG_RGB.r;
-			g = CAM_ARIZONA_FOG_RGB.g;
-			b = CAM_ARIZONA_FOG_RGB.b;
+			r = __CAM_ARIZONA_FOG_RGB.r;
+			g = __CAM_ARIZONA_FOG_RGB.g;
+			b = __CAM_ARIZONA_FOG_RGB.b;
 		}
 		else if (tilesetType === "URBAN")
 		{
-			r = CAM_URBAN_FOG_RGB.r;
-			g = CAM_URBAN_FOG_RGB.g;
-			b = CAM_URBAN_FOG_RGB.b;
+			r = __CAM_URBAN_FOG_RGB.r;
+			g = __CAM_URBAN_FOG_RGB.g;
+			b = __CAM_URBAN_FOG_RGB.b;
 		}
 		else
 		{
-			r = CAM_ROCKY_FOG_RGB.r;
-			g = CAM_ROCKY_FOG_RGB.g;
-			b = CAM_ROCKY_FOG_RGB.b;
+			r = __CAM_ROCKY_FOG_RGB.r;
+			g = __CAM_ROCKY_FOG_RGB.g;
+			b = __CAM_ROCKY_FOG_RGB.b;
 		}
 		setFogColour(r, g, b);
 
@@ -81,7 +81,7 @@ function __camDayCycleTick()
 {
 	__camDayTime++;
 
-	if (__camDayTime >= CAM_SECONDS_IN_A_DAY_CYCLE)
+	if (__camDayTime >= __CAM_SECONDS_IN_A_DAY_CYCLE)
 	{
 		__camDayTime = 0;
 	}
@@ -96,45 +96,45 @@ function __camDayCycleTick()
 function __camUpdateDayVisuals()
 {
 	// Dawn is at 0 
-	// Noon is at (CAM_SECONDS_IN_A_DAY_CYCLE / 4)
-	// Dusk is at (CAM_SECONDS_IN_A_DAY_CYCLE / 2)
-	// Midnight is at (3 * CAM_SECONDS_IN_A_DAY_CYCLE / 4)
+	// Noon is at (__CAM_SECONDS_IN_A_DAY_CYCLE / 4)
+	// Dusk is at (__CAM_SECONDS_IN_A_DAY_CYCLE / 2)
+	// Midnight is at (3 * __CAM_SECONDS_IN_A_DAY_CYCLE / 4)
 
 	//Set the skybox
 	__camSetSky(false);
 
-	var r;
-	var g;
-	var b;
+	let r;
+	let g;
+	let b;
 
 	if (tilesetType === "ARIZONA")
 	{
-		r = CAM_ARIZONA_FOG_RGB.r;
-		g = CAM_ARIZONA_FOG_RGB.g;
-		b = CAM_ARIZONA_FOG_RGB.b;
+		r = __CAM_ARIZONA_FOG_RGB.r;
+		g = __CAM_ARIZONA_FOG_RGB.g;
+		b = __CAM_ARIZONA_FOG_RGB.b;
 	}
 	else if (tilesetType === "URBAN")
 	{
-		r = CAM_URBAN_FOG_RGB.r;
-		g = CAM_URBAN_FOG_RGB.g;
-		b = CAM_URBAN_FOG_RGB.b;
+		r = __CAM_URBAN_FOG_RGB.r;
+		g = __CAM_URBAN_FOG_RGB.g;
+		b = __CAM_URBAN_FOG_RGB.b;
 	}
 	else
 	{
-		r = CAM_ROCKY_FOG_RGB.r;
-		g = CAM_ROCKY_FOG_RGB.g;
-		b = CAM_ROCKY_FOG_RGB.b;
+		r = __CAM_ROCKY_FOG_RGB.r;
+		g = __CAM_ROCKY_FOG_RGB.g;
+		b = __CAM_ROCKY_FOG_RGB.b;
 	}
 
 	// At noon fog colors are as set above
 	// At dawn and dusk fog colors are at 1/2
 	// At midnight all fog colors are 0 (full black)
-	var colorMultiplier = Math.abs( 1 - ((2 / CAM_SECONDS_IN_A_DAY_CYCLE) * Math.abs(__camDayTime - (CAM_SECONDS_IN_A_DAY_CYCLE / 4))));
-	// colorMultiplier starts as 0.5 at dawn, is 1 at noon, 0.5 at dusk, and 0 at midnight.
+	const __COLOR_MULTIPLIER = Math.abs( 1 - ((2 / __CAM_SECONDS_IN_A_DAY_CYCLE) * Math.abs(__camDayTime - (__CAM_SECONDS_IN_A_DAY_CYCLE / 4))));
+	// __COLOR_MULTIPLIER starts as 0.5 at dawn, is 1 at noon, 0.5 at dusk, and 0 at midnight.
 
-	r = Math.floor(r * colorMultiplier);
-	g = Math.floor(g * colorMultiplier);
-	b = Math.floor(b * colorMultiplier);
+	r = Math.floor(r * __COLOR_MULTIPLIER);
+	g = Math.floor(g * __COLOR_MULTIPLIER);
+	b = Math.floor(b * __COLOR_MULTIPLIER);
 
 	setFogColour(r, g, b);
 
@@ -153,12 +153,12 @@ function __camUpdateDayVisuals()
 function __camSetSky(forceSet)
 {
 	//__camNightSkyboxSet is used to see if the skybox is already set correctly, so that we don't constantly reset the skybox
-	if (__camDayTime >= CAM_SECONDS_IN_A_DAY_CYCLE / 2 && (!__camNightSkyboxSet || forceSet)) // Set to night after dusk
+	if (__camDayTime >= __CAM_SECONDS_IN_A_DAY_CYCLE / 2 && (!__camNightSkyboxSet || forceSet)) // Set to night after dusk
 	{
 		setSky("texpages/night-sky.png", 0.5, 10000.0);
 		__camNightSkyboxSet = true;
 	}
-	else if (__camDayTime < CAM_SECONDS_IN_A_DAY_CYCLE / 2 && (__camNightSkyboxSet || forceSet)) // Set to day before dusk
+	else if (__camDayTime < __CAM_SECONDS_IN_A_DAY_CYCLE / 2 && (__camNightSkyboxSet || forceSet)) // Set to day before dusk
 	{
 		if (tilesetType !== "ARIZONA")
 		{
@@ -184,25 +184,25 @@ function __camSetSun()
 	// -z: NORTH, +z: SOUTH
 	// (remember that shadows are casted in the OPPOSITE direction of the sun)
 
-	var lightPos = Math.cos((Math.PI * __camDayTime / (CAM_SECONDS_IN_A_DAY_CYCLE / 2)));
-	// lightPos travels between 1 and -1 through the day, and from -1 to 1 during the night
+	const __LIGHT_POS = Math.cos((Math.PI * __camDayTime / (__CAM_SECONDS_IN_A_DAY_CYCLE / 2)));
+	// __LIGHT_POS travels between 1 and -1 through the day, and from -1 to 1 during the night
 
-	var intensityMultiplier = (__camDayTime < (CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? Math.sin((Math.PI * __camDayTime / (CAM_SECONDS_IN_A_DAY_CYCLE / 2))) : 0;
-	// intensityMultiplier starts as 0 at dawn, is 1 at noon, 0 at dusk, and 0 during all of the night.
+	const __INTENSITY_MULTIPLIER = (__camDayTime < (__CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? Math.sin((Math.PI * __camDayTime / (__CAM_SECONDS_IN_A_DAY_CYCLE / 2))) : 0;
+	// __INTENSITY_MULTIPLIER starts as 0 at dawn, is 1 at noon, 0 at dusk, and 0 during all of the night.
 
-	var sun = {
-		x: (__camDayTime < (CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? lightPos : -0.6 * lightPos, // Move less at night
+	const sun = {
+		x: (__camDayTime < (__CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? __LIGHT_POS : -0.6 * __LIGHT_POS, // Move less at night
 		y: -0.5,
-		z: (__camDayTime < (CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? 0.3 : -0.2, // Put the "moon" in a slightly different position
-		ar: 0.4 + (0.1 * intensityMultiplier),
-		ag: 0.4 + (0.1 * intensityMultiplier),
-		ab: 0.4 + (0.1 * intensityMultiplier),
-		dr: 0.5 + (0.5 * intensityMultiplier),
-		dg: 0.5 + (0.5 * intensityMultiplier),
-		db: 0.5 + (0.5 * intensityMultiplier),
-		sr: 0.5 + (0.5 * intensityMultiplier),
-		sg: 0.5 + (0.5 * intensityMultiplier),
-		sb: 0.5 + (0.5 * intensityMultiplier)
+		z: (__camDayTime < (__CAM_SECONDS_IN_A_DAY_CYCLE / 2)) ? 0.3 : -0.2, // Put the "moon" in a slightly different position
+		ar: 0.4 + (0.1 * __INTENSITY_MULTIPLIER),
+		ag: 0.4 + (0.1 * __INTENSITY_MULTIPLIER),
+		ab: 0.4 + (0.1 * __INTENSITY_MULTIPLIER),
+		dr: 0.5 + (0.5 * __INTENSITY_MULTIPLIER),
+		dg: 0.5 + (0.5 * __INTENSITY_MULTIPLIER),
+		db: 0.5 + (0.5 * __INTENSITY_MULTIPLIER),
+		sr: 0.5 + (0.5 * __INTENSITY_MULTIPLIER),
+		sg: 0.5 + (0.5 * __INTENSITY_MULTIPLIER),
+		sb: 0.5 + (0.5 * __INTENSITY_MULTIPLIER)
 	}
 
 	setSunPosition(sun.x, sun.y, sun.z);

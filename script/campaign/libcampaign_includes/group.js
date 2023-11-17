@@ -5,7 +5,9 @@
 
 //;; ## camNewGroup()
 //;;
-//;; A saveload safe version of newGroup() so as not to create group ID clashes.
+//;; A saveload safe version of `newGroup()` so as not to create group ID clashes.
+//;;
+//;; @returns {number}
 //;;
 function camNewGroup()
 {
@@ -19,7 +21,10 @@ function camNewGroup()
 
 //;; ## camInNeverGroup(droid)
 //;;
-//;; check if this droid is forced to never group.
+//;; Check if this droid is forced to never group.
+//;;
+//;; @param {Object} droid
+//;; @returns {boolean}
 //;;
 function camInNeverGroup(droid)
 {
@@ -28,10 +33,10 @@ function camInNeverGroup(droid)
 		camDebug("Non-droid in camInNeverGroup.");
 		return false;
 	}
-	for (var i = 0, l = __camNeverGroupDroids.length; i < l; ++i)
+	for (let i = 0, l = __camNeverGroupDroids.length; i < l; ++i)
 	{
-		var neverDroidID = __camNeverGroupDroids[i];
-		if (droid.id === neverDroidID)
+		const __NEVERDROID_ID = __camNeverGroupDroids[i];
+		if (droid.id === __NEVERDROID_ID)
 		{
 			return true;
 		}
@@ -40,18 +45,22 @@ function camInNeverGroup(droid)
 	return false;
 }
 
-//;; ## camNeverGroupDroid(what, [filter])
+//;; ## camNeverGroupDroid(what[, playerFilter])
 //;;
 //;; A means to not auto group some droids.
 //;;
-function camNeverGroupDroid(what, filter)
+//;; @param {string|Object|Object[]} what
+//;; @param {number} [playerFilter]
+//;; @returns {void}
+//;;
+function camNeverGroupDroid(what, playerFilter)
 {
-	if (!camDef(filter))
+	if (!camDef(playerFilter))
 	{
-		filter = ENEMIES;
+		playerFilter = ENEMIES;
 	}
-	var array;
-	var obj;
+	let array;
+	let obj;
 	if (camIsString(what)) // label
 	{
 		obj = getObject(what);
@@ -90,14 +99,14 @@ function camNeverGroupDroid(what, filter)
 	}
 	if (camDef(array))
 	{
-		for (var i = 0, l = array.length; i < l; ++i)
+		for (let i = 0, l = array.length; i < l; ++i)
 		{
-			var o = array[i];
+			const o = array[i];
 			if (!camDef(o) || !o)
 			{
 				continue;
 			}
-			if (o.type === DROID && camPlayerMatchesFilter(o.player, filter))
+			if (o.type === DROID && camPlayerMatchesFilter(o.player, playerFilter))
 			{
 				__camNeverGroupDroids.push(o.id);
 			}

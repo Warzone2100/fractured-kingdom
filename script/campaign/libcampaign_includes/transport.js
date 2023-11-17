@@ -3,41 +3,51 @@
 // Transporter management.
 ////////////////////////////////////////////////////////////////////////////////
 
-//;; ## camIsTransporter(game object)
+//;; ## camIsTransporter(gameObject)
 //;;
 //;; Determine if the object is a transporter.
 //;;
-function camIsTransporter(object)
+//;; @param {Object} gameObject
+//;; @returns {boolean}
+//;;
+function camIsTransporter(gameObject)
 {
-	if (!camDef(object) || !object)
+	if (!camDef(gameObject) || !gameObject)
 	{
 		return false;
 	}
 
-	if (object.type !== DROID)
+	if (gameObject.type !== DROID)
 	{
 		camTrace("Attempted to check if a non-droid object is a transporter.");
 		return false;
 	}
 
-	return object.droidType === DROID_SUPERTRANSPORTER;
+	return gameObject.droidType === DROID_SUPERTRANSPORTER;
 }
 
-//;; ## camSetupTransport(place x, place y, exit x, exit y)
+//;; ## camSetupTransporter(placeX, placeY, exitX, exitY)
 //;;
-//;; A convenient function for placing the standard campaign transport
-//;; for loading in pre-away missions. The exit point for the transport
-//;; is set up as well.
+//;; A convenient function for placing the standard campaign transport for loading in pre-away missions.
+//;; The exit point for the transport is set up as well.
 //;;
-function camSetupTransporter(x, y, x1, y1)
+//;; @param {number} placeX
+//;; @param {number} placeY
+//;; @param {number} exitX
+//;; @param {number} exitY
+//;; @returns {void}
+//;;
+function camSetupTransporter(placeX, placeY, exitX, exitY)
 {
-	addDroid(CAM_HUMAN_PLAYER, x, y, "Transport", "TransporterBody", "V-Tol", "", "", "MG3-VTOL");
-	setTransporterExit(x1, y1, CAM_HUMAN_PLAYER);
+	addDroid(CAM_HUMAN_PLAYER, placeX, placeY, "Transport", "TransporterBody", "V-Tol", "", "", "MG3-VTOL");
+	setTransporterExit(exitX, exitY, CAM_HUMAN_PLAYER);
 }
 
 //;; ## camRemoveEnemyTransporterBlip()
 //;;
 //;; Removes the last blip that an enemy transporter left behind, if any.
+//;;
+//;; @returns {void}
 //;;
 function camRemoveEnemyTransporterBlip()
 {
@@ -60,63 +70,63 @@ function __camDispatchTransporterUnsafe()
 		camDebug("Transporter queue empty!");
 		return false;
 	}
-	const OFFSET = 2; //Increaze LZ "no go" zone area a bit
-	var args = __camTransporterQueue[0];
-	var player = args.player;
-	var pos = args.position;
-	var list = args.list;
-	var data = args.data;
-	if (camDef(__camIncomingTransports[player]))
+	const __OFFSET = 1; //Increaze LZ "no go" zone area a bit
+	const args = __camTransporterQueue[0];
+	const __PLAYER = args.player;
+	const pos = args.position;
+	const list = args.list;
+	const data = args.data;
+	if (camDef(__camIncomingTransports[__PLAYER]))
 	{
-		camTrace("Transporter already on map for player", player + ", delaying.");
+		camTrace("Transporter already on map for player", __PLAYER + ", delaying.");
 		return false;
 	}
 	__camTransporterQueue.shift(); // what could possibly go wrong?
-	if (!camDef(__camPlayerTransports[player]))
+	if (!camDef(__camPlayerTransports[__PLAYER]))
 	{
-		camTrace("Creating a transporter for player", player);
-		__camPlayerTransports[player] = addDroid(player, -1, -1,
+		camTrace("Creating a transporter for player", __PLAYER);
+		__camPlayerTransports[__PLAYER] = addDroid(__PLAYER, -1, -1,
 		                                         "Transporter",
 		                                         "TransporterBody",
 		                                         "V-Tol", "", "",
 		                                         "MG3-VTOL");
 	}
-	var trans = __camPlayerTransports[player];
-	var droids = [];
-	for (var i = 0, l = list.length; i < l; ++i)
+	const transporter = __camPlayerTransports[__PLAYER];
+	const droids = [];
+	for (let i = 0, l = list.length; i < l; ++i)
 	{
-		var template = list[i];
-		var prop = __camChangePropulsionOnDiff(template.prop);
-		var droid = addDroid(player, -1, -1, "Reinforcement", template.body, prop, "", "", template.weap);
+		const template = list[i];
+		const __PROP = __camChangePropulsion(template.prop, __PLAYER);
+		const droid = addDroid(__PLAYER, -1, -1, camNameTemplate(template.weap, template.body, __PROP), template.body, __PROP, "", "", template.weap);
 		droids.push(droid);
-		addDroidToTransporter(trans, droid);
+		addDroidToTransporter(transporter, droid);
 	}
-	__camIncomingTransports[player] = {
+	__camIncomingTransports[__PLAYER] = {
 		droids: droids,
 		message: args.data.message,
 		order: args.order,
 		data: args.order_data,
 	};
 	camTrace("Incoming transport with", droids.length,
-	         "droids for player", player +
+	         "droids for player", __PLAYER +
 	         ", queued transports", __camTransporterQueue.length);
 
-	setNoGoArea(pos.x - OFFSET, pos.y - OFFSET, pos.x + OFFSET, pos.y + OFFSET, player);
+	setNoGoArea(pos.x - __OFFSET, pos.y - __OFFSET, pos.x + __OFFSET, pos.y + __OFFSET, __PLAYER);
 
 	//Delete previous enemy reinforcement transport blip
-	if (player !== CAM_HUMAN_PLAYER)
+	if (__PLAYER !== CAM_HUMAN_PLAYER)
 	{
 		camRemoveEnemyTransporterBlip();
 	}
 
-	if(player !== CAM_HUMAN_PLAYER)
+	if (__PLAYER !== CAM_HUMAN_PLAYER && !allianceExistsBetween(__PLAYER, CAM_HUMAN_PLAYER))
 	{
 		playSound("pcv381.ogg"); //Enemy transport detected.
 	}
 
-	setTransporterExit(data.exit.x, data.exit.y, player);
+	setTransporterExit(data.exit.x, data.exit.y, __PLAYER);
 	// will guess which transporter to start, automagically
-	startTransporterEntry(data.entry.x, data.entry.y, player);
+	startTransporterEntry(data.entry.x, data.entry.y, __PLAYER);
 	return true;
 }
 
@@ -130,7 +140,7 @@ function __camDispatchTransporterSafe(player, position, list, data)
 
 function __camLandTransporter(player, pos)
 {
-	var ti = __camIncomingTransports[player];
+	const ti = __camIncomingTransports[player];
 	if (!camDef(ti))
 	{
 		camDebug("Unhandled transporter for player", player);
@@ -146,8 +156,18 @@ function __camLandTransporter(player, pos)
 		__camTransporterMessage = undefined;
 	}
 	camTrace("Landing transport for player", player);
-	playSound("pcv395.ogg", pos.x, pos.y, 0); //Incoming enemy transport.
+	if (!allianceExistsBetween(player, CAM_HUMAN_PLAYER))
+	{
+		playSound("pcv395.ogg", pos.x, pos.y, 0); //Incoming enemy transport.
+	}
 	camManageGroup(camMakeGroup(ti.droids), ti.order, ti.data);
+	if (player !== CAM_HUMAN_PLAYER)
+	{
+		for (let i = 0, len = ti.droids.length; i < len; ++i)
+		{
+			camSetDroidExperience(ti.droids[i]);
+		}
+	}
 }
 
 function __camRemoveIncomingTransporter(player)

@@ -1,3 +1,14 @@
+v1.1.0
+Update with a lot of script tidying-up to match the current libcampaign standards introduced in 4.4.0, this should not have a noticeable impact on actual gameplay.
+NOTE: Saves from previous versions will probably not work, as some variable names have been changed.
+Also includes some other changes:
+- Prevented AI trucks from potentially forgetting to build modules.
+- Prevented AI Bunker Buster VTOLs from being assigned to VTOL towers.
+- Added new color options for the "color me" chat command ("bright blue", "neon green", "ultraviolet", "infrared", and "brown").
+- Added more oil drums in the starting area.
+- Widened the main Hellraiser chokepoint.
+- Widened the pathway near the south-east Coalition base.
+
 v1.0.6
 - Prevented truck "wandering" behavior from potentially freezing the game via an infinite loop.
 

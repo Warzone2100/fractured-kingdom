@@ -52,6 +52,15 @@ function cam_eventChat(from, to, message)
 	{
 		camToggleDayCycle();
 	}
+	if (message.lastIndexOf("rank ", 0) === 0)
+	{
+		camSetExpLevel(Number(message.substring(5)));
+		camSetOnMapEnemyUnitExp();
+	}
+	if (message.lastIndexOf("prop ", 0) === 0)
+	{
+		camSetPropulsionTypeLimit(Number(message.substring(5)));
+	}
 	if (!camIsCheating())
 	{
 		return;
@@ -73,24 +82,24 @@ function cam_eventChat(from, to, message)
 	}
 	if (message === "deity")
 	{
-		for (var blabel in __camEnemyBases)
+		for (const baseLabel in __camEnemyBases)
 		{
-			camDetectEnemyBase(blabel);
+			camDetectEnemyBase(baseLabel);
 		}
 	}
 	if (message === "research available")
 	{
 		while (true) // eslint-disable-line no-constant-condition
 		{
-			var research = enumResearch();
+			const research = enumResearch();
 			if (research.length === 0)
 			{
 				break;
 			}
-			for (var i = 0, len = research.length; i < len; ++i)
+			for (let i = 0, len = research.length; i < len; ++i)
 			{
-				var researchName = research[i].name;
-				completeResearch(researchName, CAM_HUMAN_PLAYER);
+				const __RESEARCH_NAME = research[i].name;
+				completeResearch(__RESEARCH_NAME, CAM_HUMAN_PLAYER);
 			}
 		}
 	}
@@ -135,6 +144,7 @@ function cam_eventStartLevel()
 	__camAttackLog = [];
 	__camResearchLog = [];
 	__camHiddenResearch = [];
+	__camExpLevel = 0;
 	camSetPropulsionTypeLimit(); //disable the propulsion changer by default
 	__camAiPowerReset(); //grant power to the AI
 	setTimer("__camSpawnVtols", camSecondsToMilliseconds(0.5));
@@ -164,6 +174,11 @@ function cam_eventDroidBuilt(droid, structure)
 	{
 		return;
 	}
+	if (camGetNexusState() && droid.player === CAM_NEXUS && __camNextLevel === "CAM3C" && camRand(100) < 7)
+	{
+		// Occasionally hint that NEXUS is producing units on Gamma 5.
+		playSound(CAM_PRODUCTION_COMPLETE_SND);
+	}
 	if (!camDef(__camFactoryInfo))
 	{
 		return;
@@ -173,6 +188,7 @@ function cam_eventDroidBuilt(droid, structure)
 		__camAssignTruck(droid);
 		return;
 	}
+	camSetDroidExperience(droid);
 	__camAddDroidToFactoryGroup(droid, structure);
 }
 
@@ -248,8 +264,18 @@ function cam_eventTransporterExit(transport)
 			__camVictoryData.reinforcements > -1) ||
 			__camWinLossCallback === CAM_VICTORY_STANDARD))
 		{
-			const REINFORCEMENTS_AVAILABLE_SOUND = "pcv440.ogg";
-			playSound(REINFORCEMENTS_AVAILABLE_SOUND);
+			const __REINFORCEMENTS_AVAILABLE_SOUND = "pcv440.ogg";
+			playSound(__REINFORCEMENTS_AVAILABLE_SOUND);
+			//Show the transporter reinforcement timer when it leaves for the first time.
+			if (__camWinLossCallback === CAM_VICTORY_OFFWORLD)
+			{
+				setReinforcementTime(__camVictoryData.reinforcements);
+			}
+		}
+		// Show how long until the transporter comes back on Beta End.
+		if (__camWinLossCallback === CAM_VICTORY_TIMEOUT)
+		{
+			setReinforcementTime(__camVictoryData.reinforcements);
 		}
 	}
 
@@ -263,7 +289,6 @@ function cam_eventTransporterExit(transport)
 	{
 		camTrace("Transporter is away.");
 		__camGameWon();
-		return;
 	}
 }
 
@@ -272,6 +297,14 @@ function cam_eventTransporterLanded(transport)
 	if (transport.player !== CAM_HUMAN_PLAYER)
 	{
 		__camLandTransporter(transport.player, camMakePos(transport));
+	}
+	else
+	{
+		// Make the transporter timer on Beta End disappear, since the transporter has arrived.
+		if (__camWinLossCallback === CAM_VICTORY_TIMEOUT)
+		{
+			setReinforcementTime(-1);
+		}
 	}
 }
 
@@ -284,8 +317,8 @@ function cam_eventMissionTimeout()
 	}
 	else
 	{
-		var won = camCheckExtraObjective();
-		if (!won)
+		const __WON = camCheckExtraObjective();
+		if (!__WON)
 		{
 			__camGameLost();
 			return;
@@ -305,17 +338,16 @@ function cam_eventAttacked(victim, attacker)
 			//of a group. Only supports those who can hit ground units.
 			if (victim.group === null)
 			{
-				const DEFAULT_RADIUS = 6;
-				var loc = {x: victim.x, y: victim.y};
-				var droids = enumRange(loc.x, loc.y, DEFAULT_RADIUS, victim.player, false).filter(function(obj) {
-					return (obj.type === DROID &&
-						obj.group === null &&
-						(obj.canHitGround || obj.isSensor) &&
-						obj.droidType !== DROID_CONSTRUCT &&
-						!camIsTransporter(obj) &&
-						!camInNeverGroup(obj)
-					);
-				});
+				const __DEFAULT_RADIUS = 6;
+				const loc = {x: victim.x, y: victim.y};
+				const droids = enumRange(loc.x, loc.y, __DEFAULT_RADIUS, victim.player, false).filter((obj) => (
+					obj.type === DROID &&
+					obj.group === null &&
+					(obj.canHitGround || obj.isSensor) &&
+					obj.droidType !== DROID_CONSTRUCT &&
+					!camIsTransporter(obj) &&
+					!camInNeverGroup(obj)
+				));
 				if (droids.length === 0)
 				{
 					return;
@@ -349,17 +381,17 @@ function cam_eventGameLoaded()
 {
 	receiveAllEvents(true);
 	__camSaveLoading = true;
-	const SCAV_KEVLAR_MISSIONS = [
+	const scavKevlarMissions = [
 		"CAM_1CA", "SUB_1_4AS", "SUB_1_4A", "SUB_1_5S", "SUB_1_5",
 		"CAM_1A-C", "SUB_1_7S", "SUB_1_7", "SUB_1_DS", "CAM_1END", "SUB_2_5S"
 	];
 
 	//Need to set the scavenger kevlar vests when loading a save from later Alpha
 	//missions or else it reverts to the original texture.
-	for (var i = 0, l = SCAV_KEVLAR_MISSIONS.length; i < l; ++i)
+	for (let i = 0, l = scavKevlarMissions.length; i < l; ++i)
 	{
-		var mission = SCAV_KEVLAR_MISSIONS[i];
-		if (__camNextLevel === mission)
+		const __MISSION = scavKevlarMissions[i];
+		if (__camNextLevel === __MISSION)
 		{
 			if (tilesetType === "ARIZONA")
 			{
@@ -375,6 +407,13 @@ function cam_eventGameLoaded()
 		}
 	}
 
+	if (__camWinLossCallback === CAM_VICTORY_TIMEOUT
+		&& enumDroid(CAM_HUMAN_PLAYER, DROID_SUPERTRANSPORTER).length === 0)
+	{
+		// If the transport is gone on Beta End, put a timer up to show when it'll be back
+		setReinforcementTime(__camVictoryData.reinforcements);
+	}
+
 	//Subscribe to eventGroupSeen again.
 	camSetEnemyBases();
 
@@ -383,7 +422,7 @@ function cam_eventGameLoaded()
 	{
 		__camSetSun();
 		__camSetSky(true);
-	}	
+	}
 
 	//Reset any vars
 	__camCheatMode = false;
@@ -394,27 +433,27 @@ function cam_eventGameLoaded()
 //Plays Nexus sounds if nexusActivated is true.
 function cam_eventObjectTransfer(obj, from)
 {
-	if (from === CAM_HUMAN_PLAYER && obj.player === NEXUS && __camNexusActivated === true)
+	if (camGetNexusState() && from === CAM_HUMAN_PLAYER && obj.player === CAM_NEXUS)
 	{
-		var snd;
+		let snd;
 		if (obj.type === STRUCTURE)
 		{
 			if (obj.stattype === DEFENSE)
 			{
-				snd = DEFENSE_ABSORBED;
+				snd = CAM_DEFENSE_ABSORBED_SND;
 			}
 			else if (obj.stattype === RESEARCH_LAB)
 			{
-				snd = RES_ABSORBED;
+				snd = CAM_RES_ABSORBED_SND;
 			}
 			else
 			{
-				snd = STRUCTURE_ABSORBED;
+				snd = CAM_STRUCTURE_ABSORBED_SND;
 			}
 		}
 		else if (obj.type === DROID)
 		{
-			snd = UNIT_ABSORBED;
+			snd = CAM_UNIT_ABSORBED_SND;
 		}
 
 		if (camDef(snd))
