@@ -18,3 +18,11 @@ To get started, simply click Single Player -> New Campaign -> Fractured Kingdom.
 This mod DOES NOT support Skirmish/Multiplayer games! Please disable the mod before trying to play those or else your computer will be sucked into a black hole or something.
 
 With that out of the way, I hope you will enjoy / have enjoyed Fractured Kingdom!
+
+---------
+Licensing
+---------
+
+Fractured Kingdom is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+[![SPDX-License-Identifier: GPL-2.0-or-later](https://img.shields.io/static/v1?label=SPDX-License-Identifier&message=GPL-2.0-or-later&color=blue&logo=open-source-initiative&logoColor=white&logoWidth=10&style=flat-square)](COPYING)
