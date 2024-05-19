@@ -158,6 +158,12 @@ function cam_eventStartLevel()
 	setTimer("__camTacticsTick", camSecondsToMilliseconds(0.1));
 	setTimer("__clearAttackLog", camSecondsToMilliseconds(0.1));
 	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(6));
+
+	if (tweakOptions.fk_disableDayCycle)
+	{
+		// Player disabled the day cycle from the tweak menu
+		__camDisableDayCycle();
+	}
 }
 
 function cam_eventDroidBuilt(droid, structure)

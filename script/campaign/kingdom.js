@@ -97,7 +97,7 @@ function eventDroidBuilt(droid, structure)
 	// Achievement stuff
 	if (droid.player === CAM_HUMAN_PLAYER && droid.droidType === DROID_COMMAND)
 	{
-		// The player may no longer get the "Subborn" achievement
+		// The player may no longer get the "Stubborn" achievement
 		gameState.builtCommander = true;
 	}
 	if (droid.player === CAM_HUMAN_PLAYER && droid.isVTOL)

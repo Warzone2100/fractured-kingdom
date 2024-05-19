@@ -36,5 +36,18 @@
       "default": false,
       "userEditable": false
     }
+  ],
+  "customTweakOptions": [
+    {
+      "id": "fk_disableDayCycle",
+      "type": "bool",
+      "default": false,
+      "displayName": {
+        "en": "Disable Day/Night Cycle"
+      },
+      "description": {
+        "en": "Disables the visual day-to-night sun cycle. The day/night cycle can also be toggled in-game with the \"toggle dn\" chat command."
+      }
+    }
   ]
 }
