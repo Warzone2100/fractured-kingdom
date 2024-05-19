@@ -26,56 +26,60 @@ function camToggleDayCycle()
 	if (__camDayCycleActive)
 	{
 		console(_("Day/Night cycle disabled."));
-
-		let r;
-		let g;
-		let b;
-
-		if (tilesetType === "ARIZONA")
-		{
-			r = __CAM_ARIZONA_FOG_RGB.r;
-			g = __CAM_ARIZONA_FOG_RGB.g;
-			b = __CAM_ARIZONA_FOG_RGB.b;
-		}
-		else if (tilesetType === "URBAN")
-		{
-			r = __CAM_URBAN_FOG_RGB.r;
-			g = __CAM_URBAN_FOG_RGB.g;
-			b = __CAM_URBAN_FOG_RGB.b;
-		}
-		else
-		{
-			r = __CAM_ROCKY_FOG_RGB.r;
-			g = __CAM_ROCKY_FOG_RGB.g;
-			b = __CAM_ROCKY_FOG_RGB.b;
-		}
-		setFogColour(r, g, b);
-
-		setSunPosition(225.0, -600.0, 450.0); // Default position
-		setSunIntensity(0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1); // Default intensity
-
-		if (tilesetType !== "ARIZONA")
-		{
-			setSky("texpages/page-25-sky-urban.png", 0.5, 10000.0);
-			__camNightSkyboxSet = false;
-		}
-		else
-		{
-			setSky("texpages/page-25-sky-arizona.png", 0.5, 10000.0);
-			__camNightSkyboxSet = false;
-		}
+		__camDisableDayCycle();
+		__camDayCycleActive = false;
 	}
 	else
 	{
 		console(_("Day/Night cycle enabled."));
 		__camUpdateDayVisuals();
 		__camSetSun();
+		__camDayCycleActive = true;
 	}
-
-	__camDayCycleActive = !__camDayCycleActive;
 }
 
 //////////// privates
+
+function __camDisableDayCycle()
+{
+	let r;
+	let g;
+	let b;
+
+	if (tilesetType === "ARIZONA")
+	{
+		r = __CAM_ARIZONA_FOG_RGB.r;
+		g = __CAM_ARIZONA_FOG_RGB.g;
+		b = __CAM_ARIZONA_FOG_RGB.b;
+	}
+	else if (tilesetType === "URBAN")
+	{
+		r = __CAM_URBAN_FOG_RGB.r;
+		g = __CAM_URBAN_FOG_RGB.g;
+		b = __CAM_URBAN_FOG_RGB.b;
+	}
+	else
+	{
+		r = __CAM_ROCKY_FOG_RGB.r;
+		g = __CAM_ROCKY_FOG_RGB.g;
+		b = __CAM_ROCKY_FOG_RGB.b;
+	}
+	setFogColour(r, g, b);
+
+	setSunPosition(225.0, -600.0, 450.0); // Default position
+	setSunIntensity(0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1); // Default intensity
+
+	if (tilesetType !== "ARIZONA")
+	{
+		setSky("texpages/page-25-sky-urban.png", 0.5, 10000.0);
+		__camNightSkyboxSet = false;
+	}
+	else
+	{
+		setSky("texpages/page-25-sky-arizona.png", 0.5, 10000.0);
+		__camNightSkyboxSet = false;
+	}
+}
 
 function __camDayCycleTick()
 {

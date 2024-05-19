@@ -255,6 +255,12 @@ function __camPickupArtifact(artifact)
 		camTrace("Artifact", artifact.id, "is not managed");
 		return;
 	}
+	if (Object.hasOwn(ai, "pickedUp") && ai.pickedUp === true)
+	{
+		camTrace("Already picked up the artifact", __ALABEL);
+		return;
+	}
+	ai.pickedUp = true;
 
 	camTrace("Picked up", ai.tech);
 	playSound("pcv352.ogg", artifact.x, artifact.y, artifact.z);

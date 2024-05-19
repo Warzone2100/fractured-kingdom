@@ -1,0 +1,12 @@
+{
+    "_Format": {
+        "_comment": "fileName: [file.ogg], loop: [false/true], range: [world units, 128 = 1 tile], volume: [0-100]"
+    },
+    "Extra": {
+        "_name": "Extra sounds",
+        "data": [
+            { "fileName": "pcv665.ogg", "loop": false, "range": 1800, "volume": 100, "z_comment": "Enemy Landing Zone Eradicated" },
+            { "fileName": "crash.ogg", "loop": false, "range": 1800, "volume": 85, "z_comment": "Intro crash sequence" }
+        ]
+    }
+}
