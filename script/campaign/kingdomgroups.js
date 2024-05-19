@@ -1164,7 +1164,7 @@ function spyLZTransRequest()
 		removeTimer("spyLZTransRequest");
 		return; // LZ is gone (forever)
 	}
-	camDetectEnemyBase("spyLZTransRequest");
+	camDetectEnemyBase("spyBase");
 	gameState.royalists.lzRequests.spyLZ = true;
 }
 

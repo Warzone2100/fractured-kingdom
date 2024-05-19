@@ -743,7 +743,7 @@ camAreaEvent("royBridgeTrigger", function(droid)
 	// Only trigger if the player moves a droid in
 	if (droid.player === CAM_HUMAN_PLAYER)
 	{
-		if ((gameState.hellraisers.allianceState !== "ERADICATED" || gameState.hellraisers.allianceState !== "ALLIED") 
+		if ((gameState.hellraisers.allianceState !== "ERADICATED" && gameState.hellraisers.allianceState !== "ALLIED") 
 			&& gameState.resistance.allianceState === "ALLIED")
 		{
 			// Warn the player about attacking the Royalists before dealing with the Hellraisers
