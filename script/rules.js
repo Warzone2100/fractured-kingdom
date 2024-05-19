@@ -435,7 +435,6 @@ var attackRecord = [];
 function eventAttacked(victim, attacker)
 {
 	if ((victim.player === selectedPlayer && attacker.player !== selectedPlayer) && gameTime > lastHitTime + 2000)
-	if ((victim.player === selectedPlayer) && (attacker.player !== selectedPlayer) && (gameTime > (lastHitTime + 5000)))
 	{
 		lastHitTime = gameTime;
 		const newRecord = [];
