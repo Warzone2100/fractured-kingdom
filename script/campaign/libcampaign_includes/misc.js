@@ -684,7 +684,6 @@ function camGetCommanderMaxGroupSize(commander)
 //;; Returns the object responsible for the attacking of the given object.
 //;; If no culprit is found, returns undefined. DEV NOTE: This function might get confused
 //;; if the same object is attacked very rapidly by multiple different attackes (i.e. several assault guns),
-//;; ```droid``` must be a commander droid.
 //;;
 //;; @param {Object} obj
 //;; @returns {Object|undefined}

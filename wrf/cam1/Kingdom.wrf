@@ -8,6 +8,7 @@ directory	"messages"
 
 file		SMSG		"briefk.txt"
 file		SMSG		"proxk.txt"
+file		SMSG		"genmessages.txt"
 
 directory "script"
 file JAVASCRIPT "rules.js"
