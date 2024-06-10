@@ -1298,7 +1298,7 @@ var structSets = {
 		{stat: "CO-WallTower-RotCan", x: 36, y: 142, rot: 1}, {stat: "CollectiveWall", x: 36, y: 143, rot: 1}, {stat: "A0TankTrap", x: 38, y: 142},
 		{stat: "A0TankTrap", x: 38, y: 143}, {stat: "WallTower-Projector", x: 40, y: 132, rot: 1}, {stat: "CO-Emp-RotMor", x: 45, y: 130},
 		{stat: "AASite-QuadRotMg", x: 47, y: 129, rot: 1}, {stat: "CO-ROTMGBunker", x: 44, y: 132}, {stat: "WallTower-Projector", x: 42, y: 140},
-		{stat: "A0HardcreteMk1Gate", x: 25, y: 125, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 25, y: 126, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 36, y: 140, rot: 1}
+		{stat: "A0HardcreteMk1Gate", x: 25, y: 125, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 25, y: 126, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 36, y: 140, rot: 1},
 		{stat: "A0HardcreteMk1Gate", x: 36, y: 141, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 8, y: 139}, {stat: "A0HardcreteMk1Gate", x: 9, y: 139},
 		{stat: "A0HardcreteMk1Gate", x: 10, y: 139}, {stat: "CollectiveWall", x: 12, y: 139}, {stat: "CO-Tower-HvATRkt", x: 13, y: 139, rot: 2},
 		{stat: "CollectiveWall", x: 13, y: 140, rot: 1}, {stat: "CollectiveWall", x: 13, y: 141, rot: 1}, {stat: "CO-Tower-HvATRkt", x: 24, y: 116, rot: 2},

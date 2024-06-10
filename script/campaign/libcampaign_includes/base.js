@@ -271,8 +271,6 @@ function __camCheckBaseSeen(seen)
 
 function __camUpdateBaseGroups(struct)
 {
-	const structPos = camMakePos(struct);
-
 	for (let baseLabel in __camEnemyBases)
 	{
 		const bi = __camEnemyBases[baseLabel];
@@ -341,7 +339,7 @@ function __camCheckBaseEliminated(group)
 	{
 		const bi = __camEnemyBases[baseLabel];
 		const leftovers = [];
-		const __FRIENDLY = (camDef(bi.friendly) && bi.friendly)
+		const __FRIENDLY = (camDef(bi.friendly) && bi.friendly);
 		if (bi.eliminated || (bi.group !== group))
 		{
 			continue;

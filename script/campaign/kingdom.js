@@ -88,8 +88,7 @@ function eventStructureBuilt(struct, droid)
 // Assign newly constructed units to various different groups
 function eventDroidBuilt(droid, structure)
 {
-	if (!camDef(structure) || !structure || structure === null 
-		|| droid.droidType === DROID_CONSTRUCT)
+	if (!camDef(structure) || !structure || droid.droidType === DROID_CONSTRUCT)
 	{
 		return;
 	}
@@ -232,7 +231,7 @@ function eventDroidBuilt(droid, structure)
 			{
 				// The droid is a new assault commander
 				addLabel(droid, "royAssaultCommander");
-				commander = getObject("royAssaultCommander");
+				const commander = getObject("royAssaultCommander");
 				
 				if (difficulty <= EASY) camSetDroidRank(commander, "Trained");
 				if (difficulty === MEDIUM) camSetDroidRank(commander, "Regular");

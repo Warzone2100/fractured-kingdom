@@ -719,11 +719,9 @@ function __camTacticsTickForGroup(group)
 			const __ARTILLERY_LIKE = (droid.isCB || droid.hasIndirect || droid.isSensor);
 			const __HAS_WEAPON = camDef(droid.weapons[0]);
 			let weapon;
-			let preferRange;
 			if (__HAS_WEAPON)
 			{
 				weapon = camGetCompStats(droid.weapons[0].fullname, "Weapon");
-				preferRange = (weapon.HitChance > weapon.ShortHitChance);
 			}
 			let closeBy = enumRange(droid.x, droid.y, __camScanRange(gi.order, droid), ALL_PLAYERS, __TRACK).filter((obj) => (
 				obj.type !== FEATURE && !allianceExistsBetween(droid.player, obj.player)

@@ -413,7 +413,6 @@ function assignAssaultDroidRoyalists(droid)
 	// Just add it to the main group if it wasn't placed in the command group
 	// No need to size check, production will stop if both groups are full.
 	groupInfo = gameState.royalists.assaultGroup;
-	groupSize = enumGroup(groupInfo.id).length;
 	
 	groupAdd(groupInfo.id, droid);
 	checkRoyalistAssaultGroups();
@@ -1336,7 +1335,7 @@ function setProduction(player, type, enable)
 	{
 		factoryState = "ENABLED";
 	}
-	else if (!enable)
+	else
 	{
 		factoryState = "DISABLED";
 	}
@@ -2079,7 +2078,7 @@ function updateAllyTemplates()
 		let rocalt = cTempl.relpodht; // Rocket tank (alt)
 		let flam = cTempl.relflamht; // Flamer tank
 		let mort = cTempl.remmor; // Mortar tank
-		let rep = cTempl.rellrepht; // Repair tank
+		// let rep = cTempl.rellrepht; // Repair tank
 		let aa = cTempl.remlaa; // AA Tank
 		let cmg = cTempl.cybmg; // MG cyborg
 		let ccan = cTempl.cybca; // Cannon cyborg
@@ -2134,7 +2133,7 @@ function updateAllyTemplates()
 		{
 			canalt = cTempl.rehhvcan; // Hyper Velocity Cannon Python Half-tracks
 		}
-		else if (camIsResearched("R-Wpn-Cannon5"))
+		else if (camIsResearched("R-Wpn-Cannon4AMk1"))
 		{
 			canalt = cTempl.remhvcan; // Hyper Velocity Cannon Cobra Half-tracks
 		}
@@ -2268,14 +2267,14 @@ function updateAllyTemplates()
 			mort = cTempl.remimor; // Incendiary Mortar Cobra Half-tracks
 		}
 		// Repair tank
-		if (camIsResearched("R-Sys-MobileRepairTurretHvy"))
-		{
-			rep = cTempl.remhrep; // Heavy Repair Turret Cobra Half-tracks
-		}
-		else if (camIsResearched("R-Vehicle-Metals03")) 
-		{
-			rep = cTempl.remlrep; // Repair Turret Cobra Half-tracks
-		}
+		// if (camIsResearched("R-Sys-MobileRepairTurretHvy"))
+		// {
+		// 	rep = cTempl.remhrep; // Heavy Repair Turret Cobra Half-tracks
+		// }
+		// else if (camIsResearched("R-Vehicle-Metals03")) 
+		// {
+		// 	rep = cTempl.remlrep; // Repair Turret Cobra Half-tracks
+		// }
 		// AA tank
 		if (camIsResearched("R-Wpn-AAGun04") && camIsResearched("R-Vehicle-Body11"))
 		{
