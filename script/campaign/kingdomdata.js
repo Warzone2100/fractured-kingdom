@@ -585,7 +585,7 @@ var structSets = {
 		{stat: "PillBox1", x: 7, y: 139}, {stat: "GuardTower1", x: 26, y: 123, rot: 1}, {stat: "Sys-SensoTower01", x: 54, y: 178},
 		{stat: "WallTower02", x: 12, y: 121, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 11, y: 121}, {stat: "A0TankTrap", x: 27, y: 123},
 		{stat: "AASite-QuadMg1", x: 27, y: 137, rot: 1}, {stat: "Tower-Projector", x: 40, y: 132, rot: 1}, {stat: "PillBox4", x: 28, y: 120},
-		{stat: "A0PowerGenerator", x: 17, y: 139, mods: 0}, {stat: "A0PowerGenerator", x: 17, y: 142, mods: 0}, {stat: "Tower-Projector", x: 32, y: 137}
+		{stat: "A0PowerGenerator", x: 17, y: 139, mods: 0}, {stat: "A0PowerGenerator", x: 17, y: 142, mods: 0}, {stat: "Tower-Projector", x: 32, y: 137},
 		{stat: "A0TankTrap", x: 33, y: 129}, {stat: "Emplacement-MortarPit-Incendiary", x: 18, y: 121}, {stat: "A0TankTrap", x: 38, y: 139},
 		{stat: "GuardTower1", x: 27, y: 140, rot: 1}, {stat: "WallTower02", x: 11, y: 130, rot: 2}, {stat: "AASite-QuadMg1", x: 10, y: 131},
 		{stat: "PillBox1", x: 10, y: 129}, {stat: "PillBox4", x: 44, y: 132}, {stat: "AASite-QuadMg1", x: 35, y: 130, rot: 2},
