@@ -1821,7 +1821,7 @@ function coaPitch()
 	{
 		missionMessage("COAWARN1MSG", "TRANS");
 	}
-	else if (gameState.hellraisers.allianceState === "ALLIED")
+	else if (gameState.hellraisers.allianceState === "ERADICATED")
 	{
 		missionMessage("COAWARN2MSG", "TRANS");
 	}
