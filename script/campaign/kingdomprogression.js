@@ -2851,7 +2851,8 @@ function endCountdown()
 		// Play ending cutscenes
 		let msgName;
 		const RESISTANCE_ALLIED = gameState.resistance.allianceState === "ALLIED";
-		const RESISTANCE_ERADICATED = gameState.resistance.allianceState === "ERADICATED";
+		 // Different check here for the Resistance, since they can be later set to "HOSTILE" if their base is eradicated
+		const RESISTANCE_ERADICATED = gameState.resistance.allianceState !== "ALLIED";
 		const AMPHOS_ALLIED = gameState.amphos.allianceState === "ALLIED";
 		const AMPHOS_ERADICATED = gameState.amphos.allianceState === "ERADICATED";
 		const HELLRAISERS_ALLIED = gameState.hellraisers.allianceState === "ALLIED";
@@ -2881,15 +2882,15 @@ function endCountdown()
 		{
 			msgName = "OUTMSGALLE";
 		}
-		// Check if all ignored (without Resistance)
+		// Check if all ignored (with Resistance)
 		else if (RESISTANCE_ALLIED && numAllied === 1 && numEradic === 0)
 		{
-			msgName = "OUTMSGALLI";
+			msgName = "OUTMSGALLIR";
 		}
-		// Check if all ignored (with Resistance)
+		// Check if all ignored (without Resistance)
 		else if (!RESISTANCE_ALLIED && numAllied === 0 && numEradic === 1)
 		{
-			msgName = "OUTMSGALLIR";
+			msgName = "OUTMSGALLI";
 		}
 		// General endings
 		else
