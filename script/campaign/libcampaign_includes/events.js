@@ -213,6 +213,10 @@ function cam_eventStructureBuilt(struct, droid)
 
 function cam_eventDestroyed(obj)
 {
+	if (obj.type === FEATURE && obj.stattype === ARTIFACT)
+	{
+		return;
+	}
 	__camCheckPlaceArtifact(obj);
 	if (obj.type === DROID)
 	{
