@@ -730,11 +730,10 @@ var structSets = {
 	// Royalist Structures
 	royalistSouthStructs: [
 		{stat: "CO-HMGBunker", x: 102, y: 171}, {stat: "CO-HMGBunker", x: 102, y: 173}, {stat: "CO-WallTower-RotCan", x: 104, y: 170},
-		{stat: "CollectiveWall", x: 104, y: 171}, {stat: "CO-WallTower-RotCan", x: 107, y: 168}, {stat: "CO-Tower-MG3", x: 106, y: 170},
+		{stat: "CollectiveWall", x: 104, y: 171}, {stat: "CO-Tower-MG3", x: 106, y: 170},
 		{stat: "A0HardcreteMk1Gate", x: 104, y: 172}, {stat: "CollectiveWall", x: 104, y: 173}, {stat: "CollectiveWall", x: 104, y: 174},
-		{stat: "CollectiveWall", x: 104, y: 175}, {stat: "Sys-CO-SensoTower", x: 107, y: 175}, {stat: "CollectiveWall", x: 108, y: 168},
-		{stat: "CollectiveWall", x: 109, y: 168}, {stat: "A0CyborgFactory", x: 108, y: 170}, {stat: "CollectiveWall", x: 110, y: 168},
-		{stat: "CO-WallTower-RotCan", x: 111, y: 168}, {stat: "CO-WallTower-QuadRotAAGun", x: 110, y: 170}, {stat: "CollectiveWall", x: 110, y: 171},
+		{stat: "CollectiveWall", x: 104, y: 175}, {stat: "Sys-CO-SensoTower", x: 107, y: 175},
+		{stat: "A0CyborgFactory", x: 108, y: 170}, {stat: "CO-WallTower-QuadRotAAGun", x: 110, y: 170}, {stat: "CollectiveWall", x: 110, y: 171},
 		{stat: "CollectiveWall", x: 111, y: 170}, {stat: "A0HardcreteMk1Gate", x: 110, y: 172}, {stat: "CollectiveWall", x: 110, y: 173},
 		{stat: "CO-HMGBunker", x: 111, y: 173}, {stat: "CO-WallTower-RotCan", x: 110, y: 174}, {stat: "CO-WallTower-RotCan", x: 104, y: 176},
 		{stat: "CO-WallTower-RotCan", x: 112, y: 170}, {stat: "CO-HMGBunker", x: 113, y: 171}
@@ -977,25 +976,25 @@ var structSets = {
 	],
 	royalistMainBaseStructs: [
 		{stat: "PillBox-Cannon6", x: 223, y: 23}, {stat: "WallTower-Projector", x: 221, y: 24}, {stat: "CollectiveWall", x: 223, y: 24},
-		{stat: "CollectiveWall", x: 223, y: 25}, {stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 26}, {stat: "A0HardcreteMk1Gate", x: 223, y: 27},
-		{stat: "A0HardcreteMk1Gate", x: 223, y: 28}, {stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 29}, {stat: "CollectiveWall", x: 223, y: 30},
+		{stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 25}, {stat: "A0HardcreteMk1Gate", x: 226, y: 26},
+		{stat: "A0HardcreteMk1Gate", x: 226, y: 29}, {stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 30},
 		{stat: "CollectiveWall", x: 223, y: 31}, {stat: "CollectiveWall", x: 223, y: 32}, {stat: "PillBox-Cannon6", x: 223, y: 33},
-		{stat: "Sys-COCB-Tower01", x: 227, y: 22}, {stat: "Sys-CO-SensoTower", x: 224, y: 25}, {stat: "CollectiveWall", x: 224, y: 26},
-		{stat: "CollectiveWall", x: 225, y: 26}, {stat: "Emplacement-Rocket06-IDF", x: 226, y: 24}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 26},
-		{stat: "A0HardcreteMk1Gate", x: 226, y: 27}, {stat: "WallTower-Projector", x: 227, y: 26}, {stat: "CollectiveWall", x: 224, y: 29},
-		{stat: "CollectiveWall", x: 225, y: 29}, {stat: "A0HardcreteMk1Gate", x: 226, y: 28}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 29},
-		{stat: "WallTower-Projector", x: 227, y: 29}, {stat: "Emplacement-Rocket06-IDF", x: 228, y: 24}, {stat: "Emplacement-Rocket06-IDF", x: 230, y: 24},
+		{stat: "Sys-COCB-Tower01", x: 227, y: 22}, {stat: "CollectiveWall", x: 224, y: 25},
+		{stat: "CollectiveWall", x: 225, y: 25}, {stat: "Emplacement-Rocket06-IDF", x: 226, y: 24}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 25},
+		{stat: "A0HardcreteMk1Gate", x: 226, y: 27}, {stat: "A0HardcreteMk1Gate", x: 224, y: 30},
+		{stat: "CollectiveWall", x: 225, y: 30}, {stat: "A0HardcreteMk1Gate", x: 226, y: 28}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 30},
+		{stat: "Emplacement-Rocket06-IDF", x: 228, y: 24}, {stat: "Emplacement-Rocket06-IDF", x: 230, y: 24},
 		{stat: "CO-Emp-RotMor", x: 231, y: 26}, {stat: "WallTower-Projector", x: 231, y: 22, rot: 2}, {stat: "WallTower-Projector", x: 233, y: 22, rot: 2},
 		{stat: "CO-Tower-HvATRkt", x: 234, y: 23}, {stat: "CollectiveWall", x: 235, y: 23}, {stat: "CO-Tower-HvATRkt", x: 236, y: 23},
 		{stat: "CO-Tower-HvATRkt", x: 233, y: 25}, {stat: "CollectiveWall", x: 233, y: 26}, {stat: "CollectiveWall", x: 233, y: 27},
 		{stat: "CO-Tower-HvATRkt", x: 233, y: 28}, {stat: "A0CyborgFactory", x: 237, y: 24, rot: 3}, {stat: "A0PowerGenerator", x: 236, y: 27, mods: 1},
 		{stat: "A0LightFactory", x: 236, y: 30, rot: 3, mods: 2}, {stat: "Sys-CO-VTOL-CB-Tower01", x: 224, y: 33}, {stat: "CO-WallTower-QuadRotAAGun", x: 225, y: 34},
-		{stat: "A0ResearchFacility", x: 226, y: 32, mods: 1}, {stat: "CollectiveWall", x: 226, y: 34}, {stat: "CO-WallTower-TwinAssaultGun", x: 227, y: 34},
-		{stat: "A0CommandCentreNE", x: 229, y: 32}, {stat: "CollectiveWall", x: 228, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 229, y: 34},
-		{stat: "CollectiveWall", x: 230, y: 34}, {stat: "CollectiveWall", x: 231, y: 34}, {stat: "A0RepairCentre3", x: 232, y: 32},
+		{stat: "A0ResearchFacility", x: 229, y: 32, mods: 1}, {stat: "CollectiveWall", x: 226, y: 34}, {stat: "CO-WallTower-TwinAssaultGun", x: 227, y: 34},
+		{stat: "A0CommandCentreNE", x: 226, y: 32}, {stat: "CollectiveWall", x: 228, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 229, y: 34},
+		{stat: "CollectiveWall", x: 230, y: 34}, {stat: "CollectiveWall", x: 231, y: 34}, {stat: "A0RepairCentre3", x: 230, y: 28},
 		{stat: "CO-WallTower-QuadRotAAGun", x: 232, y: 34}, {stat: "CollectiveWall", x: 233, y: 34}, {stat: "CO-WallTower-TwinAssaultGun", x: 234, y: 34},
-		{stat: "CollectiveWall", x: 235, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 236, y: 34}, {stat: "CO-PillBoxTK", x: 222, y: 26},
-		{stat: "CO-PillBoxTK", x: 222, y: 29}
+		{stat: "CollectiveWall", x: 235, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 236, y: 34}, {stat: "CO-PillBoxTK", x: 222, y: 25},
+		{stat: "CO-PillBoxTK", x: 222, y: 30}
 	],
 	royalistOuterBaseStructs: [
 		{stat: "CO-ROTMGBunker", x: 140, y: 9}, {stat: "CO-WallTower-HvCan", x: 141, y: 8}, {stat: "CollectiveWall", x: 141, y: 9},
@@ -2341,6 +2340,7 @@ function initializeGameInfo()
 			// ERADICATED: All factories and units have been destroyed.
 			allianceState: "NEUTRAL",
 			groundFactoryState: "DISABLED",
+			maxUnmanagedUnits: 20,
 			groups: {
 				coastPatrolGroup: { // Patrols along the east coast area
 					id: camNewGroup(), // This stores the group ID for adding more units later
@@ -2394,6 +2394,7 @@ function initializeGameInfo()
 			numDestroyed: 0, // Number of objects destroyed by the player
 			pitched: false, // Whether AMPHOS has pitched their alliance to the player
 			requireNW: true, // Whether AMPHOS requires the NW island to be under their control to negotiate
+			maxUnmanagedUnits: 30,
 			groups: {
 				commanderGroup: { // Follows the AMPHOS commander
 					id: camNewGroup(),
@@ -2470,6 +2471,7 @@ function initializeGameInfo()
 			totalStructs: enumStruct(CAM_HELLRAISERS).length, // Max number of Hellraiser structs
 			structThreshold: enumStruct(CAM_HELLRAISERS).length, // How many Hellraiser structs must exist to start negotiations
 			lzDiscovered: false, // Whether there is a beacon on the Hellraiser's LZ
+			maxUnmanagedUnits: 20,
 			groups: {
 				playerSupportGroup: { // Assists the player in combat
 					id: camNewGroup(),
@@ -2545,6 +2547,7 @@ function initializeGameInfo()
 			proxyHostile: false, // Appear hostile, but don't activate factories yet.
 			allowAlliance: false, // Whether the Coalition will allow the player to ally with them (given they meet requirements to negotiate)
 			offensive: false, // Whether the Coalition has launched a suprise offensive against the Royalists
+			maxUnmanagedUnits: 30,
 			groups: {
 				commanderGroup: { // Follows the Coalition commander
 					id: camNewGroup(),
@@ -2643,6 +2646,7 @@ function initializeGameInfo()
 			tier2Granted: false, // Whether the Royalists have started researching end-game technology
 			allowIncenHowit: false, // Whether the Royalists have eradicated the Hellraisers, thus granting them access to Incendiary Howitzers
 			allowTwinAssault: false, // Whether the Royalists are allowed to produce twin assault weapons
+			maxUnmanagedUnits: 30,
 			groundGroups: { // NOTE: Non-refilling patrol groups are not included here
 				groundReclaimerGroup: { // Claims FOBs back from the player and their allies
 					id: camNewGroup(),

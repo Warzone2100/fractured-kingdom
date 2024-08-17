@@ -371,9 +371,9 @@ function camUpgradeOnMapStructures(struct1, struct2, player, excluded)
 		let group = (structure.group);
 
 		//Replace it
-		let structInfo = {x: structure.x * 128, y: structure.y * 128};
+		let structInfo = {x: structure.x * 128, y: structure.y * 128, rot: structure.direction};
 		camSafeRemoveObject(structure, false);
-		const newStruct = addStructure(struct2, player, structInfo.x, structInfo.y);
+		const newStruct = addStructure(struct2, player, structInfo.x, structInfo.y, structInfo.direction);
 
 		if (camDef(label)) 
 		{

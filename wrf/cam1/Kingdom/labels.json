@@ -1,1287 +1,1801 @@
 {
-    "position_0": {
-        "pos": [16386, 27687],
-        "label": "startPosition"
-    },
-    "position_1": {
-        "pos": [1346, 25776],
-        "label": "resCyborgAssembly"
-    },
-    "position_2": {
-        "pos": [2269, 25917],
-        "label": "resFactoryAssembly"
-    },
-    "position_3": {
-        "pos": [3128, 27488],
-        "label": "resHeavyFacAssembly"
-    },
-    "position_4": {
-        "pos": [18621, 22848],
-        "label": "ampPortAssembly"
-    },
-    "position_5": {
-        "pos": [30917, 18269],
-        "label": "ampMainAssembly"
-    },
-    "position_6": {
-        "pos": [2773, 17461],
-        "label": "helCyborgAssembly1"
-    },
-    "position_7": {
-        "pos": [1340, 18367],
-        "label": "helCyborgAssembly2"
-    },
-    "position_8": {
-        "pos": [1347, 17465],
-        "label": "helFactoryAssembly"
-    },
-    "position_9": {
-        "pos": [811, 6687],
-        "label": "coaFactoryAssembly"
-    },
-    "position_10": {
-        "pos": [1597, 5565],
-        "label": "coaCyborgAssembly1"
-    },
-    "position_11": {
-        "pos": [834, 5817],
-        "label": "coaCyborgAssembly2"
-    },
-    "position_12": {
-        "pos": [4044, 10042],
-        "label": "coaCyborgAssembly3"
-    },
-    "position_13": {
-        "pos": [3266, 9151],
-        "label": "resSubAssembly"
-    },
-    "position_14": {
-        "pos": [13746, 21817],
-        "label": "roySouthCyborgAssembly"
-    },
-    "position_15": {
-        "pos": [15046, 10436],
-        "label": "royCentralFactoryAssembly"
-    },
-    "position_16": {
-        "pos": [12221, 6459],
-        "label": "royHowitCyborgAssembly"
-    },
-    "position_17": {
-        "pos": [22835, 3483],
-        "label": "royOuterFactoryAssembly"
-    },
-    "position_18": {
-        "pos": [24646, 4161],
-        "label": "royOuterCyborgAssembly"
-    },
-    "position_19": {
-        "pos": [30771, 1226],
-        "label": "royHoverAssembly"
-    },
-    "position_20": {
-        "pos": [30250, 3260],
-        "label": "royMainCyborgAssembly"
-    },
-    "position_21": {
-        "pos": [30262, 4155],
-        "label": "royMainFactoryAssembly"
-    },
-    "position_22": {
-        "pos": [3388, 8256],
-        "label": "coaVTOLAssembly"
-    },
-    "position_23": {
-        "pos": [31430, 18595],
-        "label": "ampVTOLAssembly"
-    },
-    "position_24": {
-        "pos": [19644, 2999],
-        "label": "royOuterVTOLAssembly"
-    },
-    "position_25": {
-        "pos": [29244, 1622],
-        "label": "royMainVTOLAssembly"
-    },
-    "position_26": {
-        "pos": [8366, 25542],
-        "label": "playerBasePos"
-    },
-    "position_27": {
-        "pos": [6194, 21006],
-        "label": "southPos9"
-    },
-    "position_28": {
-        "pos": [7251, 22567],
-        "label": "southPos8"
-    },
-    "position_29": {
-        "pos": [7487, 19484],
-        "label": "southPos7"
-    },
-    "position_30": {
-        "pos": [9272, 17937],
-        "label": "southPos6"
-    },
-    "position_31": {
-        "pos": [11534, 20430],
-        "label": "southPos5"
-    },
-    "position_32": {
-        "pos": [8387, 22073],
-        "label": "southPos4"
-    },
-    "position_33": {
-        "pos": [11452, 22293],
-        "label": "southPos3"
-    },
-    "position_34": {
-        "pos": [13918, 21028],
-        "label": "southPos2"
-    },
-    "position_35": {
-        "pos": [14712, 23240],
-        "label": "southPos1"
-    },
-    "position_36": {
-        "pos": [3761, 21499],
-        "label": "southPos10"
-    },
-    "position_37": {
-        "pos": [10065, 11179],
-        "label": "westPos10"
-    },
-    "position_38": {
-        "pos": [8264, 12601],
-        "label": "westPos9"
-    },
-    "position_39": {
-        "pos": [5823, 10329],
-        "label": "westPos8"
-    },
-    "position_40": {
-        "pos": [4165, 11967],
-        "label": "westPos7"
-    },
-    "position_41": {
-        "pos": [1193, 11465],
-        "label": "westPos6"
-    },
-    "position_42": {
-        "pos": [6652, 6902],
-        "label": "westPos5"
-    },
-    "position_43": {
-        "pos": [5703, 5333],
-        "label": "westPos4"
-    },
-    "position_44": {
-        "pos": [2604, 5124],
-        "label": "westPos3"
-    },
-    "position_45": {
-        "pos": [2430, 7503],
-        "label": "westPos2"
-    },
-    "position_46": {
-        "pos": [1458, 9690],
-        "label": "westPos1"
-    },
-    "position_47": {
-        "pos": [19599, 24907],
-        "label": "eastPos11"
-    },
-    "position_48": {
-        "pos": [24388, 26057],
-        "label": "eastPos10"
-    },
-    "position_49": {
-        "pos": [29717, 25743],
-        "label": "eastPos9"
-    },
-    "position_50": {
-        "pos": [29949, 23405],
-        "label": "eastPos8"
-    },
-    "position_51": {
-        "pos": [20580, 18223],
-        "label": "eastPos7"
-    },
-    "position_52": {
-        "pos": [13335, 19423],
-        "label": "eastPos6"
-    },
-    "position_53": {
-        "pos": [26440, 15161],
-        "label": "eastPos5"
-    },
-    "position_54": {
-        "pos": [21487, 10892],
-        "label": "eastPos4"
-    },
-    "position_55": {
-        "pos": [28941, 10085],
-        "label": "eastPos3"
-    },
-    "position_56": {
-        "pos": [25480, 19422],
-        "label": "eastPos2"
-    },
-    "position_57": {
-        "pos": [29315, 18884],
-        "label": "eastPos1"
-    },
-    "position_58": {
-        "pos": [13471, 16141],
-        "label": "centralPos13"
-    },
-    "position_59": {
-        "pos": [17277, 17044],
-        "label": "centralPos12"
-    },
-    "position_60": {
-        "pos": [15822, 14984],
-        "label": "centralPos11"
-    },
-    "position_61": {
-        "pos": [14203, 12428],
-        "label": "centralPos10"
-    },
-    "position_62": {
-        "pos": [13435, 10501],
-        "label": "centralPos9"
-    },
-    "position_63": {
-        "pos": [15478, 9998],
-        "label": "centralPos8"
-    },
-    "position_64": {
-        "pos": [16765, 12340],
-        "label": "centralPos7"
-    },
-    "position_65": {
-        "pos": [17505, 9391],
-        "label": "centralPos6"
-    },
-    "position_66": {
-        "pos": [14162, 8939],
-        "label": "centralPos5"
-    },
-    "position_67": {
-        "pos": [11055, 7368],
-        "label": "centralPos4"
-    },
-    "position_68": {
-        "pos": [8644, 4796],
-        "label": "centralPos3"
-    },
-    "position_69": {
-        "pos": [11172, 4241],
-        "label": "centralPos2"
-    },
-    "position_70": {
-        "pos": [16602, 7501],
-        "label": "centralPos1"
-    },
-    "position_71": {
-        "pos": [18493, 13508],
-        "label": "centralPos14"
-    },
-    "position_72": {
-        "pos": [18618, 10890],
-        "label": "centralPos18"
-    },
-    "position_73": {
-        "pos": [19324, 7799],
-        "label": "centralPos17"
-    },
-    "position_74": {
-        "pos": [21299, 7654],
-        "label": "centralPos16"
-    },
-    "position_75": {
-        "pos": [23046, 7074],
-        "label": "centralPos15"
-    },
-    "position_76": {
-        "pos": [14575, 4744],
-        "label": "outerPos13"
-    },
-    "position_77": {
-        "pos": [14488, 1447],
-        "label": "outerPos12"
-    },
-    "position_78": {
-        "pos": [15060, 2465],
-        "label": "outerPos11"
-    },
-    "position_79": {
-        "pos": [16428, 3820],
-        "label": "outerPos10"
-    },
-    "position_80": {
-        "pos": [17164, 2557],
-        "label": "outerPos9"
-    },
-    "position_81": {
-        "pos": [17548, 4872],
-        "label": "outerPos8"
-    },
-    "position_82": {
-        "pos": [21573, 4997],
-        "label": "outerPos7"
-    },
-    "position_83": {
-        "pos": [18857, 3265],
-        "label": "outerPos6"
-    },
-    "position_84": {
-        "pos": [18900, 1250],
-        "label": "outerPos5"
-    },
-    "position_85": {
-        "pos": [20804, 2580],
-        "label": "outerPos4"
-    },
-    "position_86": {
-        "pos": [21030, 3602],
-        "label": "outerPos3"
-    },
-    "position_87": {
-        "pos": [24103, 2528],
-        "label": "outerPos2"
-    },
-    "position_88": {
-        "pos": [24457, 5031],
-        "label": "outerPos1"
-    },
-    "position_89": {
-        "pos": [12541, 3052],
-        "label": "outerPos14"
-    },
-    "position_90": {
-        "pos": [29117, 1986],
-        "label": "innerPos4"
-    },
-    "position_91": {
-        "pos": [25695, 2213],
-        "label": "innerPos3"
-    },
-    "position_92": {
-        "pos": [25526, 3790],
-        "label": "innerPos2"
-    },
-    "position_93": {
-        "pos": [28238, 6095],
-        "label": "innerPos1"
-    },
-    "position_94": {
-        "pos": [10865, 13936],
-        "label": "riverPos3"
-    },
-    "position_95": {
-        "pos": [8941, 16460],
-        "label": "riverPos2"
-    },
-    "position_96": {
-        "pos": [4590, 13879],
-        "label": "riverPos1"
-    },
-    "position_97": {
-        "pos": [21070, 20411],
-        "label": "eastPos12"
-    },
-    "position_98": {
-        "pos": [17785, 23781],
-        "label": "southPos12"
-    },
-    "position_99": {
-        "pos": [7565, 9574],
-        "label": "westPos11"
-    },
-    "position_100": {
-        "pos": [3516, 6328],
-        "label": "coaTransSpawn"
-    },
-    "position_101": {
-        "pos": [1599, 26942],
-        "label": "resTransSpawn"
-    },
-    "position_102": {
-        "pos": [21439, 1984],
-        "label": "royTransSpawn"
-    },
-    "position_103": {
-        "pos": [29303, 3527],
-        "label": "royMainAssembly"
-    },
+	"position_0": {
+		"label": "startPosition",
+		"pos": [16386, 27687]
+	},
 
-    "area_0": {
-        "pos1": [768, 24448],
-        "pos2": [4608, 27776],
-        "label": "resistanceBase"
-    },
-    "area_1": {
-        "pos1": [16640, 22400],
-        "pos2": [19584, 25600],
-        "label": "portFOB"
-    },
-    "area_2": {
-        "pos1": [23040, 21632],
-        "pos2": [25856, 24192],
-        "label": "southIslandFOB"
-    },
-    "area_3": {
-        "pos1": [22016, 16896],
-        "pos2": [23680, 19072],
-        "label": "westIslandFOB"
-    },
-    "area_4": {
-        "pos1": [23168, 10624],
-        "pos2": [27776, 14464],
-        "label": "nwIslandFOB"
-    },
-    "area_5": {
-        "pos1": [29696, 11392],
-        "pos2": [30976, 12672],
-        "label": "northIslandFOB"
-    },
-    "area_6": {
-        "pos1": [27008, 16256],
-        "pos2": [31616, 21248],
-        "label": "amphosBase"
-    },
-    "area_7": {
-        "pos1": [384, 14848],
-        "pos2": [6144, 19200],
-        "label": "hellraiserBase"
-    },
-    "area_8": {
-        "pos1": [640, 12416],
-        "pos2": [2176, 13824],
-        "label": "coalitionBridgeFOB"
-    },
-    "area_9": {
-        "pos1": [3328, 9856],
-        "pos2": [4608, 11392],
-        "label": "seCoalitionFOB"
-    },
-    "area_10": {
-        "pos1": [7936, 13056],
-        "pos2": [9088, 15104],
-        "label": "riverDeltaFOB"
-    },
-    "area_11": {
-        "pos1": [5760, 7424],
-        "pos2": [8064, 8960],
-        "label": "sunkenPlainsFOB"
-    },
-    "area_12": {
-        "pos1": [3840, 4608],
-        "pos2": [5760, 6912],
-        "label": "neCoalitionFOB"
-    },
-    "area_13": {
-        "pos1": [512, 5248],
-        "pos2": [3968, 8960],
-        "label": "coalitionBase"
-    },
-    "area_14": {
-        "pos1": [13056, 21504],
-        "pos2": [14592, 22656],
-        "label": "southFOB"
-    },
-    "area_15": {
-        "pos1": [2048, 22400],
-        "pos2": [4480, 23680],
-        "label": "spyFOB"
-    },
-    "area_16": {
-        "pos1": [11904, 14720],
-        "pos2": [13184, 16128],
-        "label": "riverTownFOB"
-    },
-    "area_17": {
-        "pos1": [14976, 16512],
-        "pos2": [16640, 18432],
-        "label": "riverLZFOB"
-    },
-    "area_18": {
-        "pos1": [17792, 12160],
-        "pos2": [19328, 14848],
-        "label": "eastCoastFOB"
-    },
-    "area_19": {
-        "pos1": [18816, 6144],
-        "pos2": [24448, 9600],
-        "label": "southGateBase"
-    },
-    "area_20": {
-        "pos1": [11392, 9600],
-        "pos2": [16384, 11904],
-        "label": "royalistCentralFactoryBase"
-    },
-    "area_21": {
-        "pos1": [13312, 768],
-        "pos2": [17408, 5120],
-        "label": "westGateBase"
-    },
-    "area_22": {
-        "pos1": [8064, 3456],
-        "pos2": [11520, 5632],
-        "label": "royalistCheckpoint"
-    },
-    "area_23": {
-        "pos1": [10112, 5760],
-        "pos2": [12800, 8064],
-        "label": "royalistHowitzerBase"
-    },
-    "area_24": {
-        "pos1": [26240, 5120],
-        "pos2": [29824, 7040],
-        "label": "southWhirlwindHill"
-    },
-    "area_25": {
-        "pos1": [26496, 768],
-        "pos2": [31104, 2304],
-        "label": "vtolBase"
-    },
-    "area_26": {
-        "pos1": [26496, 2944],
-        "pos2": [27520, 4864],
-        "label": "royalistMainBaseDefenses"
-    },
-    "area_27": {
-        "pos1": [28288, 2816],
-        "pos2": [30464, 4608],
-        "label": "royalistMainBase"
-    },
-    "area_28": {
-        "pos1": [17664, 1024],
-        "pos2": [24960, 5760],
-        "label": "royalistOuterBase"
-    },
-    "area_29": {
-        "pos1": [5632, 1664],
-        "pos2": [8320, 2944],
-        "label": "northLakeFOB"
-    },
-    "area_30": {
-        "pos1": [1024, 24960],
-        "pos2": [1280, 25344],
-        "label": "resCommanderGroup"
-    },
-    "area_31": {
-        "pos1": [2944, 4608],
-        "pos2": [3456, 5120],
-        "label": "coaCommanderGroup"
-    },
-    "area_32": {
-        "pos1": [13568, 12416],
-        "pos2": [14080, 12800],
-        "label": "royCentralCommGroup"
-    },
-    "area_33": {
-        "pos1": [17280, 7680],
-        "pos2": [17792, 8064],
-        "label": "royHoverCommGroup"
-    },
-    "area_34": {
-        "pos1": [23168, 2688],
-        "pos2": [23808, 3200],
-        "label": "royHeavyCommGroup"
-    },
-    "area_35": {
-        "pos1": [24960, 3328],
-        "pos2": [25344, 3712],
-        "label": "roySuperCybPatrolGroup"
-    },
-    "area_36": {
-        "pos1": [15872, 13824],
-        "pos2": [16256, 14208],
-        "label": "royCentralCybPatrolGroup"
-    },
-    "area_37": {
-        "pos1": [2048, 8832],
-        "pos2": [3456, 10112],
-        "label": "resSubBase"
-    },
-    "area_38": {
-        "pos1": [15104, 26368],
-        "pos2": [15360, 27520],
-        "label": "resEncounter1Trigger"
-    },
-    "area_39": {
-        "pos1": [11776, 26496],
-        "pos2": [12032, 27776],
-        "label": "resEncounter2Trigger"
-    },
-    "area_40": {
-        "pos1": [6016, 25216],
-        "pos2": [6528, 25728],
-        "label": "resOliveZone"
-    },
-    "area_41": {
-        "pos1": [13952, 27776],
-        "pos2": [14208, 27904],
-        "label": "resCybEncounterGroup"
-    },
-    "area_42": {
-        "pos1": [13440, 26496],
-        "pos2": [13568, 26624],
-        "label": "resSensEncounterGroup"
-    },
-    "area_43": {
-        "pos1": [10112, 26624],
-        "pos2": [10752, 26752],
-        "label": "resEncounter2Group"
-    },
-    "area_44": {
-        "pos1": [8832, 25984],
-        "pos2": [9088, 26624],
-        "label": "resNegotiationTrigger"
-    },
-    "area_45": {
-        "pos1": [20992, 21120],
-        "pos2": [21504, 21632],
-        "label": "ampOliveZone"
-    },
-    "area_46": {
-        "pos1": [8064, 21632],
-        "pos2": [8576, 22144],
-        "label": "helOliveZone"
-    },
-    "area_47": {
-        "pos1": [10752, 10240],
-        "pos2": [11264, 10752],
-        "label": "coaOliveZone"
-    },
-    "area_48": {
-        "pos1": [3712, 17536],
-        "pos2": [4224, 17792],
-        "label": "helAggroTrigger1"
-    },
-    "area_49": {
-        "pos1": [1664, 18560],
-        "pos2": [2176, 19072],
-        "label": "helAggroTrigger2"
-    },
-    "area_50": {
-        "pos1": [5248, 17408],
-        "pos2": [6016, 19200],
-        "label": "helPitchTrigger"
-    },
-    "area_51": {
-        "pos1": [3840, 23040],
-        "pos2": [4480, 23680],
-        "label": "spyLZ"
-    },
-    "area_52": {
-        "pos1": [3968, 15616],
-        "pos2": [4608, 16256],
-        "label": "hellraiserLZ"
-    },
-    "area_53": {
-        "pos1": [15488, 17792],
-        "pos2": [16128, 18432],
-        "label": "riverLZ"
-    },
-    "area_54": {
-        "pos1": [19456, 6912],
-        "pos2": [20096, 7552],
-        "label": "coastLZ"
-    },
-    "area_55": {
-        "pos1": [17024, 6784],
-        "pos2": [17664, 7424],
-        "label": "mountainLZ"
-    },
-    "area_56": {
-        "pos1": [11392, 5760],
-        "pos2": [12032, 6400],
-        "label": "howitzerLZ"
-    },
-    "area_57": {
-        "pos1": [15104, 2560],
-        "pos2": [15744, 3200],
-        "label": "westGateLZ"
-    },
-    "area_58": {
-        "pos1": [28672, 10368],
-        "pos2": [29184, 10880],
-        "label": "royOliveZone"
-    },
-    "area_59": {
-        "pos1": [6400, 26624],
-        "pos2": [7040, 27008],
-        "label": "resGiftZone"
-    },
-    "area_60": {
-        "pos1": [4992, 16640],
-        "pos2": [5504, 16896],
-        "label": "helAggroTrigger3"
-    },
-    "area_61": {
-        "pos1": [1664, 14848],
-        "pos2": [3456, 15104],
-        "label": "helAggroTrigger4"
-    },
-    "area_62": {
-        "pos1": [11520, 17920],
-        "pos2": [12032, 18944],
-        "label": "royBridgeTrigger"
-    },
 
-    "object_0": {
-        "id": 58,
-        "type": 1,
-        "player": 1,
-        "label": "resistanceFactory"
-    },
-    "object_1": {
-        "id": 102,
-        "type": 1,
-        "player": 1,
-        "label": "resistanceHeavyFactory"
-    },
-    "object_2": {
-        "id": 64,
-        "type": 1,
-        "player": 1,
-        "label": "resistanceCybFact2"
-    },
-    "object_3": {
-        "id": 63,
-        "type": 1,
-        "player": 1,
-        "label": "resistanceCybFact1"
-    },
-    "object_4": {
-        "id": 201,
-        "type": 1,
-        "player": 2,
-        "label": "amphosPortFactory"
-    },
-    "object_5": {
-        "id": 929,
-        "type": 1,
-        "player": 2,
-        "label": "amphosMainFactory1"
-    },
-    "object_6": {
-        "id": 829,
-        "type": 1,
-        "player": 2,
-        "label": "amphosMainFactory2"
-    },
-    "object_7": {
-        "id": 776,
-        "type": 1,
-        "player": 2,
-        "label": "amphosVtolFactory"
-    },
-    "object_8": {
-        "id": 435,
-        "type": 1,
-        "player": 3,
-        "label": "hellraiserFactory"
-    },
-    "object_9": {
-        "id": 1317,
-        "type": 1,
-        "player": 3,
-        "label": "hellraiserCybFac1"
-    },
-    "object_10": {
-        "id": 439,
-        "type": 1,
-        "player": 3,
-        "label": "hellraiserCybFac2"
-    },
-    "object_11": {
-        "id": 2325,
-        "type": 1,
-        "player": 4,
-        "label": "coalitionFactory1"
-    },
-    "object_12": {
-        "id": 2328,
-        "type": 1,
-        "player": 4,
-        "label": "coalitionFactory2"
-    },
-    "object_13": {
-        "id": 2347,
-        "type": 1,
-        "player": 4,
-        "label": "coalitionCybFactory1"
-    },
-    "object_14": {
-        "id": 2209,
-        "type": 1,
-        "player": 4,
-        "label": "coalitionCybFactory2"
-    },
-    "object_15": {
-        "id": 1948,
-        "type": 1,
-        "player": 4,
-        "label": "coalitionCybFactory3"
-    },
-    "object_16": {
-        "id": 2129,
-        "type": 1,
-        "player": 4,
-        "label": "coalitionVtolFactory"
-    },
-    "object_17": {
-        "id": 1663,
-        "type": 1,
-        "player": 5,
-        "label": "royalistCentralFactory"
-    },
-    "object_18": {
-        "id": 3036,
-        "type": 1,
-        "player": 5,
-        "label": "royalistOuterFactory"
-    },
-    "object_19": {
-        "id": 3149,
-        "type": 1,
-        "player": 5,
-        "label": "royalistHoverFactory"
-    },
-    "object_20": {
-        "id": 3275,
-        "type": 1,
-        "player": 5,
-        "label": "royalistMainFactory"
-    },
-    "object_21": {
-        "id": 272,
-        "type": 1,
-        "player": 5,
-        "label": "royalistSouthCyborgFac"
-    },
-    "object_22": {
-        "id": 1519,
-        "type": 1,
-        "player": 5,
-        "label": "royalistHowitCyborgFac"
-    },
-    "object_23": {
-        "id": 3382,
-        "type": 1,
-        "player": 5,
-        "label": "royalistOuterCyborgFac"
-    },
-    "object_24": {
-        "id": 3241,
-        "type": 1,
-        "player": 5,
-        "label": "royalistMainCyborgFac"
-    },
-    "object_25": {
-        "id": 3492,
-        "type": 1,
-        "player": 5,
-        "label": "royalistOuterVtolFac"
-    },
-    "object_26": {
-        "id": 3148,
-        "type": 1,
-        "player": 5,
-        "label": "royalistMainVtolFac2"
-    },
-    "object_27": {
-        "id": 1785,
-        "type": 1,
-        "player": 4,
-        "label": "coaAASite"
-    },
-    "object_28": {
-        "id": 245,
-        "type": 1,
-        "player": 2,
-        "label": "ampMRA"
-    },
-    "object_29": {
-        "id": 91,
-        "type": 1,
-        "player": 1,
-        "label": "resResearch1"
-    },
-    "object_30": {
-        "id": 20,
-        "type": 0,
-        "player": 1,
-        "label": "resPython"
-    },
-    "object_31": {
-        "id": 50,
-        "type": 1,
-        "player": 1,
-        "label": "resMortarPit"
-    },
-    "object_32": {
-        "id": 97,
-        "type": 1,
-        "player": 1,
-        "label": "resHQ"
-    },
-    "object_33": {
-        "id": 1447,
-        "type": 0,
-        "player": 1,
-        "label": "resCommander"
-    },
-    "object_34": {
-        "id": 3040,
-        "type": 1,
-        "player": 5,
-        "label": "royResearchOuter"
-    },
-    "object_35": {
-        "id": 3407,
-        "type": 1,
-        "player": 5,
-        "label": "royInfBunker"
-    },
-    "object_36": {
-        "id": 968,
-        "type": 1,
-        "player": 1,
-        "label": "resSarissa"
-    },
-    "object_37": {
-        "id": 573,
-        "type": 1,
-        "player": 2,
-        "label": "ampSarissa"
-    },
-    "object_38": {
-        "id": 1642,
-        "type": 1,
-        "player": 5,
-        "label": "royResearchCentral"
-    },
-    "object_39": {
-        "id": 358,
-        "type": 1,
-        "player": 3,
-        "label": "helResearch1"
-    },
-    "object_40": {
-        "id": 353,
-        "type": 1,
-        "player": 3,
-        "label": "helHQ"
-    },
-    "object_41": {
-        "id": 363,
-        "type": 1,
-        "player": 3,
-        "label": "helResearch2"
-    },
-    "object_42": {
-        "id": 54,
-        "type": 1,
-        "player": 1,
-        "label": "resAASite"
-    },
-    "object_43": {
-        "id": 1132,
-        "type": 1,
-        "player": 2,
-        "label": "ampResearchOuter"
-    },
-    "object_44": {
-        "id": 169,
-        "type": 1,
-        "player": 1,
-        "label": "resRelay"
-    },
-    "object_45": {
-        "id": 581,
-        "type": 1,
-        "player": 3,
-        "label": "helMGTow"
-    },
-    "object_46": {
-        "id": 1400,
-        "type": 1,
-        "player": 5,
-        "label": "royPowerGen"
-    },
-    "object_47": {
-        "id": 246,
-        "type": 1,
-        "player": 2,
-        "label": "ampCBTow"
-    },
-    "object_48": {
-        "id": 1268,
-        "type": 1,
-        "player": 5,
-        "label": "royRiverAGTow"
-    },
-    "object_49": {
-        "id": 912,
-        "type": 1,
-        "player": 2,
-        "label": "ampAASite"
-    },
-    "object_50": {
-        "id": 1369,
-        "type": 1,
-        "player": 5,
-        "label": "roySpyAGTow"
-    },
-    "object_51": {
-        "id": 284,
-        "type": 1,
-        "player": 5,
-        "label": "royHMGTow"
-    },
-    "object_52": {
-        "id": 1127,
-        "type": 1,
-        "player": 2,
-        "label": "ampPowerGen"
-    },
-    "object_53": {
-        "id": 1107,
-        "type": 1,
-        "player": 5,
-        "label": "royIslandAGTow"
-    },
-    "object_54": {
-        "id": 1012,
-        "type": 1,
-        "player": 2,
-        "label": "ampMGTow"
-    },
-    "object_55": {
-        "id": 914,
-        "type": 1,
-        "player": 2,
-        "label": "ampResearchInner"
-    },
-    "object_56": {
-        "id": 3671,
-        "type": 0,
-        "player": 5,
-        "label": "royHvyTK"
-    },
-    "object_57": {
-        "id": 4242,
-        "type": 1,
-        "player": 5,
-        "label": "royLancerTow2"
-    },
-    "object_58": {
-        "id": 3782,
-        "type": 1,
-        "player": 4,
-        "label": "coaHQ"
-    },
-    "object_59": {
-        "id": 4356,
-        "type": 1,
-        "player": 5,
-        "label": "royHypVelEmplacement"
-    },
-    "object_60": {
-        "id": 2747,
-        "type": 1,
-        "player": 5,
-        "label": "royHvyCanHardpoint"
-    },
-    "object_61": {
-        "id": 1405,
-        "type": 1,
-        "player": 5,
-        "label": "royLancerTow1"
-    },
-    "object_62": {
-        "id": 1942,
-        "type": 1,
-        "player": 4,
-        "label": "coaBombardPit"
-    },
-    "object_63": {
-        "id": 1075,
-        "type": 1,
-        "player": 5,
-        "label": "royResearchLake"
-    },
-    "object_64": {
-        "id": 3493,
-        "type": 1,
-        "player": 5,
-        "label": "royAASite"
-    },
-    "object_65": {
-        "id": 3675,
-        "type": 0,
-        "player": 5,
-        "label": "royHvyCommander"
-    },
-    "object_66": {
-        "id": 2513,
-        "type": 1,
-        "player": 5,
-        "label": "royPepperPit"
-    },
-    "object_67": {
-        "id": 3784,
-        "type": 1,
-        "player": 4,
-        "label": "coaResearch"
-    },
-    "object_68": {
-        "id": 1433,
-        "type": 1,
-        "player": 5,
-        "label": "royLZAGTow"
-    },
-    "object_69": {
-        "id": 3564,
-        "type": 1,
-        "player": 5,
-        "label": "royalistMainVtolFac1"
-    },
-    "object_70": {
-        "id": 87,
-        "type": 1,
-        "player": 1,
-        "label": "resResearch2"
-    },
-    "object_71": {
-        "id": 3706,
-        "type": 0,
-        "player": 5,
-        "label": "royCentralCommander"
-    },
-    "object_72": {
-        "id": 2398,
-        "type": 0,
-        "player": 4,
-        "label": "coaCommander"
-    },
-    "object_73": {
-        "id": 3691,
-        "type": 0,
-        "player": 5,
-        "label": "royHoverCommander"
-    },
-    "object_74": {
-        "id": 3785,
-        "type": 0,
-        "player": 5,
-        "label": "royAssaultCommander"
-    },
-    "object_75": {
-        "id": 3786,
-        "type": 0,
-        "player": 2,
-        "label": "ampCommander"
-    },
-    "object_76": {
-        "id": 3793,
-        "type": 0,
-        "player": 1,
-        "label": "resOliveTruck"
-    },
-    "object_77": {
-        "id": 121,
-        "type": 0,
-        "player": 1,
-        "label": "resEncounterTruck"
-    },
-    "object_78": {
-        "id": 3795,
-        "type": 0,
-        "player": 2,
-        "label": "ampOliveTruck"
-    },
-    "object_79": {
-        "id": 3794,
-        "type": 0,
-        "player": 3,
-        "label": "helOliveTruck"
-    },
-    "object_80": {
-        "id": 3796,
-        "type": 0,
-        "player": 4,
-        "label": "coaOliveTruck"
-    },
-    "object_81": {
-        "id": 4364,
-        "type": 0,
-        "player": 5,
-        "label": "royOliveTruck"
-    },
-    "object_82": {
-        "id": 850,
-        "type": 1,
-        "player": 2,
-        "label": "ampGiftDerrick"
-    },
-    "object_83": {
-        "id": 1521,
-        "type": 1,
-        "player": 5,
-        "label": "royHowitAGTow"
-    },
-    "object_84": {
-        "id": 2310,
-        "type": 1,
-        "player": 4,
-        "label": "coaResearch2"
-    },
-    "object_85": {
-        "id": 2226,
-        "type": 1,
-        "player": 4,
-        "label": "coaPowerGen"
-    },
-    "object_86": {
-        "id": 763,
-        "type": 1,
-        "player": 2,
-        "label": "ampHQ"
-    },
-    "object_87": {
-        "id": 2367,
-        "type": 1,
-        "player": 4,
-        "label": "coaResearch3"
-    },
-    "object_88": {
-        "id": 1570,
-        "type": 1,
-        "player": 5,
-        "label": "royACannonHardpoint"
-    },
-    "object_89": {
-        "id": 3463,
-        "type": 1,
-        "player": 5,
-        "label": "royRelay"
-    },
-    "object_90": {
-        "id": 4357,
-        "type": 1,
-        "player": 2,
-        "label": "ampLancerTow"
-    },
-    "object_91": {
-        "id": 4363,
-        "type": 0,
-        "player": 5,
-        "label": "royCompositeTank"
-    }
+	"position_1": {
+		"label": "resCyborgAssembly",
+		"pos": [1346, 25776]
+	},
+
+
+	"position_2": {
+		"label": "resFactoryAssembly",
+		"pos": [2269, 25917]
+	},
+
+
+	"position_3": {
+		"label": "resHeavyFacAssembly",
+		"pos": [3128, 27488]
+	},
+
+
+	"position_4": {
+		"label": "ampPortAssembly",
+		"pos": [18621, 22848]
+	},
+
+
+	"position_5": {
+		"label": "ampMainAssembly",
+		"pos": [30917, 18269]
+	},
+
+
+	"position_6": {
+		"label": "helCyborgAssembly1",
+		"pos": [2773, 17461]
+	},
+
+
+	"position_7": {
+		"label": "helCyborgAssembly2",
+		"pos": [1340, 18367]
+	},
+
+
+	"position_8": {
+		"label": "helFactoryAssembly",
+		"pos": [1347, 17465]
+	},
+
+
+	"position_9": {
+		"label": "coaFactoryAssembly",
+		"pos": [811, 6687]
+	},
+
+
+	"position_10": {
+		"label": "coaCyborgAssembly1",
+		"pos": [1597, 5565]
+	},
+
+
+	"position_11": {
+		"label": "coaCyborgAssembly2",
+		"pos": [834, 5817]
+	},
+
+
+	"position_12": {
+		"label": "coaCyborgAssembly3",
+		"pos": [4044, 10042]
+	},
+
+
+	"position_13": {
+		"label": "resSubAssembly",
+		"pos": [3266, 9151]
+	},
+
+
+	"position_14": {
+		"label": "roySouthCyborgAssembly",
+		"pos": [13746, 21817]
+	},
+
+
+	"position_15": {
+		"label": "royCentralFactoryAssembly",
+		"pos": [15046, 10436]
+	},
+
+
+	"position_16": {
+		"label": "royHowitCyborgAssembly",
+		"pos": [12221, 6459]
+	},
+
+
+	"position_17": {
+		"label": "royOuterFactoryAssembly",
+		"pos": [22835, 3483]
+	},
+
+
+	"position_18": {
+		"label": "royOuterCyborgAssembly",
+		"pos": [24646, 4161]
+	},
+
+
+	"position_19": {
+		"label": "royHoverAssembly",
+		"pos": [30771, 1226]
+	},
+
+
+	"position_20": {
+		"label": "royMainCyborgAssembly",
+		"pos": [30250, 3260]
+	},
+
+
+	"position_21": {
+		"label": "royMainFactoryAssembly",
+		"pos": [29750, 4155]
+	},
+
+
+	"position_22": {
+		"label": "coaVTOLAssembly",
+		"pos": [3388, 8256]
+	},
+
+
+	"position_23": {
+		"label": "ampVTOLAssembly",
+		"pos": [31430, 18595]
+	},
+
+
+	"position_24": {
+		"label": "royOuterVTOLAssembly",
+		"pos": [19644, 2999]
+	},
+
+
+	"position_25": {
+		"label": "royMainVTOLAssembly",
+		"pos": [29244, 1622]
+	},
+
+
+	"position_26": {
+		"label": "playerBasePos",
+		"pos": [8366, 25542]
+	},
+
+
+	"position_27": {
+		"label": "southPos9",
+		"pos": [6194, 21006]
+	},
+
+
+	"position_28": {
+		"label": "southPos8",
+		"pos": [7251, 22567]
+	},
+
+
+	"position_29": {
+		"label": "southPos7",
+		"pos": [7487, 19484]
+	},
+
+
+	"position_30": {
+		"label": "southPos6",
+		"pos": [9272, 17937]
+	},
+
+
+	"position_31": {
+		"label": "southPos5",
+		"pos": [11534, 20430]
+	},
+
+
+	"position_32": {
+		"label": "southPos4",
+		"pos": [8387, 22073]
+	},
+
+
+	"position_33": {
+		"label": "southPos3",
+		"pos": [11452, 22293]
+	},
+
+
+	"position_34": {
+		"label": "southPos2",
+		"pos": [13918, 21028]
+	},
+
+
+	"position_35": {
+		"label": "southPos1",
+		"pos": [14712, 23240]
+	},
+
+
+	"position_36": {
+		"label": "southPos10",
+		"pos": [3761, 21499]
+	},
+
+
+	"position_37": {
+		"label": "westPos10",
+		"pos": [10065, 11179]
+	},
+
+
+	"position_38": {
+		"label": "westPos9",
+		"pos": [8264, 12601]
+	},
+
+
+	"position_39": {
+		"label": "westPos8",
+		"pos": [5823, 10329]
+	},
+
+
+	"position_40": {
+		"label": "westPos7",
+		"pos": [4165, 11967]
+	},
+
+
+	"position_41": {
+		"label": "westPos6",
+		"pos": [1193, 11465]
+	},
+
+
+	"position_42": {
+		"label": "westPos5",
+		"pos": [6652, 6902]
+	},
+
+
+	"position_43": {
+		"label": "westPos4",
+		"pos": [5703, 5333]
+	},
+
+
+	"position_44": {
+		"label": "westPos3",
+		"pos": [2604, 5124]
+	},
+
+
+	"position_45": {
+		"label": "westPos2",
+		"pos": [2430, 7503]
+	},
+
+
+	"position_46": {
+		"label": "westPos1",
+		"pos": [1458, 9690]
+	},
+
+
+	"position_47": {
+		"label": "eastPos11",
+		"pos": [19599, 24907]
+	},
+
+
+	"position_48": {
+		"label": "eastPos10",
+		"pos": [24388, 26057]
+	},
+
+
+	"position_49": {
+		"label": "eastPos9",
+		"pos": [29717, 25743]
+	},
+
+
+	"position_50": {
+		"label": "eastPos8",
+		"pos": [29949, 23405]
+	},
+
+
+	"position_51": {
+		"label": "eastPos7",
+		"pos": [20580, 18223]
+	},
+
+
+	"position_52": {
+		"label": "eastPos6",
+		"pos": [13335, 19423]
+	},
+
+
+	"position_53": {
+		"label": "eastPos5",
+		"pos": [26440, 15161]
+	},
+
+
+	"position_54": {
+		"label": "eastPos4",
+		"pos": [21487, 10892]
+	},
+
+
+	"position_55": {
+		"label": "eastPos3",
+		"pos": [28941, 10085]
+	},
+
+
+	"position_56": {
+		"label": "eastPos2",
+		"pos": [25480, 19422]
+	},
+
+
+	"position_57": {
+		"label": "eastPos1",
+		"pos": [29315, 18884]
+	},
+
+
+	"position_58": {
+		"label": "centralPos13",
+		"pos": [13471, 16141]
+	},
+
+
+	"position_59": {
+		"label": "centralPos12",
+		"pos": [17277, 17044]
+	},
+
+
+	"position_60": {
+		"label": "centralPos11",
+		"pos": [15822, 14984]
+	},
+
+
+	"position_61": {
+		"label": "centralPos10",
+		"pos": [14203, 12428]
+	},
+
+
+	"position_62": {
+		"label": "centralPos9",
+		"pos": [13435, 10501]
+	},
+
+
+	"position_63": {
+		"label": "centralPos8",
+		"pos": [15478, 9998]
+	},
+
+
+	"position_64": {
+		"label": "centralPos7",
+		"pos": [16765, 12340]
+	},
+
+
+	"position_65": {
+		"label": "centralPos6",
+		"pos": [17505, 9391]
+	},
+
+
+	"position_66": {
+		"label": "centralPos5",
+		"pos": [14162, 8939]
+	},
+
+
+	"position_67": {
+		"label": "centralPos4",
+		"pos": [11055, 7368]
+	},
+
+
+	"position_68": {
+		"label": "centralPos3",
+		"pos": [8644, 4796]
+	},
+
+
+	"position_69": {
+		"label": "centralPos2",
+		"pos": [11172, 4241]
+	},
+
+
+	"position_70": {
+		"label": "centralPos1",
+		"pos": [16602, 7501]
+	},
+
+
+	"position_71": {
+		"label": "centralPos14",
+		"pos": [18493, 13508]
+	},
+
+
+	"position_72": {
+		"label": "centralPos18",
+		"pos": [18618, 10890]
+	},
+
+
+	"position_73": {
+		"label": "centralPos17",
+		"pos": [19324, 7799]
+	},
+
+
+	"position_74": {
+		"label": "centralPos16",
+		"pos": [21299, 7654]
+	},
+
+
+	"position_75": {
+		"label": "centralPos15",
+		"pos": [23046, 7074]
+	},
+
+
+	"position_76": {
+		"label": "outerPos13",
+		"pos": [14575, 4744]
+	},
+
+
+	"position_77": {
+		"label": "outerPos12",
+		"pos": [14488, 1447]
+	},
+
+
+	"position_78": {
+		"label": "outerPos11",
+		"pos": [15060, 2465]
+	},
+
+
+	"position_79": {
+		"label": "outerPos10",
+		"pos": [16428, 3820]
+	},
+
+
+	"position_80": {
+		"label": "outerPos9",
+		"pos": [17164, 2557]
+	},
+
+
+	"position_81": {
+		"label": "outerPos8",
+		"pos": [17548, 4872]
+	},
+
+
+	"position_82": {
+		"label": "outerPos7",
+		"pos": [21573, 4997]
+	},
+
+
+	"position_83": {
+		"label": "outerPos6",
+		"pos": [18857, 3265]
+	},
+
+
+	"position_84": {
+		"label": "outerPos5",
+		"pos": [18900, 1250]
+	},
+
+
+	"position_85": {
+		"label": "outerPos4",
+		"pos": [20804, 2580]
+	},
+
+
+	"position_86": {
+		"label": "outerPos3",
+		"pos": [21030, 3602]
+	},
+
+
+	"position_87": {
+		"label": "outerPos2",
+		"pos": [24103, 2528]
+	},
+
+
+	"position_88": {
+		"label": "outerPos1",
+		"pos": [24457, 5031]
+	},
+
+
+	"position_89": {
+		"label": "outerPos14",
+		"pos": [12541, 3052]
+	},
+
+
+	"position_90": {
+		"label": "innerPos4",
+		"pos": [29117, 1986]
+	},
+
+
+	"position_91": {
+		"label": "innerPos3",
+		"pos": [25695, 2213]
+	},
+
+
+	"position_92": {
+		"label": "innerPos2",
+		"pos": [25526, 3790]
+	},
+
+
+	"position_93": {
+		"label": "innerPos1",
+		"pos": [28238, 6095]
+	},
+
+
+	"position_94": {
+		"label": "riverPos3",
+		"pos": [10865, 13936]
+	},
+
+
+	"position_95": {
+		"label": "riverPos2",
+		"pos": [8941, 16460]
+	},
+
+
+	"position_96": {
+		"label": "riverPos1",
+		"pos": [4590, 13879]
+	},
+
+
+	"position_97": {
+		"label": "eastPos12",
+		"pos": [21070, 20411]
+	},
+
+
+	"position_98": {
+		"label": "southPos12",
+		"pos": [17785, 23781]
+	},
+
+
+	"position_99": {
+		"label": "westPos11",
+		"pos": [7565, 9574]
+	},
+
+
+	"position_100": {
+		"label": "coaTransSpawn",
+		"pos": [3516, 6328]
+	},
+
+
+	"position_101": {
+		"label": "resTransSpawn",
+		"pos": [1599, 26942]
+	},
+
+
+	"position_102": {
+		"label": "royTransSpawn",
+		"pos": [21439, 1984]
+	},
+
+
+	"position_103": {
+		"label": "royMainAssembly",
+		"pos": [27864, 3564]
+	},
+
+
+	"area_0": {
+		"label": "resistanceBase",
+		"pos1": [768, 24448],
+		"pos2": [4608, 27776]
+	},
+
+
+	"area_1": {
+		"label": "portFOB",
+		"pos1": [16640, 22400],
+		"pos2": [19584, 25600]
+	},
+
+
+	"area_2": {
+		"label": "southIslandFOB",
+		"pos1": [22912, 21632],
+		"pos2": [25856, 24192]
+	},
+
+
+	"area_3": {
+		"label": "westIslandFOB",
+		"pos1": [22016, 16896],
+		"pos2": [23680, 19072]
+	},
+
+
+	"area_4": {
+		"label": "nwIslandFOB",
+		"pos1": [23168, 10624],
+		"pos2": [27776, 14464]
+	},
+
+
+	"area_5": {
+		"label": "northIslandFOB",
+		"pos1": [29696, 11392],
+		"pos2": [30976, 12672]
+	},
+
+
+	"area_6": {
+		"label": "amphosBase",
+		"pos1": [27008, 16256],
+		"pos2": [31616, 21248]
+	},
+
+
+	"area_7": {
+		"label": "hellraiserBase",
+		"pos1": [384, 14848],
+		"pos2": [6144, 19200]
+	},
+
+
+	"area_8": {
+		"label": "coalitionBridgeFOB",
+		"pos1": [640, 12416],
+		"pos2": [2176, 13824]
+	},
+
+
+	"area_9": {
+		"label": "seCoalitionFOB",
+		"pos1": [3328, 9856],
+		"pos2": [4608, 11392]
+	},
+
+
+	"area_10": {
+		"label": "riverDeltaFOB",
+		"pos1": [7936, 13056],
+		"pos2": [9088, 15104]
+	},
+
+
+	"area_11": {
+		"label": "sunkenPlainsFOB",
+		"pos1": [5760, 7424],
+		"pos2": [8064, 8960]
+	},
+
+
+	"area_12": {
+		"label": "neCoalitionFOB",
+		"pos1": [3840, 4608],
+		"pos2": [5760, 6912]
+	},
+
+
+	"area_13": {
+		"label": "coalitionBase",
+		"pos1": [512, 5248],
+		"pos2": [3968, 8960]
+	},
+
+
+	"area_14": {
+		"label": "southFOB",
+		"pos1": [13056, 21504],
+		"pos2": [14592, 22656]
+	},
+
+
+	"area_15": {
+		"label": "spyFOB",
+		"pos1": [2048, 22400],
+		"pos2": [4480, 23680]
+	},
+
+
+	"area_16": {
+		"label": "riverTownFOB",
+		"pos1": [11904, 14720],
+		"pos2": [13184, 16128]
+	},
+
+
+	"area_17": {
+		"label": "riverLZFOB",
+		"pos1": [14976, 16512],
+		"pos2": [16640, 18432]
+	},
+
+
+	"area_18": {
+		"label": "eastCoastFOB",
+		"pos1": [17792, 12160],
+		"pos2": [19328, 14848]
+	},
+
+
+	"area_19": {
+		"label": "southGateBase",
+		"pos1": [18816, 6144],
+		"pos2": [24448, 9600]
+	},
+
+
+	"area_20": {
+		"label": "royalistCentralFactoryBase",
+		"pos1": [11392, 9600],
+		"pos2": [16384, 11904]
+	},
+
+
+	"area_21": {
+		"label": "westGateBase",
+		"pos1": [13312, 768],
+		"pos2": [17408, 5120]
+	},
+
+
+	"area_22": {
+		"label": "royalistCheckpoint",
+		"pos1": [8064, 3456],
+		"pos2": [11520, 5632]
+	},
+
+
+	"area_23": {
+		"label": "royalistHowitzerBase",
+		"pos1": [10112, 5760],
+		"pos2": [12800, 8064]
+	},
+
+
+	"area_24": {
+		"label": "southWhirlwindHill",
+		"pos1": [26240, 5120],
+		"pos2": [29824, 7040]
+	},
+
+
+	"area_25": {
+		"label": "vtolBase",
+		"pos1": [26496, 768],
+		"pos2": [31104, 2304]
+	},
+
+
+	"area_26": {
+		"label": "royalistMainBaseDefenses",
+		"pos1": [26496, 2816],
+		"pos2": [27520, 4864]
+	},
+
+
+	"area_27": {
+		"label": "royalistMainBase",
+		"pos1": [28288, 2816],
+		"pos2": [30464, 4608]
+	},
+
+
+	"area_28": {
+		"label": "royalistOuterBase",
+		"pos1": [17664, 1024],
+		"pos2": [24960, 5760]
+	},
+
+
+	"area_29": {
+		"label": "northLakeFOB",
+		"pos1": [5632, 1664],
+		"pos2": [8320, 2944]
+	},
+
+
+	"area_30": {
+		"label": "resCommanderGroup",
+		"pos1": [1024, 24960],
+		"pos2": [1280, 25344]
+	},
+
+
+	"area_31": {
+		"label": "coaCommanderGroup",
+		"pos1": [2944, 4608],
+		"pos2": [3456, 5120]
+	},
+
+
+	"area_32": {
+		"label": "royCentralCommGroup",
+		"pos1": [13568, 12416],
+		"pos2": [14080, 12800]
+	},
+
+
+	"area_33": {
+		"label": "royHoverCommGroup",
+		"pos1": [17280, 7680],
+		"pos2": [17792, 8064]
+	},
+
+
+	"area_34": {
+		"label": "royHeavyCommGroup",
+		"pos1": [23168, 2688],
+		"pos2": [23808, 3200]
+	},
+
+
+	"area_35": {
+		"label": "roySuperCybPatrolGroup",
+		"pos1": [24960, 3328],
+		"pos2": [25344, 3712]
+	},
+
+
+	"area_36": {
+		"label": "royCentralCybPatrolGroup",
+		"pos1": [15872, 13824],
+		"pos2": [16256, 14208]
+	},
+
+
+	"area_37": {
+		"label": "resSubBase",
+		"pos1": [2048, 8832],
+		"pos2": [3456, 10112]
+	},
+
+
+	"area_38": {
+		"label": "resEncounter2Trigger",
+		"pos1": [11776, 26496],
+		"pos2": [12032, 27776]
+	},
+
+
+	"area_39": {
+		"label": "resOliveZone",
+		"pos1": [6016, 25216],
+		"pos2": [6528, 25728]
+	},
+
+
+	"area_40": {
+		"label": "resCybEncounterGroup",
+		"pos1": [13952, 27776],
+		"pos2": [14208, 27904]
+	},
+
+
+	"area_41": {
+		"label": "resSensEncounterGroup",
+		"pos1": [13440, 26496],
+		"pos2": [13568, 26624]
+	},
+
+
+	"area_42": {
+		"label": "resEncounter2Group",
+		"pos1": [10112, 26624],
+		"pos2": [10752, 26752]
+	},
+
+
+	"area_43": {
+		"label": "resNegotiationTrigger",
+		"pos1": [8832, 25984],
+		"pos2": [9088, 26624]
+	},
+
+
+	"area_44": {
+		"label": "resEncounter1Trigger",
+		"pos1": [15104, 26368],
+		"pos2": [15360, 27520]
+	},
+
+
+	"area_45": {
+		"label": "ampOliveZone",
+		"pos1": [20992, 21120],
+		"pos2": [21504, 21632]
+	},
+
+
+	"area_46": {
+		"label": "helOliveZone",
+		"pos1": [8064, 21632],
+		"pos2": [8576, 22144]
+	},
+
+
+	"area_47": {
+		"label": "coaOliveZone",
+		"pos1": [10752, 10240],
+		"pos2": [11264, 10752]
+	},
+
+
+	"area_48": {
+		"label": "helAggroTrigger1",
+		"pos1": [3712, 17536],
+		"pos2": [4224, 17792]
+	},
+
+
+	"area_49": {
+		"label": "helAggroTrigger2",
+		"pos1": [1664, 18560],
+		"pos2": [2176, 19072]
+	},
+
+
+	"area_50": {
+		"label": "helPitchTrigger",
+		"pos1": [5248, 17408],
+		"pos2": [6016, 19200]
+	},
+
+
+	"area_51": {
+		"label": "spyLZ",
+		"pos1": [3840, 23040],
+		"pos2": [4480, 23680]
+	},
+
+
+	"area_52": {
+		"label": "hellraiserLZ",
+		"pos1": [3968, 15616],
+		"pos2": [4608, 16256]
+	},
+
+
+	"area_53": {
+		"label": "riverLZ",
+		"pos1": [15488, 17792],
+		"pos2": [16128, 18432]
+	},
+
+
+	"area_54": {
+		"label": "coastLZ",
+		"pos1": [19456, 6912],
+		"pos2": [20096, 7552]
+	},
+
+
+	"area_55": {
+		"label": "mountainLZ",
+		"pos1": [17024, 6784],
+		"pos2": [17664, 7424]
+	},
+
+
+	"area_56": {
+		"label": "howitzerLZ",
+		"pos1": [11392, 5760],
+		"pos2": [12032, 6400]
+	},
+
+
+	"area_57": {
+		"label": "westGateLZ",
+		"pos1": [15104, 2560],
+		"pos2": [15744, 3200]
+	},
+
+
+	"area_58": {
+		"label": "royOliveZone",
+		"pos1": [28672, 10368],
+		"pos2": [29184, 10880]
+	},
+
+
+	"area_59": {
+		"label": "resGiftZone",
+		"pos1": [6400, 26624],
+		"pos2": [7040, 27008]
+	},
+
+
+	"area_60": {
+		"label": "helAggroTrigger3",
+		"pos1": [4992, 16640],
+		"pos2": [5504, 16896]
+	},
+
+
+	"area_61": {
+		"label": "helAggroTrigger4",
+		"pos1": [1664, 14848],
+		"pos2": [3456, 15104]
+	},
+
+
+	"area_62": {
+		"label": "royBridgeTrigger",
+		"pos1": [11520, 17920],
+		"pos2": [12032, 18944]
+	},
+
+
+	"object_0": {
+		"label": "coaAASite",
+		"id": 1785,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "resistanceHeavyFactory",
+		"id": 98,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "resistanceCybFact2",
+		"id": 64,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "royLZAGTow",
+		"id": 1433,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "resResearch1",
+		"id": 91,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "resMortarPit",
+		"id": 50,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "royCentralCommander",
+		"id": 3706,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_7": {
+		"label": "resHQ",
+		"id": 97,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "royHMGTow",
+		"id": 284,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "royHvyTK",
+		"id": 3671,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_10": {
+		"label": "royCBTow",
+		"id": 571,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_11": {
+		"label": "royHypVelEmplacement",
+		"id": 4356,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_12": {
+		"label": "coaResearch2",
+		"id": 2309,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_13": {
+		"label": "coalitionVtolFactory",
+		"id": 2128,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_14": {
+		"label": "royResearchOuter",
+		"id": 3039,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_15": {
+		"label": "royalistMainFactory",
+		"id": 3242,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_16": {
+		"label": "royalistMainVtolFac2",
+		"id": 3141,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_17": {
+		"label": "royInfBunker",
+		"id": 3407,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_18": {
+		"label": "ampSarissa",
+		"id": 573,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_19": {
+		"label": "royResearchCentral",
+		"id": 1641,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_20": {
+		"label": "ampHQ",
+		"id": 763,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_21": {
+		"label": "ampCBTow",
+		"id": 246,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_22": {
+		"label": "helHQ",
+		"id": 353,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_23": {
+		"label": "hellraiserCybFac1",
+		"id": 1317,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_24": {
+		"label": "amphosPortFactory",
+		"id": 200,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_25": {
+		"label": "helResearch1",
+		"id": 358,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_26": {
+		"label": "helResearch2",
+		"id": 363,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_27": {
+		"label": "resAASite",
+		"id": 54,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_28": {
+		"label": "ampResearchOuter",
+		"id": 1131,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_29": {
+		"label": "amphosMainFactory2",
+		"id": 812,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_30": {
+		"label": "amphosMainFactory1",
+		"id": 928,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_31": {
+		"label": "resRelay",
+		"id": 169,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_32": {
+		"label": "helMGTow",
+		"id": 581,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_33": {
+		"label": "royPowerGen",
+		"id": 1399,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_34": {
+		"label": "royRiverAGTow",
+		"id": 1268,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_35": {
+		"label": "ampAASite",
+		"id": 912,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_36": {
+		"label": "roySpyAGTow",
+		"id": 1369,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_37": {
+		"label": "coaPowerGen",
+		"id": 2225,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_38": {
+		"label": "coalitionFactory2",
+		"id": 2327,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_39": {
+		"label": "royLancerTow1",
+		"id": 1405,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_40": {
+		"label": "royOliveTruck",
+		"id": 4364,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_41": {
+		"label": "ampPowerGen",
+		"id": 1126,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_42": {
+		"label": "royCompositeTank",
+		"id": 4363,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_43": {
+		"label": "royIslandAGTow",
+		"id": 1107,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_44": {
+		"label": "ampMGTow",
+		"id": 1012,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_45": {
+		"label": "ampResearchInner",
+		"id": 913,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_46": {
+		"label": "royalistSouthCyborgFac",
+		"id": 272,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_47": {
+		"label": "royalistMainVtolFac1",
+		"id": 3563,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_48": {
+		"label": "coalitionCybFactory2",
+		"id": 2209,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_49": {
+		"label": "coaHQ",
+		"id": 3782,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_50": {
+		"label": "amphosVtolFactory",
+		"id": 788,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_51": {
+		"label": "ampMRA",
+		"id": 245,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_52": {
+		"label": "coalitionCybFactory3",
+		"id": 1948,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_53": {
+		"label": "coalitionFactory1",
+		"id": 2324,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_54": {
+		"label": "ampGiftDerrick",
+		"id": 850,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_55": {
+		"label": "hellraiserCybFac2",
+		"id": 439,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_56": {
+		"label": "royalistHowitCyborgFac",
+		"id": 1519,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_57": {
+		"label": "royHvyCanHardpoint",
+		"id": 2747,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_58": {
+		"label": "coaBombardPit",
+		"id": 2013,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_59": {
+		"label": "ampLancerTow",
+		"id": 4357,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_60": {
+		"label": "royResearchLake",
+		"id": 1074,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_61": {
+		"label": "royAASite",
+		"id": 3493,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_62": {
+		"label": "royalistCentralFactory",
+		"id": 1662,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_63": {
+		"label": "resSarissa",
+		"id": 968,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_64": {
+		"label": "royalistOuterVtolFac",
+		"id": 3490,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_65": {
+		"label": "royalistOuterFactory",
+		"id": 3035,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_66": {
+		"label": "royRelay",
+		"id": 3463,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_67": {
+		"label": "royalistOuterCyborgFac",
+		"id": 3382,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_68": {
+		"label": "royalistMainCyborgFac",
+		"id": 3241,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_69": {
+		"label": "resistanceFactory",
+		"id": 57,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_70": {
+		"label": "resistanceCybFact1",
+		"id": 63,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_71": {
+		"label": "hellraiserFactory",
+		"id": 433,
+		"player": 3,
+		"type": 1
+	},
+
+
+	"object_72": {
+		"label": "royPepperPit",
+		"id": 2513,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_73": {
+		"label": "coaResearch",
+		"id": 3783,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_74": {
+		"label": "royACannonHardpoint",
+		"id": 1570,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_75": {
+		"label": "royalistHoverFactory",
+		"id": 3143,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_76": {
+		"label": "coaResearch3",
+		"id": 2366,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_77": {
+		"label": "royLancerTow2",
+		"id": 4242,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_78": {
+		"label": "resPython",
+		"id": 20,
+		"player": 1,
+		"type": 0
+	},
+
+
+	"object_79": {
+		"label": "resEncounterTruck",
+		"id": 121,
+		"player": 1,
+		"type": 0
+	},
+
+
+	"object_80": {
+		"label": "resOliveTruck",
+		"id": 3793,
+		"player": 1,
+		"type": 0
+	},
+
+
+	"object_81": {
+		"label": "ampCommander",
+		"id": 3786,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_82": {
+		"label": "helOliveTruck",
+		"id": 3794,
+		"player": 3,
+		"type": 0
+	},
+
+
+	"object_83": {
+		"label": "royHowitAGTow",
+		"id": 1521,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_84": {
+		"label": "coaOliveTruck",
+		"id": 3796,
+		"player": 4,
+		"type": 0
+	},
+
+
+	"object_85": {
+		"label": "ampOliveTruck",
+		"id": 3795,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_86": {
+		"label": "resCommander",
+		"id": 1447,
+		"player": 1,
+		"type": 0
+	},
+
+
+	"object_87": {
+		"label": "royHoverCommander",
+		"id": 3691,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_88": {
+		"label": "royAssaultCommander",
+		"id": 3785,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_89": {
+		"label": "resResearch2",
+		"id": 87,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_90": {
+		"label": "royHvyCommander",
+		"id": 3675,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_91": {
+		"label": "coalitionCybFactory1",
+		"id": 2347,
+		"player": 4,
+		"type": 1
+	}
 }

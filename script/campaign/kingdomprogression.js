@@ -820,6 +820,17 @@ function camEnemyBaseDetected_portBase()
 	}
 }
 
+function camEnemyBaseEliminated_portBase()
+{
+	// Self-destruct all unmanaged AMPHOS units.
+	// Do this so AMPHOS units don't randomly bother the player after clearing the port base.
+	const droids = enumUnmanagedDroids(CAM_AMPHOS);
+	for (const droid of droids)
+	{
+		camSafeRemoveObject(droid, true);
+	}
+}
+
 function camEnemyBaseEliminated_southIslandBase()
 {
 	if (gameState.amphos.allianceState === "NEUTRAL")
@@ -880,7 +891,7 @@ function camEnemyBaseEliminated_nwIslandBase()
 	if (gameState.amphos.allianceState === "NEUTRAL")
 	{
 		// Don't allow the Royalists to rebuild this base if the player is trying to let AMPHOS take it
-		camDisableTruck("nwIslandBase");
+		camDisableTruck("nwIslandBase", true);
 	}
 }
 
@@ -1349,10 +1360,10 @@ function helPitch()
 
 	// Calculate how many structs need to be rebuilt before negotiations may begin
 	// This number will either be the total amount of Hellraiser structures, or the
-	// current number of structures + 20, depending on which is lower
-	if (enumStruct(CAM_HELLRAISERS).length + 20 < gameState.hellraisers.totalStructs)
+	// current number of structures + 12, depending on which is lower
+	if (enumStruct(CAM_HELLRAISERS).length + 12 < gameState.hellraisers.totalStructs)
 	{
-		gameState.hellraisers.structThreshold = enumStruct(CAM_HELLRAISERS).length + 20;
+		gameState.hellraisers.structThreshold = enumStruct(CAM_HELLRAISERS).length + 12;
 	}
 	// By default, structThreshold equals the original amount of structures
 }
@@ -2016,8 +2027,8 @@ function allyCoalition()
 	// Share research with the player
 	enableResearch("R-Wpn-AAGun02", CAM_HUMAN_PLAYER); // Cyclone
 	camRemoveArtifact("ampAASite");
-	enableResearch("R-Wpn-Cannon3Mk1", CAM_HUMAN_PLAYER); // Heavy Cannon
-	camRemoveArtifact("royResearchOuter");
+	// enableResearch("R-Wpn-Cannon3Mk1", CAM_HUMAN_PLAYER); // Heavy Cannon
+	// camRemoveArtifact("royResearchOuter");
 	enableResearch("R-Struc-Research-Module", CAM_HUMAN_PLAYER); // Research Module
 	camRemoveArtifact("royResearchLake");
 	enableResearch("R-Sys-Engineering02", CAM_HUMAN_PLAYER); // Improved Engineering

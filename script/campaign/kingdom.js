@@ -963,10 +963,12 @@ function eventAttacked(victim, attacker)
 		if (gameState.resistance.allianceState === "ALLIED" && propulsionCanReach("wheeled01", refPos.x, refPos.y, pos.x, pos.y))
 		{
 			const commander = getObject("resCommander");
+			// In an attempt to have the Resistance not get distracted by the Hellraisers as much
+			const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
+			// If the Royalist outpost is alive, and the player is engaged with Royalists, focus attention there
+			const attackPos = (camBaseIsEliminated("southBase")) ? pos : camMakePos("southFOB");
 			if (commander !== null)
 			{
-				// In an attempt to have the Resistance not get distracted by the Hellraisers as much
-				const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
 				// Tell the Resistance commander support the player
 				camManageGroup(commander.group, CAM_ORDER_ATTACK, {
 					targetPlayer: targetPlayer,
@@ -976,7 +978,6 @@ function eventAttacked(victim, attacker)
 				});
 			}
 
-			const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
 			// Tell the player support group to... support the player
 			const groupInfo = gameState.resistance.groups.playerSupportGroup;
 			groupInfo.order = CAM_ORDER_ATTACK;
@@ -1997,7 +1998,10 @@ function eventStartLevel()
 	const startpos = getObject("startPosition");
 	centreView(startpos.x, startpos.y);
 
-	setPower(camChangeOnDiff(2000), CAM_HUMAN_PLAYER);
+	// Set starting power to 1/2 of the player's max power reserves
+	const STARTING_POWER = 6000 - (1000 * difficulty);
+
+	setPower(STARTING_POWER, CAM_HUMAN_PLAYER);
 
 	setAlliance(CAM_ROYALISTS, CAM_AMPHOS, true);
 	setAlliance(CAM_THE_COALITION, CAM_HELLRAISERS, true);
@@ -2051,6 +2055,18 @@ function eventStartLevel()
 	{
 		camUpgradeOnMapStructures("GuardTower2", "GuardTower1", CAM_HELLRAISERS);
 		camUpgradeOnMapStructures("PillBox2", "PillBox1", CAM_HELLRAISERS);
+	}
+	if (difficulty < HARD)
+	{
+		// Remove HMG bunkers around the first Royalist outpost on difficulties below Hard
+		const structs = enumArea("southFOB", CAM_ROYALISTS, false);
+		for (const struct of structs)
+		{
+			if (struct.name === _("Collective Heavy Machinegun Bunker"))
+			{
+				camSafeRemoveObject(struct);
+			}
+		}
 	}
 
 	initializeGameInfo();

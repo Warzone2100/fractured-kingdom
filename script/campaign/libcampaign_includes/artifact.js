@@ -238,6 +238,8 @@ function __camCheckPlaceArtifact(obj)
 	const acrate = addFeature("Crate", obj.x, obj.y);
 	addLabel(acrate, __camGetArtifactLabel(__ALABEL));
 	ai.placed = true;
+	// Grant the player visibility of the now-placed artifact
+	addSpotter(obj.x, obj.y, CAM_HUMAN_PLAYER, 128, false, gameTime + camSecondsToMilliseconds(1));
 }
 
 function __camPickupArtifact(artifact)

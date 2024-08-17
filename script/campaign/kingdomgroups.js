@@ -17,7 +17,9 @@ function assignDroidResistance(droid)
 			return; // Unit assigned; all done.
 		}
 	}
+
 	// If the droid hasn't been assigned by this point, it'll just be managed by its factory
+	checkResistanceGroups(); // Check to make sure we don't have too many factory-managed droids running around
 }
 
 // Checks the size of the refillable groups in a faction to determine if they need more droids.
@@ -52,6 +54,13 @@ function checkResistanceGroups()
 		// All groups are full! Stop unit production
 		setProduction(CAM_THE_RESISTANCE, "GROUND", false);
 	}
+	// Check if we have reached the limit for factory-managed units
+	else if (enumUnmanagedDroids(CAM_THE_RESISTANCE).length >= gameState.resistance.maxUnmanagedUnits)
+	{
+		// Unit limit reached! Stop unit production
+		// NOTE: The AI doesn't really have a unit limit, this threshold is just here to mitigate traffic jams.
+		setProduction(CAM_THE_RESISTANCE, "GROUND", false);
+	}
 }
 
 function assignDroidAmphos(droid)
@@ -69,6 +78,7 @@ function assignDroidAmphos(droid)
 		else
 		{
 			// Let the factory automatically group it
+			checkAmphosGroups(); // Check to make sure we don't have too many factory-managed droids running around
 			return;
 		}
 	}
@@ -84,6 +94,8 @@ function assignDroidAmphos(droid)
 			return;
 		}
 	}
+
+	checkAmphosGroups(); // Check to make sure we don't have too many factory-managed droids running around
 }
 
 function checkAmphosGroups()
@@ -117,6 +129,12 @@ function checkAmphosGroups()
 		// All groups are full! Stop unit production
 		setProduction(CAM_AMPHOS, "GROUND", false);
 	}
+	// Check if we have reached the limit for factory-managed units
+	else if (enumUnmanagedDroids(CAM_AMPHOS).length >= gameState.amphos.maxUnmanagedUnits)
+	{
+		// Unit limit reached! Stop unit production
+		setProduction(CAM_AMPHOS, "GROUND", false);
+	}
 }
 
 function assignDroidHellraisers(droid)
@@ -128,10 +146,11 @@ function assignDroidHellraisers(droid)
 		{
 			// The group is open to new members, add this droid
 			groupAdd(groups[groupName].id, droid);
-			checkHellraiserGroups();
 			return;
 		}
 	}
+
+	checkHellraiserGroups(); // Check to make sure we don't have too many factory-managed droids running around
 }
 
 function checkHellraiserGroups()
@@ -169,6 +188,12 @@ function checkHellraiserGroups()
 		// All groups are full! Stop unit production
 		setProduction(CAM_HELLRAISERS, "GROUND", false);
 	}
+	// Check if we have reached the limit for factory-managed units
+	else if (enumUnmanagedDroids(CAM_HELLRAISERS).length >= gameState.hellraisers.maxUnmanagedUnits)
+	{
+		// Unit limit reached! Stop unit production
+		setProduction(CAM_HELLRAISERS, "GROUND", false);
+	}
 }
 
 function assignDroidCoalition(droid)
@@ -190,6 +215,11 @@ function assignDroidCoalition(droid)
 	{
 		// Force add it to the "support" group
 		groupAdd(gameState.coalition.groups.playerSupportGroup.id, droid);
+	}
+	else
+	{
+		// Otherwise, let it be factory-managed
+		checkCoalitionGroups();
 	}
 }
 
@@ -228,6 +258,12 @@ function checkCoalitionGroups()
 		// All groups are full! Stop unit production
 		setProduction(CAM_THE_COALITION, "GROUND", false);
 	}
+	// Check if we have reached the limit for factory-managed units
+	else if (enumUnmanagedDroids(CAM_THE_COALITION).length >= gameState.coalition.maxUnmanagedUnits)
+	{
+		// Unit limit reached! Stop unit production
+		setProduction(CAM_THE_COALITION, "GROUND", false);
+	}
 }
 
 function assignGroundDroidRoyalists(droid)
@@ -259,7 +295,10 @@ function assignGroundDroidRoyalists(droid)
 		if (commander !== null && groupSize < camGetCommanderMaxGroupSize(commander))
 		{
 			groupAdd(gameState.royalists.assaultCommandGroup.id, droid);
+			return;
 		}
+		// Ensure we don't have too many factory droids at once
+		checkRoyalistGroundGroups();
 		return;
 	}
 
@@ -280,7 +319,16 @@ function checkRoyalistGroundGroups()
 {
 	if (gameState.royalists.underAttack)
 	{
-		// Royalists are under attack; do nothing here
+		if (enumUnmanagedDroids(CAM_ROYALISTS).length >= gameState.royalists.maxUnmanagedUnits)
+		{
+			// Unit limit reached! Stop unit production
+			setProduction(CAM_ROYALISTS, "GROUND", false);
+		}
+		else
+		{
+			queueStartProduction(CAM_ROYALISTS, "GROUND");
+		}
+		// Nothing else to do here
 		return;
 	}
 	if (gameState.phase < 2)
@@ -338,6 +386,8 @@ function assignHoverDroidRoyalists(droid)
 			groupAdd(gameState.royalists.hoverGroups.hoverCommanderGroup.id, droid);
 			return;
 		}
+		// Ensure we don't have too many factory droids at once
+		checkRoyalistHoverGroups();
 		return;
 	}
 
@@ -358,7 +408,16 @@ function checkRoyalistHoverGroups()
 {
 	if (gameState.royalists.underAttack)
 	{
-		// Royalists are under attack; do nothing here
+		if (enumUnmanagedDroids(CAM_ROYALISTS).length >= gameState.royalists.maxUnmanagedUnits)
+		{
+			// Unit limit reached! Stop unit production
+			setProduction(CAM_ROYALISTS, "HOVER", false);
+		}
+		else
+		{
+			queueStartProduction(CAM_ROYALISTS, "HOVER");
+		}
+		// Nothing else to do here
 		return;
 	}
 	if (gameState.phase < 2)
@@ -440,7 +499,8 @@ function checkRoyalistAssaultGroups()
 
 	groupInfo = gameState.royalists.assaultGroup;
 	groupSize = enumGroup(groupInfo.id).length;
-	if (groupSize < groupInfo.maxSize)
+	if ((gameState.royalists.assaultMethod === "GROUND" && groupSize < groupInfo.maxSize) 
+		|| (gameState.royalists.assaultMethod === "HOVER" && groupSize < (groupInfo.maxSize * 0.6)))
 	{
 		// Main group is not full yet
 		allGroupsFull = false;
@@ -1346,11 +1406,7 @@ function setProduction(player, type, enable)
 		case CAM_THE_RESISTANCE:
 			if (type === "GROUND")
 			{
-				factoryArray = ["resistanceFactory", "resistanceHeavyFactory", "resistanceCybFact1", "resistanceCybFact2"];
-				if (gameState.resistance.allianceState === "ALLIED")
-				{
-					factoryArray.push("resistanceSubFactory", "resistanceSubCybFactory");
-				}
+				factoryArray = ["resistanceFactory", "resistanceHeavyFactory", "resistanceCybFact1", "resistanceCybFact2", "resistanceSubFactory", "resistanceSubCybFactory"];
 				gameState.resistance.groundFactoryState = factoryState;
 			}
 			else
@@ -1846,10 +1902,17 @@ function navigateAssaultGroups()
 // Check if the assault groups have been wiped out
 function checkAssaultStatus()
 {
-	if (enumGroup(gameState.royalists.assaultCommandGroup.id).length > 0) return;
-	if (enumGroup(gameState.royalists.assaultGroup.id).length > 0) return;
+	// NOTE: This DOES NOT count the commander droid itself (but DOES count the units assigned to it!)
+	const UNITS_LEFT = enumGroup(gameState.royalists.assaultCommandGroup.id).length + enumGroup(gameState.royalists.assaultGroup.id).length;
+	// "End" the assault once it's been reduced to below 20% size
+	if ((gameState.royalists.assaultMethod === "GROUND" && UNITS_LEFT > (gameState.royalists.assaultGroup.maxSize * 0.2)) 
+		|| (gameState.royalists.assaultMethod === "HOVER" && UNITS_LEFT > (gameState.royalists.assaultGroup.maxSize * 0.6 * 0.2)))
+	{
+		// Continue the assault!
+		return;
+	}
 
-	// All groups dead
+	// Abandon the assault!
 	removeTimer("checkAssaultStatus");
 	removeTimer("navigateAssaultGroups");
 	gameState.royalists.assaultPhase = 0;
@@ -1857,6 +1920,13 @@ function checkAssaultStatus()
 	{
 		achievementMessage("Hold The Line!", "Survive a full Royalist assault");
 	}
+
+	// Tell any remaining assault units to charge recklessly
+	const assaultDroids = enumGroup(gameState.royalists.assaultCommandGroup.id).concat(enumGroup(gameState.royalists.assaultGroup.id));
+	camManageGroup(camMakeGroup(assaultDroids), CAM_ORDER_ATTACK, {
+		targetPlayer: gameState.royalists.assaultTarget
+		// Note no more return for repair
+	});
 
 	// IF the commander is still alive, tell it to retreat back to base
 	const commander = getObject("royAssaultCommander");
@@ -2371,7 +2441,7 @@ function updateAllyTemplates()
 		let aa = cTempl.amhhaa; // AA tank
 		let vmg = cTempl.amlhmgv; // MG vtol
 		let vroc = cTempl.amllanv; // Rocket vtol
-		let vrocalt = cTempl.amlpodv; // Rocket vtol (alt)
+		// let vrocalt = cTempl.amlpodv; // Rocket vtol (alt)
 
 		let sens = cTempl.ammsens; // Sensor tank (never changes)
 		let mra = cTempl.ammmra; // MRA tank (never changes)
@@ -2434,14 +2504,14 @@ function updateAllyTemplates()
 			vroc = cTempl.ammtkv; // Tank Killer Cobra VTOL
 		}
 		// Rocket vtol (alt)
-		if (camIsResearched("R-Wpn-Rocket07-Tank-Killer"))
-		{
-			vrocalt = cTempl.ammtkv; // Tank Killer Cobra VTOL
-		}
+		// if (camIsResearched("R-Wpn-Rocket07-Tank-Killer"))
+		// {
+		// 	vrocalt = cTempl.ammtkv; // Tank Killer Cobra VTOL
+		// }
 
 		camSetFactoryTemplates("amphosMainFactory1", [ roc, mg, rocalt, mra ], camChangeOnDiff(camSecondsToMilliseconds(55), true));
 		camSetFactoryTemplates("amphosMainFactory2", [ mra, bb, sens, rip, aa ], camChangeOnDiff(camSecondsToMilliseconds(45), true));
-		camSetFactoryTemplates("amphosVtolFactory", [ vroc, vmg, vroc, vbb, vrocalt ], camChangeOnDiff(camSecondsToMilliseconds(35), true));
+		camSetFactoryTemplates("amphosVtolFactory", [ vroc, vmg, vroc, vbb, vroc ], camChangeOnDiff(camSecondsToMilliseconds(35), true));
 	}
 
 	if (gameState.hellraisers.allianceState === "ALLIED")
@@ -2867,4 +2937,81 @@ function orderOliveTrucks()
 		const pos = camMakePos("royOliveZone");
 		orderDroidLoc(royTruck, DORDER_MOVE, pos.x, pos.y);
 	}
+}
+
+// Returns a list of "unmanaged" droids owned by this player
+// These droids are still managed by libcampaign, but not by any special level scripts.
+// This function is used to prevent factories from endlessly producing units which cause massive traffic jams.
+function enumUnmanagedDroids(player)
+{
+	if (player === CAM_HUMAN_PLAYER)
+	{
+		return;
+	}
+
+	// NOTE: We assume all VTOLs and trucks are managed!
+	const droids = enumDroid(player, DROID_WEAPON).concat(enumDroid(player, DROID_CYBORG));
+
+	let gGroups;
+	let hGroups;
+	
+	switch (player)
+	{
+		case CAM_THE_RESISTANCE:
+		{
+			gGroups = gameState.resistance.groups;
+			break;
+		}
+		case CAM_AMPHOS:
+		{
+			gGroups = gameState.amphos.groups;
+			break;
+		}
+		case CAM_HELLRAISERS:
+		{
+			gGroups = gameState.hellraisers.groups;
+			break;
+		}
+		case CAM_THE_COALITION:
+		{
+			gGroups = gameState.coalition.groups;
+			break;
+		}
+		case CAM_ROYALISTS:
+		{
+			gGroups = gameState.royalists.groundGroups;
+			hGroups = gameState.royalists.hoverGroups;
+			break;
+		}
+	}
+
+	for (const droid of droids)
+	{
+		for (const groupName in gGroups)
+		{
+			if (droid.group === gGroups[groupName].id)
+			{
+				// This droid is managed
+				droids.pop(droid);
+			}
+		}
+	}
+
+	if (player === CAM_ROYALISTS)
+	{
+		// Also check hover groups
+		for (const droid of droids)
+		{
+			for (const groupName in hGroups)
+			{
+				if (droid.group === hGroups[groupName].id)
+				{
+					// This droid is managed
+					droids.pop(droid);
+				}
+			}
+		}
+	}
+
+	return droids;
 }
