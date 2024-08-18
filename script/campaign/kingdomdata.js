@@ -1373,12 +1373,13 @@ function initializeGameInfo()
 	// directly into their research menu.
 	camSetArtifacts({
 		// Resistance Artifacts
-		"resHQ": { tech: ["R-Sys-Engineering01", "R-Sys-CommandUpgrade01"] }, // Engineering & Improved Command-Control Systems
+		"resTwinMGTower": { tech: "R-Wpn-MG2Mk1" }, // Twin Machinegun
+		"resHQ": { tech: "R-Sys-CommandUpgrade01" }, // Improved Command-Control Systems
 		"resPython": { tech: "R-Vehicle-Body11", req: "R-Vehicle-Body05" }, // Python (requires Cobra)
 		"resAASite": { tech: "R-Wpn-AAGun03" }, // Hurricane AA
 		"resistanceFactory": { tech: "R-Struc-Factory-Module" }, // Factory Module
 		"resistanceHeavyFactory": { tech: "R-Vehicle-Prop-Tracks" }, // Tracked Propulsion
-		"resResearch1": { tech: "R-Wpn-MG2Mk1" }, // Twin Machinegun
+		"resResearch1": { tech: "R-Sys-Engineering01" }, // Engineering
 		"resResearch2": { tech: "R-Wpn-MG-ROF01" }, // Chaingun Upgrade
 		"resRelay": { tech: "R-Struc-CommandRelay" }, // Command Relay Post
 		"resSarissa": { tech: "R-Wpn-Rocket-LtA-TMk1" }, // Sarissa AT Rocket
@@ -1507,7 +1508,7 @@ function initializeGameInfo()
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.scytk, cTempl.cybag, cTempl.cybth, cTempl.scytk, cTempl.cybag, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv, cTempl.romacanv ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv cTempl.romacanv ];
 
 			resSubTemplates = [ cTempl.rehhcanht, cTempl.rehhmg, cTempl.rempod, cTempl.remsens, cTempl.rehhmor, cTempl.rehinf, cTempl.rehhcant ];
 			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
@@ -1542,7 +1543,7 @@ function initializeGameInfo()
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 
 			resSubTemplates = [ cTempl.rehmcanht, cTempl.remhmgt, cTempl.rempod, cTempl.remsens, cTempl.remhmor, cTempl.reminf, cTempl.rehhcant ];
 			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
@@ -1712,7 +1713,7 @@ function initializeGameInfo()
 			assembly: "ampVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(35)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
 			templates: ampVtolTemplates
 		},
 		"hellraiserFactory": {
@@ -1921,21 +1922,21 @@ function initializeGameInfo()
 			assembly: "royOuterVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(90)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(120)),
 			templates: royVtolTemplates
 		},
 		"royalistMainVtolFac1": {
 			assembly: "royMainVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(90)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(120)),
 			templates: royVtolTemplates
 		},
 		"royalistMainVtolFac2": {
 			assembly: "royMainVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(120)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(200)),
 			templates: royVtolTemplates
 		},
 		// These factories start off unbuilt
@@ -2003,7 +2004,7 @@ function initializeGameInfo()
 			assembly: "ampVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(135)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(180)),
 			templates: royVtolTemplates
 		},
 		"royalistPortFactory": {

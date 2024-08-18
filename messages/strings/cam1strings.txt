@@ -135,6 +135,30 @@ AMPPITCHMSG4		_("This is where you come in.")
 AMPPITCHMSG5		_("If you can remove the Royalist presence in the East Lake and allow our trucks to build on the large islands, I can convince the rest of the board that allying with you is more beneficial than remaining ignorant of the Royalists growing plans to backstab us.")
 AMPPITCHMSG6		_("Just keep your distance from our main island base, and I'll keep working on softening up the board, OK?")
 
+/* Message telling the player to evacuate AMPHOS islands (From Resistance) */
+RESAMPEVACMSG1		_("Nice work!")
+RESAMPEVACMSG2		_("With that Royalist base cleared, we're one step closer to securing negotiations with AMPHOS.")
+RESAMPEVACMSG3		_("Now you need to let AMPHOS reclaim all of their island territories.")
+RESAMPEVACMSG4		_("Just remove all of your units and structures from those islands, and AMPHOS should reclaim them shortly.")
+RESAMPEVACMSG5		_("...")
+RESAMPEVACMSG6		_("AMPHOS is really making us jump through a lot of hoops for this.")
+RESAMPEVACMSG7		_("Well, at least the hard part is over.")
+RESAMPEVACMSG8		_("Here's to hoping that associate makes good on her promise...")
+/* If the player hasn't destroyed the Royalist commander yet */
+RESAMPEVACMSG3ALT	_("Next, you'll need to take out that Royalist hover commander.")
+RESAMPEVACMSG4ALT	_("Then, just remove all of your units and structures from the islands that AMPHOS wants.")
+RESAMPEVACMSG5ALT	_("That should be enough to show them that we're on the same side.")
+RESAMPEVACMSG7ALT	_("Well, at least we're almost done here.")
+
+/* Message telling the player to evacuate AMPHOS islands (Resistance Eradicated) */
+AMPEVACMSG1			_("Excellent work, Commander.")
+AMPEVACMSG2			_("Now that the Royalists are out of the way, simply remove your units and structures from the large islands.")
+AMPEVACMSG3			_("We'll send some trucks to reclaim them once you're out of the way.")
+AMPEVACMSG4			_("By then, I'm sure I'll have convinced the rest of the board to set up negotiations with you.")
+/* If the player hasn't destroyed the Royalist commander yet */
+AMPEVACMSG2ALT		_("Now all that's left is to destroy that Royalist commander.")
+AMPEVACMSG3ALT		_("Once you've dealt with them, simply remove your units and structures from the large islands.")
+
 /* AMPHOS Negotiation Message */
 AMPNEGOMSG1			_("Well, it appears that Alice was right about you.")
 AMPNEGOMSG2			_("You've managed to push back against the Royalists and cleared us breathing room.")

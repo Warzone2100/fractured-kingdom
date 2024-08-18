@@ -456,6 +456,7 @@ function allyResistance()
 	playSound("pcv485.ogg"); // "Technology transferred"
 
 	// Remove resistance artifacts
+	camRemoveArtifact("resTwinMGTower");
 	camRemoveArtifact("resHQ");
 	camRemoveArtifact("resPython");
 	camRemoveArtifact("resMortarPit");
@@ -884,6 +885,14 @@ function ampPitch()
 
 	// Start checking for when conditions are met
 	setTimer("checkAmphosOfferConditions", camSecondsToMilliseconds(5));
+
+	// Reveal the northwest island base after a short delay
+	queue("revealNWIslandBase", camSecondsToMilliseconds(4));
+}
+
+function revealNWIslandBase()
+{
+	camDetectEnemyBase("nwIslandBase");
 }
 
 function camEnemyBaseEliminated_nwIslandBase() 
@@ -892,6 +901,37 @@ function camEnemyBaseEliminated_nwIslandBase()
 	{
 		// Don't allow the Royalists to rebuild this base if the player is trying to let AMPHOS take it
 		camDisableTruck("nwIslandBase", true);
+
+		if (gameState.amphos.requireNW)
+		{
+			// Message the player telling them to fully evacuate all islands to let AMPHOS rebuild
+			if (allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
+			{
+				// Message from the Resistance
+				if (getObject("royHoverCommander") === null)
+				{
+					missionMessage("RESAMPEVACMSG", "TRANS");
+				}
+				else
+				{
+					// Royalist commander still alive
+					missionMessage("RESAMPEVACCMSG", "TRANS");
+				}
+			}
+			else
+			{
+				// Message from AMPHOS associate
+				if (getObject("royHoverCommander") === null)
+				{
+					missionMessage("AMPEVACMSG", "TRANS");
+				}
+				else
+				{
+					// Royalist commander still alive
+					missionMessage("AMPEVACCMSG", "TRANS");
+				}
+			}
+		}
 	}
 }
 
@@ -1299,6 +1339,19 @@ function aggroAmphos()
 
 	// Allow the Royalists to try to rebuild the NW island base
 	camEnableTruck("nwIslandBase");
+}
+
+function camEnemyBaseEliminated_amphosMainBase() 
+{
+	if (gameState.amphos.allianceState === "HOSTILE")
+	{
+		// Mark any remaining AMPHOS bases on the map
+		camDetectEnemyBase("portBase");
+		camDetectEnemyBase("southIslandBase");
+		camDetectEnemyBase("westIslandBase");
+		camDetectEnemyBase("nwIslandBase");
+		camDetectEnemyBase("northIslandBase");
+	}
 }
 
 // Make the AMPHOS commander go attack the player. 
@@ -2242,6 +2295,19 @@ function aggroCoalition()
 	camCallOnce("setPhaseTwo");
 }
 
+function camEnemyBaseEliminated_coalitionMainBase() 
+{
+	if (gameState.coalition.allianceState === "HOSTILE")
+	{
+		// Mark any remaining Coalition bases on the map
+		camDetectEnemyBase("coalitionBridgeBase");
+		camDetectEnemyBase("seCoalitionBase");
+		camDetectEnemyBase("riverDeltaBase");
+		camDetectEnemyBase("sunkenPlainsBase");
+		camDetectEnemyBase("neCoalitionBase");
+	}
+}
+
 // Make the Coalition commander go attack the player. 
 function coaCommanderAttack()
 {
@@ -2352,10 +2418,10 @@ function setPhaseThree()
 	// if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohbalt);
 	const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 	if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
-	let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
+	let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 	if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
 	if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
-	const hvyVtolTemplates = [ cTempl.romacanv, cTempl.romhbomv, cTempl.romtkv ];
+	const hvyVtolTemplates = [ cTempl.romacanv, cTempl.romhbomv, cTempl.romtkv, cTempl.romacanv, cTempl.romtkv ];
 	if (difficulty >= HARD) hvyVtolTemplates.push(cTempl.romtbomv);
 	camSetFactoryTemplates("royalistOuterFactory", royOuterFactoryTemplates);
 	camSetFactoryTemplates("royalistHoverFactory", royHoverFactoryTemplates);
@@ -2710,7 +2776,7 @@ camAreaEvent("royalistOuterBase", function(droid)
 		let royMainCybTemplates = [ cTempl.scyac, cTempl.cybag, cTempl.cybla, cTempl.scyhc, cTempl.scytk ];
 		if (difficulty <= EASY) royMainCybTemplates = camArrayReplaceWith(royMainCybTemplates, cTempl.scytk, cTempl.cybla);
 		if (difficulty >= HARD) royMainCybTemplates = camArrayReplaceWith(royMainCybTemplates, cTempl.cybla, cTempl.scytk);
-		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
+		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 		if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
 		camSetFactoryTemplates("royalistOuterFactory", royOuterFactoryTemplates);
 		camSetFactoryTemplates("royalistHoverFactory", royHoverFactoryTemplates);
@@ -2757,7 +2823,7 @@ function royOuterBaseClear()
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rohhcant);
 		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
-		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
+		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 		if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
 		if (difficulty === INSANE) mainVtolTemplates = camArrayReplaceWith(mainVtolTemplates, cTempl.rollanv, cTempl.romtkv);
 		camSetFactoryTemplates("royalistOuterFactory", royOuterFactoryTemplates);
