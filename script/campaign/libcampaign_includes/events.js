@@ -157,6 +157,7 @@ function cam_eventStartLevel()
 	setTimer("__camShowVictoryConditions", camMinutesToMilliseconds(5));
 	setTimer("__camTacticsTick", camSecondsToMilliseconds(0.1));
 	setTimer("__clearAttackLog", camSecondsToMilliseconds(0.1));
+	queue("__camEnableGuideTopics", camSecondsToMilliseconds(0.1)); // delayed to handle when mission scripts add research
 	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(6));
 
 	if (tweakOptions.fk_disableDayCycle)
@@ -439,6 +440,9 @@ function cam_eventGameLoaded()
 	//Subscribe to eventGroupSeen again.
 	camSetEnemyBases();
 
+	// Ensure appropriate guide topics are displayed
+	__camEnableGuideTopics();
+
 	//Set the sun and skybox correctly
 	if (__camDayCycleActive)
 	{
@@ -497,4 +501,19 @@ function cam_eventResearched(research, structure, player)
 function cam_eventVideoDone()
 {
 	__camEnqueueVideos(); //Play any remaining videos automatically.
+}
+
+function cam_eventResearched(research, structure, player)
+{
+	if (player !== CAM_HUMAN_PLAYER)
+	{
+		return;
+	}
+	let researchedByStruct = (camDef(structure) && structure);
+	if (!researchedByStruct)
+	{
+		return; // for now, return - don't think we need to process if researched by API call here?
+	}
+	// only pass the research in if it was completed by a structure (not if given by an API call, in which structure would be null)
+	__camProcessResearchGatedGuideTopics(research);
 }

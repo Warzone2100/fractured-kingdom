@@ -172,7 +172,12 @@ function __camProcessResearchGatedGuideTopics(research = null)
 function __camEnableGuideTopics()
 {
 	// Always enable general topics & unit orders
-	addGuideTopic("wz2100::general::**");
+	// NOTE: We can't add "wz2100::general::**" here because that includes the vanilla Backstory and Mission Timer entries that don't apply to this campaign!
+	addGuideTopic("wz2100::general::artifacts");
+	addGuideTopic("wz2100::general::commandpanel");
+	addGuideTopic("wz2100::general::intelmap");
+	addGuideTopic("wz2100::general::power");
+	addGuideTopic("wz2100::general::researching");
 	addGuideTopic("wz2100::unitorders::**");
 
 	// Basic base / structure topics
