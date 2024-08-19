@@ -5,7 +5,7 @@
   "type": "alternateCampaign",
   "license": "GPL-2.0-or-later",
   "minVersionSupported": "4.4.2",
-  "maxVersionTested": "4.5.0",
+  "maxVersionTested": "4.5.2",
   "description": {
      "en": "After crash-landing in the territory of a once powerful kingdom, you must navigate your way through the various factions fighting over what remains. Can you prevail against the odds, facing relentless foes, and see this story to its end?"
   },

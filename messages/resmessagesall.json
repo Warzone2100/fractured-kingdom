@@ -683,7 +683,7 @@
             "Ineffective against: Tracked vehicles and bunkers",
             "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
             "Greater accuracy at longer ranges",
-            "Obsoletes Mini-Rocket Array",
+            "Obsoletes Mini-Rocket Array"
         ]
     },
     "RES_EMP_MRLHVY": {

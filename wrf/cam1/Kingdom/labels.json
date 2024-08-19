@@ -1777,6 +1777,14 @@
 
 
 	"object_89": {
+		"label": "coaCommander",
+		"id": 2398,
+		"player": 4,
+		"type": 0
+	},
+
+
+	"object_90": {
 		"label": "royHoverCommander",
 		"id": 3691,
 		"player": 5,
@@ -1784,7 +1792,7 @@
 	},
 
 
-	"object_90": {
+	"object_91": {
 		"label": "royAssaultCommander",
 		"id": 3785,
 		"player": 5,
@@ -1792,7 +1800,7 @@
 	},
 
 
-	"object_91": {
+	"object_92": {
 		"label": "resResearch2",
 		"id": 87,
 		"player": 1,
@@ -1800,7 +1808,7 @@
 	},
 
 
-	"object_92": {
+	"object_93": {
 		"label": "royHvyCommander",
 		"id": 3675,
 		"player": 5,

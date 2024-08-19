@@ -571,7 +571,7 @@ var structSets = {
 		{stat: "A0RepairCentre3", x: 19, y: 139}, {stat: "PillBox1", x: 17, y: 118}, {stat: "Flamer-Emplacement", x: 49, y: 173, rot: 1},
 		{stat: "GuardTower2", x: 44, y: 167, rot: 3}, {stat: "GuardTower2", x: 49, y: 155},
 		{stat: "GuardTower2", x: 55, y: 147, rot: 2}, {stat: "Cannon-Emplacement", x: 55, y: 167, rot: 2}, {stat: "PillBox4", x: 96, y: 160, rot: 3},
-		{stat: "PillBox2", x: 12, y: 163}, {stat: "PillBox2", x: 19, y: 160}, {stat: "PillBox5", x: 61, y: 161, rot: 3},
+		{stat: "PillBox2", x: 12, y: 163}, {stat: "PillBox2", x: 19, y: 160}, {stat: "Flamer-Emplacement", x: 61, y: 161, rot: 3},
 		{stat: "PillBox5", x: 50, y: 160}, {stat: "GuardTower2", x: 53, y: 168, rot: 2}, {stat: "GuardTower2", x: 67, y: 157},
 		{stat: "GuardTower2", x: 86, y: 152, rot: 2}, {stat: "GuardTower2", x: 71, y: 147, rot: 1}, {stat: "GuardTower2", x: 33, y: 157, rot: 3},
 		{stat: "GuardTower2", x: 33, y: 160, rot: 3}, {stat: "Emplacement-MortarPit-Incendiary", x: 35, y: 158}, {stat: "Sys-SensoTower01", x: 38, y: 158},
@@ -706,10 +706,8 @@ var structSets = {
 		{stat: "WallTower04", x: 18, y: 54}, {stat: "PillBox6", x: 18, y: 55}, {stat: "WallTower04", x: 20, y: 50},
 		{stat: "A0HardcreteMk1Wall", x: 20, y: 51}, {stat: "WallTower04", x: 20, y: 52}, {stat: "PillBox1", x: 22, y: 60},
 		{stat: "WallTower-DoubleAAGun", x: 22, y: 62}, {stat: "A0HardcreteMk1Wall", x: 23, y: 62}, {stat: "WallTower04", x: 25, y: 51},
-		{stat: "A0HardcreteMk1Wall", x: 26, y: 51}, {stat: "A0HardcreteMk1Wall", x: 27, y: 51}, {stat: "PillBox1", x: 24, y: 54},
-		{stat: "WallTower04", x: 26, y: 54}, {stat: "A0HardcreteMk1Wall", x: 27, y: 54}, {stat: "A0HardcreteMk1Wall", x: 29, y: 48},
-		{stat: "A0HardcreteMk1Wall", x: 29, y: 49}, {stat: "A0HardcreteMk1Wall", x: 28, y: 51}, {stat: "A0HardcreteMk1Wall", x: 29, y: 50},
-		{stat: "WallTower04", x: 29, y: 51}, {stat: "WallTower04", x: 28, y: 54}, {stat: "GuardTower6", x: 30, y: 55},
+		{stat: "PillBox1", x: 24, y: 54}, {stat: "A0HardcreteMk1Wall", x: 29, y: 48}, {stat: "A0HardcreteMk1Wall", x: 29, y: 49},
+		{stat: "A0HardcreteMk1Wall", x: 29, y: 50}, {stat: "WallTower04", x: 29, y: 51}, {stat: "GuardTower6", x: 30, y: 55},
 		{stat: "WallTower04", x: 25, y: 56}, {stat: "A0HardcreteMk1Wall", x: 25, y: 57}, {stat: "WallTower04", x: 25, y: 58},
 		{stat: "Emplacement-MortarPit02", x: 27, y: 56}, {stat: "A0VtolPad", x: 27, y: 58}, {stat: "WallTower-DoubleAAGun", x: 24, y: 60},
 		{stat: "A0HardcreteMk1Wall", x: 24, y: 61}, {stat: "WallTower01", x: 24, y: 62}, {stat: "A0VtolPad", x: 26, y: 60},
@@ -1511,7 +1509,7 @@ function initializeGameInfo()
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.scytk, cTempl.cybag, cTempl.cybth, cTempl.scytk, cTempl.cybag, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv cTempl.romacanv ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv, cTempl.romacanv ];
 
 			resSubTemplates = [ cTempl.rehhcanht, cTempl.rehhmg, cTempl.rempod, cTempl.remsens, cTempl.rehhmor, cTempl.rehinf, cTempl.rehhcant ];
 			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];

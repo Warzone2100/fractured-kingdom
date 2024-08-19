@@ -1,6 +1,6 @@
 {
 	"type": "wz2100.guidetopic.v1",
-	"id": "wz2100::units::weapons::bombs::explosive",
+	"id": "wz2100::units::weapons::bombs::incendiary",
 	"title": "Incendiary Bombs",
 	"sort": "01",
 	"visual": [
