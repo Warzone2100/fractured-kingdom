@@ -1096,7 +1096,7 @@ function spawnTransportDroids(player, pos)
 			{
 				droidPool.push(cTempl.romagt); // Add Assault Gun
 				droidPool.push(cTempl.romtkt); // Add Tank Killer
-				// droidPool.push(cTempl.rohbalt); // Add Ballista
+				droidPool.push(cTempl.rohhrat); // Add HRA
 			}
 			if (difficulty === INSANE)
 			{
@@ -1126,7 +1126,7 @@ function spawnTransportDroids(player, pos)
 			{
 				droidPool.push(cTempl.romagt); // Add Assault Gun
 				droidPool.push(cTempl.romtkt); // Add Tank Killer
-				// droidPool.push(cTempl.rohbalt); // Add Ballista
+				droidPool.push(cTempl.rohhrat); // Add HRA
 				droidPool.push(cTempl.rohhcant); // Add Heavy Cannon
 				droidPool.push(cTempl.scytk); // Add Super Tank-Killer
 			}
