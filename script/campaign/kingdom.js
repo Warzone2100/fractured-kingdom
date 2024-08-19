@@ -1601,8 +1601,8 @@ function adaptFactionColours()
 	}
 	else
 	{
-		// Set to gray
-		changePlayerColour(CAM_THE_COALITION, 2);
+		// Set to brown
+		changePlayerColour(CAM_THE_COALITION, 15);
 	}
 	// Royalists
 	if (PLAYER_COLOR !== 9) // player is not purple?

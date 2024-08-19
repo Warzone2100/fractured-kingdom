@@ -616,6 +616,25 @@
 		],
 		"statID": "CyborgCannon"
 	},
+	"R-Cyborg-Wpn-HvyMG": {
+        "iconID": "IMAGE_RES_CYBORGTECH",
+        "id": "R-Cyborg-Wpn-HvyMG",
+        "msgName": "RES_CYW_HMG",
+        "name": "Heavy Machinegunner Cyborg",
+        "replacedComponents": [
+            "CyborgChaingun:CyborgHeavyChaingun"
+        ],
+        "requiredResearch": [
+            "R-Wpn-MG3Mk1",
+            "R-Cyborg-Wpn-MG"
+        ],
+        "researchPoints": 1500,
+        "researchPower": 46,
+        "resultComponents": [
+            "CyborgHeavyChaingun"
+        ],
+        "statID": "CyborgHeavyChaingun"
+    },
 	"R-Cyb-Wpn-Grenade": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
 		"id": "R-Cyborg-Wpn-Grenade",
@@ -740,7 +759,8 @@
 		"msgName": "RES_CYW_MG4",
 		"name": "Assault Gunner Cyborg",
 		"replacedComponents": [
-			"CyborgChaingun:CyborgRotMG"
+			"CyborgChaingun:CyborgRotMG",
+			"CyborgHeavyChaingun:CyborgRotMG"
 		],
 		"requiredResearch": [
 			"R-Wpn-MG4"
@@ -787,6 +807,10 @@
 		"id": "R-Defense-HardcreteWall",
 		"msgName": "RES_DF_HCW1",
 		"name": "Hardcrete",
+		"redStructures": [
+			"Sys-SensoTower01",
+			"GuardTowerMRP"
+		],
 		"requiredResearch": [
 			"R-Sys-Engineering01"
 		],
@@ -794,7 +818,9 @@
 		"researchPower": 18,
 		"resultStructures": [
 			"A0HardcreteMk1CWall",
-			"A0HardcreteMk1Wall"
+			"A0HardcreteMk1Wall",
+			"Sys-SensoTower02",
+			"GuardTower6"
 		],
 		"statID": "A0HardcreteMk1Wall"
 	},
@@ -813,6 +839,25 @@
 			"Emplacement-MRL-pit"
 		],
 		"statID": "Emplacement-MRL-pit"
+	},
+	"R-Defense-MRLHvy": {
+		"iconID": "IMAGE_RES_DEFENCE",
+		"id": "R-Defense-MRLHvy",
+		"msgName": "RES_EMP_MRL",
+		"name": "Heavy Rocket Battery",
+		"redStructures": [
+			"Emplacement-MRL-pit"
+		],
+		"requiredResearch": [
+			"R-Defense-HardcreteWall",
+			"R-Wpn-Rocket02-MRLHvy"
+		],
+		"researchPoints": 1300,
+		"researchPower": 67,
+		"resultStructures": [
+			"Emplacement-MRLHvy-pit"
+		],
+		"statID": "Emplacement-MRLHvy-pit"
 	},
 	"R-Defense-MortarPit": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -851,6 +896,9 @@
 		"id": "R-Defense-Pillbox04",
 		"msgName": "RES_PB_LC",
 		"name": "Light Cannon Bunker",
+		"redStructures": [
+			"Cannon-Emplacement"
+		],
 		"requiredResearch": [
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Cannon1Mk1"
@@ -867,6 +915,9 @@
 		"id": "R-Defense-Pillbox05",
 		"msgName": "RES_PB_FL",
 		"name": "Flamer Bunker",
+		"redStructures": [
+			"Flamer-Emplacement"
+		],
 		"requiredResearch": [
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Flamer01Mk1"
@@ -979,6 +1030,7 @@
 	"R-Defense-Tower06": {
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-Tower06",
+		"keyTopic": 1,
 		"msgName": "RES_EMP_PODTOW",
 		"name": "Mini-Rocket Tower",
 		"requiredResearch": [
@@ -2842,6 +2894,25 @@
 		],
 		"statID": "Rocket-MRL"
 	},
+	"R-Wpn-Rocket02-MRLHvy": {
+		"iconID": "IMAGE_RES_WEAPONTECH",
+		"id": "R-Wpn-Rocket02-MRLHvy",
+		"keyTopic": 1,
+		"msgName": "RES_W_RK_MRL2",
+		"name": "Heavy Rocket Array",
+		"redComponents": [
+			"Rocket-MRL"
+		],
+		"requiredResearch": [
+			"R-Wpn-Rocket02-MRL"
+		],
+		"researchPoints": 3600,
+		"researchPower": 123,
+		"resultComponents": [
+			"Rocket-MRL-Hvy"
+		],
+		"statID": "Rocket-MRL-Hvy"
+	},
 	"R-Wpn-Rocket03-HvAT": {
 		"iconID": "IMAGE_RES_WEAPONTECH",
 		"id": "R-Wpn-Rocket03-HvAT",
@@ -3576,6 +3647,7 @@
 	"R-Sys-Sensor-Tower02": {
 		"iconID": "IMAGE_RES_SYSTEMTECH",
 		"id": "R-Sys-Sensor-Tower02",
+		"keyTopic": 1,
 		"msgName": "RES_SY_STW2",
 		"name": "Hardened Sensor Tower",
 		"redStructures": [

@@ -690,6 +690,17 @@
             "CyborgChaingun"
         ]
     },
+    "CyborgHvyChain": {
+        "available": true,
+        "body": "CyborgLightBody",
+        "id": "CyborgHvyChain",
+        "name": "Heavy Machinegunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "CyborgHeavyChaingun"
+        ]
+    },
     "CyborgFlamer01Grd": {
         "available": true,
         "body": "CyborgLightBody",

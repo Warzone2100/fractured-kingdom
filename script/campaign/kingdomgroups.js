@@ -978,7 +978,7 @@ function spawnTransportDroids(player, pos)
 		if (gameState.coalition.allianceState !== "ALLIED")
 		{
 			droidPool = [cTempl.colpod, cTempl.colsar, cTempl.commcan, cTempl.comhmg]; // Tanks
-			droidPool = droidPool.concat([cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybgr]); // Cyborgs
+			droidPool = droidPool.concat([cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybgr]); // Cyborgs
 			if (difficulty === MEDIUM)
 			{
 				droidPool.push(cTempl.comsensht); // Add Sensor (halftrack)
@@ -1014,7 +1014,7 @@ function spawnTransportDroids(player, pos)
 			}
 			else
 			{
-				droidPool.push(cTempl.cybmg); // Add Machinegunner
+				droidPool.push(cTempl.cybhg); // Add Heavy Machinegunner
 			}
 			if (camIsResearched("R-Wpn-AAGun04"))
 			{
@@ -1661,6 +1661,7 @@ function setupRoyalistAssaults()
 				cybThrottle = camChangeOnDiff(camSecondsToMilliseconds(30));
 				if (difficulty >= MEDIUM) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romrmorht, cTempl.romrmort);
 				if (difficulty >= HARD) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.cybla, cTempl.scytk);
+				if (difficulty >= HARD) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.rommrat, cTempl.rohhrat);
 				if (difficulty === INSANE || ALLOW_TWIN_ASSAULT) mainTemplates = camArrayReplaceWith(mainTemplates, cTempl.romagt, cTempl.rohtagt);
 				break;
 			case "MIXED":
@@ -2371,6 +2372,10 @@ function updateAllyTemplates()
 		{
 			cmg = cTempl.cybag; // Assault Gunner Cyborg
 		}
+		else if (camIsResearched("R-Cyborg-Wpn-HvyMG"))
+		{
+			cmg = cTempl.cybhg; // Heavy Machinegunner Cyborg
+		}
 		// Cannon cyborg
 		if (camIsResearched("R-Cyborg-Hvywpn-HPV"))
 		{
@@ -2444,7 +2449,7 @@ function updateAllyTemplates()
 		// let vrocalt = cTempl.amlpodv; // Rocket vtol (alt)
 
 		let sens = cTempl.ammsens; // Sensor tank (never changes)
-		let mra = cTempl.ammmra; // MRA tank (never changes)
+		let hra = cTempl.amhhra; // HRA tank (never changes)
 		let rip = cTempl.amhrip; // Ripple Rocket tank (never changes)
 		let vbb = cTempl.amlbbv; // Bunker Buster vtol (never changes)
 
@@ -2509,8 +2514,8 @@ function updateAllyTemplates()
 		// 	vrocalt = cTempl.ammtkv; // Tank Killer Cobra VTOL
 		// }
 
-		camSetFactoryTemplates("amphosMainFactory1", [ roc, mg, rocalt, mra ], camChangeOnDiff(camSecondsToMilliseconds(55), true));
-		camSetFactoryTemplates("amphosMainFactory2", [ mra, bb, sens, rip, aa ], camChangeOnDiff(camSecondsToMilliseconds(45), true));
+		camSetFactoryTemplates("amphosMainFactory1", [ roc, mg, rocalt, hra ], camChangeOnDiff(camSecondsToMilliseconds(55), true));
+		camSetFactoryTemplates("amphosMainFactory2", [ hra, bb, sens, rip, aa ], camChangeOnDiff(camSecondsToMilliseconds(45), true));
 		camSetFactoryTemplates("amphosVtolFactory", [ vroc, vmg, vroc, vbb, vroc ], camChangeOnDiff(camSecondsToMilliseconds(35), true));
 	}
 
@@ -2522,7 +2527,7 @@ function updateAllyTemplates()
 		let canalt = cTempl.hemmcanht; // Cannon tank (alt)
 		let rep = cTempl.hellrep; // Repair tank
 		let aa = cTempl.hemlaa; // AA tank
-		let cmg = cTempl.cybmg; // MG cyborg
+		let cmg = cTempl.cybhg; // MG cyborg
 		let croc = cTempl.cybca; // Rocket cyborg
 		let cflam = cTempl.cybfl; // Flamer cyborg
 
@@ -2628,7 +2633,7 @@ function updateAllyTemplates()
 		let rocalt = cTempl.colpod; // Rocket tank (alt)
 		let can = cTempl.commcan; // Cannon tank
 		let aa = cTempl.comhaa; // AA tank
-		let cmg = cTempl.cybmg; // MG cyborg
+		let cmg = cTempl.cybhg; // MG cyborg
 		let ccan = cTempl.scymc; // Cannon cyborg
 		let ccanalt = cTempl.cybca; // Cannon cyborg (alt)
 		let cflam = cTempl.cybfl; // Flamer cyborg

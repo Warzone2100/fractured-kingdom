@@ -449,7 +449,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Flamer",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_CANN": {
@@ -460,7 +460,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Light Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_HFLA": {
@@ -471,7 +471,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Inferno Flamer",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_ROCTOW": {
@@ -657,6 +657,44 @@
             "Has a long weapon range",
             "Must be stationary to fire",
             "Unable to fire at enemies that are within a close proximity"
+        ]
+    },
+    "RES_CYW_HMG": {
+        "id": "RES_CYW_HMG",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_droid.ogg",
+        "text": [
+            "Armed with Cyborg Heavy Machinegun",
+            "Effective against: Infantry and wheeled vehicles",
+            "Ineffective against: Structures and tracked vehicles",
+            "Can attack aerial targets",
+            "Obsoletes and replaces Machinegunner Cyborg",
+            "Requires Cyborg factory to produce"
+        ]
+    },
+    "RES_W_RK_MRL2": {
+        "id": "RES_W_RK_MRL2",
+        "imdName": "MICAPSUL.PIE",
+        "sequenceName": "res_weapons.ogg",
+        "text": [
+            "New Weapon Turret Available",
+            "Short-ranged artillery firing salvoes of high-explosive rockets",
+            "Effective against: Cyborgs, Hover vehicles and structures",
+            "Ineffective against: Tracked vehicles and bunkers",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Mini-Rocket Array",
+        ]
+    },
+    "RES_EMP_MRLHVY": {
+        "id": "RES_EMP_MRL",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Mini-rocket armored strongpoint",
+            "Assigned automatically to nearest sensor or CB tower",
+            "Defensive Strength: Medium"
         ]
     }
 }

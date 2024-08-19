@@ -626,7 +626,7 @@ function coalitionEvac()
 		// On Hard+, the transport also drops some Coalition units to fight the player
 		const droidList = [];
 		const dropPos = camMakePos("resTransSpawn");
-		const spawnList = [cTempl.cybmg, cTempl.cybmg, cTempl.cybmg, cTempl.cybmg];
+		const spawnList = [cTempl.cybhg, cTempl.cybhg, cTempl.cybhg, cTempl.cybhg];
 		if (difficulty === INSANE) spawnList.push(cTempl.cybgr, cTempl.cybgr, cTempl.commcan);
 
 		for (const template of spawnList)
@@ -1130,6 +1130,7 @@ function allyAmphos()
 	enableResearch("R-Wpn-Rocket-LtA-TMk1", CAM_HUMAN_PLAYER); // Sarissa
 	enableResearch("R-Wpn-Rocket02-MRL", CAM_HUMAN_PLAYER); // Mini-Rocket Array
 	enableResearch("R-Wpn-Rocket03-HvAT", CAM_HUMAN_PLAYER); // Bunker Buster
+	enableResearch("R-Wpn-Rocket02-MRLHvy", CAM_HUMAN_PLAYER); // Heavy Rocket Array
 	enableResearch("R-Wpn-Rocket01-LtAT", CAM_HUMAN_PLAYER); // Lancer
 	camRemoveArtifact("royLancerTow1");
 	camRemoveArtifact("royLancerTow2");
@@ -1159,6 +1160,7 @@ function allyAmphos()
 	camRemoveArtifact("ampAASite");
 	camRemoveArtifact("ampPowerGen");
 	camRemoveArtifact("amphosVtolFactory");
+	camRemoveArtifact("amphosMainFactory1");
 	camRemoveArtifact("amphosMainFactory2");
 	camRemoveArtifact("ampHQ");
 
@@ -1323,6 +1325,7 @@ function aggroAmphos()
 
 	// Update the templates in AMPHOS factories
 	let ampMainTemplates1 = [ cTempl.ammhmg, cTempl.ammmra, cTempl.amlpod, cTempl.ammsens ];
+	if (difficulty >= MEDIUM) ampMainTemplates1 = camArrayReplaceWith(ampMainTemplates1, cTempl.ammmra, cTempl.amhhra);
 	if (difficulty >= MEDIUM) ampMainTemplates1.push(cTempl.amhrip);
 	if (difficulty >= HARD) ampMainTemplates1 = camArrayReplaceWith(ampMainTemplates1, cTempl.amlpod, cTempl.ammpod);
 	if (difficulty === INSANE) ampMainTemplates1.push(cTempl.amhtk);
@@ -1647,6 +1650,7 @@ function aggroHellraisers()
 	if (difficulty === INSANE) helFactoryTemplates = camArrayReplaceWith(helFactoryTemplates, cTempl.helsensht, cTempl.hemsensht);
 	let helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
 	if (difficulty >= HARD) helCybTemplates1 = camArrayReplaceWith(helCybTemplates1, cTempl.cybfl, cTempl.cybth);
+	if (difficulty >= HARD) helCybTemplates1 = camArrayReplaceWith(helCybTemplates1, cTempl.cybmg, cTempl.cybhg);
 	let helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 	if (difficulty >= HARD) helCybTemplates2 = camArrayReplaceWith(helCybTemplates2, cTempl.cybfl, cTempl.cybth);
 	if (difficulty >= MEDIUM && camIsResearched("R-Struc-VTOLFactory")) helFactoryTemplates.push(cTempl.hemlaa);
@@ -2414,9 +2418,11 @@ function setPhaseThree()
 	if (difficulty >= MEDIUM) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rolhmgt, cTempl.romagt);
 	if (difficulty >= MEDIUM) royCentralFactoryTemplates.push(cTempl.romacant);
 	if (difficulty >= HARD) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rollant, cTempl.romtkt);
+	if (difficulty >= HARD) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rommrat, cTempl.rohhrat);
 	const royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 	// if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohbalt);
 	const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+	if (difficulty >= MEDIUM) royHoverFactoryTemplates = camArrayReplaceWith(royHoverFactoryTemplates, cTempl.rommrah, cTempl.rohhrah);
 	if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 	let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 	if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
@@ -2769,6 +2775,7 @@ camAreaEvent("royalistOuterBase", function(droid)
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohhcant);
 		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
+		if (difficulty >= MEDIUM) royHoverFactoryTemplates = camArrayReplaceWith(royHoverFactoryTemplates, cTempl.rommrah, cTempl.rohhrah);
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rohhcanh);
 		const royMainFactoryTemplates = [ cTempl.romacant, cTempl.rohtacant, cTempl.romsenst, cTempl.romtkt, cTempl.romrmort, cTempl.rohtagt, cTempl.rominft ];
 		if (difficulty >= MEDIUM) royMainFactoryTemplates.push(cTempl.rohraat);
@@ -2822,6 +2829,7 @@ function royOuterBaseClear()
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.romrmorht, cTempl.romrmort);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rohhcant);
 		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+		if (difficulty >= MEDIUM) royHoverFactoryTemplates = camArrayReplaceWith(royHoverFactoryTemplates, cTempl.rommrah, cTempl.rohhrah);
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 		if (difficulty >= MEDIUM) mainVtolTemplates.push(cTempl.rolbbv);
@@ -3367,9 +3375,10 @@ function updateAlliedStructs(resName)
 		case "R-Struc-Research-Module": // Research Module
 			oldStruct = "A0ResearchFacility";
 			break;
-		case "R-Sys-Sensor-Tower02": // Hardened Sensor Tower
-			oldStruct = "Sys-SensoTower01";
-			newStruct = "Sys-SensoTower02"; // Sensor Tower -> Hardened Sensor Tower
+		case "R-Defense-HardcreteWall": // Hardcrete
+			 // Flamer Emplacement -> Flamer Bunker, Cannon Emplacement -> Cannon Bunker, MRP Guard Tower -> MRP Tower, Sensor Tower -> Hardened Sensor Tower
+			oldStruct = ["Flamer-Emplacement", "Cannon-Emplacement", "GuardTowerMRP", "Sys-SensoTower01"];
+			oldStruct = ["PillBox5", "PillBox4", "GuardTower6", "Sys-SensoTower02"];
 			break;
 		// Defensive Structures
 		// Miscellaneous
@@ -3440,9 +3449,13 @@ function updateAlliedStructs(resName)
 				camTruckObsoleteStructure(CAM_THE_RESISTANCE, "Emplacement-RotMor", "Emplacement-Rocket06-IDF"); // Pepperpot Pit -> Ripple Rocket Battery
 			}
 			break;
+		case "R-Wpn-Rocket02-MRLHvy": // Heavy Rocket Array
+			oldStruct = "Emplacement-MRL-pit";
+			newStruct = "Emplacement-MRLHvy-pit"; // Mini-Rocket Battery -> Heavy Rocket Battery
+			break;
 		case "R-Wpn-Rocket07-Tank-Killer": // Tank Killer
 			oldStruct = ["WallTower06", "PillBoxLance"];
-			newStruct = ["WallTower-HvATrocket", "PillBoxTK"];; // Lancer Hardpoint -> Tank Killer Hardpoint, Lancer Bunker -> Tank Killer Bunker
+			newStruct = ["WallTower-HvATrocket", "PillBoxTK"]; // Lancer Hardpoint -> Tank Killer Hardpoint, Lancer Bunker -> Tank Killer Bunker
 			break;
 		// Howitzers (Resistance only)
 		case "R-Wpn-HowitzerMk1": // Howitzer

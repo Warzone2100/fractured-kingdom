@@ -9,6 +9,7 @@ cybca: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "CyborgCannon" }, //
 cybfl: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "CyborgFlamer01" }, // Flamer Cyborg
 cybla: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "CyborgRocket" }, // Lancer Cyborg
 cybgr: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "Cyb-Wpn-Grenade" }, // Grenadier Cyborg
+cybhg: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "CyborgHeavyChaingun" }, // Heavy Machinegunner Cyborg
 cybth: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "Cyb-Wpn-Thermite" }, // Thermite Flamer Cyborg
 cybag: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "CyborgRotMG" }, // Assault Gunner Cyborg
 scymc: { body: "CyborgHeavyBody", prop: "CyborgLegs", weap: "Cyb-Hvywpn-Mcannon" }, // Super Heavy-Gunner Cyborg
@@ -85,6 +86,8 @@ rehbb: { body: "Body11ABT", prop: "HalfTrack", weap: "Rocket-BB" }, // Bunker Bu
 remlan: { body: "Body5REC", prop: "HalfTrack", weap: "Rocket-LtA-T" }, // Lancer Cobra Half-tracks
 rehlan: { body: "Body11ABT", prop: "HalfTrack", weap: "Rocket-LtA-T" }, // Lancer Python Half-tracks
 remmra: { body: "Body5REC", prop: "HalfTrack", weap: "Rocket-MRL" }, // Mini-Rocket Array Cobra Half-tracks
+remhra: { body: "Body5REC", prop: "HalfTrack", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Cobra Half-tracks
+rehhra: { body: "Body11ABT", prop: "HalfTrack", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Python Half-tracks
 remtk: { body: "Body5REC", prop: "HalfTrack", weap: "Rocket-HvyA-T" }, // Tank Killer Cobra Half-tracks
 rehtk: { body: "Body11ABT", prop: "HalfTrack", weap: "Rocket-HvyA-T" }, // Tank Killer Python Half-tracks
 rembal: { body: "Body5REC", prop: "HalfTrack", weap: "Rocket-Ballista" }, // Ballista Cobra Half-tracks
@@ -116,6 +119,7 @@ ammmra: { body: "Body5REC", prop: "hover01", weap: "Rocket-MRL" }, // Mini-Rocke
 ammlan: { body: "Body5REC", prop: "hover01", weap: "Rocket-LtA-T" }, // Lancer Cobra Hover
 amhlan: { body: "Body11ABT", prop: "hover01", weap: "Rocket-LtA-T" }, // Lancer Python Hover
 amhbb: { body: "Body11ABT", prop: "hover01", weap: "Rocket-BB" }, // Bunker Buster Python Hover
+amhhra: { body: "Body5REC", prop: "hover01", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Python Hover
 amhtk: { body: "Body11ABT", prop: "hover01", weap: "Rocket-HvyA-T" }, // Tank Killer Python Hover
 amhbal: { body: "Body11ABT", prop: "hover01", weap: "Rocket-Ballista" }, // Ballista Python Hover
 
@@ -263,6 +267,8 @@ romtkt: { body: "Body7ABT", prop: "tracked01", weap: "Rocket-HvyA-T" }, // Tank 
 romtkh: { body: "Body7ABT", prop: "hover01", weap: "Rocket-HvyA-T" }, // Tank Killer Retribution Hover
 rohtkt: { body: "Body10MBT", prop: "tracked01", weap: "Rocket-HvyA-T" }, // Tank Killer Vengeance Tracks
 rohtkh: { body: "Body10MBT", prop: "hover01", weap: "Rocket-HvyA-T" }, // Tank Killer Vengeance Hover
+rohhrat: { body: "Body10MBT", prop: "tracked01", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Vengeance Tracks
+rohhrah: { body: "Body10MBT", prop: "hover01", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Vengeance Hover
 rohbalt: { body: "Body10MBT", prop: "tracked01", weap: "Rocket-Ballista" }, // Ballista Vengeance Tracks
 rohbalh: { body: "Body10MBT", prop: "hover01", weap: "Rocket-Ballista" }, // Ballista Vengeance Hover
 

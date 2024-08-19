@@ -5,6 +5,8 @@ const ROYALIST_GARRISON_SIZE = difficulty + 1;
 const mis_playerStructs = [
 		"A0CommandCentre", "A0PowerGenerator", "A0ResourceExtractor",
 		"A0ResearchFacility", "A0LightFactory", "A0CyborgFactory",
+		// Also some starting defensive structures
+		"Flamer-Emplacement", "Cannon-Emplacement", "GuardTowerMRP",
 ];
 
 // Player starting research
@@ -429,16 +431,16 @@ var structSets = {
 	resistanceStructs: [
 		{stat: "A0TankTrap", x: 35, y: 195}, {stat: "A0TankTrap", x: 35, y: 196}, {stat: "A0TankTrap", x: 35, y: 197},
 		{stat: "A0TankTrap", x: 33, y: 201}, {stat: "A0TankTrap", x: 33, y: 202}, {stat: "A0TankTrap", x: 33, y: 203},
-		{stat: "PillBox5", x: 33, y: 198, rot: 1}, {stat: "WallTower02", x: 32, y: 194, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 32, y: 195, rot: 1},
+		{stat: "Flamer-Emplacement", x: 33, y: 198, rot: 1}, {stat: "WallTower02", x: 32, y: 194, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 32, y: 195, rot: 1},
 		{stat: "A0HardcreteMk1Gate", x: 31, y: 199, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 31, y: 200, rot: 1}, {stat: "WallTower02", x: 31, y: 201, rot: 1},
 		{stat: "A0HardcreteMk1Wall", x: 31, y: 202, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 31, y: 203, rot: 1}, {stat: "WallTower02", x: 31, y: 204, rot: 1},
 		{stat: "Sys-SensoTower01", x: 31, y: 197}, {stat: "Emplacement-MortarPit01", x: 27, y: 195}, {stat: "Emplacement-MortarPit01", x: 29, y: 195},
-		{stat: "AASite-QuadMg1", x: 24, y: 192, rot: 3}, {stat: "AASite-QuadMg1", x: 22, y: 196, rot: 3}, {stat: "PillBox5", x: 21, y: 198},
-		{stat: "PillBox4", x: 21, y: 192}, {stat: "A0CyborgFactory", x: 13, y: 199}, {stat: "GuardTower6", x: 16, y: 205, rot: 2},
+		{stat: "AASite-QuadMg1", x: 24, y: 192, rot: 3}, {stat: "AASite-QuadMg1", x: 22, y: 196, rot: 3}, {stat: "Flamer-Emplacement", x: 21, y: 198},
+		{stat: "Cannon-Emplacement", x: 21, y: 192}, {stat: "A0CyborgFactory", x: 13, y: 199}, {stat: "GuardTowerMRP", x: 16, y: 205, rot: 2},
 		{stat: "A0PowerGenerator", x: 19, y: 192, mods: 0}, {stat: "A0ComDroidControl", x: 16, y: 192}, {stat: "A0PowerGenerator", x: 13, y: 192, mods: 0},
 		{stat: "A0ResearchFacility", x: 18, y: 195, mods: 0}, {stat: "A0RepairCentre3", x: 13, y: 196}, {stat: "A0CyborgFactory", x: 11, y: 199},
 		{stat: "A0LightFactory", x: 18, y: 198, mods: 1}, {stat: "PillBox6", x: 9, y: 200, rot: 1}, {stat: "PillBox4", x: 11, y: 201, rot: 1},
-		{stat: "A0ResourceExtractor", x: 6, y: 200}, {stat: "A0ResourceExtractor", x: 6, y: 203}, {stat: "GuardTower6", x: 30, y: 208, rot: 2},
+		{stat: "A0ResourceExtractor", x: 6, y: 200}, {stat: "A0ResourceExtractor", x: 6, y: 203}, {stat: "GuardTowerMRP", x: 30, y: 208, rot: 2},
 		{stat: "WallTower02", x: 28, y: 207, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 27, y: 207, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 26, y: 207, rot: 2},
 		{stat: "A0HardcreteMk1Wall", x: 25, y: 207, rot: 2}, {stat: "WallTower02", x: 24, y: 207, rot: 2}, {stat: "PillBox2", x: 19, y: 202},
 		{stat: "A0TankTrap", x: 21, y: 206}, {stat: "A0TankTrap", x: 22, y: 206}, {stat: "GuardTower2", x: 21, y: 207, rot: 2},
@@ -498,9 +500,9 @@ var structSets = {
 		{stat: "WallTower06", x: 220, y: 163}, {stat: "A0HardcreteMk1Wall", x: 216, y: 160, rot: 1}, {stat: "AASite-QuadBof", x: 223, y: 160, rot: 2},
 		{stat: "A0HardcreteMk1Wall", x: 221, y: 163}, {stat: "WallTower06", x: 222, y: 163}, {stat: "WallTower06", x: 216, y: 161, rot: 3},
 		{stat: "WallTower06", x: 216, y: 159, rot: 3}, {stat: "Emplacement-Rocket06-IDF", x: 218, y: 160}, {stat: "AASite-QuadBof", x: 220, y: 160, rot: 2},
-		{stat: "Emplacement-MRL-pit", x: 226, y: 161}, {stat: "GuardTower6", x: 228, y: 160, rot: 1}, {stat: "Sys-CB-Tower01", x: 225, y: 159},
+		{stat: "Emplacement-MRLHvy-pit", x: 226, y: 161}, {stat: "GuardTower6", x: 228, y: 160, rot: 1}, {stat: "Sys-CB-Tower01", x: 225, y: 159},
 		{stat: "A0RepairCentre3", x: 222, y: 157}, {stat: "Emplacement-Rocket06-IDF", x: 225, y: 155}, {stat: "PillBox6", x: 223, y: 152, rot: 2},
-		{stat: "GuardTower6", x: 217, y: 156, rot: 3}, {stat: "Emplacement-MRL-pit", x: 218, y: 154, rot: 3}, {stat: "A0ResourceExtractor", x: 222, y: 155},
+		{stat: "GuardTower6", x: 217, y: 156, rot: 3}, {stat: "Emplacement-MRLHvy-pit", x: 218, y: 154, rot: 3}, {stat: "A0ResourceExtractor", x: 222, y: 155},
 		{stat: "WallTower01", x: 219, y: 152, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 220, y: 152}, {stat: "WallTower01", x: 221, y: 152, rot: 2},
 		{stat: "PillBox6", x: 226, y: 153, rot: 2}, {stat: "WallTower01", x: 228, y: 153, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 228, y: 154, rot: 1},
 		{stat: "WallTower01", x: 228, y: 155, rot: 1}, {stat: "GuardTower5", x: 224, y: 146, rot: 3}, {stat: "WallTower06", x: 240, y: 164},
@@ -509,7 +511,7 @@ var structSets = {
 		{stat: "WallTower06", x: 236, y: 163, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 236, y: 162, rot: 1}, {stat: "WallTower01", x: 236, y: 161, rot: 3},
 		{stat: "A0HardcreteMk1Wall", x: 236, y: 160, rot: 1}, {stat: "A0ResearchFacility", x: 240, y: 158, mods: 1}, {stat: "WallTower06", x: 243, y: 159, rot: 1},
 		{stat: "A0HardcreteMk1Wall", x: 236, y: 159, rot: 1}, {stat: "WallTower01", x: 236, y: 158, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 236, y: 157, rot: 1},
-		{stat: "WallTower06", x: 236, y: 156, rot: 3}, {stat: "Emplacement-MRL-pit", x: 237, y: 155, rot: 2}, {stat: "A0CommandCentre", x: 240, y: 161},
+		{stat: "WallTower06", x: 236, y: 156, rot: 3}, {stat: "Emplacement-MRLHvy-pit", x: 237, y: 155, rot: 2}, {stat: "A0CommandCentre", x: 240, y: 161},
 		{stat: "AASite-QuadBof", x: 242, y: 162}, {stat: "WallTower06", x: 243, y: 161, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 243, y: 160, rot: 1},
 		{stat: "WallTower-DoubleAAGun", x: 244, y: 158, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 244, y: 157, rot: 1}, {stat: "WallTower-DoubleAAGun", x: 244, y: 156, rot: 1},
 		{stat: "WallTower01", x: 241, y: 155, rot: 2}, {stat: "A0HardcreteMk1Gate", x: 242, y: 155}, {stat: "WallTower01", x: 243, y: 155, rot: 2},
@@ -533,7 +535,7 @@ var structSets = {
 		{stat: "A0HardcreteMk1Wall", x: 239, y: 138}, {stat: "A0HardcreteMk1Gate", x: 243, y: 138}, {stat: "WallTower06", x: 244, y: 135, rot: 3},
 		{stat: "A0HardcreteMk1Gate", x: 240, y: 138}, {stat: "A0HardcreteMk1Gate", x: 241, y: 138}, {stat: "WallTower01", x: 242, y: 138, rot: 2},
 		{stat: "WallTower-DoubleAAGun", x: 244, y: 138}, {stat: "A0HardcreteMk1Wall", x: 244, y: 137, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 244, y: 136, rot: 1},
-		{stat: "A0HardcreteMk1Wall", x: 244, y: 137, rot: 1}, {stat: "Emplacement-MRL-pit", x: 245, y: 133, rot: 2}, {stat: "GuardTower6", x: 243, y: 133, rot: 3},
+		{stat: "A0HardcreteMk1Wall", x: 244, y: 137, rot: 1}, {stat: "Emplacement-MRLHvy-pit", x: 245, y: 133, rot: 2}, {stat: "GuardTower6", x: 243, y: 133, rot: 3},
 		{stat: "GuardTower6", x: 239, y: 135, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 243, y: 131}, {stat: "WallTower01", x: 242, y: 134, rot: 2},
 		{stat: "PillBox1", x: 246, y: 130}, {stat: "WallTower06", x: 245, y: 131, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 244, y: 131},
 		{stat: "WallTower06", x: 242, y: 131, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 242, y: 132, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 242, y: 133, rot: 1},
@@ -550,9 +552,9 @@ var structSets = {
 		{stat: "AASite-QuadBof", x: 213, y: 139, rot: 3}, {stat: "WallTower06", x: 211, y: 134, rot: 3}, {stat: "A0HardcreteMk1Gate", x: 217, y: 128},
 		{stat: "WallTower06", x: 211, y: 137, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 211, y: 136, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 211, y: 135, rot: 3},
 		{stat: "Sys-SensoTower02", x: 213, y: 131}, {stat: "GuardTower6", x: 214, y: 130, rot: 2}, {stat: "WallTower06", x: 216, y: 128, rot: 2},
-		{stat: "WallTower06", x: 218, y: 128, rot: 2}, {stat: "Emplacement-MRL-pit", x: 217, y: 127, rot: 2}, {stat: "WallTower06", x: 219, y: 130, rot: 1},
+		{stat: "WallTower06", x: 218, y: 128, rot: 2}, {stat: "Emplacement-MRLHvy-pit", x: 217, y: 127, rot: 2}, {stat: "WallTower06", x: 219, y: 130, rot: 1},
 		{stat: "A0HardcreteMk1Wall", x: 219, y: 131, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 223, y: 134}, {stat: "Sys-CB-Tower01", x: 217, y: 135},
-		{stat: "WallTower06", x: 219, y: 132, rot: 1}, {stat: "Emplacement-MRL-pit", x: 221, y: 133, rot: 2}, {stat: "WallTower06", x: 222, y: 134, rot: 2},
+		{stat: "WallTower06", x: 219, y: 132, rot: 1}, {stat: "Emplacement-MRLHvy-pit", x: 221, y: 133, rot: 2}, {stat: "WallTower06", x: 222, y: 134, rot: 2},
 		{stat: "WallTower06", x: 224, y: 134, rot: 2}, {stat: "AASite-QuadBof", x: 220, y: 135}, {stat: "A0ComDroidControl", x: 218, y: 138},
 		{stat: "A0ResourceExtractor", x: 217, y: 133}, {stat: "Emplacement-Rocket06-IDF", x: 215, y: 133, rot: 3}, {stat: "Emplacement-Rocket06-IDF", x: 215, y: 135, rot: 3},
 		{stat: "Emplacement-Rocket06-IDF", x: 215, y: 137, rot: 3}
@@ -561,25 +563,25 @@ var structSets = {
 	hellraiserStructs: [
 		{stat: "AASite-QuadMg1", x: 61, y: 153, rot: 1}, {stat: "A0CyborgFactory", x: 22, y: 135, rot: 3}, {stat: "PillBox2", x: 90, y: 151},
 		{stat: "PillBox4", x: 93, y: 152, rot: 2}, {stat: "A0TankTrap", x: 67, y: 154}, {stat: "GuardTower1", x: 34, y: 128, rot: 3},
-		{stat: "PillBox4", x: 53, y: 174}, {stat: "A0TankTrap", x: 66, y: 153}, {stat: "A0TankTrap", x: 65, y: 154},
-		{stat: "A0ResourceExtractor", x: 66, y: 154}, {stat: "PillBox5", x: 40, y: 156, rot: 1}, {stat: "PillBox5", x: 38, y: 161, rot: 1},
+		{stat: "Cannon-Emplacement", x: 53, y: 174}, {stat: "A0TankTrap", x: 66, y: 153}, {stat: "A0TankTrap", x: 65, y: 154},
+		{stat: "A0ResourceExtractor", x: 66, y: 154}, {stat: "Flamer-Emplacement", x: 40, y: 156, rot: 1}, {stat: "Flamer-Emplacement", x: 38, y: 161, rot: 1},
 		{stat: "A0TankTrap", x: 66, y: 155}, {stat: "A0TankTrap", x: 50, y: 167}, {stat: "A0TankTrap", x: 49, y: 167},
 		{stat: "Tower-Projector", x: 28, y: 141, rot: 1}, {stat: "GuardTower1", x: 13, y: 142}, {stat: "GuardTower2", x: 48, y: 169, rot: 2},
 		{stat: "PillBox5", x: 57, y: 147}, {stat: "PillBox2", x: 60, y: 144}, {stat: "PillBox4", x: 16, y: 162, rot: 2},
-		{stat: "A0RepairCentre3", x: 19, y: 139}, {stat: "PillBox1", x: 17, y: 118}, {stat: "PillBox5", x: 49, y: 173, rot: 1},
+		{stat: "A0RepairCentre3", x: 19, y: 139}, {stat: "PillBox1", x: 17, y: 118}, {stat: "Flamer-Emplacement", x: 49, y: 173, rot: 1},
 		{stat: "GuardTower2", x: 44, y: 167, rot: 3}, {stat: "GuardTower2", x: 49, y: 155},
-		{stat: "GuardTower2", x: 55, y: 147, rot: 2}, {stat: "PillBox4", x: 55, y: 167, rot: 2}, {stat: "PillBox4", x: 96, y: 160, rot: 3},
+		{stat: "GuardTower2", x: 55, y: 147, rot: 2}, {stat: "Cannon-Emplacement", x: 55, y: 167, rot: 2}, {stat: "PillBox4", x: 96, y: 160, rot: 3},
 		{stat: "PillBox2", x: 12, y: 163}, {stat: "PillBox2", x: 19, y: 160}, {stat: "PillBox5", x: 61, y: 161, rot: 3},
 		{stat: "PillBox5", x: 50, y: 160}, {stat: "GuardTower2", x: 53, y: 168, rot: 2}, {stat: "GuardTower2", x: 67, y: 157},
 		{stat: "GuardTower2", x: 86, y: 152, rot: 2}, {stat: "GuardTower2", x: 71, y: 147, rot: 1}, {stat: "GuardTower2", x: 33, y: 157, rot: 3},
 		{stat: "GuardTower2", x: 33, y: 160, rot: 3}, {stat: "Emplacement-MortarPit-Incendiary", x: 35, y: 158}, {stat: "Sys-SensoTower01", x: 38, y: 158},
-		{stat: "PillBox5", x: 60, y: 155, rot: 2}, {stat: "PillBox5", x: 73, y: 151, rot: 1}, {stat: "GuardTower2", x: 54, y: 151},
-		{stat: "PillBox5", x: 84, y: 149}, {stat: "PillBox5", x: 65, y: 145, rot: 1},
+		{stat: "Flamer-Emplacement", x: 60, y: 155, rot: 2}, {stat: "Flamer-Emplacement", x: 73, y: 151, rot: 1}, {stat: "GuardTower2", x: 54, y: 151},
+		{stat: "Flamer-Emplacement", x: 84, y: 149}, {stat: "PillBox5", x: 65, y: 145, rot: 1},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 56, y: 149}, {stat: "Sys-SensoTower01", x: 54, y: 148}, {stat: "Sys-SensoTower01", x: 72, y: 149},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 87, y: 154}, {stat: "Emplacement-MortarPit-Incendiary", x: 84, y: 154}, {stat: "Sys-SensoTower01", x: 89, y: 153},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 69, y: 145}, {stat: "PillBox4", x: 70, y: 139, rot: 2}, {stat: "PillBox2", x: 74, y: 139},
 		{stat: "PillBox2", x: 66, y: 138}, {stat: "PillBox5", x: 89, y: 158}, {stat: "PillBox4", x: 28, y: 135, rot: 1},
-		{stat: "Sys-SensoTower01", x: 68, y: 140}, {stat: "PillBox5", x: 76, y: 148}, {stat: "PillBox5", x: 91, y: 162, rot: 3},
+		{stat: "Sys-SensoTower01", x: 68, y: 140}, {stat: "Flamer-Emplacement", x: 76, y: 148}, {stat: "Flamer-Emplacement", x: 91, y: 162, rot: 3},
 		{stat: "PillBox4", x: 26, y: 146}, {stat: "A0CyborgFactory", x: 12, y: 143, rot: 2},
 		{stat: "A0LightFactory", x: 10, y: 134, rot: 1, mods: 2}, {stat: "A0ResearchFacility", x: 16, y: 136, mods: 0}, {stat: "A0ResearchFacility", x: 9, y: 144, mods: 0},
 		{stat: "PillBox1", x: 7, y: 139}, {stat: "GuardTower1", x: 26, y: 123, rot: 1}, {stat: "Sys-SensoTower01", x: 54, y: 178},
@@ -589,7 +591,7 @@ var structSets = {
 		{stat: "A0TankTrap", x: 33, y: 129}, {stat: "Emplacement-MortarPit-Incendiary", x: 18, y: 121}, {stat: "A0TankTrap", x: 38, y: 139},
 		{stat: "GuardTower1", x: 27, y: 140, rot: 1}, {stat: "WallTower02", x: 11, y: 130, rot: 2}, {stat: "AASite-QuadMg1", x: 10, y: 131},
 		{stat: "PillBox1", x: 10, y: 129}, {stat: "PillBox4", x: 44, y: 132}, {stat: "AASite-QuadMg1", x: 35, y: 130, rot: 2},
-		{stat: "PillBox4", x: 19, y: 124}, {stat: "PillBox5", x: 49, y: 177}, {stat: "AASite-QuadMg1", x: 3, y: 126, rot: 2},
+		{stat: "PillBox4", x: 19, y: 124}, {stat: "Flamer-Emplacement", x: 49, y: 177}, {stat: "AASite-QuadMg1", x: 3, y: 126, rot: 2},
 		{stat: "Sys-SensoTower02", x: 16, y: 120}, {stat: "Tower-Projector", x: 15, y: 122}, {stat: "AASite-QuadMg1", x: 30, y: 117, rot: 2},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 28, y: 118}, {stat: "Tower-Projector", x: 42, y: 140}, {stat: "PillBox1", x: 37, y: 136},
 		{stat: "AASite-QuadMg1", x: 22, y: 144, rot: 3}, {stat: "AASite-QuadMg1", x: 22, y: 133}, {stat: "AASite-QuadMg1", x: 18, y: 131},
@@ -1395,6 +1397,7 @@ function initializeGameInfo()
 		"ampAASite": { tech: "R-Wpn-AAGun02", req: "R-Wpn-AAGun03" }, // Cyclone AA (requires Hurricane)
 		"ampPowerGen": { tech: "R-Struc-PowerModuleMk1" }, // Power Module
 		"amphosVtolFactory": { tech: "R-Vehicle-Prop-VTOL" }, // VTOL Propulsion
+		"amphosMainFactory1": { tech: "R-Wpn-Rocket02-MRLHvy", req: "R-Wpn-Rocket02-MRL" }, // Heavy Rocket Array (requires MRA)
 		"amphosMainFactory2": { tech: "R-Wpn-Rocket06-IDF", req: "R-Wpn-Rocket02-MRL" }, // Ripple Rockets (requires MRA)
 		"ampHQ": { tech: "R-Sys-CommandUpgrade01", req: "R-Wpn-Rocket02-MRL" }, // Improved Command-Control Systems
 		// Hellraiser Artifacts
@@ -1490,21 +1493,21 @@ function initializeGameInfo()
 			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
 			helFactoryTemplates = [ cTempl.hehinf, cTempl.hellrep, cTempl.helhmg, cTempl.hemflam, cTempl.hemlcan, cTempl.hehinf ];
-			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates1 = [ cTempl.cybhg, cTempl.cybfl, cTempl.cybfl ];
 			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.cohhcan, cTempl.comhmg, cTempl.comhrepht ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv, cTempl.colpbomv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt/*, cTempl.rohbalt*/ ];
 			royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla, cTempl.scyhc ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.scytk, cTempl.cybag, cTempl.cybth, cTempl.scytk, cTempl.cybag, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
@@ -1525,21 +1528,21 @@ function initializeGameInfo()
 			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
 			helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.helhmg, cTempl.helflam, cTempl.hemlcan, cTempl.hehinf ];
-			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates1 = [ cTempl.cybhg, cTempl.cybfl, cTempl.cybfl ];
 			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft, cTempl.romhrept ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 			royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla, cTempl.scyhc ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
@@ -1565,16 +1568,16 @@ function initializeGameInfo()
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan, cTempl.cohhow ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.romagt, cTempl.rombbt ];
 			royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
 			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla, cTempl.scyhc ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
@@ -1600,16 +1603,16 @@ function initializeGameInfo()
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.rolhmgt ];
 			royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.rolhmgh, cTempl.rommrah ];
 			royMainFactoryTemplates = [ cTempl.rollant, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmorht ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];

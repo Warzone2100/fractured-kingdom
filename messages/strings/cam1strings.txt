@@ -225,7 +225,7 @@ RESHELMSG5			_("Unfortunately, they control the only land routes to get across t
 RESHELMSG6			_("So at some point, we're going to have to deal with them.")
 RESHELMSG7			_("Just be cautious when in their territory, that whole place is one big death trap.")
 RESHELMSG8			_("Those cragged hills don't leave much room for maneuvering around. And the Hellraisers are fanatical about incendiary weapons.")
-RESHELMSG9			_("Their patrols are armed with flamethrowers, and they've placed bunkers around every corner.")
+RESHELMSG9			_("Their patrols are armed with flamethrowers, and they've placed flamers around every corner.")
 RESHELMSG10			_("They've even modified their mortars to leave burning areas where they hit.")
 
 /* Hellraiser Bridge Warning (From Resistance) */
