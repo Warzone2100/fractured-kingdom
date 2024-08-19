@@ -1,0 +1,21 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::eradicating",
+	"title": "Eradicating",
+	"sort": "02",
+	"contents": [
+		"Destroying all units and bases belonging to a faction will eradicate them.",
+		"",
+		"Eradicating a faction will grant you access to all of their resources and technology.",
+		"",
+		"However, fully eradicating a faction can prove to be an incredibly difficult challenge, as you'll have to face everything they have at their disposal.",
+		"",
+		"If a particular faction appears overwhelming, try examining their units and the terrain, and make a strategy to exploit their weaknesses.",
+		"",
+		"Alternatively, you could try entirely different methods, such as placating them with diplomacy, or avoiding them altogether..."
+	],
+	"links": [
+		"wz2100::factions",
+		"wz2100::factions::alliances"
+	]
+}

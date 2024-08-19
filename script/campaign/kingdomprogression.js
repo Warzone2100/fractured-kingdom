@@ -721,6 +721,9 @@ function expandMap()
 	camEnableFactory("royalistAmpRepVtolFactory");
 	camEnableFactory("royalistPortFactory");
 	camEnableFactory("royalistHelRepCybFactory");
+
+	// Add a guide entry on the Resistance
+	queue("camAddResistanceTopics", camSecondsToMilliseconds(4));
 }
 
 // Triggered when the player approaches the Royalist's spy LZ
@@ -1219,6 +1222,10 @@ function allyAmphos()
 
 	// Allow the Royalists to try to rebuild the NW island base
 	camEnableTruck("nwIslandBase");
+
+	// Add a guide entry on AMPHOS
+	queue("camAddAllianceTopics", camSecondsToMilliseconds(4));
+	queue("camAddAmphosTopics", camSecondsToMilliseconds(8));
 }
 
 // Live Queen Reaction
@@ -1594,6 +1601,10 @@ function allyHellraisers()
 	queue("coaPitch", camSecondsToMilliseconds(40));
 	camCallOnce("setPhaseTwo");
 	checkPhaseThree();
+
+	// Add a guide entry on the Hellraisers
+	queue("camAddAllianceTopics", camSecondsToMilliseconds(4));
+	queue("camAddHellraiserTopics", camSecondsToMilliseconds(8));
 }
 
 function aggroHellraisers()
@@ -2164,6 +2175,10 @@ function allyCoalition()
 
 	// Grant vision of all their stuff
 	viewAlliedObjects();
+
+	// Add a guide entry on the Coalition
+	queue("camAddAllianceTopics", camSecondsToMilliseconds(4));
+	queue("camAddCoalitionTopics", camSecondsToMilliseconds(8));
 }
 
 function coaAllyMessage()
@@ -3101,6 +3116,10 @@ function checkErad(player)
 			if (gameState.phase === 0 && !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 			{
 				achievementMessage("First Blood", "Eradicate the Resistance");
+
+				// Add a guide entry on the Resistance
+				queue("camAddEradicationTopics", camSecondsToMilliseconds(4));
+				queue("camAddResistanceTopics", camSecondsToMilliseconds(8));
 			}
 			else if (gameState.phase >= 2 && !allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 			{
@@ -3128,6 +3147,10 @@ function checkErad(player)
 					// Only if the player has allied with anyone
 					queue("royAmphosResponse", camSecondsToMilliseconds(12));
 				}
+
+				// Add a guide entry on AMPHOS
+				queue("camAddEradicationTopics", camSecondsToMilliseconds(4));
+				queue("camAddAmphosTopics", camSecondsToMilliseconds(8));
 			}
 			else
 			{
@@ -3151,6 +3174,10 @@ function checkErad(player)
 					// Tell the player to scrub off
 					coaPitch();
 				}
+
+				// Add a guide entry on the Hellraisers
+				queue("camAddEradicationTopics", camSecondsToMilliseconds(4));
+				queue("camAddHellraiserTopics", camSecondsToMilliseconds(8));
 			}
 			else if (gameState.coalition.allianceState !== "HOSTILE")
 			{
@@ -3176,6 +3203,10 @@ function checkErad(player)
 					// Resistance debrief
 					missionMessage("RESCOAERADMSG", "TRANS");
 				}
+
+				// Add a guide entry on the Coalition
+				queue("camAddEradicationTopics", camSecondsToMilliseconds(4));
+				queue("camAddCoalitionTopics", camSecondsToMilliseconds(8));
 			}
 			break;
 		case CAM_ROYALISTS:

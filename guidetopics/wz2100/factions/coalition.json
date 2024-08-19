@@ -1,0 +1,43 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::coalition",
+	"title": "The Coalition",
+	"sort": "06",
+	"visual": {
+		"droidTemplate": {
+			"body": "Body9REC",
+			"name": "Heavy Cannon Tiger Tracks",
+			"propulsion": "tracked01",
+			"type": "DROID",
+			"weapons": [
+				"Cannon375mmMk1"
+			]
+		}
+	},
+	"contents": [
+		"The Coalition, somewhat similarly to the Resistance, is a conglomerate of the Kingdom's rebels and other smaller factions that have united in opposition to the Queen and her Royalists.",
+		"",
+		"Unlike the Resistance, the Coalition's view themselves as hard core warriors, and pride themselves on their strength and their persistence against the Royalists' near-constant attacks and assaults.",
+		"",
+		"The Coalition has existed in opposition to the Royalists since the old King's death, and the Royalists have viewed the Coalition as their most dire enemy in kind.",
+		"",
+		"The Coalition's leader, Max, acts both as the a political leader, as well as the Coalition's supreme commander.",
+		"",
+		"Even before the King's death, Max had been a known dissident against the Kingdom. After the King's death, the Queen had declared Max as the Royalist's primary enemy.",
+		"",
+		"Although the Coalition has been the primary obstacle against the Royalists, most other factions after the King's death had attempted to avoid the Coalition due to their eccentric leader and overall extreme attitudes.",
+		"",
+		"Yet, as the Royalists reorganized and began reclaiming the Kingdom's territory, most factions were forced to either join the Coalition or attempt to face down the Royalists alone.",
+		"",
+		"Over time, the manpower and resources from the factions that have joined the Coalition all contributed in creating the most powerful faction within the Kingdom, bar only the Royalists themselves.",
+		"",
+		"Yet despite their strength, the Royalists have still proved to be an overwhelming threat to the Coalition's survival, especially after the East Lake Deal.",
+		"",
+		"Due to this, Max has recently been forced to rework his usual stance on diplomacy, and has begun considering alliances without total assimilation under Coalition leadership.",
+		"",
+		"The looming Royalist threat has even forced the Coalition to form an alliance with the previously unapproachable Hellraiser clan..."
+	],
+	"links": [
+		"wz2100::factions"
+	]
+}

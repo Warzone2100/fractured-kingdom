@@ -1,0 +1,55 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::amphos",
+	"title": "AMPHOS",
+	"sort": "04",
+	"visual": {
+		"droidTemplate": {
+			"body": "Body5REC",
+			"name": "Lancer Cobra Hover",
+			"propulsion": "hover01",
+			"type": "DROID",
+			"weapons": [
+				"Rocket-LtA-T"
+			]
+		}
+	},
+	"contents": [
+		"Despite their near omnipresent influence in the eastern sectors of the Kingdom, AMPHOS remains one of its most enigmatic factions.",
+		"",
+		"Unlike every other notable group, AMPHOS is not a native resident of the Kingdom.",
+		"",
+		"Additionally, while AMPHOS does have an executive president, most decisions are made by a bureaucratic-like board of associates, which the president then acts on.",
+		"",
+		"This command structure is unique to AMPHOS, as all other major factions within the Kingdom have organized themselves around a leader and their subordinate officers.",
+		"",
+		"Before the death of the old King, AMPHOS was a part-militia, part-trading group entity that functioned as the main conduit between the old Kingdom and the outside world.",
+		"",
+		"However, once the old Kingdom collapsed, AMPHOS soon shed its economic ties and quickly reformed itself into a massive amphibious military entity (although it mostly kept its command structure).",
+		"",
+		"AMPHOS rapidly sought to overwhelm as much of the now disjointed sections of the Kingdom as it could.",
+		"",
+		"While their forces are known to be less loyal than other factions, and generally display lower levels of morale, AMPHOS attempts to compensate for this by utilizing ambush tactics and striking targets from a safe distance when possible.",
+		"",
+		"Using these strategies, their high agility vehicles, and long-range weapon systems, AMPHOS was able to remain virtually unchallenged as they captured island after island within the East Lake.",
+		"",
+		"Soon, AMPHOS would reach the height of its influence by controlling the entirety of the East Lake, several mainland outposts, and establishing a permanent headquarters within the Kingdom.",
+		"",
+		"However, as the Royalists eventually recovered from the King's death and reorganized themselves around the Queen, AMPHOS would find itself outclassed in land battles outside of the East Lake.",
+		"",
+		"The Royalists, united by their new Queen and eager to reclaim the Kingdom for themselves, launched brutal counter-attacks against AMPHOS.",
+		"",
+		"Soon, AMPHOS would lose nearly all of its land-based outposts to Royalist counter-offensives, which culminated in the Royalists capturing a large island cluster near the northwest edge of the lake.",
+		"",
+		"Defeated at sea and at low morale, the Royalists exploited AMPHOS' command structure to force them into an alliance, known as the East Lake Deal.",
+		"",
+		"With AMPHOS placated, the Royalists were then free to traverse the East Lake and to focus attention on greater threats within the Kingdom.",
+		"",
+		"To AMPHOS however, the East Lake Deal marked a new time of uncertainty.",
+		"",
+		"As the Royalists grew increasingly advanced, AMPHOS has become both more concerned of further Royalist attacks and less confident in its ability to stand against them."
+	],
+	"links": [
+		"wz2100::factions"
+	]
+}

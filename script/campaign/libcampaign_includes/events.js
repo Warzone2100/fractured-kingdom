@@ -185,6 +185,18 @@ function cam_eventDroidBuilt(droid, structure)
 		// Occasionally hint that NEXUS is producing units on Gamma 5.
 		playSound(CAM_PRODUCTION_COMPLETE_SND);
 	}
+	if (droid.player === CAM_HUMAN_PLAYER)
+	{
+		// handling guide topics for built units
+		if (droid.isVTOL)
+		{
+			camCallOnce("__camDoAddVTOLUseTopics");
+		}
+		else if (droid.droidType === DROID_COMMAND)
+		{
+			camCallOnce("__camDoAddCommanderUseTopics");
+		}
+	}
 	if (!camDef(__camFactoryInfo))
 	{
 		return;
