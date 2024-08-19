@@ -483,6 +483,8 @@ function allyResistance()
 	viewAlliedObjects();
 
 	queue("expandMap", camSecondsToMilliseconds(25));
+
+	queue("camAddAllianceTopics", camSecondsToMilliseconds(4));
 }
 
 function resAllyMessage()

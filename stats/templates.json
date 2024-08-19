@@ -1621,6 +1621,17 @@
             "MG1Mk1"
         ]
     },
+    "ViperTMGHalfTracks": {
+        "available": true,
+        "body": "Body1REC",
+        "id": "ViperTMGHalfTracks",
+        "name": "Twin Machinegun Viper Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "MG2Mk1"
+        ]
+    },
     "ViperFlameHalfTracks": {
         "available": true,
         "body": "Body1REC",
@@ -1782,11 +1793,19 @@
         "type": "DROID"
     },
     "ViperSensorWheels": {
-        "available": true,
         "body": "Body1REC",
         "id": "ViperSensorWheels",
         "name": "Sensor Turret Viper Wheels",
         "propulsion": "wheeled01",
+        "sensor": "SensorTurret1Mk1",
+        "type": "DROID"
+    },
+    "ViperSensorHalfTrack": {
+        "available": true,
+        "body": "Body1REC",
+        "id": "ViperSensorHalfTrack",
+        "name": "Sensor Turret Viper Half-tracks",
+        "propulsion": "HalfTrack",
         "sensor": "SensorTurret1Mk1",
         "type": "DROID"
     },
