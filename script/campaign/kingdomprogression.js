@@ -2438,7 +2438,7 @@ function setPhaseThree()
 	if (difficulty >= HARD) royCentralFactoryTemplates = camArrayReplaceWith(royCentralFactoryTemplates, cTempl.rommrat, cTempl.rohhrat);
 	const royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 	// if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohbalt);
-	const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+	let royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 	if (difficulty >= MEDIUM) royHoverFactoryTemplates = camArrayReplaceWith(royHoverFactoryTemplates, cTempl.rommrah, cTempl.rohhrah);
 	if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 	let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
@@ -2791,7 +2791,7 @@ camAreaEvent("royalistOuterBase", function(droid)
 		let royOuterFactoryTemplates = [ cTempl.romacant, cTempl.romagt, cTempl.romacant, cTempl.rollant, cTempl.romhrept ];
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= HARD) royOuterFactoryTemplates.push(cTempl.rohhcant);
-		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
+		let royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates = camArrayReplaceWith(royHoverFactoryTemplates, cTempl.rommrah, cTempl.rohhrah);
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rohhcanh);
 		const royMainFactoryTemplates = [ cTempl.romacant, cTempl.rohtacant, cTempl.romsenst, cTempl.romtkt, cTempl.romrmort, cTempl.rohtagt, cTempl.rominft ];
@@ -2845,7 +2845,7 @@ function royOuterBaseClear()
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.rollant, cTempl.romtkt);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates = camArrayReplaceWith(royOuterFactoryTemplates, cTempl.romrmorht, cTempl.romrmort);
 		if (difficulty >= MEDIUM) royOuterFactoryTemplates.push(cTempl.rohhcant);
-		const royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
+		let royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates = camArrayReplaceWith(royHoverFactoryTemplates, cTempl.rommrah, cTempl.rohhrah);
 		if (difficulty >= MEDIUM) royHoverFactoryTemplates.push(cTempl.rombbh);
 		let mainVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
@@ -3411,7 +3411,7 @@ function updateAlliedStructs(resName)
 		case "R-Defense-HardcreteWall": // Hardcrete
 			 // Flamer Emplacement -> Flamer Bunker, Cannon Emplacement -> Cannon Bunker, MRP Guard Tower -> MRP Tower, Sensor Tower -> Hardened Sensor Tower
 			oldStruct = ["Flamer-Emplacement", "Cannon-Emplacement", "GuardTowerMRP", "Sys-SensoTower01"];
-			oldStruct = ["PillBox5", "PillBox4", "GuardTower6", "Sys-SensoTower02"];
+			newStruct = ["PillBox5", "PillBox4", "GuardTower6", "Sys-SensoTower02"];
 			break;
 		// Defensive Structures
 		// Miscellaneous

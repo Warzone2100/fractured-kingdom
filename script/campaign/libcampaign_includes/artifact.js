@@ -195,7 +195,7 @@ function __camCheckPlaceArtifact(obj)
 	if (ai.placed)
 	{
 		// Since factories can be rebuilt, this is no longer an error.
-		camTrace("Object to which artifact", alabel, "is bound has died twice");
+		camTrace("Object to which artifact", __ALABEL, "is bound has died twice");
 		return; // Do nothing
 	}
 	if (camDef(ai.req) && !camIsResearched(ai.req))

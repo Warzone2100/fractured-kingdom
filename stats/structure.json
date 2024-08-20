@@ -1512,12 +1512,12 @@
         "buildPower": 125,
         "ecmID": "ZNULLECM",
         "height": 1,
-        "hitpoints": 200,
+        "hitpoints": 400,
         "id": "Emplacement-MRL-pit",
         "name": "Mini-Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1534,12 +1534,12 @@
         "buildPoints": 400,
         "buildPower": 150,
         "height": 1,
-        "hitpoints": 200,
+        "hitpoints": 400,
         "id": "Emplacement-MRLHvy-pit",
         "name": "Heavy Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1562,7 +1562,7 @@
         "name": "Seraph Missile Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1675,7 +1675,7 @@
         "name": "Flashlight Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1698,7 +1698,7 @@
         "name": "Pulse Laser Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1721,7 +1721,7 @@
         "name": "Railgun Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1744,7 +1744,7 @@
         "name": "Gauss Cannon Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1767,7 +1767,7 @@
         "name": "Ripple Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "Blhowmnt.PIE"
         ],
@@ -1790,7 +1790,7 @@
         "name": "Hellstorm Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHOWMNT.PIE"
         ],

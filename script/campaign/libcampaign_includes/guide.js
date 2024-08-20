@@ -5,56 +5,56 @@
 
 function camAddAllianceTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::alliances", showFlags);
 }
 
 function camAddEradicationTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::eradicating", showFlags);
 }
 
 function camAddResistanceTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::resistance", showFlags);
 }
 
 function camAddAmphosTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::amphos", showFlags);
 }
 
 function camAddHellraiserTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::hellraisers", showFlags);
 }
 
 function camAddCoalitionTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::coalition", showFlags);
 }
 
 function camAddRoyalistTopics()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::factions::royalists", showFlags);
 }
 
 function __camDoAddVTOLUseTopicsImpl()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::units::propulsions::vtols::defending");
 	addGuideTopic("wz2100::units::propulsions::vtols::attacking", showFlags);
 }
 
 function __camDoAddCommanderUseTopicsImpl()
 {
-	let showFlags = (difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 	addGuideTopic("wz2100::units::commanders::targeting");
 	addGuideTopic("wz2100::units::commanders::detaching");
 	addGuideTopic("wz2100::units::commanders::repairs");
@@ -93,7 +93,7 @@ function __camProcessResearchGatedGuideTopics(research = null)
 	// NOTE: Don't distrupt the game with guide topics if we're playing on Hard or above.
 	// We can assume the player already knows this stuff and doesn't need to be directly shown it again.
 	// (And if the player forgets something, they can always just open up the guide again.)
-	let showFlags = (research == null || difficulty > HARD) ? 0 : SHOWTOPIC_FIRSTADD;
+	let showFlags = (research == null || difficulty >= HARD) ? 0 : SHOWTOPIC_FIRSTADD;
 
 	// First AA weapon researched
 	if (__camGuideTopicCheckResearchComplete("R-Wpn-AAGun03", research))
@@ -217,7 +217,7 @@ function __camEnableGuideTopics()
 	__camProcessResearchGatedGuideTopics();
 
 	// Handle built-unit triggered topics
-	if (countDroid(DROID_COMMAND, CAM_HUMAN_PLAYER) > 0)
+	if (countDroid(DROID_COMMAND, CAM_HUMAN_PLAYER) >= 0)
 	{
 		addGuideTopic("wz2100::units::commanders::**");
 	}

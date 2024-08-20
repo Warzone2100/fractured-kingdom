@@ -732,7 +732,7 @@ var structSets = {
 		{stat: "CO-HMGBunker", x: 102, y: 171}, {stat: "CO-HMGBunker", x: 102, y: 173}, {stat: "CO-WallTower-RotCan", x: 104, y: 170},
 		{stat: "CollectiveWall", x: 104, y: 171}, {stat: "CO-Tower-MG3", x: 106, y: 170},
 		{stat: "A0HardcreteMk1Gate", x: 104, y: 172}, {stat: "CollectiveWall", x: 104, y: 173}, {stat: "CollectiveWall", x: 104, y: 174},
-		{stat: "CollectiveWall", x: 104, y: 175}, {stat: "Sys-CO-SensoTower", x: 107, y: 175},
+		{stat: "CollectiveWall", x: 104, y: 175}, {stat: "Sys-CO-SensoTower", x: 106, y: 175}, {stat: "A0ResourceExtractor", x: 107, y: 174},
 		{stat: "A0CyborgFactory", x: 108, y: 170}, {stat: "CO-WallTower-QuadRotAAGun", x: 110, y: 170}, {stat: "CollectiveWall", x: 110, y: 171},
 		{stat: "CollectiveWall", x: 111, y: 170}, {stat: "A0HardcreteMk1Gate", x: 110, y: 172}, {stat: "CollectiveWall", x: 110, y: 173},
 		{stat: "CO-HMGBunker", x: 111, y: 173}, {stat: "CO-WallTower-RotCan", x: 110, y: 174}, {stat: "CO-WallTower-RotCan", x: 104, y: 176},
@@ -1512,7 +1512,7 @@ function initializeGameInfo()
 			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv, cTempl.romacanv ];
 
 			resSubTemplates = [ cTempl.rehhcanht, cTempl.rehhmg, cTempl.rempod, cTempl.remsens, cTempl.rehhmor, cTempl.rehinf, cTempl.rehhcant ];
-			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
+			resSubCybTemplates = [ cTempl.cybhg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybhg, cTempl.scymc ];
 			break;
 		case HARD:
 			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodht, cTempl.relflamht ];
@@ -1547,7 +1547,7 @@ function initializeGameInfo()
 			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 
 			resSubTemplates = [ cTempl.rehmcanht, cTempl.remhmgt, cTempl.rempod, cTempl.remsens, cTempl.remhmor, cTempl.reminf, cTempl.rehhcant ];
-			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
+			resSubCybTemplates = [ cTempl.cybhg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybhg, cTempl.scymc ];
 			break;
 		case MEDIUM:
 			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodw, cTempl.relflamht ];
@@ -1582,7 +1582,7 @@ function initializeGameInfo()
 			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv ];
 
 			resSubTemplates = [ cTempl.remmcan, cTempl.remhmgt, cTempl.rempod, cTempl.relsenst, cTempl.remmor, cTempl.remflam, cTempl.rehmcant ];
-			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg ];
+			resSubCybTemplates = [ cTempl.cybhg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybhg ];
 			break;
 		default:
 			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmgw, cTempl.relpodw, cTempl.relflamw ];

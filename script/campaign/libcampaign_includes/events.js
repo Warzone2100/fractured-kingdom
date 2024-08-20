@@ -492,23 +492,13 @@ function cam_eventObjectTransfer(obj, from)
 
 function cam_eventResearched(research, structure, player)
 {
-	if (player === CAM_HUMAN_PLAYER)
-	{
-		__camUpdateResearchLog(research);
-	}
-}
-
-function cam_eventVideoDone()
-{
-	__camEnqueueVideos(); //Play any remaining videos automatically.
-}
-
-function cam_eventResearched(research, structure, player)
-{
 	if (player !== CAM_HUMAN_PLAYER)
 	{
 		return;
 	}
+
+	__camUpdateResearchLog(research);
+
 	let researchedByStruct = (camDef(structure) && structure);
 	if (!researchedByStruct)
 	{
@@ -516,4 +506,9 @@ function cam_eventResearched(research, structure, player)
 	}
 	// only pass the research in if it was completed by a structure (not if given by an API call, in which structure would be null)
 	__camProcessResearchGatedGuideTopics(research);
+}
+
+function cam_eventVideoDone()
+{
+	__camEnqueueVideos(); //Play any remaining videos automatically.
 }
