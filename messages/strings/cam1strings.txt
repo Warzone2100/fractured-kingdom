@@ -81,7 +81,7 @@ RESROYMSG8			_("And be extra cautious of the cyborgs with rocket launchers, they
 
 /* Royalist Message after destroying the south base (Resistance Allied) */
 ROYAMSG1			_("Now would you look at that. James' little 'Resistance' have found themselves a new friend!")
-ROYAMSG2			_("Well I've gotta to hand it to you kid, you've got some real guts messing with my things.")
+ROYAMSG2			_("Well I've gotta hand it to you kid, you've got some real guts messing with my things.")
 ROYAMSG3			_("And it seems like you've really stirred up the hopes of those poor things you call your 'allies'. Without you I bet they couldn't even fend for themselves.")
 ROYAMSG4			_("But don't think it'll amount to anything.")
 ROYAMSG5			_("Do you even realize who I am?")
@@ -94,7 +94,7 @@ ROYAMSG11			_("I'll be seeing you real soooon!")
 
 /* Royalist Message after destroying the south base (Resistance Eradicated) */
 ROYEMSG1			_("Well now would you look at that. Seems like there's someone new in town!")
-ROYEMSG2			_("I've gotta to hand it to you kid, you've got some real guts messing with my things.")
+ROYEMSG2			_("I've gotta hand it to you kid, you've got some real guts messing with my things.")
 ROYEMSG3			_("You must not be from around here, isn't that right?")
 ROYEMSG4			_("And if the Resistance isn't with you...")
 ROYEMSG5			_("...")
