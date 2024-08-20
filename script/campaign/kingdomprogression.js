@@ -724,6 +724,21 @@ function expandMap()
 	camEnableFactory("royalistPortFactory");
 	camEnableFactory("royalistHelRepCybFactory");
 
+	if (difficulty < HARD)
+		{
+			// Remove HMG bunkers around the first Royalist outpost on difficulties below Hard
+			const structs = enumArea("southFOB", CAM_ROYALISTS, false).filter(function(obj) {
+				return (obj.type === STRUCTURE);
+			});
+			for (const struct of structs)
+			{
+				if (struct.name === _("Collective Heavy Machinegun Bunker"))
+				{
+					camSafeRemoveObject(struct);
+				}
+			}
+		}
+
 	// Add a guide entry on the Resistance
 	queue("camAddResistanceTopics", camSecondsToMilliseconds(4));
 }

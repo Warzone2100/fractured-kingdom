@@ -973,7 +973,7 @@ function eventAttacked(victim, attacker)
 				camManageGroup(commander.group, CAM_ORDER_ATTACK, {
 					targetPlayer: targetPlayer,
 					radius: ATTACK_RADIUS,
-					pos: pos,
+					pos: attackPos,
 					repair: 65
 				});
 			}
@@ -984,7 +984,7 @@ function eventAttacked(victim, attacker)
 			groupInfo.data = {
 				targetPlayer: targetPlayer,
 				radius: ATTACK_RADIUS,
-				pos: pos,
+				pos: attackPos,
 				repair: 65
 			};
 			manageGroupBySize(groupInfo, false);
@@ -2055,18 +2055,6 @@ function eventStartLevel()
 	{
 		camUpgradeOnMapStructures("GuardTower2", "GuardTower1", CAM_HELLRAISERS);
 		camUpgradeOnMapStructures("PillBox2", "PillBox1", CAM_HELLRAISERS);
-	}
-	if (difficulty < HARD)
-	{
-		// Remove HMG bunkers around the first Royalist outpost on difficulties below Hard
-		const structs = enumArea("southFOB", CAM_ROYALISTS, false);
-		for (const struct of structs)
-		{
-			if (struct.name === _("Collective Heavy Machinegun Bunker"))
-			{
-				camSafeRemoveObject(struct);
-			}
-		}
 	}
 
 	initializeGameInfo();
