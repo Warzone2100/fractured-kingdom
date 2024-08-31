@@ -1,0 +1,17 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions",
+	"title": "Factions",
+	"sort": "1",
+	"contents": [
+		"There are many different factions vying for control over the Kingdom you find yourself in.",
+		"",
+		"Each faction uses different weapons, tactics, and methods to achieve their goals.",
+		"",
+		"Whether you seek to ally, destroy, or simply avoid any particular faction, it's worth studying how each one operates in order to use their characteristics to your advantage..."
+	],
+	"links": [
+		"wz2100::factions::alliances",
+		"wz2100::factions::eradicating"
+	]
+}

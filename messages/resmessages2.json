@@ -32,7 +32,7 @@
             "Ineffective against: Tracked vehicles and structures",
             "Can attack aerial targets",
             "Requires Cyborg factory to produce",
-            "Obsoletes Machinegunner Cyborg"
+            "Obsoletes and replaces Heavy Machinegunner Cyborg"
         ]
     },
     "RES_CY_AH1": {
@@ -120,7 +120,7 @@
             "New Defensive Structure Available",
             "Armored howitzer emplacement",
             "Assigned automatically to nearest sensor or CB tower",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_HPV": {
@@ -153,7 +153,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Ballista rocket",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_HVFL": {
@@ -175,7 +175,7 @@
             "New Defensive Structure Available",
             "Armored Ground Shaker howitzer emplacement",
             "Assigned automatically to nearest sensor or CB tower",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_HvyMor": {
@@ -208,7 +208,7 @@
             "New Defensive Structure Available",
             "Armored Hellstorm howitzer emplacement",
             "Assigned automatically to nearest sensor or CB tower",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_RotCan": {
@@ -219,7 +219,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Assault Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_RotHOW": {
@@ -230,7 +230,7 @@
             "New Defensive Structure Available",
             "Armored Hellstorm howitzer emplacement",
             "Assigned automatically to nearest sensor or CB tower",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_RotMor": {

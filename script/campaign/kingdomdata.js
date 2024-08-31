@@ -5,6 +5,8 @@ const ROYALIST_GARRISON_SIZE = difficulty + 1;
 const mis_playerStructs = [
 		"A0CommandCentre", "A0PowerGenerator", "A0ResourceExtractor",
 		"A0ResearchFacility", "A0LightFactory", "A0CyborgFactory",
+		// Also some starting defensive structures
+		"Flamer-Emplacement", "Cannon-Emplacement", "GuardTowerMRP",
 ];
 
 // Player starting research
@@ -429,16 +431,16 @@ var structSets = {
 	resistanceStructs: [
 		{stat: "A0TankTrap", x: 35, y: 195}, {stat: "A0TankTrap", x: 35, y: 196}, {stat: "A0TankTrap", x: 35, y: 197},
 		{stat: "A0TankTrap", x: 33, y: 201}, {stat: "A0TankTrap", x: 33, y: 202}, {stat: "A0TankTrap", x: 33, y: 203},
-		{stat: "PillBox5", x: 33, y: 198, rot: 1}, {stat: "WallTower02", x: 32, y: 194, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 32, y: 195, rot: 1},
+		{stat: "Flamer-Emplacement", x: 33, y: 198, rot: 1}, {stat: "WallTower02", x: 32, y: 194, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 32, y: 195, rot: 1},
 		{stat: "A0HardcreteMk1Gate", x: 31, y: 199, rot: 1}, {stat: "A0HardcreteMk1Gate", x: 31, y: 200, rot: 1}, {stat: "WallTower02", x: 31, y: 201, rot: 1},
 		{stat: "A0HardcreteMk1Wall", x: 31, y: 202, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 31, y: 203, rot: 1}, {stat: "WallTower02", x: 31, y: 204, rot: 1},
 		{stat: "Sys-SensoTower01", x: 31, y: 197}, {stat: "Emplacement-MortarPit01", x: 27, y: 195}, {stat: "Emplacement-MortarPit01", x: 29, y: 195},
-		{stat: "AASite-QuadMg1", x: 24, y: 192, rot: 3}, {stat: "AASite-QuadMg1", x: 22, y: 196, rot: 3}, {stat: "PillBox5", x: 21, y: 198},
-		{stat: "PillBox4", x: 21, y: 192}, {stat: "A0CyborgFactory", x: 13, y: 199}, {stat: "GuardTower6", x: 16, y: 205, rot: 2},
+		{stat: "AASite-QuadMg1", x: 24, y: 192, rot: 3}, {stat: "AASite-QuadMg1", x: 22, y: 196, rot: 3}, {stat: "Flamer-Emplacement", x: 21, y: 198},
+		{stat: "Cannon-Emplacement", x: 21, y: 192}, {stat: "A0CyborgFactory", x: 13, y: 199}, {stat: "GuardTowerMRP", x: 16, y: 205, rot: 2},
 		{stat: "A0PowerGenerator", x: 19, y: 192, mods: 0}, {stat: "A0ComDroidControl", x: 16, y: 192}, {stat: "A0PowerGenerator", x: 13, y: 192, mods: 0},
 		{stat: "A0ResearchFacility", x: 18, y: 195, mods: 0}, {stat: "A0RepairCentre3", x: 13, y: 196}, {stat: "A0CyborgFactory", x: 11, y: 199},
 		{stat: "A0LightFactory", x: 18, y: 198, mods: 1}, {stat: "PillBox6", x: 9, y: 200, rot: 1}, {stat: "PillBox4", x: 11, y: 201, rot: 1},
-		{stat: "A0ResourceExtractor", x: 6, y: 200}, {stat: "A0ResourceExtractor", x: 6, y: 203}, {stat: "GuardTower6", x: 30, y: 208, rot: 2},
+		{stat: "A0ResourceExtractor", x: 6, y: 200}, {stat: "A0ResourceExtractor", x: 6, y: 203}, {stat: "GuardTowerMRP", x: 30, y: 208, rot: 2},
 		{stat: "WallTower02", x: 28, y: 207, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 27, y: 207, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 26, y: 207, rot: 2},
 		{stat: "A0HardcreteMk1Wall", x: 25, y: 207, rot: 2}, {stat: "WallTower02", x: 24, y: 207, rot: 2}, {stat: "PillBox2", x: 19, y: 202},
 		{stat: "A0TankTrap", x: 21, y: 206}, {stat: "A0TankTrap", x: 22, y: 206}, {stat: "GuardTower2", x: 21, y: 207, rot: 2},
@@ -498,9 +500,9 @@ var structSets = {
 		{stat: "WallTower06", x: 220, y: 163}, {stat: "A0HardcreteMk1Wall", x: 216, y: 160, rot: 1}, {stat: "AASite-QuadBof", x: 223, y: 160, rot: 2},
 		{stat: "A0HardcreteMk1Wall", x: 221, y: 163}, {stat: "WallTower06", x: 222, y: 163}, {stat: "WallTower06", x: 216, y: 161, rot: 3},
 		{stat: "WallTower06", x: 216, y: 159, rot: 3}, {stat: "Emplacement-Rocket06-IDF", x: 218, y: 160}, {stat: "AASite-QuadBof", x: 220, y: 160, rot: 2},
-		{stat: "Emplacement-MRL-pit", x: 226, y: 161}, {stat: "GuardTower6", x: 228, y: 160, rot: 1}, {stat: "Sys-CB-Tower01", x: 225, y: 159},
+		{stat: "Emplacement-MRLHvy-pit", x: 226, y: 161}, {stat: "GuardTower6", x: 228, y: 160, rot: 1}, {stat: "Sys-CB-Tower01", x: 225, y: 159},
 		{stat: "A0RepairCentre3", x: 222, y: 157}, {stat: "Emplacement-Rocket06-IDF", x: 225, y: 155}, {stat: "PillBox6", x: 223, y: 152, rot: 2},
-		{stat: "GuardTower6", x: 217, y: 156, rot: 3}, {stat: "Emplacement-MRL-pit", x: 218, y: 154, rot: 3}, {stat: "A0ResourceExtractor", x: 222, y: 155},
+		{stat: "GuardTower6", x: 217, y: 156, rot: 3}, {stat: "Emplacement-MRLHvy-pit", x: 218, y: 154, rot: 3}, {stat: "A0ResourceExtractor", x: 222, y: 155},
 		{stat: "WallTower01", x: 219, y: 152, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 220, y: 152}, {stat: "WallTower01", x: 221, y: 152, rot: 2},
 		{stat: "PillBox6", x: 226, y: 153, rot: 2}, {stat: "WallTower01", x: 228, y: 153, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 228, y: 154, rot: 1},
 		{stat: "WallTower01", x: 228, y: 155, rot: 1}, {stat: "GuardTower5", x: 224, y: 146, rot: 3}, {stat: "WallTower06", x: 240, y: 164},
@@ -509,7 +511,7 @@ var structSets = {
 		{stat: "WallTower06", x: 236, y: 163, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 236, y: 162, rot: 1}, {stat: "WallTower01", x: 236, y: 161, rot: 3},
 		{stat: "A0HardcreteMk1Wall", x: 236, y: 160, rot: 1}, {stat: "A0ResearchFacility", x: 240, y: 158, mods: 1}, {stat: "WallTower06", x: 243, y: 159, rot: 1},
 		{stat: "A0HardcreteMk1Wall", x: 236, y: 159, rot: 1}, {stat: "WallTower01", x: 236, y: 158, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 236, y: 157, rot: 1},
-		{stat: "WallTower06", x: 236, y: 156, rot: 3}, {stat: "Emplacement-MRL-pit", x: 237, y: 155, rot: 2}, {stat: "A0CommandCentre", x: 240, y: 161},
+		{stat: "WallTower06", x: 236, y: 156, rot: 3}, {stat: "Emplacement-MRLHvy-pit", x: 237, y: 155, rot: 2}, {stat: "A0CommandCentre", x: 240, y: 161},
 		{stat: "AASite-QuadBof", x: 242, y: 162}, {stat: "WallTower06", x: 243, y: 161, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 243, y: 160, rot: 1},
 		{stat: "WallTower-DoubleAAGun", x: 244, y: 158, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 244, y: 157, rot: 1}, {stat: "WallTower-DoubleAAGun", x: 244, y: 156, rot: 1},
 		{stat: "WallTower01", x: 241, y: 155, rot: 2}, {stat: "A0HardcreteMk1Gate", x: 242, y: 155}, {stat: "WallTower01", x: 243, y: 155, rot: 2},
@@ -533,7 +535,7 @@ var structSets = {
 		{stat: "A0HardcreteMk1Wall", x: 239, y: 138}, {stat: "A0HardcreteMk1Gate", x: 243, y: 138}, {stat: "WallTower06", x: 244, y: 135, rot: 3},
 		{stat: "A0HardcreteMk1Gate", x: 240, y: 138}, {stat: "A0HardcreteMk1Gate", x: 241, y: 138}, {stat: "WallTower01", x: 242, y: 138, rot: 2},
 		{stat: "WallTower-DoubleAAGun", x: 244, y: 138}, {stat: "A0HardcreteMk1Wall", x: 244, y: 137, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 244, y: 136, rot: 1},
-		{stat: "A0HardcreteMk1Wall", x: 244, y: 137, rot: 1}, {stat: "Emplacement-MRL-pit", x: 245, y: 133, rot: 2}, {stat: "GuardTower6", x: 243, y: 133, rot: 3},
+		{stat: "A0HardcreteMk1Wall", x: 244, y: 137, rot: 1}, {stat: "Emplacement-MRLHvy-pit", x: 245, y: 133, rot: 2}, {stat: "GuardTower6", x: 243, y: 133, rot: 3},
 		{stat: "GuardTower6", x: 239, y: 135, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 243, y: 131}, {stat: "WallTower01", x: 242, y: 134, rot: 2},
 		{stat: "PillBox1", x: 246, y: 130}, {stat: "WallTower06", x: 245, y: 131, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 244, y: 131},
 		{stat: "WallTower06", x: 242, y: 131, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 242, y: 132, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 242, y: 133, rot: 1},
@@ -550,9 +552,9 @@ var structSets = {
 		{stat: "AASite-QuadBof", x: 213, y: 139, rot: 3}, {stat: "WallTower06", x: 211, y: 134, rot: 3}, {stat: "A0HardcreteMk1Gate", x: 217, y: 128},
 		{stat: "WallTower06", x: 211, y: 137, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 211, y: 136, rot: 3}, {stat: "A0HardcreteMk1Wall", x: 211, y: 135, rot: 3},
 		{stat: "Sys-SensoTower02", x: 213, y: 131}, {stat: "GuardTower6", x: 214, y: 130, rot: 2}, {stat: "WallTower06", x: 216, y: 128, rot: 2},
-		{stat: "WallTower06", x: 218, y: 128, rot: 2}, {stat: "Emplacement-MRL-pit", x: 217, y: 127, rot: 2}, {stat: "WallTower06", x: 219, y: 130, rot: 1},
+		{stat: "WallTower06", x: 218, y: 128, rot: 2}, {stat: "Emplacement-MRLHvy-pit", x: 217, y: 127, rot: 2}, {stat: "WallTower06", x: 219, y: 130, rot: 1},
 		{stat: "A0HardcreteMk1Wall", x: 219, y: 131, rot: 1}, {stat: "A0HardcreteMk1Wall", x: 223, y: 134}, {stat: "Sys-CB-Tower01", x: 217, y: 135},
-		{stat: "WallTower06", x: 219, y: 132, rot: 1}, {stat: "Emplacement-MRL-pit", x: 221, y: 133, rot: 2}, {stat: "WallTower06", x: 222, y: 134, rot: 2},
+		{stat: "WallTower06", x: 219, y: 132, rot: 1}, {stat: "Emplacement-MRLHvy-pit", x: 221, y: 133, rot: 2}, {stat: "WallTower06", x: 222, y: 134, rot: 2},
 		{stat: "WallTower06", x: 224, y: 134, rot: 2}, {stat: "AASite-QuadBof", x: 220, y: 135}, {stat: "A0ComDroidControl", x: 218, y: 138},
 		{stat: "A0ResourceExtractor", x: 217, y: 133}, {stat: "Emplacement-Rocket06-IDF", x: 215, y: 133, rot: 3}, {stat: "Emplacement-Rocket06-IDF", x: 215, y: 135, rot: 3},
 		{stat: "Emplacement-Rocket06-IDF", x: 215, y: 137, rot: 3}
@@ -561,26 +563,26 @@ var structSets = {
 	hellraiserStructs: [
 		{stat: "AASite-QuadMg1", x: 61, y: 153, rot: 1}, {stat: "A0CyborgFactory", x: 22, y: 135, rot: 3}, {stat: "PillBox2", x: 90, y: 151},
 		{stat: "PillBox4", x: 93, y: 152, rot: 2}, {stat: "A0TankTrap", x: 67, y: 154}, {stat: "GuardTower1", x: 34, y: 128, rot: 3},
-		{stat: "PillBox4", x: 53, y: 174}, {stat: "A0TankTrap", x: 66, y: 153}, {stat: "A0TankTrap", x: 65, y: 154},
-		{stat: "A0ResourceExtractor", x: 66, y: 154}, {stat: "PillBox5", x: 40, y: 156, rot: 1}, {stat: "PillBox5", x: 38, y: 161, rot: 1},
+		{stat: "Cannon-Emplacement", x: 53, y: 174}, {stat: "A0TankTrap", x: 66, y: 153}, {stat: "A0TankTrap", x: 65, y: 154},
+		{stat: "A0ResourceExtractor", x: 66, y: 154}, {stat: "Flamer-Emplacement", x: 40, y: 156, rot: 1}, {stat: "Flamer-Emplacement", x: 38, y: 161, rot: 1},
 		{stat: "A0TankTrap", x: 66, y: 155}, {stat: "A0TankTrap", x: 50, y: 167}, {stat: "A0TankTrap", x: 49, y: 167},
 		{stat: "Tower-Projector", x: 28, y: 141, rot: 1}, {stat: "GuardTower1", x: 13, y: 142}, {stat: "GuardTower2", x: 48, y: 169, rot: 2},
 		{stat: "PillBox5", x: 57, y: 147}, {stat: "PillBox2", x: 60, y: 144}, {stat: "PillBox4", x: 16, y: 162, rot: 2},
-		{stat: "A0RepairCentre3", x: 19, y: 139}, {stat: "PillBox1", x: 17, y: 118}, {stat: "PillBox5", x: 49, y: 173, rot: 1},
-		{stat: "GuardTower2", x: 43, y: 167, rot: 3}, {stat: "PillBox4", x: 52, y: 153}, {stat: "GuardTower2", x: 49, y: 152},
-		{stat: "GuardTower2", x: 55, y: 147, rot: 2}, {stat: "PillBox4", x: 55, y: 167, rot: 2}, {stat: "PillBox4", x: 96, y: 160, rot: 3},
-		{stat: "PillBox2", x: 12, y: 163}, {stat: "PillBox2", x: 19, y: 160}, {stat: "PillBox5", x: 61, y: 161, rot: 3},
+		{stat: "A0RepairCentre3", x: 19, y: 139}, {stat: "PillBox1", x: 17, y: 118}, {stat: "Flamer-Emplacement", x: 49, y: 173, rot: 1},
+		{stat: "GuardTower2", x: 44, y: 167, rot: 3}, {stat: "GuardTower2", x: 49, y: 155},
+		{stat: "GuardTower2", x: 55, y: 147, rot: 2}, {stat: "Cannon-Emplacement", x: 55, y: 167, rot: 2}, {stat: "PillBox4", x: 96, y: 160, rot: 3},
+		{stat: "PillBox2", x: 12, y: 163}, {stat: "PillBox2", x: 19, y: 160}, {stat: "Flamer-Emplacement", x: 61, y: 161, rot: 3},
 		{stat: "PillBox5", x: 50, y: 160}, {stat: "GuardTower2", x: 53, y: 168, rot: 2}, {stat: "GuardTower2", x: 67, y: 157},
 		{stat: "GuardTower2", x: 86, y: 152, rot: 2}, {stat: "GuardTower2", x: 71, y: 147, rot: 1}, {stat: "GuardTower2", x: 33, y: 157, rot: 3},
 		{stat: "GuardTower2", x: 33, y: 160, rot: 3}, {stat: "Emplacement-MortarPit-Incendiary", x: 35, y: 158}, {stat: "Sys-SensoTower01", x: 38, y: 158},
-		{stat: "PillBox5", x: 60, y: 155, rot: 2}, {stat: "PillBox5", x: 73, y: 151, rot: 1}, {stat: "GuardTower2", x: 54, y: 152},
-		{stat: "PillBox5", x: 84, y: 149}, {stat: "PillBox5", x: 74, y: 157}, {stat: "PillBox5", x: 65, y: 145, rot: 1},
+		{stat: "Flamer-Emplacement", x: 60, y: 155, rot: 2}, {stat: "Flamer-Emplacement", x: 73, y: 151, rot: 1}, {stat: "GuardTower2", x: 54, y: 151},
+		{stat: "Flamer-Emplacement", x: 84, y: 149}, {stat: "PillBox5", x: 65, y: 145, rot: 1},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 56, y: 149}, {stat: "Sys-SensoTower01", x: 54, y: 148}, {stat: "Sys-SensoTower01", x: 72, y: 149},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 87, y: 154}, {stat: "Emplacement-MortarPit-Incendiary", x: 84, y: 154}, {stat: "Sys-SensoTower01", x: 89, y: 153},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 69, y: 145}, {stat: "PillBox4", x: 70, y: 139, rot: 2}, {stat: "PillBox2", x: 74, y: 139},
 		{stat: "PillBox2", x: 66, y: 138}, {stat: "PillBox5", x: 89, y: 158}, {stat: "PillBox4", x: 28, y: 135, rot: 1},
-		{stat: "Sys-SensoTower01", x: 68, y: 140}, {stat: "PillBox5", x: 76, y: 148}, {stat: "PillBox5", x: 91, y: 162, rot: 3},
-		{stat: "Tower-Projector", x: 52, y: 150}, {stat: "PillBox4", x: 26, y: 146}, {stat: "A0CyborgFactory", x: 12, y: 143, rot: 2},
+		{stat: "Sys-SensoTower01", x: 68, y: 140}, {stat: "Flamer-Emplacement", x: 76, y: 148}, {stat: "Flamer-Emplacement", x: 91, y: 162, rot: 3},
+		{stat: "PillBox4", x: 26, y: 146}, {stat: "A0CyborgFactory", x: 12, y: 143, rot: 2},
 		{stat: "A0LightFactory", x: 10, y: 134, rot: 1, mods: 2}, {stat: "A0ResearchFacility", x: 16, y: 136, mods: 0}, {stat: "A0ResearchFacility", x: 9, y: 144, mods: 0},
 		{stat: "PillBox1", x: 7, y: 139}, {stat: "GuardTower1", x: 26, y: 123, rot: 1}, {stat: "Sys-SensoTower01", x: 54, y: 178},
 		{stat: "WallTower02", x: 12, y: 121, rot: 2}, {stat: "A0HardcreteMk1Wall", x: 11, y: 121}, {stat: "A0TankTrap", x: 27, y: 123},
@@ -589,7 +591,7 @@ var structSets = {
 		{stat: "A0TankTrap", x: 33, y: 129}, {stat: "Emplacement-MortarPit-Incendiary", x: 18, y: 121}, {stat: "A0TankTrap", x: 38, y: 139},
 		{stat: "GuardTower1", x: 27, y: 140, rot: 1}, {stat: "WallTower02", x: 11, y: 130, rot: 2}, {stat: "AASite-QuadMg1", x: 10, y: 131},
 		{stat: "PillBox1", x: 10, y: 129}, {stat: "PillBox4", x: 44, y: 132}, {stat: "AASite-QuadMg1", x: 35, y: 130, rot: 2},
-		{stat: "PillBox4", x: 19, y: 124}, {stat: "PillBox5", x: 49, y: 177}, {stat: "AASite-QuadMg1", x: 3, y: 126, rot: 2},
+		{stat: "PillBox4", x: 19, y: 124}, {stat: "Flamer-Emplacement", x: 49, y: 177}, {stat: "AASite-QuadMg1", x: 3, y: 126, rot: 2},
 		{stat: "Sys-SensoTower02", x: 16, y: 120}, {stat: "Tower-Projector", x: 15, y: 122}, {stat: "AASite-QuadMg1", x: 30, y: 117, rot: 2},
 		{stat: "Emplacement-MortarPit-Incendiary", x: 28, y: 118}, {stat: "Tower-Projector", x: 42, y: 140}, {stat: "PillBox1", x: 37, y: 136},
 		{stat: "AASite-QuadMg1", x: 22, y: 144, rot: 3}, {stat: "AASite-QuadMg1", x: 22, y: 133}, {stat: "AASite-QuadMg1", x: 18, y: 131},
@@ -704,10 +706,8 @@ var structSets = {
 		{stat: "WallTower04", x: 18, y: 54}, {stat: "PillBox6", x: 18, y: 55}, {stat: "WallTower04", x: 20, y: 50},
 		{stat: "A0HardcreteMk1Wall", x: 20, y: 51}, {stat: "WallTower04", x: 20, y: 52}, {stat: "PillBox1", x: 22, y: 60},
 		{stat: "WallTower-DoubleAAGun", x: 22, y: 62}, {stat: "A0HardcreteMk1Wall", x: 23, y: 62}, {stat: "WallTower04", x: 25, y: 51},
-		{stat: "A0HardcreteMk1Wall", x: 26, y: 51}, {stat: "A0HardcreteMk1Wall", x: 27, y: 51}, {stat: "PillBox1", x: 24, y: 54},
-		{stat: "WallTower04", x: 26, y: 54}, {stat: "A0HardcreteMk1Wall", x: 27, y: 54}, {stat: "A0HardcreteMk1Wall", x: 29, y: 48},
-		{stat: "A0HardcreteMk1Wall", x: 29, y: 49}, {stat: "A0HardcreteMk1Wall", x: 28, y: 51}, {stat: "A0HardcreteMk1Wall", x: 29, y: 50},
-		{stat: "WallTower04", x: 29, y: 51}, {stat: "WallTower04", x: 28, y: 54}, {stat: "GuardTower6", x: 30, y: 55},
+		{stat: "PillBox1", x: 24, y: 54}, {stat: "A0HardcreteMk1Wall", x: 29, y: 48}, {stat: "A0HardcreteMk1Wall", x: 29, y: 49},
+		{stat: "A0HardcreteMk1Wall", x: 29, y: 50}, {stat: "WallTower04", x: 29, y: 51}, {stat: "GuardTower6", x: 30, y: 55},
 		{stat: "WallTower04", x: 25, y: 56}, {stat: "A0HardcreteMk1Wall", x: 25, y: 57}, {stat: "WallTower04", x: 25, y: 58},
 		{stat: "Emplacement-MortarPit02", x: 27, y: 56}, {stat: "A0VtolPad", x: 27, y: 58}, {stat: "WallTower-DoubleAAGun", x: 24, y: 60},
 		{stat: "A0HardcreteMk1Wall", x: 24, y: 61}, {stat: "WallTower01", x: 24, y: 62}, {stat: "A0VtolPad", x: 26, y: 60},
@@ -730,11 +730,10 @@ var structSets = {
 	// Royalist Structures
 	royalistSouthStructs: [
 		{stat: "CO-HMGBunker", x: 102, y: 171}, {stat: "CO-HMGBunker", x: 102, y: 173}, {stat: "CO-WallTower-RotCan", x: 104, y: 170},
-		{stat: "CollectiveWall", x: 104, y: 171}, {stat: "CO-WallTower-RotCan", x: 107, y: 168}, {stat: "CO-Tower-MG3", x: 106, y: 170},
+		{stat: "CollectiveWall", x: 104, y: 171}, {stat: "CO-Tower-MG3", x: 106, y: 170},
 		{stat: "A0HardcreteMk1Gate", x: 104, y: 172}, {stat: "CollectiveWall", x: 104, y: 173}, {stat: "CollectiveWall", x: 104, y: 174},
-		{stat: "CollectiveWall", x: 104, y: 175}, {stat: "Sys-CO-SensoTower", x: 107, y: 175}, {stat: "CollectiveWall", x: 108, y: 168},
-		{stat: "CollectiveWall", x: 109, y: 168}, {stat: "A0CyborgFactory", x: 108, y: 170}, {stat: "CollectiveWall", x: 110, y: 168},
-		{stat: "CO-WallTower-RotCan", x: 111, y: 168}, {stat: "CO-WallTower-QuadRotAAGun", x: 110, y: 170}, {stat: "CollectiveWall", x: 110, y: 171},
+		{stat: "CollectiveWall", x: 104, y: 175}, {stat: "Sys-CO-SensoTower", x: 106, y: 175}, {stat: "A0ResourceExtractor", x: 107, y: 174},
+		{stat: "A0CyborgFactory", x: 108, y: 170}, {stat: "CO-WallTower-QuadRotAAGun", x: 110, y: 170}, {stat: "CollectiveWall", x: 110, y: 171},
 		{stat: "CollectiveWall", x: 111, y: 170}, {stat: "A0HardcreteMk1Gate", x: 110, y: 172}, {stat: "CollectiveWall", x: 110, y: 173},
 		{stat: "CO-HMGBunker", x: 111, y: 173}, {stat: "CO-WallTower-RotCan", x: 110, y: 174}, {stat: "CO-WallTower-RotCan", x: 104, y: 176},
 		{stat: "CO-WallTower-RotCan", x: 112, y: 170}, {stat: "CO-HMGBunker", x: 113, y: 171}
@@ -752,7 +751,7 @@ var structSets = {
 		{stat: "CO-HMGBunker", x: 100, y: 123}, {stat: "CO-HMGBunker", x: 101, y: 122}, {stat: "CO-WallTower-RotCan", x: 102, y: 120}
 	],
 	royalistRiverLZStructs: [
-		{stat: "Sys-CO-SensoTower", x: 117, y: 135}, {stat: "CO-ROTMGBunker", x: 118, y: 132}, {stat: "CO-ROTMGBunker", x: 117, y: 140},
+		{stat: "Sys-CO-SensoTower", x: 117, y: 135}, {stat: "CO-ROTMGBunker", x: 118, y: 132}, {stat: "CO-ROTMGBunker", x: 118, y: 142},
 		{stat: "CO-ROTMGBunker", x: 120, y: 129}, {stat: "CO-Tower-LtATRkt", x: 120, y: 134}, {stat: "WallTower-Projector", x: 123, y: 133},
 		{stat: "CO-ROTMGBunker", x: 127, y: 129}, {stat: "CO-WallTower-RotCan", x: 125, y: 134}, {stat: "CollectiveWall", x: 126, y: 134},
 		{stat: "CO-WallTower-RotCan", x: 127, y: 134}, {stat: "AASite-QuadRotMg", x: 120, y: 137}, {stat: "CO-WallTower-RotCan", x: 121, y: 139},
@@ -822,27 +821,27 @@ var structSets = {
 		{stat: "A0HardcreteMk1Gate", x: 91, y: 80}, {stat: "A0HardcreteMk1Gate", x: 91, y: 81}, {stat: "CO-Tower-HVCan", x: 91, y: 82},
 		{stat: "CollectiveWall", x: 91, y: 83}, {stat: "CO-Tower-HvATRkt", x: 91, y: 84}, {stat: "Sys-CO-SensoTower", x: 92, y: 83},
 		{stat: "CollectiveWall", x: 105, y: 79}, {stat: "A0PowerGenerator", x: 106, y: 78, mods: 1}, {stat: "CO-Tower-HvATRkt", x: 106, y: 79},
-		{stat: "A0RepairCentre3", x: 108, y: 77}, {stat: "Sys-CO-SensoTower", x: 111, y: 79}, {stat: "WallTower-Projector", x: 96, y: 79},
+		{stat: "A0RepairCentre3", x: 108, y: 77}, {stat: "CO-WallTower-RotCan", x: 113, y: 78}, {stat: "WallTower-Projector", x: 96, y: 79},
 		{stat: "CO-Tower-RotMG", x: 100, y: 80}, {stat: "CO-Tower-RotMG", x: 96, y: 84}, {stat: "WallTower-Projector", x: 106, y: 83},
-		{stat: "CO-Tower-HvATRkt", x: 109, y: 80}, {stat: "CO-ROTMGBunker", x: 109, y: 82}, {stat: "CollectiveWall", x: 110, y: 80},
-		{stat: "CollectiveWall", x: 111, y: 80}, {stat: "Sys-CO-SensoTower", x: 104, y: 89}, {stat: "CollectiveWall", x: 104, y: 90},
+		{stat: "CO-Tower-HvATRkt", x: 109, y: 82}, {stat: "CO-ROTMGBunker", x: 109, y: 84}, {stat: "CollectiveWall", x: 110, y: 82},
+		{stat: "CollectiveWall", x: 111, y: 82}, {stat: "Sys-CO-SensoTower", x: 104, y: 89}, {stat: "CollectiveWall", x: 104, y: 90},
 		{stat: "CO-Tower-HvATRkt", x: 105, y: 90}, {stat: "A0HardcreteMk1Gate", x: 106, y: 90}, {stat: "A0HardcreteMk1Gate", x: 107, y: 90},
 		{stat: "CO-PillBoxHPC", x: 104, y: 92}, {stat: "CO-Tower-LtATRkt", x: 109, y: 90}, {stat: "AASite-QuadRotMg", x: 111, y: 88, rot: 3},
 		{stat: "CO-Tower-HVCan", x: 110, y: 91}, {stat: "CollectiveWall", x: 111, y: 91}, {stat: "CO-ROTMGBunker", x: 108, y: 92},
-		{stat: "CO-WallTower-RotCan", x: 113, y: 79}, {stat: "CO-WallTower-RotCan", x: 114, y: 78}, {stat: "A0HardcreteMk1Gate", x: 115, y: 78},
+		{stat: "A0HardcreteMk1Gate", x: 113, y: 79}, {stat: "CollectiveWall", x: 114, y: 78}, {stat: "A0HardcreteMk1Gate", x: 115, y: 78},
 		{stat: "WallTower-Projector", x: 116, y: 75}, {stat: "CO-Tower-HvATRkt", x: 118, y: 75}, {stat: "A0HardcreteMk1Gate", x: 116, y: 78},
 		{stat: "CollectiveWall", x: 117, y: 78}, {stat: "CollectiveWall", x: 118, y: 76}, {stat: "CollectiveWall", x: 118, y: 77},
 		{stat: "CO-WallTower-QuadRotAAGun", x: 118, y: 78}, {stat: "WallTower-Projector", x: 121, y: 79}, {stat: "Sys-CO-SensoTower", x: 123, y: 76},
 		{stat: "CO-Tower-HvATRkt", x: 124, y: 75}, {stat: "CollectiveWall", x: 124, y: 76}, {stat: "CO-WallTower-RotCan", x: 124, y: 77},
 		{stat: "CO-ROTMGBunker", x: 125, y: 77}, {stat: "A0HardcreteMk1Gate", x: 124, y: 78}, {stat: "A0HardcreteMk1Gate", x: 124, y: 79},
-		{stat: "CollectiveWall", x: 113, y: 80}, {stat: "CO-WallTower-RotCan", x: 113, y: 81}, {stat: "Sys-CO-VTOL-CB-Tower01", x: 114, y: 82},
+		{stat: "A0HardcreteMk1Gate", x: 113, y: 80}, {stat: "CO-WallTower-RotCan", x: 113, y: 81}, {stat: "Sys-CO-VTOL-CB-Tower01", x: 114, y: 82},
 		{stat: "CO-Emp-RotMor", x: 116, y: 81}, {stat: "A0ResearchFacility", x: 117, y: 83, mods: 1}, {stat: "CO-Emp-RotMor", x: 113, y: 88},
 		{stat: "CO-Tower-HVCan", x: 112, y: 91}, {stat: "WallTower-Projector", x: 116, y: 89}, {stat: "A0LightFactory", x: 120, y: 82, rot: 2, mods: 2},
 		{stat: "CO-WallTower-RotCan", x: 124, y: 80}, {stat: "CollectiveWall", x: 125, y: 80}, {stat: "CO-Tower-RotMG", x: 125, y: 81},
 		{stat: "CollectiveWall", x: 126, y: 80}, {stat: "CO-Tower-HvATRkt", x: 127, y: 80}, {stat: "CO-ROTMGBunker", x: 89, y: 82},
 		{stat: "CO-WallTower-RotCan", x: 103, y: 79}, {stat: "CollectiveWall", x: 104, y: 79}, {stat: "A0ResourceExtractor", x: 96, y: 78},
 		{stat: "CO-Tower-HvATRkt", x: 103, y: 90}, {stat: "A0HardcreteMk1Gate", x: 102, y: 90}, {stat: "A0HardcreteMk1Gate", x: 101, y: 90},
-		{stat: "CO-ROTMGBunker", x: 100, y: 92}
+		{stat: "CO-ROTMGBunker", x: 100, y: 92}, {stat: "Sys-SensoTower02", x: 111, y: 81}, {stat: "Tower-Projector", x: 111, y: 77}
 	],
 	royalistwestGateStructs: [
 		{stat: "CO-ROTMGBunker", x: 104, y: 7}, {stat: "CO-Tower-HVCan", x: 105, y: 7}, {stat: "A0HardcreteMk1Gate", x: 105, y: 8},
@@ -962,40 +961,40 @@ var structSets = {
 		{stat: "A0LightFactory", x: 241, y: 13, rot: 3, mods: 2}, {stat: "CO-Tower-HvATRkt", x: 240, y: 16}
 	],
 	royalistMainDefenceStructs: [
-		{stat: "CO-WallTower-TwinAssaultGun", x: 207, y: 23}, {stat: "CollectiveWall", x: 207, y: 24}, {stat: "A0HardcreteMk1Gate", x: 207, y: 25},
+		{stat: "CO-WallTower-TwinAssaultGun", x: 207, y: 22}, {stat: "A0HardcreteMk1Gate", x: 207, y: 24}, {stat: "A0HardcreteMk1Gate", x: 207, y: 25},
 		{stat: "A0HardcreteMk1Gate", x: 207, y: 26}, {stat: "PillBox-Cannon6", x: 207, y: 27}, {stat: "CollectiveWall", x: 207, y: 28},
 		{stat: "PillBox-Cannon6", x: 207, y: 29}, {stat: "A0HardcreteMk1Gate", x: 207, y: 30}, {stat: "A0HardcreteMk1Gate", x: 207, y: 31},
-		{stat: "CollectiveWall", x: 208, y: 23}, {stat: "CollectiveWall", x: 209, y: 23}, {stat: "CollectiveWall", x: 210, y: 23},
-		{stat: "PillBox-Cannon6", x: 211, y: 23}, {stat: "CollectiveWall", x: 208, y: 27}, {stat: "A0HardcreteMk1Gate", x: 209, y: 27},
+		{stat: "CollectiveWall", x: 208, y: 22}, {stat: "CollectiveWall", x: 209, y: 22}, {stat: "CollectiveWall", x: 210, y: 22},
+		{stat: "PillBox-Cannon6", x: 211, y: 22}, {stat: "CollectiveWall", x: 208, y: 27}, {stat: "A0HardcreteMk1Gate", x: 209, y: 27},
 		{stat: "WallTower-Projector", x: 210, y: 26}, {stat: "Sys-CO-SensoTower", x: 208, y: 28}, {stat: "CollectiveWall", x: 208, y: 29},
 		{stat: "A0HardcreteMk1Gate", x: 209, y: 29}, {stat: "Sys-COCB-Tower01", x: 212, y: 27}, {stat: "COX-Super-Rocket", x: 212, y: 29, rot: 3},
-		{stat: "CollectiveWall", x: 213, y: 29}, {stat: "CO-WallTower-TwinAssaultGun", x: 214, y: 29}, {stat: "CollectiveWall", x: 207, y: 32},
-		{stat: "CO-WallTower-TwinAssaultGun", x: 207, y: 33}, {stat: "CollectiveWall", x: 208, y: 33}, {stat: "CollectiveWall", x: 209, y: 33},
-		{stat: "PillBox-Cannon6", x: 210, y: 33}, {stat: "CO-WallTower-QuadRotAAGun", x: 210, y: 35}, {stat: "CollectiveWall", x: 210, y: 36},
-		{stat: "CO-WallTower-QuadRotAAGun", x: 210, y: 37}, {stat: "CO-Tower-HvATRkt", x: 212, y: 34}, {stat: "CollectiveWall", x: 213, y: 34},
+		{stat: "CollectiveWall", x: 213, y: 29}, {stat: "CO-WallTower-TwinAssaultGun", x: 214, y: 29}, {stat: "A0HardcreteMk1Gate", x: 207, y: 32},
+		{stat: "CO-WallTower-TwinAssaultGun", x: 207, y: 34}, {stat: "CollectiveWall", x: 208, y: 34}, {stat: "CollectiveWall", x: 209, y: 34},
+		{stat: "PillBox-Cannon6", x: 210, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 210, y: 36},
+		{stat: "CollectiveWall", x: 210, y: 37}, {stat: "CollectiveWall", x: 207, y: 33}, {stat: "CollectiveWall", x: 207, y: 23},
 		{stat: "CO-Emp-RotMor", x: 213, y: 35}, {stat: "CO-PillBoxHPC", x: 208, y: 35},
 	],
 	royalistMainBaseStructs: [
 		{stat: "PillBox-Cannon6", x: 223, y: 23}, {stat: "WallTower-Projector", x: 221, y: 24}, {stat: "CollectiveWall", x: 223, y: 24},
-		{stat: "CollectiveWall", x: 223, y: 25}, {stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 26}, {stat: "A0HardcreteMk1Gate", x: 223, y: 27},
-		{stat: "A0HardcreteMk1Gate", x: 223, y: 28}, {stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 29}, {stat: "CollectiveWall", x: 223, y: 30},
+		{stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 25}, {stat: "A0HardcreteMk1Gate", x: 226, y: 26},
+		{stat: "A0HardcreteMk1Gate", x: 226, y: 29}, {stat: "CO-WallTower-TwinAssaultGun", x: 223, y: 30},
 		{stat: "CollectiveWall", x: 223, y: 31}, {stat: "CollectiveWall", x: 223, y: 32}, {stat: "PillBox-Cannon6", x: 223, y: 33},
-		{stat: "Sys-COCB-Tower01", x: 227, y: 22}, {stat: "Sys-CO-SensoTower", x: 224, y: 25}, {stat: "CollectiveWall", x: 224, y: 26},
-		{stat: "CollectiveWall", x: 225, y: 26}, {stat: "Emplacement-Rocket06-IDF", x: 226, y: 24}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 26},
-		{stat: "A0HardcreteMk1Gate", x: 226, y: 27}, {stat: "WallTower-Projector", x: 227, y: 26}, {stat: "CollectiveWall", x: 224, y: 29},
-		{stat: "CollectiveWall", x: 225, y: 29}, {stat: "A0HardcreteMk1Gate", x: 226, y: 28}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 29},
-		{stat: "WallTower-Projector", x: 227, y: 29}, {stat: "Emplacement-Rocket06-IDF", x: 228, y: 24}, {stat: "Emplacement-Rocket06-IDF", x: 230, y: 24},
+		{stat: "Sys-COCB-Tower01", x: 227, y: 22}, {stat: "CollectiveWall", x: 224, y: 25},
+		{stat: "CollectiveWall", x: 225, y: 25}, {stat: "Emplacement-Rocket06-IDF", x: 226, y: 24}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 25},
+		{stat: "A0HardcreteMk1Gate", x: 226, y: 27}, {stat: "A0HardcreteMk1Gate", x: 224, y: 30},
+		{stat: "CollectiveWall", x: 225, y: 30}, {stat: "A0HardcreteMk1Gate", x: 226, y: 28}, {stat: "CO-WallTower-TwinAssaultGun", x: 226, y: 30},
+		{stat: "Emplacement-Rocket06-IDF", x: 228, y: 24}, {stat: "Emplacement-Rocket06-IDF", x: 230, y: 24},
 		{stat: "CO-Emp-RotMor", x: 231, y: 26}, {stat: "WallTower-Projector", x: 231, y: 22, rot: 2}, {stat: "WallTower-Projector", x: 233, y: 22, rot: 2},
 		{stat: "CO-Tower-HvATRkt", x: 234, y: 23}, {stat: "CollectiveWall", x: 235, y: 23}, {stat: "CO-Tower-HvATRkt", x: 236, y: 23},
 		{stat: "CO-Tower-HvATRkt", x: 233, y: 25}, {stat: "CollectiveWall", x: 233, y: 26}, {stat: "CollectiveWall", x: 233, y: 27},
 		{stat: "CO-Tower-HvATRkt", x: 233, y: 28}, {stat: "A0CyborgFactory", x: 237, y: 24, rot: 3}, {stat: "A0PowerGenerator", x: 236, y: 27, mods: 1},
 		{stat: "A0LightFactory", x: 236, y: 30, rot: 3, mods: 2}, {stat: "Sys-CO-VTOL-CB-Tower01", x: 224, y: 33}, {stat: "CO-WallTower-QuadRotAAGun", x: 225, y: 34},
-		{stat: "A0ResearchFacility", x: 226, y: 32, mods: 1}, {stat: "CollectiveWall", x: 226, y: 34}, {stat: "CO-WallTower-TwinAssaultGun", x: 227, y: 34},
-		{stat: "A0CommandCentreNE", x: 229, y: 32}, {stat: "CollectiveWall", x: 228, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 229, y: 34},
-		{stat: "CollectiveWall", x: 230, y: 34}, {stat: "CollectiveWall", x: 231, y: 34}, {stat: "A0RepairCentre3", x: 232, y: 32},
+		{stat: "A0ResearchFacility", x: 229, y: 32, mods: 1}, {stat: "CollectiveWall", x: 226, y: 34}, {stat: "CO-WallTower-TwinAssaultGun", x: 227, y: 34},
+		{stat: "A0CommandCentreNE", x: 226, y: 32}, {stat: "CollectiveWall", x: 228, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 229, y: 34},
+		{stat: "CollectiveWall", x: 230, y: 34}, {stat: "CollectiveWall", x: 231, y: 34}, {stat: "A0RepairCentre3", x: 230, y: 28},
 		{stat: "CO-WallTower-QuadRotAAGun", x: 232, y: 34}, {stat: "CollectiveWall", x: 233, y: 34}, {stat: "CO-WallTower-TwinAssaultGun", x: 234, y: 34},
-		{stat: "CollectiveWall", x: 235, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 236, y: 34}, {stat: "CO-PillBoxTK", x: 222, y: 26},
-		{stat: "CO-PillBoxTK", x: 222, y: 29}
+		{stat: "CollectiveWall", x: 235, y: 34}, {stat: "CO-WallTower-QuadRotAAGun", x: 236, y: 34}, {stat: "CO-PillBoxTK", x: 222, y: 25},
+		{stat: "CO-PillBoxTK", x: 222, y: 30}
 	],
 	royalistOuterBaseStructs: [
 		{stat: "CO-ROTMGBunker", x: 140, y: 9}, {stat: "CO-WallTower-HvCan", x: 141, y: 8}, {stat: "CollectiveWall", x: 141, y: 9},
@@ -1057,7 +1056,7 @@ var structSets = {
 		{stat: "AASite-QuadRotMg", x: 177, y: 23, rot: 2}, {stat: "PillBox-Cannon6", x: 178, y: 20}, {stat: "CO-WallTower-HvCan", x: 181, y: 16},
 		{stat: "CO-ROTMGBunker", x: 181, y: 19}, {stat: "CollectiveWall", x: 182, y: 16}, {stat: "CO-WallTower-TwinAssaultGun", x: 183, y: 16},
 		{stat: "A0LightFactory", x: 180, y: 27, rot: 2, mods: 2}, {stat: "CollectiveWall", x: 184, y: 16}, {stat: "CO-WallTower-HvCan", x: 185, y: 16},
-		{stat: "A0ComDroidControl", x: 185, y: 20}, {stat: "CO-ROTMGBunker", x: 188, y: 22}, {stat: "PillBox-Cannon6", x: 189, y: 30},
+		{stat: "A0ComDroidControl", x: 185, y: 20}, {stat: "CO-ROTMGBunker", x: 189, y: 23}, {stat: "PillBox-Cannon6", x: 189, y: 30},
 		{stat: "A0HardcreteMk1Gate", x: 189, y: 31}, {stat: "CollectiveWall", x: 160, y: 32}, {stat: "CO-ROTMGBunker", x: 160, y: 33},
 		{stat: "CO-Tower-HvATRkt", x: 161, y: 32}, {stat: "CollectiveWall", x: 162, y: 32}, {stat: "CollectiveWall", x: 163, y: 32},
 		{stat: "COX-Super-Cannon", x: 163, y: 35}, {stat: "CO-Tower-HvATRkt", x: 164, y: 32}, {stat: "CollectiveWall", x: 165, y: 32},
@@ -1066,9 +1065,8 @@ var structSets = {
 		{stat: "CO-WallTower-QuadRotAAGun", x: 169, y: 32}, {stat: "CollectiveWall", x: 169, y: 33}, {stat: "CollectiveWall", x: 169, y: 34},
 		{stat: "CO-Tower-HVCan", x: 169, y: 35}, {stat: "CO-Emp-RotMor", x: 171, y: 32}, {stat: "CollectiveWall", x: 170, y: 35},
 		{stat: "Sys-CO-SensoTower", x: 171, y: 34}, {stat: "CO-Tower-HVCan", x: 171, y: 35}, {stat: "CO-ROTMGBunker", x: 173, y: 37},
-		{stat: "Sys-CO-SensoTower", x: 183, y: 36}, {stat: "CO-Emp-RotMor", x: 183, y: 42}, {stat: "CO-WallTower-QuadRotAAGun", x: 183, y: 44},
-		{stat: "CO-WallTower-TwinAssaultGun", x: 184, y: 34}, {stat: "CollectiveWall", x: 184, y: 35}, {stat: "A0HardcreteMk1Gate", x: 184, y: 36},
-		{stat: "CollectiveWall", x: 184, y: 37}, {stat: "CO-WallTower-TwinAssaultGun", x: 184, y: 38}, {stat: "CO-Tower-HvATRkt", x: 187, y: 37},
+		{stat: "Tower-Projector", x: 183, y: 36}, {stat: "CO-Emp-RotMor", x: 183, y: 42}, {stat: "CO-WallTower-QuadRotAAGun", x: 183, y: 44},
+		{stat: "CO-Tower-HvATRkt", x: 187, y: 37},
 		{stat: "CollectiveWall", x: 187, y: 38}, {stat: "WallTower-Projector", x: 188, y: 33}, {stat: "CollectiveWall", x: 189, y: 32},
 		{stat: "CO-WallTower-TwinAssaultGun", x: 189, y: 33}, {stat: "CollectiveWall", x: 190, y: 33}, {stat: "CO-WallTower-QuadRotAAGun", x: 191, y: 33},
 		{stat: "CollectiveWall", x: 188, y: 37}, {stat: "PillBox-Cannon6", x: 189, y: 37}, {stat: "Sys-COCB-Tower01", x: 188, y: 38},
@@ -1081,8 +1079,7 @@ var structSets = {
 		{stat: "PillBox-Cannon6", x: 194, y: 33}, {stat: "PillBox-Cannon6", x: 192, y: 37}, {stat: "CollectiveWall", x: 193, y: 37},
 		{stat: "CO-Emp-RotMor", x: 192, y: 39}, {stat: "CO-Tower-HvATRkt", x: 194, y: 37}, {stat: "CollectiveWall", x: 194, y: 38},
 		{stat: "CollectiveWall", x: 194, y: 39}, {stat: "CollectiveWall", x: 185, y: 12}, {stat: "WallTower-Projector", x: 191, y: 16},
-		{stat: "CO-Tower-HvATRkt", x: 183, y: 29}, {stat: "CollectiveWall", x: 183, y: 30}, {stat: "CollectiveWall", x: 183, y: 31},
-		{stat: "CO-Tower-HvATRkt", x: 183, y: 32}, {stat: "WallTower-Projector", x: 180, y: 32}, {stat: "CO-Tower-HvATRkt", x: 190, y: 16}, 
+		{stat: "WallTower-Projector", x: 180, y: 32}, {stat: "CO-Tower-HvATRkt", x: 190, y: 16}, {stat: "Sys-CO-VTOL-RadarTower01", x: 189, y: 26}
 		{stat: "A0HardcreteMk1Gate", x: 190, y: 17}, {stat: "A0HardcreteMk1Gate", x: 190, y: 18}, {stat: "CO-Tower-HvATRkt", x: 190, y: 19}
 	],
 	royalistNorthLakeStructs: [
@@ -1376,12 +1373,13 @@ function initializeGameInfo()
 	// directly into their research menu.
 	camSetArtifacts({
 		// Resistance Artifacts
-		"resHQ": { tech: ["R-Sys-Engineering01", "R-Sys-CommandUpgrade01"] }, // Engineering & Improved Command-Control Systems
+		"resTwinMGTower": { tech: "R-Wpn-MG2Mk1" }, // Twin Machinegun
+		"resHQ": { tech: "R-Sys-CommandUpgrade01" }, // Improved Command-Control Systems
 		"resPython": { tech: "R-Vehicle-Body11", req: "R-Vehicle-Body05" }, // Python (requires Cobra)
 		"resAASite": { tech: "R-Wpn-AAGun03" }, // Hurricane AA
 		"resistanceFactory": { tech: "R-Struc-Factory-Module" }, // Factory Module
 		"resistanceHeavyFactory": { tech: "R-Vehicle-Prop-Tracks" }, // Tracked Propulsion
-		"resResearch1": { tech: "R-Wpn-MG2Mk1" }, // Twin Machinegun
+		"resResearch1": { tech: "R-Sys-Engineering01" }, // Engineering
 		"resResearch2": { tech: "R-Wpn-MG-ROF01" }, // Chaingun Upgrade
 		"resRelay": { tech: "R-Struc-CommandRelay" }, // Command Relay Post
 		"resSarissa": { tech: "R-Wpn-Rocket-LtA-TMk1" }, // Sarissa AT Rocket
@@ -1397,6 +1395,7 @@ function initializeGameInfo()
 		"ampAASite": { tech: "R-Wpn-AAGun02", req: "R-Wpn-AAGun03" }, // Cyclone AA (requires Hurricane)
 		"ampPowerGen": { tech: "R-Struc-PowerModuleMk1" }, // Power Module
 		"amphosVtolFactory": { tech: "R-Vehicle-Prop-VTOL" }, // VTOL Propulsion
+		"amphosMainFactory1": { tech: "R-Wpn-Rocket02-MRLHvy", req: "R-Wpn-Rocket02-MRL" }, // Heavy Rocket Array (requires MRA)
 		"amphosMainFactory2": { tech: "R-Wpn-Rocket06-IDF", req: "R-Wpn-Rocket02-MRL" }, // Ripple Rockets (requires MRA)
 		"ampHQ": { tech: "R-Sys-CommandUpgrade01", req: "R-Wpn-Rocket02-MRL" }, // Improved Command-Control Systems
 		// Hellraiser Artifacts
@@ -1492,28 +1491,28 @@ function initializeGameInfo()
 			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
 			helFactoryTemplates = [ cTempl.hehinf, cTempl.hellrep, cTempl.helhmg, cTempl.hemflam, cTempl.hemlcan, cTempl.hehinf ];
-			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates1 = [ cTempl.cybhg, cTempl.cybfl, cTempl.cybfl ];
 			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.cohhcan, cTempl.comhmg, cTempl.comhrepht ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv, cTempl.colpbomv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rommrat, cTempl.rominft, cTempl.romhrept ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt/*, cTempl.rohbalt*/ ];
 			royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla, cTempl.scyhc ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.scytk, cTempl.cybag, cTempl.cybth, cTempl.scytk, cTempl.cybag, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv, cTempl.romacanv ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv, cTempl.romacanv ];
 
 			resSubTemplates = [ cTempl.rehhcanht, cTempl.rehhmg, cTempl.rempod, cTempl.remsens, cTempl.rehhmor, cTempl.rehinf, cTempl.rehhcant ];
-			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
+			resSubCybTemplates = [ cTempl.cybhg, cTempl.cybca, cTempl.cybth, cTempl.cybca, cTempl.cybhg, cTempl.scymc ];
 			break;
 		case HARD:
 			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodht, cTempl.relflamht ];
@@ -1527,28 +1526,28 @@ function initializeGameInfo()
 			ampVtolTemplates = [ cTempl.amllanv, cTempl.amlpodv, cTempl.amlhmgv, cTempl.amlbbv ];
 
 			helFactoryTemplates = [ cTempl.helflam, cTempl.hellrep, cTempl.helhmg, cTempl.helflam, cTempl.hemlcan, cTempl.hehinf ];
-			helCybTemplates1 = [ cTempl.cybmg, cTempl.cybfl, cTempl.cybfl ];
+			helCybTemplates1 = [ cTempl.cybhg, cTempl.cybfl, cTempl.cybfl ];
 			helCybTemplates2 = [ cTempl.cybca, cTempl.cybfl, cTempl.cybfl ];
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmort, cTempl.commcan, cTempl.comsenst, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.cohhcan, cTempl.cohhow ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft, cTempl.romhrept ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmort, cTempl.romacant, cTempl.romagt, cTempl.rombbt, cTempl.rohhcant, cTempl.romtkt ];
 			royHoverFactoryTemplates = [ cTempl.romtkh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah, cTempl.rohhcanh ];
 			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla, cTempl.scyhc ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
-			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolpbomv, cTempl.rolhvcanv ];
+			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rollanv, cTempl.rolagv, cTempl.rolhvcanv, cTempl.rolpbomv ];
 
 			resSubTemplates = [ cTempl.rehmcanht, cTempl.remhmgt, cTempl.rempod, cTempl.remsens, cTempl.remhmor, cTempl.reminf, cTempl.rehhcant ];
-			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg, cTempl.scymc ];
+			resSubCybTemplates = [ cTempl.cybhg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybhg, cTempl.scymc ];
 			break;
 		case MEDIUM:
 			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmght, cTempl.relpodw, cTempl.relflamht ];
@@ -1567,23 +1566,23 @@ function initializeGameInfo()
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg, cTempl.comhrepht ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan, cTempl.cohhow ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra, cTempl.rominft ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.romagt, cTempl.rombbt ];
 			royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.romagh, cTempl.rommrah ];
 			royMainFactoryTemplates = [ cTempl.romtkt, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmort ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla, cTempl.scyhc ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla, cTempl.scyhc ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
 			royVtolTemplates = [ cTempl.rollanv, cTempl.rolagv ];
 
 			resSubTemplates = [ cTempl.remmcan, cTempl.remhmgt, cTempl.rempod, cTempl.relsenst, cTempl.remmor, cTempl.remflam, cTempl.rehmcant ];
-			resSubCybTemplates = [ cTempl.cybmg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybmg ];
+			resSubCybTemplates = [ cTempl.cybhg, cTempl.cybca, cTempl.cybfl, cTempl.cybca, cTempl.cybhg ];
 			break;
 		default:
 			resFactoryTemplates = [ cTempl.rellcan, cTempl.reltwmgw, cTempl.relpodw, cTempl.relflamw ];
@@ -1602,16 +1601,16 @@ function initializeGameInfo()
 
 			coaMainTemplates1 = [ cTempl.colpod, cTempl.comhmorht, cTempl.commcan, cTempl.comsensht, cTempl.colsar, cTempl.commcan, cTempl.comhmg ];
 			coaMainTemplates2 = [ cTempl.cohhcan, cTempl.comhmg, cTempl.commcan ];
-			coaCybTemplates1 = [ cTempl.cybmg, cTempl.cybgr, cTempl.cybmg, cTempl.cybmg, cTempl.cybgr, cTempl.cybmg ];
-			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybmg ];
-			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybmg, cTempl.cybca, cTempl.cybmg, cTempl.cybmg ];
+			coaCybTemplates1 = [ cTempl.cybhg, cTempl.cybgr, cTempl.cybhg, cTempl.cybhg, cTempl.cybgr, cTempl.cybhg ];
+			coaCybTemplates2 = [ cTempl.scymc, cTempl.cybgr, cTempl.scymc, cTempl.cybhg ];
+			coaCybTemplates3 = [ cTempl.cybrp, cTempl.cybhg, cTempl.cybca, cTempl.cybhg, cTempl.cybhg ];
 			coaVtolTemplates = [ cTempl.colcbomv, cTempl.colhmgv, cTempl.colcanv ];
 
 			royCentralFactoryTemplates = [ cTempl.rollant, cTempl.rolhmgt, cTempl.romacant, cTempl.rolmra ];
 			royOuterFactoryTemplates = [ cTempl.romsenst, cTempl.romrmorht, cTempl.romacant, cTempl.rolhmgt ];
 			royHoverFactoryTemplates = [ cTempl.rollanh, cTempl.romhvcanh, cTempl.romhvcanh, cTempl.rolhmgh, cTempl.rommrah ];
 			royMainFactoryTemplates = [ cTempl.rollant, cTempl.romacant, cTempl.romsenst, cTempl.rohhcant, cTempl.romagt, cTempl.romrmorht ];
-			roySouthCybTemplates = [ cTempl.cybca, cTempl.cybla, cTempl.cybca, cTempl.cybca, cTempl.cybla ];
+			roySouthCybTemplates = [ cTempl.cybhg, cTempl.cybla, cTempl.cybhg, cTempl.cybhg, cTempl.cybla ];
 			royHowitzerCybTemplates = [ cTempl.cybth, cTempl.cybla, cTempl.scyhc, cTempl.cybag, cTempl.cybla, cTempl.scyac ]
 			royOuterCybTemplates = [ cTempl.cybla, cTempl.cybag, cTempl.cybla, cTempl.cybag, cTempl.cybth, cTempl.cybth ];
 			royMainCybTemplates = [ cTempl.scyac, cTempl.cybth, cTempl.cybag, cTempl.cybla ];
@@ -1715,7 +1714,7 @@ function initializeGameInfo()
 			assembly: "ampVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(35)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
 			templates: ampVtolTemplates
 		},
 		"hellraiserFactory": {
@@ -1924,21 +1923,21 @@ function initializeGameInfo()
 			assembly: "royOuterVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(90)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(120)),
 			templates: royVtolTemplates
 		},
 		"royalistMainVtolFac1": {
 			assembly: "royMainVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(90)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(120)),
 			templates: royVtolTemplates
 		},
 		"royalistMainVtolFac2": {
 			assembly: "royMainVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(120)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(200)),
 			templates: royVtolTemplates
 		},
 		// These factories start off unbuilt
@@ -2006,7 +2005,7 @@ function initializeGameInfo()
 			assembly: "ampVTOLAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(135)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(180)),
 			templates: royVtolTemplates
 		},
 		"royalistPortFactory": {
@@ -2343,6 +2342,7 @@ function initializeGameInfo()
 			// ERADICATED: All factories and units have been destroyed.
 			allianceState: "NEUTRAL",
 			groundFactoryState: "DISABLED",
+			maxUnmanagedUnits: 20,
 			groups: {
 				coastPatrolGroup: { // Patrols along the east coast area
 					id: camNewGroup(), // This stores the group ID for adding more units later
@@ -2396,6 +2396,7 @@ function initializeGameInfo()
 			numDestroyed: 0, // Number of objects destroyed by the player
 			pitched: false, // Whether AMPHOS has pitched their alliance to the player
 			requireNW: true, // Whether AMPHOS requires the NW island to be under their control to negotiate
+			maxUnmanagedUnits: 30,
 			groups: {
 				commanderGroup: { // Follows the AMPHOS commander
 					id: camNewGroup(),
@@ -2472,6 +2473,7 @@ function initializeGameInfo()
 			totalStructs: enumStruct(CAM_HELLRAISERS).length, // Max number of Hellraiser structs
 			structThreshold: enumStruct(CAM_HELLRAISERS).length, // How many Hellraiser structs must exist to start negotiations
 			lzDiscovered: false, // Whether there is a beacon on the Hellraiser's LZ
+			maxUnmanagedUnits: 20,
 			groups: {
 				playerSupportGroup: { // Assists the player in combat
 					id: camNewGroup(),
@@ -2547,6 +2549,7 @@ function initializeGameInfo()
 			proxyHostile: false, // Appear hostile, but don't activate factories yet.
 			allowAlliance: false, // Whether the Coalition will allow the player to ally with them (given they meet requirements to negotiate)
 			offensive: false, // Whether the Coalition has launched a suprise offensive against the Royalists
+			maxUnmanagedUnits: 30,
 			groups: {
 				commanderGroup: { // Follows the Coalition commander
 					id: camNewGroup(),
@@ -2645,6 +2648,7 @@ function initializeGameInfo()
 			tier2Granted: false, // Whether the Royalists have started researching end-game technology
 			allowIncenHowit: false, // Whether the Royalists have eradicated the Hellraisers, thus granting them access to Incendiary Howitzers
 			allowTwinAssault: false, // Whether the Royalists are allowed to produce twin assault weapons
+			maxUnmanagedUnits: 30,
 			groundGroups: { // NOTE: Non-refilling patrol groups are not included here
 				groundReclaimerGroup: { // Claims FOBs back from the player and their allies
 					id: camNewGroup(),

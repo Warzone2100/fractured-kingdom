@@ -16,7 +16,7 @@
 		"requiredResearch": [
 			"R-Struc-CommandRelay"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 900,
 		"researchPower": 37,
 		"resultComponents": [
 			"CommandBrain01",
@@ -46,7 +46,7 @@
 			"R-Wpn-Cannon5",
 			"R-Cyborg-Hvywpn-Mcannon"
 		],
-		"researchPoints": 4300,
+		"researchPoints": 1900,
 		"researchPower": 150,
 		"resultComponents": [
 			"Cyb-Hvywpn-Acannon"
@@ -65,7 +65,7 @@
 			"R-Cyborg-Hvywpn-Mcannon",
 			"R-Wpn-Cannon4AMk1"
 		],
-		"researchPoints": 4300,
+		"researchPoints": 1900,
 		"researchPower": 150,
 		"resultComponents": [
 			"Cyb-Hvywpn-HPV"
@@ -81,7 +81,7 @@
 			"R-Wpn-Cannon2Mk1",
 			"R-Cyborg-Metals03"
 		],
-		"researchPoints": 3800,
+		"researchPoints": 1600,
 		"researchPower": 125,
 		"resultComponents": [
 			"Cyb-Hvywpn-Mcannon"
@@ -97,7 +97,7 @@
 			"R-Cyborg-Hvywpn-Mcannon",
 			"R-Wpn-Rocket07-Tank-Killer"
 		],
-		"researchPoints": 4300,
+		"researchPoints": 2400,
 		"researchPower": 156,
 		"resultComponents": [
 			"Cyb-Hvywpn-TK"
@@ -115,7 +115,7 @@
 			"R-Struc-Factory-Module",
 			"R-Cyborg-Wpn-MG"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 700,
 		"researchPower": 37,
 		"results": [
 			{
@@ -144,7 +144,7 @@
 		"requiredResearch": [
 			"R-Cyborg-Metals01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 900,
 		"researchPower": 75,
 		"results": [
 			{
@@ -174,7 +174,7 @@
 			"R-Vehicle-Metals03",
 			"R-Cyborg-Metals02"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1100,
 		"researchPower": 112,
 		"results": [
 			{
@@ -205,7 +205,7 @@
 			"R-Cyborg-Metals03",
 			"R-Vehicle-Metals04"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1300,
 		"researchPower": 175,
 		"results": [
 			{
@@ -234,7 +234,7 @@
 			"R-Cyborg-Metals04",
 			"R-Vehicle-Metals05"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1500,
 		"researchPower": 237,
 		"results": [
 			{
@@ -264,7 +264,7 @@
 			"R-Cyborg-Metals05",
 			"R-Vehicle-Metals06"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1700,
 		"researchPower": 300,
 		"results": [
 			{
@@ -294,7 +294,7 @@
 		"requiredResearch": [
 			"R-Cyborg-Metals02"
 		],
-		"researchPoints": 2600,
+		"researchPoints": 800,
 		"researchPower": 112,
 		"results": [
 			{
@@ -316,7 +316,7 @@
 			"R-Cyborg-Metals04",
 			"R-Cyborg-Armor-Heat01"
 		],
-		"researchPoints": 3400,
+		"researchPoints": 1000,
 		"researchPower": 150,
 		"results": [
 			{
@@ -339,7 +339,7 @@
 			"R-Cyborg-Armor-Heat02",
 			"R-Cyborg-Metals06"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1200,
 		"researchPower": 187,
 		"results": [
 			{
@@ -362,7 +362,7 @@
 		"requiredResearch": [
 			"R-Struc-Factory-Module"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 800,
 		"researchPower": 56,
 		"results": [
 			{
@@ -391,7 +391,7 @@
 			"R-Vehicle-Metals01",
 			"R-Cyborg-Metals02"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1000,
 		"researchPower": 112,
 		"results": [
 			{
@@ -421,7 +421,7 @@
 			"R-Vehicle-Metals02",
 			"R-Sys-Engineering02"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1200,
 		"researchPower": 168,
 		"results": [
 			{
@@ -452,7 +452,7 @@
 			"R-Vehicle-Body03",
 			"R-Vehicle-Metals03"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1400,
 		"researchPower": 237,
 		"results": [
 			{
@@ -481,7 +481,7 @@
 			"R-Vehicle-Body07",
 			"R-Vehicle-Metals04"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1600,
 		"researchPower": 300,
 		"results": [
 			{
@@ -511,7 +511,7 @@
 			"R-Vehicle-Body10",
 			"R-Vehicle-Metals05"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1800,
 		"researchPower": 362,
 		"results": [
 			{
@@ -541,7 +541,7 @@
 		"requiredResearch": [
 			"R-Vehicle-Metals02"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 900,
 		"researchPower": 150,
 		"results": [
 			{
@@ -563,7 +563,7 @@
 			"R-Vehicle-Metals04",
 			"R-Vehicle-Armor-Heat01"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1100,
 		"researchPower": 218,
 		"results": [
 			{
@@ -586,7 +586,7 @@
 			"R-Vehicle-Armor-Heat02",
 			"R-Vehicle-Metals06"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 1300,
 		"researchPower": 281,
 		"results": [
 			{
@@ -609,13 +609,32 @@
 			"R-Wpn-Cannon1Mk1",
 			"R-Cyborg-Wpn-MG"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 800,
 		"researchPower": 46,
 		"resultComponents": [
 			"CyborgCannon"
 		],
 		"statID": "CyborgCannon"
 	},
+	"R-Cyborg-Wpn-HvyMG": {
+        "iconID": "IMAGE_RES_CYBORGTECH",
+        "id": "R-Cyborg-Wpn-HvyMG",
+        "msgName": "RES_CYW_HMG",
+        "name": "Heavy Machinegunner Cyborg",
+        "replacedComponents": [
+            "CyborgChaingun:CyborgHeavyChaingun"
+        ],
+        "requiredResearch": [
+            "R-Wpn-MG3Mk1",
+            "R-Cyborg-Wpn-MG"
+        ],
+        "researchPoints": 1200,
+        "researchPower": 46,
+        "resultComponents": [
+            "CyborgHeavyChaingun"
+        ],
+        "statID": "CyborgHeavyChaingun"
+    },
 	"R-Cyb-Wpn-Grenade": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
 		"id": "R-Cyborg-Wpn-Grenade",
@@ -625,7 +644,7 @@
 			"R-Wpn-Mortar01Lt",
 			"R-Cyborg-Wpn-Cannon"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 800,
 		"researchPower": 72,
 		"resultComponents": [
 			"Cyb-Wpn-Grenade"
@@ -641,7 +660,7 @@
 			"R-Wpn-Flamer01Mk1",
 			"R-Cyborg-Wpn-MG"
 		],
-		"researchPoints": 900,
+		"researchPoints": 800,
 		"researchPower": 28,
 		"resultComponents": [
 			"CyborgFlamer01"
@@ -663,7 +682,7 @@
 			"R-Wpn-Flame2",
 			"R-Cyborg-Wpn-Flamer"
 		],
-		"researchPoints": 5900,
+		"researchPoints": 1200,
 		"researchPower": 175,
 		"resultComponents": [
 			"Cyb-Wpn-Thermite"
@@ -727,7 +746,7 @@
 			"R-Wpn-Rocket01-LtAT",
 			"R-Cyborg-Wpn-MG"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 1600,
 		"researchPower": 90,
 		"resultComponents": [
 			"CyborgRocket"
@@ -740,12 +759,13 @@
 		"msgName": "RES_CYW_MG4",
 		"name": "Assault Gunner Cyborg",
 		"replacedComponents": [
-			"CyborgChaingun:CyborgRotMG"
+			"CyborgChaingun:CyborgRotMG",
+			"CyborgHeavyChaingun:CyborgRotMG"
 		],
 		"requiredResearch": [
 			"R-Wpn-MG4"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1800,
 		"researchPower": 225,
 		"resultComponents": [
 			"CyborgRotMG"
@@ -760,7 +780,7 @@
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 2100,
 		"researchPower": 450,
 		"resultComponents": [
 			"Cyb-Wpn-Laser"
@@ -775,7 +795,7 @@
 		"requiredResearch": [
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 300,
 		"researchPower": 56,
 		"resultStructures": [
 			"A0HardcreteMk1Gate"
@@ -787,6 +807,10 @@
 		"id": "R-Defense-HardcreteWall",
 		"msgName": "RES_DF_HCW1",
 		"name": "Hardcrete",
+		"redStructures": [
+			"Sys-SensoTower01",
+			"GuardTowerMRP"
+		],
 		"requiredResearch": [
 			"R-Sys-Engineering01"
 		],
@@ -794,7 +818,9 @@
 		"researchPower": 18,
 		"resultStructures": [
 			"A0HardcreteMk1CWall",
-			"A0HardcreteMk1Wall"
+			"A0HardcreteMk1Wall",
+			"Sys-SensoTower02",
+			"GuardTower6"
 		],
 		"statID": "A0HardcreteMk1Wall"
 	},
@@ -807,12 +833,31 @@
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Rocket02-MRL"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 350,
 		"researchPower": 37,
 		"resultStructures": [
 			"Emplacement-MRL-pit"
 		],
 		"statID": "Emplacement-MRL-pit"
+	},
+	"R-Defense-MRLHvy": {
+		"iconID": "IMAGE_RES_DEFENCE",
+		"id": "R-Defense-MRLHvy",
+		"msgName": "RES_EMP_MRL",
+		"name": "Heavy Rocket Battery",
+		"redStructures": [
+			"Emplacement-MRL-pit"
+		],
+		"requiredResearch": [
+			"R-Defense-HardcreteWall",
+			"R-Wpn-Rocket02-MRLHvy"
+		],
+		"researchPoints": 400,
+		"researchPower": 67,
+		"resultStructures": [
+			"Emplacement-MRLHvy-pit"
+		],
+		"statID": "Emplacement-MRLHvy-pit"
 	},
 	"R-Defense-MortarPit": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -823,7 +868,7 @@
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Mortar01Lt"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 250,
 		"researchPower": 37,
 		"resultStructures": [
 			"Emplacement-MortarPit01"
@@ -839,7 +884,7 @@
 			"R-Defense-HardcreteWall",
 			"R-Wpn-MG3Mk1"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 350,
 		"researchPower": 85,
 		"resultStructures": [
 			"PillBox1"
@@ -851,11 +896,14 @@
 		"id": "R-Defense-Pillbox04",
 		"msgName": "RES_PB_LC",
 		"name": "Light Cannon Bunker",
+		"redStructures": [
+			"Cannon-Emplacement"
+		],
 		"requiredResearch": [
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Cannon1Mk1"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 300,
 		"researchPower": 46,
 		"resultStructures": [
 			"PillBox4"
@@ -867,11 +915,14 @@
 		"id": "R-Defense-Pillbox05",
 		"msgName": "RES_PB_FL",
 		"name": "Flamer Bunker",
+		"redStructures": [
+			"Flamer-Emplacement"
+		],
 		"requiredResearch": [
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Flamer01Mk1"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 300,
 		"researchPower": 46,
 		"resultStructures": [
 			"PillBox5"
@@ -887,7 +938,7 @@
 			"R-Wpn-Rocket-LtA-TMk1",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 300,
 		"researchPower": 46,
 		"resultStructures": [
 			"PillBox6"
@@ -903,7 +954,7 @@
 			"R-Wpn-Rocket01-LtAT",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 1650,
+		"researchPoints": 350,
 		"researchPower": 67,
 		"resultStructures": [
 			"PillBoxLance"
@@ -922,7 +973,7 @@
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Rocket01-LtAT"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 300,
 		"researchPower": 46,
 		"resultStructures": [
 			"GuardTower5"
@@ -934,7 +985,7 @@
 		"id": "R-Defense-TankTrap01",
 		"msgName": "RES_TTRAP1",
 		"name": "Tank Traps",
-		"researchPoints": 600,
+		"researchPoints": 200,
 		"researchPower": 18,
 		"resultStructures": [
 			"A0TankTrap"
@@ -954,7 +1005,7 @@
 			"R-Wpn-MG3Mk1",
 			"R-Defense-Tower02"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 300,
 		"researchPower": 80,
 		"resultStructures": [
 			"GuardTower3"
@@ -969,7 +1020,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG2Mk1"
 		],
-		"researchPoints": 700,
+		"researchPoints": 250,
 		"researchPower": 35,
 		"resultStructures": [
 			"GuardTower2"
@@ -979,13 +1030,14 @@
 	"R-Defense-Tower06": {
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-Tower06",
+		"keyTopic": 1,
 		"msgName": "RES_EMP_PODTOW",
 		"name": "Mini-Rocket Tower",
 		"requiredResearch": [
 			"R-Wpn-Rocket05-MiniPod",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 300,
 		"researchPower": 75,
 		"resultStructures": [
 			"GuardTower6"
@@ -1003,7 +1055,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG5"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 600,
 		"researchPower": 150,
 		"resultStructures": [
 			"WallTower-TwinAssaultGun"
@@ -1020,7 +1072,7 @@
 			"R-Wpn-MG3Mk1",
 			"R-Defense-Pillbox01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 350,
 		"researchPower": 100,
 		"resultStructures": [
 			"WallTower01"
@@ -1036,7 +1088,7 @@
 			"R-Wpn-Cannon1Mk1",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 1500,
+		"researchPoints": 300,
 		"researchPower": 46,
 		"resultStructures": [
 			"WallTower02"
@@ -1055,7 +1107,7 @@
 			"R-Wpn-Cannon2Mk1",
 			"R-Defense-WallTower02"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 350,
 		"researchPower": 56,
 		"resultStructures": [
 			"WallTower03"
@@ -1074,7 +1126,7 @@
 			"R-Defense-WallTower03",
 			"R-Wpn-Cannon3Mk1"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 400,
 		"researchPower": 200,
 		"resultStructures": [
 			"WallTower04"
@@ -1090,13 +1142,12 @@
 			"R-Wpn-Rocket01-LtAT",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 350,
 		"researchPower": 120,
 		"resultStructures": [
 			"WallTower06"
 		],
-		"statID": "WallTower06",
-		"subgroupIconID": "IMAGE_RES_GRPACC"
+		"statID": "WallTower06"
 	},
 	"R-Defense-WallUpgrade01": {
 		"iconID": "IMAGE_RES_DEFENCE",
@@ -1108,7 +1159,7 @@
 			"R-Defense-HardcreteWall",
 			"R-Sys-Engineering01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 400,
 		"researchPower": 37,
 		"results": [
 			{
@@ -1136,7 +1187,7 @@
 		"requiredResearch": [
 			"R-Defense-WallUpgrade01"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 600,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1165,7 +1216,7 @@
 		"requiredResearch": [
 			"R-Defense-WallUpgrade02"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 800,
 		"researchPower": 112,
 		"results": [
 			{
@@ -1195,7 +1246,7 @@
 		"requiredResearch": [
 			"R-Sys-Sensor-Tower01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 800,
 		"researchPower": 37,
 		"resultStructures": [
 			"A0ComDroidControl"
@@ -1211,7 +1262,7 @@
 			"R-Wpn-MG-Damage01",
 			"R-Comp-SynapticLink"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 600,
 		"researchPower": 56,
 		"resultStructures": [
 			"A0CyborgFactory"
@@ -1228,7 +1279,7 @@
 			"R-Sys-Engineering01",
 			"R-Struc-Factory-Cyborg"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1200,
 		"researchPower": 75,
 		"resultStructures": [
 			"A0FacMod1"
@@ -1244,7 +1295,7 @@
 		"requiredResearch": [
 			"R-Struc-Factory-Module"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1400,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1265,7 +1316,7 @@
 		"requiredResearch": [
 			"R-Struc-Factory-Upgrade01"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1800,
 		"researchPower": 150,
 		"results": [
 			{
@@ -1286,7 +1337,7 @@
 		"requiredResearch": [
 			"R-Struc-Factory-Upgrade02"
 		],
-		"researchPoints": 5600,
+		"researchPoints": 2100,
 		"researchPower": 230,
 		"results": [
 			{
@@ -1303,7 +1354,7 @@
 		"imdName": "BLFACT1.PIE",
 		"keyTopic": 1,
 		"name": "Forbidden Manufacturing",
-		"researchPoints": 2400,
+		"researchPoints": 9999,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1323,7 +1374,7 @@
 		"requiredResearch": [
 			"R-Defense-WallUpgrade01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 300,
 		"researchPower": 37,
 		"results": [
 			{
@@ -1351,7 +1402,7 @@
 		"requiredResearch": [
 			"R-Struc-Materials01"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 500,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1380,7 +1431,7 @@
 		"requiredResearch": [
 			"R-Struc-Materials02"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 700,
 		"researchPower": 112,
 		"results": [
 			{
@@ -1410,7 +1461,7 @@
 		"requiredResearch": [
 			"R-Vehicle-Engine01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 600,
 		"researchPower": 37,
 		"resultStructures": [
 			"A0PowMod1"
@@ -1433,7 +1484,7 @@
 			"R-Sys-MobileRepairTurret01",
 			"R-Struc-Factory-Module"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 800,
 		"researchPower": 75,
 		"resultStructures": [
 			"A0RepairCentre3"
@@ -1450,7 +1501,7 @@
 			"R-Struc-CommandRelay",
 			"R-Comp-SynapticLink"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 800,
 		"researchPower": 37,
 		"resultStructures": [
 			"A0ResearchModule1"
@@ -1466,7 +1517,7 @@
 			"R-Struc-RepairFacility",
 			"R-Struc-Factory-Upgrade01"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1000,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1492,7 +1543,7 @@
 			"R-Struc-Factory-Upgrade02",
 			"R-Struc-RprFac-Upgrade01"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1200,
 		"researchPower": 112,
 		"results": [
 			{
@@ -1518,7 +1569,7 @@
 			"R-Struc-Factory-Upgrade03",
 			"R-Struc-RprFac-Upgrade02"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1400,
 		"researchPower": 224,
 		"results": [
 			{
@@ -1542,7 +1593,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_ENGIN1",
 		"name": "Engineering",
-		"researchPoints": 1200,
+		"researchPoints": 400,
 		"researchPower": 37,
 		"results": [
 			{
@@ -1626,7 +1677,7 @@
 			"R-Vehicle-Body01",
 			"R-Vehicle-Metals01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 600,
 		"researchPower": 37,
 		"resultComponents": [
 			"Body4ABT"
@@ -1642,7 +1693,7 @@
 			"R-Struc-Factory-Module",
 			"R-Vehicle-Body01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 1000,
 		"researchPower": 37,
 		"resultComponents": [
 			"Body5REC"
@@ -1658,7 +1709,7 @@
 			"R-Vehicle-Body05",
 			"R-Vehicle-Body04"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1000,
 		"researchPower": 75,
 		"resultComponents": [
 			"Body8MBT"
@@ -1674,7 +1725,7 @@
 			"R-Vehicle-Body05",
 			"R-Vehicle-Metals03"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1400,
 		"researchPower": 75,
 		"resultComponents": [
 			"Body11ABT"
@@ -1690,7 +1741,7 @@
 			"R-Vehicle-Body08",
 			"R-Vehicle-Body11"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1400,
 		"researchPower": 112,
 		"resultComponents": [
 			"Body12SUP"
@@ -1707,7 +1758,7 @@
 			"R-Sys-Engineering01",
 			"R-Struc-Factory-Module"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 600,
 		"researchPower": 37,
 		"results": [
 			{
@@ -1729,7 +1780,7 @@
 			"R-Vehicle-Engine01",
 			"R-Vehicle-Prop-Hover"
 		],
-		"researchPoints": 1600,
+		"researchPoints": 800,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1752,7 +1803,7 @@
 			"R-Vehicle-Engine02",
 			"R-Struc-PowerModuleMk1"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 1000,
 		"researchPower": 150,
 		"results": [
 			{
@@ -1772,7 +1823,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_HALFT1",
 		"name": "Half-tracked Propulsion",
-		"researchPoints": 1200,
+		"researchPoints": 800,
 		"researchPower": 37,
 		"resultComponents": [
 			"HalfTrack"
@@ -1788,7 +1839,7 @@
 		"requiredResearch": [
 			"R-Struc-Factory-Module"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1200,
 		"researchPower": 112,
 		"resultComponents": [
 			"hover01"
@@ -1804,7 +1855,7 @@
 			"R-Sys-Engineering01",
 			"R-Vehicle-Metals03"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1000,
 		"researchPower": 75,
 		"resultComponents": [
 			"tracked01"
@@ -1819,7 +1870,7 @@
 		"requiredStructures": [
 			"A0LightFactory"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 600,
 		"researchPower": 37,
 		"resultComponents": [
 			"wheeled01"
@@ -1835,7 +1886,7 @@
 			"R-Wpn-Cannon-Damage02",
 			"R-Wpn-Cannon4AMk1"
 		],
-		"researchPoints": 2600,
+		"researchPoints": 1600,
 		"researchPower": 112,
 		"results": [
 			{
@@ -1865,7 +1916,7 @@
 			"R-Wpn-Cannon1Mk1",
 			"R-Wpn-MG-Damage02"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 800,
 		"researchPower": 37,
 		"results": [
 			{
@@ -1894,7 +1945,7 @@
 			"R-Wpn-Cannon-Damage01",
 			"R-Wpn-Cannon2Mk1"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 1000,
 		"researchPower": 75,
 		"results": [
 			{
@@ -1924,7 +1975,7 @@
 			"R-Wpn-Cannon-Damage02",
 			"R-Wpn-Rocket-Damage03"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1200,
 		"researchPower": 112,
 		"results": [
 			{
@@ -1952,7 +2003,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_CN1MK1",
 		"name": "Light Cannon",
-		"researchPoints": 2400,
+		"researchPoints": 700,
 		"researchPower": 75,
 		"resultComponents": [
 			"Cannon1-VTOL",
@@ -1970,7 +2021,7 @@
 			"R-Wpn-Cannon-Damage01",
 			"R-Sys-Engineering01"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1100,
 		"researchPower": 150,
 		"resultComponents": [
 			"Cannon2A-TMk1"
@@ -1988,7 +2039,7 @@
 			"R-Wpn-Cannon2Mk1",
 			"R-Wpn-Cannon-Damage03"
 		],
-		"researchPoints": 6300,
+		"researchPoints": 1900,
 		"researchPower": 225,
 		"resultComponents": [
 			"Cannon375mmMk1"
@@ -2004,7 +2055,7 @@
 			"R-Wpn-Flamer01Mk1",
 			"R-Sys-Engineering01"
 		],
-		"researchPoints": 800,
+		"researchPoints": 600,
 		"researchPower": 38,
 		"results": [
 			{
@@ -2033,7 +2084,7 @@
 			"R-Wpn-Flamer-Damage01",
 			"R-Vehicle-Armor-Heat01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 750,
 		"researchPower": 57,
 		"results": [
 			{
@@ -2063,7 +2114,7 @@
 			"R-Wpn-Flamer-Damage02",
 			"R-Sys-Engineering02"
 		],
-		"researchPoints": 1600,
+		"researchPoints": 900,
 		"researchPower": 75,
 		"results": [
 			{
@@ -2093,7 +2144,7 @@
 		"requiredResearch": [
 			"R-Wpn-Flamer-Damage01"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 900,
 		"researchPower": 97,
 		"results": [
 			{
@@ -2159,7 +2210,7 @@
 			"R-Wpn-MG-Damage01",
 			"R-Wpn-MG2Mk1"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 600,
 		"researchPower": 37,
 		"results": [
 			{
@@ -2181,7 +2232,7 @@
 			"R-Wpn-MG-Damage02",
 			"R-Wpn-MG-ROF01"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 750,
 		"researchPower": 75,
 		"results": [
 			{
@@ -2204,7 +2255,7 @@
 			"R-Wpn-MG-ROF01",
 			"R-Wpn-MG3Mk1"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 900,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2228,7 +2279,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG-Damage01"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 900,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2276,7 +2327,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG-Damage01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 900,
 		"researchPower": 37,
 		"resultComponents": [
 			"MG2-VTOL",
@@ -2298,7 +2349,7 @@
 			"R-Wpn-MG-Damage02",
 			"R-Wpn-MG-ROF03"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1300,
 		"researchPower": 75,
 		"resultComponents": [
 			"MG3-VTOL",
@@ -2315,7 +2366,7 @@
 			"R-Sys-CBSensor-Turret01",
 			"R-Wpn-Mortar01Lt"
 		],
-		"researchPoints": 2600,
+		"researchPoints": 1400,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2345,7 +2396,7 @@
 			"R-Wpn-Mortar01Lt",
 			"R-Wpn-Cannon-Damage01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 900,
 		"researchPower": 56,
 		"results": [
 			{
@@ -2381,7 +2432,7 @@
 			"R-Wpn-Mortar-Damage01",
 			"R-Wpn-Rocket-Damage03"
 		],
-		"researchPoints": 2700,
+		"researchPoints": 1300,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2419,7 +2470,7 @@
 			"R-Wpn-Mortar02Hvy",
 			"R-Wpn-Cannon-Damage04"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1700,
 		"researchPower": 225,
 		"results": [
 			{
@@ -2458,7 +2509,7 @@
 			"R-Wpn-Mortar-Damage03",
 			"R-Wpn-Howitzer-Damage01"
 		],
-		"researchPoints": 4500,
+		"researchPoints": 2100,
 		"researchPower": 287,
 		"results": [
 			{
@@ -2495,7 +2546,7 @@
 			"R-Wpn-Mortar01Lt",
 			"R-Wpn-Cannon-ROF01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 1100,
 		"researchPower": 56,
 		"results": [
 			{
@@ -2522,7 +2573,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_MORTA1",
 		"name": "Mortar",
-		"researchPoints": 2400,
+		"researchPoints": 800,
 		"researchPower": 75,
 		"resultComponents": [
 			"Mortar1Mk1"
@@ -2542,7 +2593,7 @@
 			"R-Wpn-Mortar-Damage02",
 			"R-Vehicle-Body11"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1400,
 		"researchPower": 225,
 		"resultComponents": [
 			"Mortar2Mk1"
@@ -2557,7 +2608,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket-LtA-TMk1"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1400,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2587,7 +2638,7 @@
 			"R-Wpn-Rocket01-LtAT",
 			"R-Wpn-Rocket-Accuracy01"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1800,
 		"researchPower": 225,
 		"results": [
 			{
@@ -2617,7 +2668,7 @@
 			"R-Wpn-Rocket05-MiniPod",
 			"R-Wpn-Cannon-Damage01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 900,
 		"researchPower": 37,
 		"results": [
 			{
@@ -2646,7 +2697,7 @@
 			"R-Wpn-Rocket-Damage01",
 			"R-Sys-Engineering01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 1100,
 		"researchPower": 75,
 		"results": [
 			{
@@ -2676,7 +2727,7 @@
 			"R-Wpn-Rocket-Damage02",
 			"R-Wpn-Rocket-LtA-TMk1"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1300,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2707,7 +2758,7 @@
 			"R-Wpn-Rocket-LtA-TMk1",
 			"R-Wpn-Rocket-Damage01"
 		],
-		"researchPoints": 2200,
+		"researchPoints": 1200,
 		"researchPower": 75,
 		"results": [
 			{
@@ -2736,7 +2787,7 @@
 			"R-Wpn-Rocket-ROF01",
 			"R-Wpn-Rocket01-LtAT"
 		],
-		"researchPoints": 3300,
+		"researchPoints": 1600,
 		"researchPower": 112,
 		"results": [
 			{
@@ -2766,7 +2817,7 @@
 			"R-Wpn-Rocket-ROF02",
 			"R-Wpn-Rocket07-Tank-Killer"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 2000,
 		"researchPower": 225,
 		"results": [
 			{
@@ -2801,7 +2852,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket-Damage02"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1000,
 		"researchPower": 112,
 		"resultComponents": [
 			"Rocket-LtA-T",
@@ -2818,7 +2869,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket-Damage01"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 800,
 		"researchPower": 55,
 		"resultComponents": [
 			"Rocket-LtA-TMk1",
@@ -2835,12 +2886,31 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket-Damage01"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 900,
 		"researchPower": 75,
 		"resultComponents": [
 			"Rocket-MRL"
 		],
 		"statID": "Rocket-MRL"
+	},
+	"R-Wpn-Rocket02-MRLHvy": {
+		"iconID": "IMAGE_RES_WEAPONTECH",
+		"id": "R-Wpn-Rocket02-MRLHvy",
+		"keyTopic": 1,
+		"msgName": "RES_W_RK_MRL2",
+		"name": "Heavy Rocket Array",
+		"redComponents": [
+			"Rocket-MRL"
+		],
+		"requiredResearch": [
+			"R-Wpn-Rocket02-MRL"
+		],
+		"researchPoints": 1600,
+		"researchPower": 123,
+		"resultComponents": [
+			"Rocket-MRL-Hvy"
+		],
+		"statID": "Rocket-MRL-Hvy"
 	},
 	"R-Wpn-Rocket03-HvAT": {
 		"iconID": "IMAGE_RES_WEAPONTECH",
@@ -2851,7 +2921,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket01-LtAT"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 1200,
 		"researchPower": 150,
 		"resultComponents": [
 			"Rocket-BB",
@@ -2865,7 +2935,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_W_RK_MP1",
 		"name": "Mini-Rocket Pod",
-		"researchPoints": 1200,
+		"researchPoints": 700,
 		"researchPower": 37,
 		"resultComponents": [
 			"Rocket-Pod",
@@ -2882,7 +2952,7 @@
 			"R-Wpn-Rocket-Accuracy02",
 			"R-Wpn-Cannon-Accuracy02"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 2000,
 		"researchPower": 150,
 		"results": [
 			{
@@ -2912,7 +2982,7 @@
 			"R-Wpn-Rocket-Accuracy03",
 			"R-Wpn-Rocket07-Tank-Killer"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 2200,
 		"researchPower": 225,
 		"results": [
 			{
@@ -2944,7 +3014,7 @@
 		"requiredResearch": [
 			"R-Wpn-AAGun02"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 500,
 		"researchPower": 150,
 		"resultStructures": [
 			"AASite-QuadBof"
@@ -2961,7 +3031,7 @@
 			"R-Defense-AASite-QuadBof",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 4000,
+		"researchPoints": 600,
 		"researchPower": 175,
 		"resultStructures": [
 			"WallTower-DoubleAAGun"
@@ -2976,7 +3046,7 @@
 		"requiredResearch": [
 			"R-Wpn-AAGun03"
 		],
-		"researchPoints": 2200,
+		"researchPoints": 400,
 		"researchPower": 112,
 		"resultStructures": [
 			"AASite-QuadMg1"
@@ -2995,7 +3065,7 @@
 			"R-Wpn-AAGun04",
 			"R-Defense-AASite-QuadMg1"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 600,
 		"researchPower": 187,
 		"resultStructures": [
 			"AASite-QuadRotMg"
@@ -3014,7 +3084,7 @@
 			"R-Defense-AASite-QuadRotMg",
 			"R-Defense-HardcreteWall"
 		],
-		"researchPoints": 5000,
+		"researchPoints": 700,
 		"researchPower": 225,
 		"resultStructures": [
 			"WallTower-QuadRotAAGun"
@@ -3030,7 +3100,7 @@
 			"R-Defense-WallUpgrade04",
 			"R-Wpn-Cannon6TwinAslt"
 		],
-		"researchPoints": 6400,
+		"researchPoints": 600,
 		"researchPower": 200,
 		"resultStructures": [
 			"WallTower-TwinAssaultCannon"
@@ -3045,8 +3115,8 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon4AMk1"
 		],
-		"researchPoints": 2000,
-		"researchPower": 100,
+		"researchPoints": 450,
+		"researchPower": 182,
 		"resultStructures": [
 			"PillBoxHPC"
 		],
@@ -3063,7 +3133,7 @@
 		"requiredResearch": [
 			"R-Wpn-HowitzerMk1"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 500,
 		"researchPower": 150,
 		"resultStructures": [
 			"Emplacement-Howitzer105"
@@ -3079,7 +3149,7 @@
 			"R-Defense-Howitzer",
 			"R-Wpn-Howitzer-Incendiary"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 600,
 		"researchPower": 150,
 		"resultStructures": [
 			"Emplacement-Howitzer-Incendiary"
@@ -3097,7 +3167,7 @@
 		"requiredResearch": [
 			"R-Wpn-Flame2"
 		],
-		"researchPoints": 4000,
+		"researchPoints": 500,
 		"researchPower": 125,
 		"resultStructures": [
 			"Tower-Projector"
@@ -3116,7 +3186,7 @@
 			"R-Wpn-Mortar02Hvy",
 			"R-Defense-MortarPit"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 300,
 		"researchPower": 112,
 		"resultStructures": [
 			"Emplacement-MortarPit02"
@@ -3132,7 +3202,7 @@
 			"R-Wpn-Rocket06-IDF",
 			"R-Defense-MRL"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 500,
 		"researchPower": 150,
 		"resultStructures": [
 			"Emplacement-Rocket06-IDF"
@@ -3150,7 +3220,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG4"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 400,
 		"researchPower": 150,
 		"resultStructures": [
 			"Pillbox-RotMG"
@@ -3169,7 +3239,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG4"
 		],
-		"researchPoints": 3800,
+		"researchPoints": 350,
 		"researchPower": 150,
 		"resultStructures": [
 			"GuardTower-RotMg"
@@ -3187,7 +3257,7 @@
 		"requiredResearch": [
 			"R-Wpn-Mortar3"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 350,
 		"researchPower": 150,
 		"resultStructures": [
 			"Emplacement-RotMor"
@@ -3206,7 +3276,7 @@
 			"R-Wpn-MG4",
 			"R-Defense-RotMG"
 		],
-		"researchPoints": 2200,
+		"researchPoints": 400,
 		"researchPower": 150,
 		"resultStructures": [
 			"Wall-RotMg"
@@ -3225,7 +3295,7 @@
 			"R-Defense-WallTower03",
 			"R-Wpn-Cannon5"
 		],
-		"researchPoints": 2200,
+		"researchPoints": 400,
 		"researchPower": 150,
 		"resultStructures": [
 			"Wall-VulcanCan"
@@ -3244,7 +3314,7 @@
 			"R-Defense-WallTower03",
 			"R-Wpn-Cannon4AMk1"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 400,
 		"researchPower": 150,
 		"resultStructures": [
 			"WallTower-HPVcannon"
@@ -3261,7 +3331,7 @@
 			"R-Sys-Engineering02",
 			"R-Defense-WallUpgrade03"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1000,
 		"researchPower": 187,
 		"results": [
 			{
@@ -3289,7 +3359,7 @@
 		"requiredResearch": [
 			"R-Defense-WallUpgrade04"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 1200,
 		"researchPower": 250,
 		"results": [
 			{
@@ -3318,7 +3388,7 @@
 		"requiredResearch": [
 			"R-Defense-WallUpgrade05"
 		],
-		"researchPoints": 5200,
+		"researchPoints": 1400,
 		"researchPower": 312,
 		"results": [
 			{
@@ -3349,7 +3419,7 @@
 			"R-Defense-WallUpgrade04",
 			"R-Struc-Materials03"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 900,
 		"researchPower": 187,
 		"results": [
 			{
@@ -3377,7 +3447,7 @@
 		"requiredResearch": [
 			"R-Struc-Materials04"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 1100,
 		"researchPower": 250,
 		"results": [
 			{
@@ -3406,7 +3476,7 @@
 		"requiredResearch": [
 			"R-Struc-Materials05"
 		],
-		"researchPoints": 5200,
+		"researchPoints": 1300,
 		"researchPower": 312,
 		"results": [
 			{
@@ -3435,7 +3505,7 @@
 		"requiredResearch": [
 			"R-Vehicle-Prop-VTOL"
 		],
-		"researchPoints": 3800,
+		"researchPoints": 1600,
 		"researchPower": 187,
 		"resultStructures": [
 			"A0VTolFactory1"
@@ -3450,7 +3520,7 @@
 		"requiredResearch": [
 			"R-Vehicle-Prop-VTOL"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1400,
 		"researchPower": 112,
 		"resultStructures": [
 			"A0VtolPad"
@@ -3466,7 +3536,7 @@
 			"R-Struc-VTOLPad",
 			"R-Struc-Factory-Upgrade01"
 		],
-		"researchPoints": 3800,
+		"researchPoints": 1600,
 		"researchPower": 150,
 		"results": [
 			{
@@ -3487,7 +3557,7 @@
 			"R-Struc-VTOLPad-Upgrade01",
 			"R-Struc-Factory-Upgrade02"
 		],
-		"researchPoints": 5000,
+		"researchPoints": 1800,
 		"researchPower": 187,
 		"results": [
 			{
@@ -3508,7 +3578,7 @@
 			"R-Struc-VTOLPad-Upgrade02",
 			"R-Struc-Factory-Upgrade03"
 		],
-		"researchPoints": 6200,
+		"researchPoints": 2000,
 		"researchPower": 249,
 		"results": [
 			{
@@ -3529,7 +3599,7 @@
 			"R-Defense-HardcreteWall",
 			"R-Sys-CBSensor-Turret01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 400,
 		"researchPower": 112,
 		"resultStructures": [
 			"Sys-CB-Tower01"
@@ -3545,7 +3615,7 @@
 		"requiredResearch": [
 			"R-Sys-Sensor-Turret01"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 800,
 		"researchPower": 150,
 		"resultComponents": [
 			"Sys-CBTurret01"
@@ -3562,7 +3632,7 @@
 		"requiredResearch": [
 			"R-Sys-Engineering01"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1000,
 		"researchPower": 150,
 		"results": [
 			{
@@ -3576,6 +3646,7 @@
 	"R-Sys-Sensor-Tower02": {
 		"iconID": "IMAGE_RES_SYSTEMTECH",
 		"id": "R-Sys-Sensor-Tower02",
+		"keyTopic": 1,
 		"msgName": "RES_SY_STW2",
 		"name": "Hardened Sensor Tower",
 		"redStructures": [
@@ -3585,7 +3656,7 @@
 			"R-Sys-Sensor-Tower01",
 			"R-Defense-WallUpgrade02"
 		],
-		"researchPoints": 1200,
+		"researchPoints": 800,
 		"researchPower": 37,
 		"resultStructures": [
 			"Sys-SensoTower02"
@@ -3602,7 +3673,7 @@
 			"R-Sys-CBSensor-Tower01",
 			"R-Sys-VTOLCBS-Turret01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 800,
 		"researchPower": 225,
 		"resultStructures": [
 			"Sys-VTOL-CB-Tower01"
@@ -3618,7 +3689,7 @@
 			"R-Sys-CBSensor-Turret01",
 			"R-Sys-VTOLStrike-Turret01"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1200,
 		"researchPower": 262,
 		"resultComponents": [
 			"Sys-VTOLCBTurret01"
@@ -3634,7 +3705,7 @@
 			"R-Defense-HardcreteWall",
 			"R-Sys-VTOLStrike-Turret01"
 		],
-		"researchPoints": 1800,
+		"researchPoints": 800,
 		"researchPower": 225,
 		"resultStructures": [
 			"Sys-VTOL-RadarTower01"
@@ -3650,7 +3721,7 @@
 			"R-Sys-Sensor-Turret01",
 			"R-Vehicle-Prop-VTOL"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1200,
 		"researchPower": 225,
 		"resultComponents": [
 			"Sys-VstrikeTurret01"
@@ -3663,7 +3734,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_V_B02",
 		"name": "Light Body - Leopard",
-		"researchPoints": 1400,
+		"researchPoints": 900,
 		"researchPower": 187,
 		"resultComponents": [
 			"Body2SUP"
@@ -3679,7 +3750,7 @@
 			"R-Vehicle-Body02",
 			"R-Vehicle-Body05"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 1100,
 		"researchPower": 225,
 		"resultComponents": [
 			"Body6SUPP"
@@ -3695,7 +3766,7 @@
 			"R-Vehicle-Body06",
 			"R-Vehicle-Body11"
 		],
-		"researchPoints": 4000,
+		"researchPoints": 1300,
 		"researchPower": 262,
 		"resultComponents": [
 			"Body9REC"
@@ -3712,7 +3783,7 @@
 			"R-Vehicle-Prop-VTOL",
 			"R-Vehicle-Engine03"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1200,
 		"researchPower": 218,
 		"results": [
 			{
@@ -3734,7 +3805,7 @@
 			"R-Vehicle-Body07",
 			"R-Vehicle-Engine04"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 1400,
 		"researchPower": 281,
 		"results": [
 			{
@@ -3757,7 +3828,7 @@
 			"R-Vehicle-Engine05",
 			"R-Vehicle-Body10"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 1500,
 		"researchPower": 343,
 		"results": [
 			{
@@ -3778,7 +3849,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_V_P_V1",
 		"name": "VTOL Propulsion",
-		"researchPoints": 4700,
+		"researchPoints": 1600,
 		"researchPower": 187,
 		"resultComponents": [
 			"V-Tol"
@@ -3793,7 +3864,7 @@
 			"R-Wpn-Mortar-Acc01",
 			"R-Wpn-AAGun03"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1600,
 		"researchPower": 187,
 		"results": [
 			{
@@ -3823,7 +3894,7 @@
 			"R-Wpn-AAGun-Accuracy01",
 			"R-Wpn-Rocket-Accuracy04"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 2000,
 		"researchPower": 225,
 		"results": [
 			{
@@ -3853,7 +3924,7 @@
 			"R-Wpn-AAGun03",
 			"R-Wpn-Cannon-Damage01"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 1000,
 		"researchPower": 187,
 		"results": [
 			{
@@ -3882,7 +3953,7 @@
 			"R-Wpn-AAGun-Damage01",
 			"R-Wpn-AAGun02"
 		],
-		"researchPoints": 3500,
+		"researchPoints": 1300,
 		"researchPower": 225,
 		"results": [
 			{
@@ -3912,7 +3983,7 @@
 			"R-Wpn-AAGun-Damage02",
 			"R-Wpn-AAGun04"
 		],
-		"researchPoints": 5000,
+		"researchPoints": 1600,
 		"researchPower": 262,
 		"results": [
 			{
@@ -3943,7 +4014,7 @@
 			"R-Wpn-MG-ROF01",
 			"R-Wpn-AAGun03"
 		],
-		"researchPoints": 2600,
+		"researchPoints": 1200,
 		"researchPower": 112,
 		"results": [
 			{
@@ -3972,7 +4043,7 @@
 			"R-Wpn-AAGun-ROF01",
 			"R-Wpn-AAGun02"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1600,
 		"researchPower": 150,
 		"results": [
 			{
@@ -4002,7 +4073,7 @@
 			"R-Wpn-AAGun04",
 			"R-Wpn-AAGun-ROF02"
 		],
-		"researchPoints": 6000,
+		"researchPoints": 2000,
 		"researchPower": 187,
 		"results": [
 			{
@@ -4037,7 +4108,7 @@
 			"R-Wpn-AAGun03",
 			"R-Wpn-AAGun-Damage01"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 1800,
 		"researchPower": 150,
 		"resultComponents": [
 			"AAGun2Mk1"
@@ -4050,7 +4121,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_W_AA3",
 		"name": "Hurricane AA Turret",
-		"researchPoints": 2400,
+		"researchPoints": 1400,
 		"researchPower": 112,
 		"resultComponents": [
 			"QuadMg1AAGun"
@@ -4070,7 +4141,7 @@
 			"R-Wpn-MG4",
 			"R-Wpn-AAGun03"
 		],
-		"researchPoints": 5600,
+		"researchPoints": 2200,
 		"researchPower": 187,
 		"resultComponents": [
 			"QuadRotAAGun"
@@ -4087,7 +4158,7 @@
 			"R-Wpn-Bomb01",
 			"R-Wpn-Howitzer-Damage01"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1600,
 		"researchPower": 225,
 		"results": [
 			{
@@ -4123,7 +4194,7 @@
 		"requiredResearch": [
 			"R-Vehicle-Prop-VTOL"
 		],
-		"researchPoints": 4300,
+		"researchPoints": 1400,
 		"researchPower": 171,
 		"resultComponents": [
 			"Bomb1-VTOL-LtHE"
@@ -4142,7 +4213,7 @@
 			"R-Wpn-Bomb01",
 			"R-Wpn-Bomb-Damage01"
 		],
-		"researchPoints": 5200,
+		"researchPoints": 1800,
 		"researchPower": 225,
 		"resultComponents": [
 			"Bomb2-VTOL-HvHE"
@@ -4158,7 +4229,7 @@
 			"R-Wpn-Bomb01",
 			"R-Wpn-Flame2"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1600,
 		"researchPower": 225,
 		"resultComponents": [
 			"Bomb3-VTOL-LtINC"
@@ -4173,7 +4244,7 @@
 			 "R-Wpn-Cannon-Accuracy01",
 			 "R-Struc-Research-Module"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 1800,
 		"researchPower": 150,
 		"results": [
 			{
@@ -4203,7 +4274,7 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon-Damage03"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1400,
 		"researchPower": 187,
 		"results": [
 			{
@@ -4232,7 +4303,7 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon-Damage04"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1600,
 		"researchPower": 225,
 		"results": [
 			{
@@ -4262,7 +4333,7 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon-Damage05"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1800,
 		"researchPower": 262,
 		"results": [
 			{
@@ -4293,7 +4364,7 @@
 			"R-Wpn-Cannon6TwinAslt",
 			"R-Wpn-Cannon-Damage06"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 2000,
 		"researchPower": 300,
 		"results": [
 			{
@@ -4323,7 +4394,7 @@
 			"R-Wpn-Cannon-Damage01",
 			"R-Wpn-MG-ROF01"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 1200,
 		"researchPower": 125,
 		"results": [
 			{
@@ -4352,7 +4423,7 @@
 			"R-Wpn-Cannon-ROF01",
 			"R-Wpn-Cannon5"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1500,
 		"researchPower": 187,
 		"results": [
 			{
@@ -4382,7 +4453,7 @@
 			"R-Wpn-Cannon3Mk1",
 			"R-Wpn-Cannon-ROF02"
 		],
-		"researchPoints": 4000,
+		"researchPoints": 1800,
 		"researchPower": 250,
 		"results": [
 			{
@@ -4417,7 +4488,7 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon2Mk1"
 		],
-		"researchPoints": 5600,
+		"researchPoints": 1400,
 		"researchPower": 250,
 		"resultComponents": [
 			"Cannon4AUTO-VTOL",
@@ -4438,7 +4509,7 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon2Mk1"
 		],
-		"researchPoints": 5700,
+		"researchPoints": 1500,
 		"researchPower": 213,
 		"resultComponents": [
 			"Cannon5VulcanMk1",
@@ -4455,7 +4526,7 @@
 		"requiredResearch": [
 			"R-Wpn-Cannon5"
 		],
-		"researchPoints": 6800,
+		"researchPoints": 2100,
 		"researchPower": 300,
 		"resultComponents": [
 			"Cannon6TwinAslt"
@@ -4475,7 +4546,7 @@
 			"R-Wpn-Flamer-Damage03",
 			"R-Wpn-Flamer-ROF01"
 		],
-		"researchPoints": 5400,
+		"researchPoints": 1400,
 		"researchPower": 225,
 		"resultComponents": [
 			"Flame2"
@@ -4491,7 +4562,7 @@
 			"R-Wpn-Flame2",
 			"R-Wpn-Flamer-Damage03"
 		],
-		"researchPoints": 2000,
+		"researchPoints": 1050,
 		"researchPower": 225,
 		"results": [
 			{
@@ -4520,7 +4591,7 @@
 			"R-Wpn-Flamer-Damage04",
 			"R-Vehicle-Armor-Heat02"
 		],
-		"researchPoints": 2400,
+		"researchPoints": 1200,
 		"researchPower": 287,
 		"results": [
 			{
@@ -4550,7 +4621,7 @@
 			"R-Wpn-Flamer-Damage05",
 			"R-Vehicle-Armor-Heat03"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 1350,
 		"researchPower": 350,
 		"results": [
 			{
@@ -4580,7 +4651,7 @@
 			"R-Wpn-Flamer-ROF01",
 			"R-Wpn-Cannon-ROF01"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1200,
 		"researchPower": 187,
 		"results": [
 			{
@@ -4610,7 +4681,7 @@
 			"R-Wpn-Flamer-ROF02",
 			"R-Wpn-Flame2"
 		],
-		"researchPoints": 4000,
+		"researchPoints": 1500,
 		"researchPower": 250,
 		"results": [
 			{
@@ -4641,7 +4712,7 @@
 			"R-Wpn-HowitzerMk1",
 			"R-Wpn-Rocket-Accuracy04"
 		],
-		"researchPoints": 3800,
+		"researchPoints": 1800,
 		"researchPower": 225,
 		"results": [
 			{
@@ -4670,7 +4741,7 @@
 		"requiredResearch": [
 			"R-Wpn-HowitzerMk1"
 		],
-		"researchPoints": 5600,
+		"researchPoints": 1600,
 		"researchPower": 187,
 		"results": [
 			{
@@ -4706,7 +4777,7 @@
 			"R-Wpn-Cannon-Damage07",
 			"R-Wpn-Howitzer-Damage01"
 		],
-		"researchPoints": 6200,
+		"researchPoints": 2000,
 		"researchPower": 250,
 		"results": [
 			{
@@ -4746,7 +4817,7 @@
 			"R-Wpn-Howitzer-Damage01",
 			"R-Wpn-Flamer-Damage05"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 2200,
 		"researchPower": 312,
 		"resultComponents": [
 			"Howitzer-Incendiary"
@@ -4762,7 +4833,7 @@
 			"R-Wpn-HowitzerMk1",
 			"R-Wpn-Mortar-ROF03"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1900,
 		"researchPower": 187,
 		"results": [
 			{
@@ -4791,7 +4862,7 @@
 			"R-Wpn-Cannon-ROF04",
 			"R-Wpn-Howitzer-ROF01"
 		],
-		"researchPoints": 4600,
+		"researchPoints": 2100,
 		"researchPower": 250,
 		"results": [
 			{
@@ -4819,7 +4890,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_W_HMK1",
 		"name": "Howitzer",
-		"researchPoints": 5200,
+		"researchPoints": 1800,
 		"researchPower": 281,
 		"resultComponents": [
 			"Howitzer105Mk1"
@@ -4835,7 +4906,7 @@
 			"R-Wpn-MG4",
 			"R-Wpn-MG-Damage04"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1100,
 		"researchPower": 150,
 		"results": [
 			{
@@ -4857,7 +4928,7 @@
 			"R-Wpn-MG-Damage05",
 			"R-Wpn-MG5"
 		],
-		"researchPoints": 4400,
+		"researchPoints": 1400,
 		"researchPower": 212,
 		"results": [
 			{
@@ -4881,7 +4952,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG-ROF01"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1300,
 		"researchPower": 150,
 		"results": [
 			{
@@ -4911,7 +4982,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG-ROF02"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1700,
 		"researchPower": 212,
 		"results": [
 			{
@@ -4950,7 +5021,7 @@
 			"R-Wpn-MG3Mk1",
 			"R-Wpn-MG-ROF03"
 		],
-		"researchPoints": 5200,
+		"researchPoints": 1800,
 		"researchPower": 225,
 		"resultComponents": [
 			"MG4ROTARY-VTOL",
@@ -4967,7 +5038,7 @@
 		"requiredResearch": [
 			"R-Wpn-MG4"
 		],
-		"researchPoints": 6600,
+		"researchPoints": 2100,
 		"researchPower": 281,
 		"resultComponents": [
 			"MG5TWINROTARY"
@@ -4983,7 +5054,7 @@
 			"R-Wpn-Rocket-Accuracy04",
 			"R-Wpn-Mortar-Acc01"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1800,
 		"researchPower": 225,
 		"results": [
 			{
@@ -5017,7 +5088,7 @@
 			"R-Wpn-Mortar-Damage02",
 			"R-Wpn-Flame2"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1600,
 		"researchPower": 150,
 		"resultComponents": [
 			"Mortar-Incendiary"
@@ -5036,8 +5107,8 @@
 			"R-Wpn-Mortar-Incendiary",
 			"R-Defense-MortarPit"
 		],
-		"researchPoints": 1400,
-		"researchPower": 75,
+		"researchPoints": 350,
+		"researchPower": 164,
 		"resultStructures": [
 			"Emplacement-MortarPit-Incendiary"
 		],
@@ -5051,7 +5122,7 @@
 			"R-Wpn-Mortar-ROF01",
 			"R-Wpn-Mortar3"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1400,
 		"researchPower": 187,
 		"results": [
 			{
@@ -5081,7 +5152,7 @@
 			"R-Wpn-Cannon-ROF03",
 			"R-Wpn-Mortar-ROF02"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1700,
 		"researchPower": 250,
 		"results": [
 			{
@@ -5115,7 +5186,7 @@
 		"requiredResearch": [
 			"R-Wpn-Mortar01Lt"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 1800,
 		"researchPower": 312,
 		"resultComponents": [
 			"Mortar3ROTARYMk1"
@@ -5131,7 +5202,7 @@
 			"R-Wpn-Rocket02-MRL",
 			"R-Wpn-Rocket-Damage03"
 		],
-		"researchPoints": 3000,
+		"researchPoints": 1500,
 		"researchPower": 150,
 		"results": [
 			{
@@ -5160,7 +5231,7 @@
 			"R-Wpn-Rocket-Damage04",
 			"R-Wpn-Rocket01-LtAT"
 		],
-		"researchPoints": 3600,
+		"researchPoints": 1700,
 		"researchPower": 187,
 		"results": [
 			{
@@ -5190,7 +5261,7 @@
 			"R-Wpn-Rocket-Damage05",
 			"R-Wpn-Cannon-Damage06"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 1900,
 		"researchPower": 250,
 		"results": [
 			{
@@ -5221,7 +5292,7 @@
 			"R-Wpn-Rocket07-Tank-Killer",
 			"R-Wpn-Rocket-Damage06"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 2100,
 		"researchPower": 187,
 		"results": [
 			{
@@ -5252,7 +5323,7 @@
 			"R-Wpn-Rocket02-MRL",
 			"R-Sys-CBSensor-Tower01"
 		],
-		"researchPoints": 5200,
+		"researchPoints": 1850,
 		"researchPower": 225,
 		"resultComponents": [
 			"Rocket-IDF"
@@ -5274,7 +5345,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket03-HvAT"
 		],
-		"researchPoints": 7200,
+		"researchPoints": 2000,
 		"researchPower": 312,
 		"resultComponents": [
 			"Rocket-HvyA-T",
@@ -5292,7 +5363,7 @@
 			"R-Wpn-Rocket01-LtAT",
 			"R-Wpn-Rocket-Damage06"
 		],
-		"researchPoints": 7300,
+		"researchPoints": 2100,
 		"researchPower": 334,
 		"resultComponents": [
 			"Rocket-Ballista"
@@ -5307,7 +5378,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket07-Tank-Killer"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 600,
 		"researchPower": 150,
 		"resultStructures": [
 			"PillBoxTK"
@@ -5325,7 +5396,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket08-Ballista"
 		],
-		"researchPoints": 4800,
+		"researchPoints": 450,
 		"researchPower": 167,
 		"resultStructures": [
 			"Emplacement-Ballista"
@@ -5340,7 +5411,7 @@
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
-		"researchPoints": 2800,
+		"researchPoints": 600,
 		"researchPower": 450,
 		"resultStructures": [
 			"PillBoxFlash"
@@ -5358,7 +5429,7 @@
 		"requiredResearch": [
 			"R-Wpn-Rocket07-Tank-Killer"
 		],
-		"researchPoints": 7200,
+		"researchPoints": 650,
 		"researchPower": 225,
 		"resultStructures": [
 			"WallTower-HvATrocket"
@@ -5373,7 +5444,7 @@
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
-		"researchPoints": 3200,
+		"researchPoints": 650,
 		"researchPower": 450,
 		"resultStructures": [
 			"WallTower-PulseLas"
@@ -5390,7 +5461,7 @@
 		"requiredResearch": [
 			"R-Sys-Engineering02"
 		],
-		"researchPoints": 9600,
+		"researchPoints": 2100,
 		"researchPower": 300,
 		"results": [
 			{
@@ -5419,7 +5490,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_V_B03",
 		"name": "Light Body - Retaliation",
-		"researchPoints": 1800,
+		"researchPoints": 1200,
 		"researchPower": 450,
 		"resultComponents": [
 			"Body3MBT"
@@ -5436,7 +5507,7 @@
 			"R-Vehicle-Body03",
 			"R-Vehicle-Metals04"
 		],
-		"researchPoints": 3800,
+		"researchPoints": 1600,
 		"researchPower": 450,
 		"resultComponents": [
 			"Body7ABT"
@@ -5452,7 +5523,7 @@
 		"requiredResearch": [
 			"R-Vehicle-Body07"
 		],
-		"researchPoints": 5000,
+		"researchPoints": 2000,
 		"researchPower": 450,
 		"resultComponents": [
 			"Body10MBT"
@@ -5473,7 +5544,7 @@
 			"R-Wpn-Bomb03",
 			"R-Wpn-Bomb02"
 		],
-		"researchPoints": 5600,
+		"researchPoints": 2000,
 		"researchPower": 287,
 		"resultComponents": [
 			"Bomb4-VTOL-HvyINC"
@@ -5488,7 +5559,7 @@
 			"R-Wpn-Cannon-ROF03",
 			"R-Wpn-Cannon6TwinAslt"
 		],
-		"researchPoints": 6000,
+		"researchPoints": 2100,
 		"researchPower": 312,
 		"results": [
 			{
@@ -5517,7 +5588,7 @@
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
-		"researchPoints": 5200,
+		"researchPoints": 1900,
 		"researchPower": 450,
 		"results": [
 			{
@@ -5546,7 +5617,7 @@
 		"requiredResearch": [
 			"R-Wpn-Energy-Accuracy01"
 		],
-		"researchPoints": 5500,
+		"researchPoints": 2000,
 		"researchPower": 450,
 		"results": [
 			{
@@ -5575,7 +5646,7 @@
 		"requiredResearch": [
 			"R-Wpn-Energy-Accuracy01"
 		],
-		"researchPoints": 5800,
+		"researchPoints": 2100,
 		"researchPower": 450,
 		"results": [
 			{
@@ -5602,7 +5673,7 @@
 		"keyTopic": 1,
 		"msgName": "RES_W_LAS1",
 		"name": "Laser - Flashlight",
-		"researchPoints": 6200,
+		"researchPoints": 2400,
 		"researchPower": 450,
 		"resultComponents": [
 			"Laser3BEAM-VTOL",
@@ -5619,7 +5690,7 @@
 			"R-Wpn-Cannon-ROF04",
 			"R-Wpn-Mortar-ROF03"
 		],
-		"researchPoints": 5400,
+		"researchPoints": 2000,
 		"researchPower": 312,
 		"results": [
 			{
@@ -5648,8 +5719,8 @@
 		"requiredResearch": [
 			"R-Sys-Engineering02"
 		],
-		"researchPoints": 2000,
-		"researchPower": 100,
+		"researchPoints": 1300,
+		"researchPower": 147,
 		"resultComponents": [
 			"HeavyRepair"
 		],
@@ -5662,7 +5733,7 @@
 		"imdName": "ICCCCONS.PIE",
 		"msgName": "RES_CCUP1",
 		"name": "Improved Command-Control Systems",
-		"researchPoints": 1400,
+		"researchPoints": 1200,
 		"researchPower": 150
 	},
 	"R-Sys-CommandUpgrade02": {
@@ -5675,7 +5746,7 @@
 		"requiredResearch": [
 			"R-Sys-CommandUpgrade01"
 		],
-		"researchPoints": 2600,
+		"researchPoints": 1600,
 		"researchPower": 200
 	},
 	"R-Sys-CommandUpgrade03": {
@@ -5688,7 +5759,7 @@
 		"requiredResearch": [
 			"R-Sys-CommandUpgrade02"
 		],
-		"researchPoints": 4200,
+		"researchPoints": 2000,
 		"researchPower": 250
 	},
 	"R-Sys-CommandUpgrade04": {
@@ -5701,7 +5772,7 @@
 		"requiredResearch": [
 			"R-Sys-CommandUpgrade03"
 		],
-		"researchPoints": 6400,
+		"researchPoints": 2400,
 		"researchPower": 300
 	}
 }

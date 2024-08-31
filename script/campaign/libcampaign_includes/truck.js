@@ -47,7 +47,7 @@ function camManageTrucks(player, blabel, structset, template, respawnDelay, truc
 }
 
 // Stop managing a given truck.
-function camDisableTruck(what)
+function camDisableTruck(what, selfDestruct)
 {
 	if (camIsString(what))
 	{
@@ -66,6 +66,13 @@ function camDisableTruck(what)
 	for (const _INDEX of what)
 	{
 		__camTruckInfo[_INDEX].enabled = false;
+
+		if (camDef(selfDestruct) && selfDestruct)
+		{
+			// Also blow up the truck
+			camSafeRemoveObject(__camTruckInfo[_INDEX].truckDroid, true);
+			__camTruckInfo[_INDEX].truckDroid = undefined;
+		}
 	}
 }
 

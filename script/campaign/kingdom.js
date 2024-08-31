@@ -963,27 +963,28 @@ function eventAttacked(victim, attacker)
 		if (gameState.resistance.allianceState === "ALLIED" && propulsionCanReach("wheeled01", refPos.x, refPos.y, pos.x, pos.y))
 		{
 			const commander = getObject("resCommander");
+			// In an attempt to have the Resistance not get distracted by the Hellraisers as much
+			const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
+			// If the Royalist outpost is alive, and the player is engaged with Royalists, focus attention there
+			const attackPos = (camBaseIsEliminated("southBase")) ? pos : camMakePos("southFOB");
 			if (commander !== null)
 			{
-				// In an attempt to have the Resistance not get distracted by the Hellraisers as much
-				const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
 				// Tell the Resistance commander support the player
 				camManageGroup(commander.group, CAM_ORDER_ATTACK, {
 					targetPlayer: targetPlayer,
 					radius: ATTACK_RADIUS,
-					pos: pos,
+					pos: attackPos,
 					repair: 65
 				});
 			}
 
-			const ATTACK_RADIUS = (gameState.hellraisers.allianceState !== "NEUTRAL") ? 20 : 8;
 			// Tell the player support group to... support the player
 			const groupInfo = gameState.resistance.groups.playerSupportGroup;
 			groupInfo.order = CAM_ORDER_ATTACK;
 			groupInfo.data = {
 				targetPlayer: targetPlayer,
 				radius: ATTACK_RADIUS,
-				pos: pos,
+				pos: attackPos,
 				repair: 65
 			};
 			manageGroupBySize(groupInfo, false);
@@ -1600,8 +1601,8 @@ function adaptFactionColours()
 	}
 	else
 	{
-		// Set to gray
-		changePlayerColour(CAM_THE_COALITION, 2);
+		// Set to brown
+		changePlayerColour(CAM_THE_COALITION, 15);
 	}
 	// Royalists
 	if (PLAYER_COLOR !== 9) // player is not purple?
@@ -1997,7 +1998,10 @@ function eventStartLevel()
 	const startpos = getObject("startPosition");
 	centreView(startpos.x, startpos.y);
 
-	setPower(camChangeOnDiff(2000), CAM_HUMAN_PLAYER);
+	// Set starting power to 1/2 of the player's max power reserves
+	const STARTING_POWER = 6000 - (1000 * difficulty);
+
+	setPower(STARTING_POWER, CAM_HUMAN_PLAYER);
 
 	setAlliance(CAM_ROYALISTS, CAM_AMPHOS, true);
 	setAlliance(CAM_THE_COALITION, CAM_HELLRAISERS, true);

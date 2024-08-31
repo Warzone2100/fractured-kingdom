@@ -1,0 +1,32 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::resistance",
+	"title": "The Resistance",
+	"sort": "03",
+	"visual": {
+		"droidTemplate": {
+			"body": "Body5REC",
+			"brain": "CommandBrain01",
+			"name": "Command Turret Cobra Half-tracks",
+			"propulsion": "HalfTrack",
+			"type": "DROID_COMMAND",
+			"weapons": [
+				"CommandTurret1"
+			]
+		}
+	},
+	"contents": [
+		"The Resistance is a collection of rebels and Royalist defectors who have fled to the farthest reaches of the Kingdom to avoid the new Queen's wrath.",
+		"",
+		"Led by James, the Resistance is rather poorly organized faction, united mostly by both resentment and fear of the Royalist's slow march across the Kingdom.",
+		"",
+		"Despite this, the members of the resistance remain remarkably loyal to both their leader and to their cause.",
+		"",
+		"By avoiding confrontation and keeping itself as far from the large northern battlefields as possible, the Resistance's movements appear to have remained largely unnoticed by the larger Kingdom.",
+		"",
+		"Yet as time passes, and the influence of the Royalists continues to spread throughout the kingdom, many Resistance members have grown increasingly wary of a seemingly inevitable Royalist attack..."
+	],
+	"links": [
+		"wz2100::factions"
+	]
+}

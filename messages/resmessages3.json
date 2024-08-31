@@ -230,7 +230,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Pulse Laser",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_RL1TOW": {
@@ -252,7 +252,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Rail Gun",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_Rail3": {
@@ -263,7 +263,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Gauss Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_SAM1": {

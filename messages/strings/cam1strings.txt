@@ -81,7 +81,7 @@ RESROYMSG8			_("And be extra cautious of the cyborgs with rocket launchers, they
 
 /* Royalist Message after destroying the south base (Resistance Allied) */
 ROYAMSG1			_("Now would you look at that. James' little 'Resistance' have found themselves a new friend!")
-ROYAMSG2			_("Well I've gotta to hand it to you kid, you've got some real guts messing with my things.")
+ROYAMSG2			_("Well I've gotta hand it to you kid, you've got some real guts messing with my things.")
 ROYAMSG3			_("And it seems like you've really stirred up the hopes of those poor things you call your 'allies'. Without you I bet they couldn't even fend for themselves.")
 ROYAMSG4			_("But don't think it'll amount to anything.")
 ROYAMSG5			_("Do you even realize who I am?")
@@ -94,7 +94,7 @@ ROYAMSG11			_("I'll be seeing you real soooon!")
 
 /* Royalist Message after destroying the south base (Resistance Eradicated) */
 ROYEMSG1			_("Well now would you look at that. Seems like there's someone new in town!")
-ROYEMSG2			_("I've gotta to hand it to you kid, you've got some real guts messing with my things.")
+ROYEMSG2			_("I've gotta hand it to you kid, you've got some real guts messing with my things.")
 ROYEMSG3			_("You must not be from around here, isn't that right?")
 ROYEMSG4			_("And if the Resistance isn't with you...")
 ROYEMSG5			_("...")
@@ -134,6 +134,30 @@ AMPPITCHMSG3		_("While AMPHOS may have provided itself with a degree of temporar
 AMPPITCHMSG4		_("This is where you come in.")
 AMPPITCHMSG5		_("If you can remove the Royalist presence in the East Lake and allow our trucks to build on the large islands, I can convince the rest of the board that allying with you is more beneficial than remaining ignorant of the Royalists growing plans to backstab us.")
 AMPPITCHMSG6		_("Just keep your distance from our main island base, and I'll keep working on softening up the board, OK?")
+
+/* Message telling the player to evacuate AMPHOS islands (From Resistance) */
+RESAMPEVACMSG1		_("Nice work!")
+RESAMPEVACMSG2		_("With that Royalist base cleared, we're one step closer to securing negotiations with AMPHOS.")
+RESAMPEVACMSG3		_("Now you need to let AMPHOS reclaim all of their island territories.")
+RESAMPEVACMSG4		_("Just remove all of your units and structures from those islands, and AMPHOS should reclaim them shortly.")
+RESAMPEVACMSG5		_("...")
+RESAMPEVACMSG6		_("AMPHOS is really making us jump through a lot of hoops for this.")
+RESAMPEVACMSG7		_("Well, at least the hard part is over.")
+RESAMPEVACMSG8		_("Here's to hoping that associate makes good on her promise...")
+/* If the player hasn't destroyed the Royalist commander yet */
+RESAMPEVACMSG3ALT	_("Next, you'll need to take out that Royalist hover commander.")
+RESAMPEVACMSG4ALT	_("Then, just remove all of your units and structures from the islands that AMPHOS wants.")
+RESAMPEVACMSG5ALT	_("That should be enough to show them that we're on the same side.")
+RESAMPEVACMSG7ALT	_("Well, at least we're almost done here.")
+
+/* Message telling the player to evacuate AMPHOS islands (Resistance Eradicated) */
+AMPEVACMSG1			_("Excellent work, Commander.")
+AMPEVACMSG2			_("Now that the Royalists are out of the way, simply remove your units and structures from the large islands.")
+AMPEVACMSG3			_("We'll send some trucks to reclaim them once you're out of the way.")
+AMPEVACMSG4			_("By then, I'm sure I'll have convinced the rest of the board to set up negotiations with you.")
+/* If the player hasn't destroyed the Royalist commander yet */
+AMPEVACMSG2ALT		_("Now all that's left is to destroy that Royalist commander.")
+AMPEVACMSG3ALT		_("Once you've dealt with them, simply remove your units and structures from the large islands.")
 
 /* AMPHOS Negotiation Message */
 AMPNEGOMSG1			_("Well, it appears that Alice was right about you.")
@@ -201,7 +225,7 @@ RESHELMSG5			_("Unfortunately, they control the only land routes to get across t
 RESHELMSG6			_("So at some point, we're going to have to deal with them.")
 RESHELMSG7			_("Just be cautious when in their territory, that whole place is one big death trap.")
 RESHELMSG8			_("Those cragged hills don't leave much room for maneuvering around. And the Hellraisers are fanatical about incendiary weapons.")
-RESHELMSG9			_("Their patrols are armed with flamethrowers, and they've placed bunkers around every corner.")
+RESHELMSG9			_("Their patrols are armed with flamethrowers, and they've placed flamers around every corner.")
 RESHELMSG10			_("They've even modified their mortars to leave burning areas where they hit.")
 
 /* Hellraiser Bridge Warning (From Resistance) */

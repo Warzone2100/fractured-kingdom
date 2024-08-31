@@ -1,0 +1,24 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::royalists",
+	"title": "Royalists",
+	"sort": "07",
+	"visual": {
+		"droidTemplate": {
+			"body": "Body7ABT",
+			"brain": "CommandBrain01",
+			"name": "Command Turret Retribution Tracks",
+			"propulsion": "tracked01",
+			"type": "DROID_COMMAND",
+			"weapons": [
+				"CommandTurret1"
+			]
+		}
+	},
+	"contents": [
+		""
+	],
+	"links": [
+		"wz2100::factions"
+	]
+}

@@ -1,0 +1,33 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::hellraisers",
+	"title": "Hellraisers",
+	"sort": "05",
+	"visual": {
+		"droidTemplate": {
+			"body": "Body4ABT",
+			"name": "Flamer Bug Half-tracks",
+			"propulsion": "HalfTrack",
+			"type": "DROID",
+			"weapons": [
+				"Flame1Mk1"
+			]
+		}
+	},
+	"contents": [
+		"The Hellraisers are a clan of self-proclaimed warriors, and one of the few \"rabid\" factions formed after the King's death to survive the continuous Royalist onslaughts.",
+		"",
+		"The Hellraisers are infamous within the Kingdom for their pyromaniacal tendencies as well as their unwavering morale in combat.",
+		"",
+		"Their survival so far seems to be due to a combination of their ruthlessness and isolationism.",
+		"",
+		"The area that the Hellraisers reside in is unusually rugged and difficult to traverse, and their affinity for close-quarters combat have made most other factions wary to approach them.",
+		"",
+		"Additionally, the Hellraisers tendency to avoid leaving their territory or engaging with outsiders has made it more appealing for other factions (including the Royalists, up until recently) to simply leave them alone.",
+		"",
+		"However, as the Royalists have become increasingly aggressive, even the Hellraisers have been forced to reevaluate their position, and begin to consider other options in order to ensure their own survival..."
+	],
+	"links": [
+		"wz2100::factions"
+	]
+}

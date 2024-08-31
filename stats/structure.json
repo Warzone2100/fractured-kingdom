@@ -1512,12 +1512,12 @@
         "buildPower": 125,
         "ecmID": "ZNULLECM",
         "height": 1,
-        "hitpoints": 200,
+        "hitpoints": 400,
         "id": "Emplacement-MRL-pit",
         "name": "Mini-Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1525,6 +1525,28 @@
         "type": "DEFENSE",
         "weapons": [
             "Rocket-MRL"
+        ],
+        "width": 1
+    },
+    "Emplacement-MRLHvy-pit": {
+        "armour": 10,
+        "breadth": 1,
+        "buildPoints": 400,
+        "buildPower": 150,
+        "height": 1,
+        "hitpoints": 400,
+        "id": "Emplacement-MRLHvy-pit",
+        "name": "Heavy Rocket Battery",
+        "resistance": 150,
+        "sensorID": "DefaultSensor1Mk1",
+        "strength": "MEDIUM",
+        "structureModel": [
+            "BLHARDPT.PIE"
+        ],
+        "thermal": 10,
+        "type": "DEFENSE",
+        "weapons": [
+            "Rocket-MRL-Hvy"
         ],
         "width": 1
     },
@@ -1540,7 +1562,7 @@
         "name": "Seraph Missile Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1653,7 +1675,7 @@
         "name": "Flashlight Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1676,7 +1698,7 @@
         "name": "Pulse Laser Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1699,7 +1721,7 @@
         "name": "Railgun Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1722,7 +1744,7 @@
         "name": "Gauss Cannon Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1745,7 +1767,7 @@
         "name": "Ripple Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "Blhowmnt.PIE"
         ],
@@ -1768,7 +1790,7 @@
         "name": "Hellstorm Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHOWMNT.PIE"
         ],
@@ -1921,7 +1943,7 @@
         "armour": 10,
         "breadth": 1,
         "buildPoints": 400,
-        "buildPower": 100,
+        "buildPower": 80,
         "ecmID": "ZNULLECM",
         "height": 2,
         "hitpoints": 450,
@@ -3544,5 +3566,74 @@
             "RocketSuper"
         ],
         "width": 2
+    },
+    "Flamer-Emplacement": {
+        "armour": 15,
+        "breadth": 1,
+        "buildPoints": 400,
+        "buildPower": 60,
+        "ecmID": "ZNULLECM",
+        "height": 1,
+        "hitpoints": 400,
+        "id": "Flamer-Emplacement",
+        "name": "Flamer Emplacement",
+        "resistance": 150,
+        "sensorID": "DefaultSensor1Mk1",
+        "strength": "MEDIUM",
+        "structureModel": [
+            "Blhowmnt.PIE"
+        ],
+        "thermal": 15,
+        "type": "DEFENSE",
+        "weapons": [
+            "Flame1Mk1"
+        ],
+        "width": 1
+    },
+    "Cannon-Emplacement": {
+        "armour": 15,
+        "breadth": 1,
+        "buildPoints": 400,
+        "buildPower": 60,
+        "ecmID": "ZNULLECM",
+        "height": 1,
+        "hitpoints": 400,
+        "id": "Cannon-Emplacement",
+        "name": "Light Cannon Emplacement",
+        "resistance": 150,
+        "sensorID": "DefaultSensor1Mk1",
+        "strength": "MEDIUM",
+        "structureModel": [
+            "Blhowmnt.PIE"
+        ],
+        "thermal": 15,
+        "type": "DEFENSE",
+        "weapons": [
+            "Cannon1Mk1"
+        ],
+        "width": 1
+    },
+    "GuardTowerMRP": {
+        "armour": 10,
+        "breadth": 1,
+        "buildPoints": 300,
+        "buildPower": 80,
+        "ecmID": "ZNULLECM",
+        "height": 2,
+        "hitpoints": 450,
+        "id": "GuardTower6",
+        "name": "Mini-Rocket Guard Tower",
+        "resistance": 150,
+        "sensorID": "DefaultSensor1Mk1",
+        "strength": "MEDIUM",
+        "structureModel": [
+            "BLGUARDM.pie"
+        ],
+        "thermal": 10,
+        "type": "DEFENSE",
+        "weapons": [
+            "Rocket-Pod"
+        ],
+        "width": 1
     }
 }

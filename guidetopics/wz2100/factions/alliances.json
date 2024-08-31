@@ -1,0 +1,21 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::factions::alliances",
+	"title": "Alliances",
+	"sort": "01",
+	"contents": [
+		"Successfully completing negotiations with a faction means that you are now are now allied to them!",
+		"",
+		"Factions that you ally with will attempt to assist you in battle by sending their forces to assist your units.",
+		"",
+		"Additionally, allied factions will share some of their technology with you.",
+		"",
+		"Note that different factions may require you to complete different actions before offering to negotiate.",
+		"",
+		"However, allying with or avoiding a faction is generally easier than facing them head on..."
+	],
+	"links": [
+		"wz2100::factions",
+		"wz2100::factions::eradicating"
+	]
+}

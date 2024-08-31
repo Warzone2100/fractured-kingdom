@@ -195,7 +195,7 @@ function __camCheckPlaceArtifact(obj)
 	if (ai.placed)
 	{
 		// Since factories can be rebuilt, this is no longer an error.
-		camTrace("Object to which artifact", alabel, "is bound has died twice");
+		camTrace("Object to which artifact", __ALABEL, "is bound has died twice");
 		return; // Do nothing
 	}
 	if (camDef(ai.req) && !camIsResearched(ai.req))
@@ -238,6 +238,8 @@ function __camCheckPlaceArtifact(obj)
 	const acrate = addFeature("Crate", obj.x, obj.y);
 	addLabel(acrate, __camGetArtifactLabel(__ALABEL));
 	ai.placed = true;
+	// Grant the player visibility of the now-placed artifact
+	addSpotter(obj.x, obj.y, CAM_HUMAN_PLAYER, 128, false, gameTime + camSecondsToMilliseconds(1));
 }
 
 function __camPickupArtifact(artifact)
