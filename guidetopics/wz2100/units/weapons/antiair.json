@@ -28,7 +28,7 @@
 		"",
 		"However, AA weapons are incapable of attacking structures or units on the ground.",
 		"",
-		"While AA weapons are excellent for dealing with airborne threats (such as VTOLs), they must be protected from threats on the ground."
+		"While AA weapons are excellent for dealing with airborne threats, they must be protected from threats on the ground."
 	],
 	"links": [
 		"wz2100::units::weapons",

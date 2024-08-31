@@ -1147,8 +1147,7 @@
 		"resultStructures": [
 			"WallTower06"
 		],
-		"statID": "WallTower06",
-		"subgroupIconID": "IMAGE_RES_GRPACC"
+		"statID": "WallTower06"
 	},
 	"R-Defense-WallUpgrade01": {
 		"iconID": "IMAGE_RES_DEFENCE",

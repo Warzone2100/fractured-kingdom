@@ -119,7 +119,7 @@ ammmra: { body: "Body5REC", prop: "hover01", weap: "Rocket-MRL" }, // Mini-Rocke
 ammlan: { body: "Body5REC", prop: "hover01", weap: "Rocket-LtA-T" }, // Lancer Cobra Hover
 amhlan: { body: "Body11ABT", prop: "hover01", weap: "Rocket-LtA-T" }, // Lancer Python Hover
 amhbb: { body: "Body11ABT", prop: "hover01", weap: "Rocket-BB" }, // Bunker Buster Python Hover
-amhhra: { body: "Body5REC", prop: "hover01", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Python Hover
+amhhra: { body: "Body11ABT", prop: "hover01", weap: "Rocket-MRL-Hvy" }, // Heavy Rocket Array Python Hover
 amhtk: { body: "Body11ABT", prop: "hover01", weap: "Rocket-HvyA-T" }, // Tank Killer Python Hover
 amhbal: { body: "Body11ABT", prop: "hover01", weap: "Rocket-Ballista" }, // Ballista Python Hover
 
