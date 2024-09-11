@@ -1079,7 +1079,7 @@ var structSets = {
 		{stat: "PillBox-Cannon6", x: 194, y: 33}, {stat: "PillBox-Cannon6", x: 192, y: 37}, {stat: "CollectiveWall", x: 193, y: 37},
 		{stat: "CO-Emp-RotMor", x: 192, y: 39}, {stat: "CO-Tower-HvATRkt", x: 194, y: 37}, {stat: "CollectiveWall", x: 194, y: 38},
 		{stat: "CollectiveWall", x: 194, y: 39}, {stat: "CollectiveWall", x: 185, y: 12}, {stat: "WallTower-Projector", x: 191, y: 16},
-		{stat: "WallTower-Projector", x: 180, y: 32}, {stat: "CO-Tower-HvATRkt", x: 190, y: 16}, {stat: "Sys-CO-VTOL-RadarTower01", x: 189, y: 26}
+		{stat: "WallTower-Projector", x: 180, y: 32}, {stat: "CO-Tower-HvATRkt", x: 190, y: 16}, {stat: "Sys-CO-VTOL-RadarTower01", x: 189, y: 26},
 		{stat: "A0HardcreteMk1Gate", x: 190, y: 17}, {stat: "A0HardcreteMk1Gate", x: 190, y: 18}, {stat: "CO-Tower-HvATRkt", x: 190, y: 19}
 	],
 	royalistNorthLakeStructs: [
