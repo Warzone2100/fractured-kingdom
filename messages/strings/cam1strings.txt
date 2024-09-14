@@ -542,7 +542,7 @@ ROYAMBUMSG1			_("Did you really, truly believe that I would allow it end that wa
 ROYAMBUMSG2			_("Have your conquests finally gotten the better of your conscious Commander?")
 ROYAMBUMSG3			_("To think I'd let someone as dangerous as you in infest MY kingdom?")
 ROYAMBUMSG4			_("After all, not only have you massacred my subjects, but...")
-ROYAMBUMSG5			_("You also murder the Prince.")
+ROYAMBUMSG5			_("You also murdered the Prince.")
 ROYAMBUMSG6			_("...")
 ROYAMBUMSG7			_("What kind of Queen would I be if I weren't to avenge such a henious crime against the Kingdom?")
 ROYAMBUMSG8			_("You have your response to negotiations, your demise shall be swift and merciless!")
