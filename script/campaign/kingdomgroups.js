@@ -1772,7 +1772,7 @@ function startRoyalistAssault()
 		data = {
 			targetPlayer: gameState.royalists.assaultTarget,
 			pos: pos,
-			repair: 40
+			repair: (!gameState.royalists.underAttack) ? 40 : 0 // Don't repair if the main base is being attacked
 		};
 	}
 	camManageGroup(gameState.royalists.assaultGroup.id, CAM_ORDER_COMPROMISE, data);
@@ -2149,7 +2149,7 @@ function updateAllyTemplates()
 		let rocalt = cTempl.relpodht; // Rocket tank (alt)
 		let flam = cTempl.relflamht; // Flamer tank
 		let mort = cTempl.remmor; // Mortar tank
-		// let rep = cTempl.rellrepht; // Repair tank
+		let rep = cTempl.rellrepht; // Repair tank
 		let aa = cTempl.remlaa; // AA Tank
 		let cmg = cTempl.cybmg; // MG cyborg
 		let ccan = cTempl.cybca; // Cannon cyborg
@@ -2278,13 +2278,9 @@ function updateAllyTemplates()
 		{
 			roc = cTempl.remlan; // Lancer Cobra Half-tracks
 		}
-		else if (camIsResearched("R-Wpn-Rocket-LtA-TMk1")) 
-		{
-			roc = cTempl.remsar; // Sarissa Cobra Half-tracks
-		}
 		else if (camIsResearched("R-Vehicle-Metals02")) 
 		{
-			roc = cTempl.rempod; // Mini-Rocket Pod Cobra Half-tracks
+			roc = cTempl.remsar; // Sarissa Cobra Half-tracks
 		}
 		// Rocket tank (alt)
 		if (camIsResearched("R-Vehicle-Body11") && camIsResearched("R-Wpn-Rocket03-HvAT") && camIsResearched("R-Vehicle-Metals04")) 
@@ -2338,14 +2334,14 @@ function updateAllyTemplates()
 			mort = cTempl.remimor; // Incendiary Mortar Cobra Half-tracks
 		}
 		// Repair tank
-		// if (camIsResearched("R-Sys-MobileRepairTurretHvy"))
-		// {
-		// 	rep = cTempl.remhrep; // Heavy Repair Turret Cobra Half-tracks
-		// }
-		// else if (camIsResearched("R-Vehicle-Metals03")) 
-		// {
-		// 	rep = cTempl.remlrep; // Repair Turret Cobra Half-tracks
-		// }
+		if (camIsResearched("R-Sys-MobileRepairTurretHvy"))
+		{
+			rep = cTempl.remhrep; // Heavy Repair Turret Cobra Half-tracks
+		}
+		else if (camIsResearched("R-Vehicle-Metals03")) 
+		{
+			rep = cTempl.remlrep; // Repair Turret Cobra Half-tracks
+		}
 		// AA tank
 		if (camIsResearched("R-Wpn-AAGun04") && camIsResearched("R-Vehicle-Body11"))
 		{
@@ -2407,11 +2403,11 @@ function updateAllyTemplates()
 		let hvyFactoryTemplates = [];
 		if (gameState.phase < 2)
 		{
-			hvyFactoryTemplates = [ mort, roc, mg, /*rep,*/ sens, mort ];
+			hvyFactoryTemplates = [ mort, roc, mg, rep, sens, mort ];
 		}
 		else // Start making AA units when VTOLs start coming into play
 		{
-			hvyFactoryTemplates = [ mort, roc, mg, /*rep,*/ sens, mort, aa ];
+			hvyFactoryTemplates = [ mort, roc, mg, rep, sens, mort, aa ];
 		}
 		if (camIsResearched("R-Wpn-Rocket06-IDF"))
 		{

@@ -973,6 +973,9 @@
 			"R-Defense-HardcreteWall",
 			"R-Wpn-Rocket01-LtAT"
 		],
+		"redStructures": [
+			"Sarissa-Tower"
+		],
 		"researchPoints": 300,
 		"researchPower": 46,
 		"resultStructures": [
@@ -2404,21 +2407,21 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "Damage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RadiusDamage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RepeatDamage",
-				"value": 25
+				"value": 35
 			}
 		],
 		"statID": "Mortar1Mk1",
@@ -2440,21 +2443,21 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "Damage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RadiusDamage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RepeatDamage",
-				"value": 25
+				"value": 35
 			}
 		],
 		"statID": "Mortar1Mk1",
@@ -2478,21 +2481,21 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "Damage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RadiusDamage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RepeatDamage",
-				"value": 25
+				"value": 35
 			}
 		],
 		"statID": "Mortar1Mk1",
@@ -2517,21 +2520,21 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "Damage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RadiusDamage",
-				"value": 25
+				"value": 35
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "MORTARS",
 				"parameter": "RepeatDamage",
-				"value": 25
+				"value": 35
 			}
 		],
 		"statID": "Mortar1Mk1",
@@ -2606,7 +2609,8 @@
 		"msgName": "RES_W_RK_AC1",
 		"name": "Stabilized Rockets",
 		"requiredResearch": [
-			"R-Wpn-Rocket-LtA-TMk1"
+			"R-Wpn-Rocket-LtA-TMk1",
+			"R-Wpn-Rocket-Damage01"
 		],
 		"researchPoints": 1400,
 		"researchPower": 112,
@@ -2725,7 +2729,7 @@
 		"name": "HE Rockets Mk3",
 		"requiredResearch": [
 			"R-Wpn-Rocket-Damage02",
-			"R-Wpn-Rocket-LtA-TMk1"
+			"R-Wpn-Rocket01-LtAT"
 		],
 		"researchPoints": 1300,
 		"researchPower": 112,
@@ -2756,7 +2760,7 @@
 		"name": "Rocket Autoloader",
 		"requiredResearch": [
 			"R-Wpn-Rocket-LtA-TMk1",
-			"R-Wpn-Rocket-Damage01"
+			"R-Wpn-Rocket-Damage02"
 		],
 		"researchPoints": 1200,
 		"researchPower": 75,
@@ -2862,13 +2866,10 @@
 	},
 	"R-Wpn-Rocket-LtA-TMk1": {
 		"iconID": "IMAGE_RES_WEAPONTECH",
-		"id": "R-Wpn-Rocket01-LtAT",
+		"id": "R-Wpn-Rocket-LtA-TMk1",
 		"keyTopic": 1,
 		"msgName": "RES_W_RK_LTAT1MK1",
 		"name": "Sarissa AT Rocket",
-		"requiredResearch": [
-			"R-Wpn-Rocket-Damage01"
-		],
 		"researchPoints": 800,
 		"researchPower": 55,
 		"resultComponents": [
@@ -5199,7 +5200,6 @@
 		"msgName": "RES_W_SRK_D1",
 		"name": "HEAT Rocket Warhead",
 		"requiredResearch": [
-			"R-Wpn-Rocket02-MRL",
 			"R-Wpn-Rocket-Damage03"
 		],
 		"researchPoints": 1500,
@@ -5220,7 +5220,7 @@
 				"value": 25
 			}
 		],
-		"statID": "Rocket-LtA-TMk1",
+		"statID": "Rocket-LtA-T",
 		"subgroupIconID": "IMAGE_RES_GRPDAM"
 	},
 	"R-Wpn-Rocket-Damage05": {
@@ -5229,7 +5229,7 @@
 		"name": "HEAT Rocket Warhead Mk2",
 		"requiredResearch": [
 			"R-Wpn-Rocket-Damage04",
-			"R-Wpn-Rocket01-LtAT"
+			"R-Wpn-Cannon-Damage05"
 		],
 		"researchPoints": 1700,
 		"researchPower": 187,

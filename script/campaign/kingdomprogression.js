@@ -60,9 +60,9 @@ function rankCommanders()
 	if (difficulty >= HARD) camSetDroidRank(getObject("royCentralCommander"), "Professional");
 
 	// Royalist hover commander
-	if (difficulty <= MEDIUM) camSetDroidRank(getObject("royHoverCommander"), "Trained");
-	if (difficulty >= HARD) camSetDroidRank(getObject("royHoverCommander"), "Regular");
-	if (difficulty === INSANE) camSetDroidRank(getObject("royHoverCommander"), "Professional");
+	if (difficulty <= MEDIUM) camSetDroidRank(getObject("royHoverCommander"), "Green");
+	if (difficulty >= HARD) camSetDroidRank(getObject("royHoverCommander"), "Trained");
+	if (difficulty === INSANE) camSetDroidRank(getObject("royHoverCommander"), "Regular");
 
 	// Royalist assault commander
 	if (difficulty <= EASY) camSetDroidRank(getObject("royAssaultCommander"), "Trained");
@@ -417,7 +417,7 @@ function allyResistance()
 	queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 
 	// Give the Resistance a truck to manage their base
-	camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckw, camSecondsToMilliseconds(60));
+	camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", camAreaToStructSet("resistanceBase"), cTempl.reltruckw, camSecondsToMilliseconds(60));
 
 	// Set up a truck to eventually build a base by the river
 	camManageTrucks(CAM_THE_RESISTANCE, "resistanceRiverRepairBase", structSets.resistanceRiverTownRepairStructs, cTempl.remtruck, camSecondsToMilliseconds(60));
@@ -466,14 +466,12 @@ function allyResistance()
 	camRemoveArtifact("resResearch1");
 	camRemoveArtifact("resResearch2");
 	camRemoveArtifact("resRelay");
-	camRemoveArtifact("resSarissa");
 
 	// Share research with Resistance
 	camCompleteRes(camGetResearchLog(), CAM_THE_RESISTANCE);
 
-	// Quietly remove Python tank and Sarissa bunkers
+	// Quietly remove the Python tank
 	camSafeRemoveObject(getObject("resPython"));
-	camUpgradeOnMapStructures("PillBox6", "PillBox4", CAM_THE_RESISTANCE);
 
 	// Get all Resistance groups up to snuff
 	updateAllyTemplates();
@@ -509,15 +507,15 @@ function aggroResistance()
 	// Get a truck for the Resistance to defend their base
 	if (difficulty <= MEDIUM) // Resistance gets wheeled truck on difficulties below Hard
 	{
-		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckw, camSecondsToMilliseconds(90));
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", camAreaToStructSet("resistanceBase"), cTempl.reltruckw, camSecondsToMilliseconds(90));
 	}
 	else
 	{
-		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.reltruckht, camSecondsToMilliseconds(90));
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", camAreaToStructSet("resistanceBase"), cTempl.reltruckht, camSecondsToMilliseconds(90));
 	}
 	if (difficulty === INSANE) // They also get a bonus Engineer on Insane
 	{
-		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", structSets.resistanceStructs, cTempl.cyben, camSecondsToMilliseconds(60));
+		camManageTrucks(CAM_THE_RESISTANCE, "resistanceMainBase", camAreaToStructSet("resistanceBase"), cTempl.cyben, camSecondsToMilliseconds(60));
 	}
 
 	// Give the Resistance commander a rank depending on the difficulty
@@ -822,10 +820,11 @@ function camEnemyBaseDetected_portBase()
 	camEnableFactory("amphosPortFactory");
 
 	// Set up AMPHOS trucks
-	camManageTrucks(CAM_AMPHOS, "southIslandBase", structSets.amphosSWIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(CAM_AMPHOS, "westIslandBase", structSets.amphosWIsleStructs.concat(structSets.amphosBunkerIsleStructs), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(CAM_AMPHOS, "northIslandBase", structSets.amphosNIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
-	camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "southIslandBase", camAreaToStructSet("southIslandFOB"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "westIslandBase", camAreaToStructSet("westIslandFOB"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "westIslandBase", structSets.amphosBunkerIsleStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "northIslandBase", camAreaToStructSet("northIslandFOB"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "amphosMainBase", camAreaToStructSet("amphosBase"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	camManageTrucks(CAM_AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	camManageTrucks(CAM_AMPHOS, "ampNWIsleRepBase", structSets.amphosNWIsleRepStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(80)));
 
@@ -1105,7 +1104,7 @@ function allyAmphos()
 	queue("removeOliveTrucks", camSecondsToMilliseconds(30));
 
 	// Give AMPHOS another truck
-	camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+	camManageTrucks(CAM_AMPHOS, "amphosMainBase", camAreaToStructSet("amphosBase"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 
 	// Donate the southeast oil derrick to the player (if the player hasn't already taken it)
 	const giftDerrick = getObject("ampGiftDerrick");
@@ -1147,7 +1146,6 @@ function allyAmphos()
 	camRemoveArtifact("helMGTow");
 	enableResearch("R-Sys-Engineering02", CAM_HUMAN_PLAYER); // Improved Engineering
 	camRemoveArtifact("coaResearch3");
-	enableResearch("R-Wpn-Rocket-LtA-TMk1", CAM_HUMAN_PLAYER); // Sarissa
 	enableResearch("R-Wpn-Rocket02-MRL", CAM_HUMAN_PLAYER); // Mini-Rocket Array
 	enableResearch("R-Wpn-Rocket03-HvAT", CAM_HUMAN_PLAYER); // Bunker Buster
 	enableResearch("R-Wpn-Rocket02-MRLHvy", CAM_HUMAN_PLAYER); // Heavy Rocket Array
@@ -1170,7 +1168,6 @@ function allyAmphos()
 	playSound("pcv485.ogg"); // "Technology transferred"
 
 	// Remove AMPHOS artifacts
-	camRemoveArtifact("ampSarissa");
 	camRemoveArtifact("ampMGTow");
 	camRemoveArtifact("ampCBTow");
 	camRemoveArtifact("amphosPortFactory");
@@ -1327,15 +1324,15 @@ function aggroAmphos()
 	// Get an extra truck for the AMPHOS main base
 	if (difficulty <= MEDIUM) 
 	{
-		camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+		camManageTrucks(CAM_AMPHOS, "amphosMainBase", camAreaToStructSet("amphosBase"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	}
 	else // AMPHOS gets a Python truck on Hard and above
 	{
-		camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+		camManageTrucks(CAM_AMPHOS, "amphosMainBase", camAreaToStructSet("amphosBase"), cTempl.amhtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	}
 	if (difficulty === INSANE) // And another extra truck on Insane
 	{
-		camManageTrucks(CAM_AMPHOS, "amphosMainBase", structSets.amphosMainBaseStructs, cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
+		camManageTrucks(CAM_AMPHOS, "amphosMainBase", camAreaToStructSet("amphosBase"), cTempl.ammtruck, camChangeOnDiff(camSecondsToMilliseconds(120)));
 	}
 
 	const oliveTruck = getObject("ampOliveTruck");
@@ -1836,49 +1833,50 @@ function setPhaseTwo()
 	queueStartProduction(CAM_THE_COALITION, "VTOL");
 	queueStartProduction(CAM_ROYALISTS, "VTOL");
 
-	const TRUCK_TIME = camChangeOnDiff(camSecondsToMilliseconds(120));
+	const COATRUCK_TIME = camChangeOnDiff(camSecondsToMilliseconds(120));
+	const ROYTRUCK_TIME = camChangeOnDiff(camSecondsToMilliseconds(150));
 	const CYBORG_TIME = camChangeOnDiff(camSecondsToMilliseconds(60));
 
 	// Truckpocalypse
-	camManageTrucks(CAM_THE_COALITION, "coalitionBridgeBase", structSets.coalitionBridgeStructs, cTempl.comtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "seCoalitionBase", structSets.coalitionSEStructs, cTempl.comtruckht, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "riverDeltaBase", structSets.coalitionDeltaStructs, cTempl.comtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "sunkenPlainsBase", structSets.coalitionsunkenPlainsStructs, cTempl.comtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "sunkenPlainsBase", structSets.coalitionsunkenPlainsStructs, cTempl.cyben, CYBORG_TIME);
-	camManageTrucks(CAM_THE_COALITION, "neCoalitionBase", structSets.coalitionNEStructs, cTempl.comtruckht, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.comtruckht, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.comtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", structSets.coalitionMainBaseStructs, cTempl.cyben, CYBORG_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionBridgeBase", camAreaToStructSet("coalitionBridgeFOB"), cTempl.comtruckt, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "seCoalitionBase", camAreaToStructSet("seCoalitionFOB"), cTempl.comtruckht, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "riverDeltaBase", camAreaToStructSet("riverDeltaFOB"), cTempl.comtruckt, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "sunkenPlainsBase", camAreaToStructSet("sunkenPlainsFOB"), cTempl.comtruckt, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "sunkenPlainsBase", camAreaToStructSet("sunkenPlainsFOB"), cTempl.cyben, CYBORG_TIME);
+	camManageTrucks(CAM_THE_COALITION, "neCoalitionBase", camAreaToStructSet("neCoalitionFOB"), cTempl.comtruckht, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", camAreaToStructSet("coalitionBase"), cTempl.comtruckht, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", camAreaToStructSet("coalitionBase"), cTempl.comtruckt, COATRUCK_TIME);
+	camManageTrucks(CAM_THE_COALITION, "coalitionMainBase", camAreaToStructSet("coalitionBase"), cTempl.cyben, CYBORG_TIME);
 
-	camManageTrucks(CAM_ROYALISTS, "southBase", structSets.royalistSouthStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "riverTownBase", structSets.royalistRiverTownStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "riverLZBase", structSets.royalistRiverLZStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "eastCoastBase", structSets.royalistEastCoastStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "southGate", structSets.royalistSouthGateStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistCentralFactoryZone", structSets.royalistCentralFactoryStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "westGate", structSets.royalistwestGateStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistMountainCheckpoint", structSets.royalistCheckpointStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistHowitzerFOB", structSets.royalistHowitzerBaseStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "southRoyalWhirlwindHill", structSets.royalistsouthWhirlwindHillStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistVtolBase", structSets.royalistvtolBaseStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistMainBaseGate", structSets.royalistMainDefenceStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalMainBase", structSets.royalistMainBaseStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistOuterGate", structSets.royalistOuterBaseStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royalistOuterGate", structSets.royalistOuterBaseStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "northLakeBase", structSets.royalistNorthLakeStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "nwIslandBase", structSets.royalistNWIsleStructs, cTempl.romtruckh, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "southBase", structSets.royalistSouthStructs, cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "riverTownBase", camAreaToStructSet("riverTownFOB"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "riverLZBase", camAreaToStructSet("riverLZFOB"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "eastCoastBase", camAreaToStructSet("eastCoastFOB"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "southGate", camAreaToStructSet("southGateBase"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistCentralFactoryZone", camAreaToStructSet("royalistCentralFactoryBase"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "westGate", camAreaToStructSet("westGateBase"), cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistMountainCheckpoint", camAreaToStructSet("royalistCheckpoint"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistHowitzerFOB", camAreaToStructSet("royalistHowitzerBase"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "southRoyalWhirlwindHill", camAreaToStructSet("southWhirlwindHill"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistVtolBase", camAreaToStructSet("vtolBase"), cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistMainBaseGate", camAreaToStructSet("royalistMainBaseDefenses"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalMainBase", camAreaToStructSet("royalistMainBase"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistOuterGate", camAreaToStructSet("royalistOuterBase"), cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royalistOuterGate", camAreaToStructSet("royalistOuterBase"), cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "northLakeBase", camAreaToStructSet("northLakeFOB"), cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "nwIslandBase", camAreaToStructSet("nwIslandFOB"), cTempl.romtruckh, ROYTRUCK_TIME);
 
-	camManageTrucks(CAM_ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royPlainsRepBase", structSets.royalistPlainsRepStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royDeltaRepBase", structSets.royalistDeltaRepStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royBridgeRepBase", structSets.royalistBridgeRepStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "roySWIsleRepBase", structSets.royalistSWIsleRepStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royPortRepBase", structSets.royalistPortRepStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, TRUCK_TIME);
-	camManageTrucks(CAM_ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, TRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royCoalitionRepBase", structSets.royalistCoalitionBaseRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royPlainsRepBase", structSets.royalistPlainsRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royDeltaRepBase", structSets.royalistDeltaRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royBridgeRepBase", structSets.royalistBridgeRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "roySWIsleRepBase", structSets.royalistSWIsleRepStructs, cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royPortRepBase", structSets.royalistPortRepStructs, cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royAmphosRepBase", structSets.royalistAMPHOSBaseRepStructs, cTempl.romtruckh, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
+	camManageTrucks(CAM_ROYALISTS, "royHellraiserRepBase", structSets.royalistHellraiserRepStructs, cTempl.romtruckt, ROYTRUCK_TIME);
 
 	// Update Coalition truck data
 	if (difficulty === MEDIUM)
@@ -3379,7 +3377,7 @@ function grantRoyalistTier2Research()
 	if (difficulty >= HARD)
 	{
 		// They get even more upgrades on Hard+
-		gameState.royalists.pResList = gameState.royalists.pResList.concat(ROYALIST_PROGRESSIVE_HARD_RES);
+		gameState.royalists.pResList = gameState.royalists.pResList.concat(mis_royalistProgressiveHardRes);
 	}
 
 	// Grant research faster

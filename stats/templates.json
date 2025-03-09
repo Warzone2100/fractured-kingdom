@@ -1768,11 +1768,22 @@
         "available": true,
         "body": "Body1REC",
         "id": "ViperPODHalfTracks",
-        "name": "Mini-Rocket Viper Half-tracks",
+        "name": "Mini-Rocket Pod Viper Half-tracks",
         "propulsion": "HalfTrack",
         "type": "DROID",
         "weapons": [
             "Rocket-Pod"
+        ]
+    },
+    "ViperSarissaHalfTracks": {
+        "available": true,
+        "body": "Body1REC",
+        "id": "ViperSarissaHalfTracks",
+        "name": "Sarissa Viper Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-LtA-TMk1"
         ]
     },
     "ViperRepairHalftrack": {

@@ -236,6 +236,35 @@ function camGetTrucksFromBase(blabel)
 	return indexList;
 }
 
+//;; ## camAreaToStructSet(area[, player])
+//;; Generate a structure set using the structures in the given area.
+//;; If a player is provided, only consider structures belonging to that player.
+function camAreaToStructSet(area, player)
+{
+	let a = area;
+	if (camIsString(area))
+	{
+		// Area label
+		a = getObject(area);
+	}
+
+	const __PLAYER_FILTER = camDef(player) ? player : ALL_PLAYERS;
+	
+	const structures = enumArea(a.x, a.y, a.x2, a.y2, __PLAYER_FILTER, false).filter((obj) => (obj.type === STRUCTURE));
+	const structSet = [];
+
+	for (const structure of structures)
+	{
+		// Note: The spelling of ".Id" instead of ".id" here is correct!
+		structSet.push({stat: camGetCompStats(structure.name, "Building").Id, 
+			x: structure.x, y: structure.y, 
+			rot: (structure.direction > 2) ? (structure.direction - 1) : structure.direction, // HACK: Structure directions seem to increase by one after 180 degrees?
+			mods: structure.modules});
+	}
+
+	return structSet;
+}
+
 //////////// privates
 
 // Check if a truck is busy doing a building-related action

@@ -1,11 +1,11 @@
 {
-  "name": "Fractured Kingdom",
+  "name": "!FK TEST!",
   "version": "1.3.0",
   "author": "DARwins",
   "type": "alternateCampaign",
   "license": "GPL-2.0-or-later",
   "minVersionSupported": "4.5.2",
-  "maxVersionTested": "4.5.2",
+  "maxVersionTested": "4.5.5",
   "description": {
      "en": "After crash-landing in the territory of a once powerful kingdom, you must navigate your way through the various factions fighting over what remains. Can you prevail against the odds, facing relentless foes, and see this story to its end?"
   },
@@ -39,14 +39,25 @@
   ],
   "customTweakOptions": [
     {
-      "id": "fk_disableDayCycle",
+      "id": "fk_dayCycle",
       "type": "bool",
-      "default": false,
+      "default": true,
       "displayName": {
-        "en": "Disable Day/Night Cycle"
+        "en": "Day/Night Cycle"
       },
       "description": {
-        "en": "Disables the visual day-to-night sun cycle. The day/night cycle can also be toggled in-game with the \"toggle dn\" chat command."
+        "en": "Enables a visual day-to-night sun cycle. The day/night cycle can also be toggled in-game with the \"toggle dn\" chat command."
+      }
+    },
+    {
+      "id": "fk_allyVision",
+      "type": "bool",
+      "default": true,
+      "displayName": {
+        "en": "Ally Vision"
+      },
+      "description": {
+        "en": "Enables constant visibility of all allied units/structures. May cause performance impacts. Can be toggled in-game with the \"toggle vision\" chat command."
       }
     }
   ]

@@ -169,7 +169,7 @@ function eventDroidBuilt(droid, structure)
 				}
 
 				const GROUP_ID = groupList[vtolTower.id];
-				if (enumGroup(GROUP_ID).length < VTOL_TOWER_GROUP_SIZE)
+				if (enumGroup(GROUP_ID).length < MIS_VTOL_TOWER_GROUP_SIZE)
 				{
 					// VTOL Tower with understaffed group; add this VTOL to it
 					groupAdd(GROUP_ID, droid);
@@ -316,10 +316,10 @@ function eventDestroyed(obj)
 			// the AMPHOS main base.
 			camCallOnce("aggroAmphos");
 		}
-		else if (gameState.amphos.allianceState === "OFFER" && VICTIM_PLAYER === CAM_AMPHOS 
-			&& (obj.type === DROID || !forgivableStruct(obj.name, CAM_AMPHOS)))
+		else if (gameState.amphos.allianceState === "OFFER" && VICTIM_PLAYER === CAM_AMPHOS
+			&& (!forgivableStruct(obj.name, CAM_AMPHOS) || getLabel(obj) === "ampOliveTruck"))
 		{
-			// The player has destroyed an AMPHOS unit or important structure
+			// The player has destroyed the AMPHOS olive truck or an important structure
 			// while AMPHOS was offering an alliance.
 			camCallOnce("aggroAmphos");
 		}
@@ -358,7 +358,7 @@ function eventDestroyed(obj)
 			}
 		}
 		// Check if the Royalists should drop the fakeout act
-		else if (gameState.royalists.fakeout && gameTime > gameState.royalists.fakeoutTime + 30000
+		else if (gameState.royalists.fakeout && gameTime > gameState.royalists.fakeoutTime + camSecondsToMilliseconds(30)
 			&& VICTIM_PLAYER === CAM_ROYALISTS && obj.type === STRUCTURE && !forgivableStruct(obj.name, CAM_ROYALISTS))
 		{
 			// Give up the fakeout act
@@ -371,6 +371,52 @@ function eventDestroyed(obj)
 			&& (obj.type === DROID || (obj.type === STRUCTURE && obj.stattype !== WALL)))
 		{
 			gameState.amphos.numDestroyed++;
+		}
+	}
+	else // Handle olive truck destruction failsafe
+	{
+		// If an olive truck dies outside of the player's hands, spawn a new one at the negotiation site
+		let newTruck = undefined;
+		let newLabel = undefined;
+		if (gameState.resistance.allianceState === "OFFER" && getLabel(obj) === "resOliveTruck")
+		{
+			const pos = camMakePos("resOliveZone");
+			const temp = cTempl.reltruckw;
+			newTruck = addDroid("CAM_THE_RESISTANCE", pos.x, pos.y, camNameTemplate(temp), temp.body, temp.prop, "", "", temp.weap);
+			newLabel = "resOliveTruck";
+		}
+		else if (gameState.amphos.allianceState === "OFFER" && getLabel(obj) === "ampOliveTruck")
+		{
+			const pos = camMakePos("ampOliveZone");
+			const temp = cTempl.ammtruck;
+			newTruck = addDroid("CAM_AMPHOS", pos.x, pos.y, camNameTemplate(temp), temp.body, temp.prop, "", "", temp.weap);
+			newLabel = "ampOliveTruck";
+		}
+		else if (gameState.hellraisers.allianceState === "OFFER" && getLabel(obj) === "helOliveTruck")
+		{
+			const pos = camMakePos("helOliveZone");
+			const temp = cTempl.hemtruckt;
+			newTruck = addDroid("CAM_HELLRAISERS", pos.x, pos.y, camNameTemplate(temp), temp.body, temp.prop, "", "", temp.weap);
+			newLabel = "helOliveTruck";
+		}
+		else if (gameState.coalition.allianceState === "OFFER" && getLabel(obj) === "coaOliveTruck")
+		{
+			const pos = camMakePos("coaOliveZone");
+			const temp = cTempl.comtruckht;
+			newTruck = addDroid("CAM_THE_COALITION", pos.x, pos.y, camNameTemplate(temp), temp.body, temp.prop, "", "", temp.weap);
+			newLabel = "coaOliveTruck";
+		}
+		else if (gameState.royalists.fakeout && getLabel(obj) === "royOliveTruck")
+		{
+			const pos = camMakePos("royOliveZone");
+			const temp = cTempl.romtruckh;
+			newTruck = addDroid("CAM_ROYALISTS", pos.x, pos.y, camNameTemplate(temp), temp.body, temp.prop, "", "", temp.weap);
+			newLabel = "royOliveTruck";
+		}
+
+		if (camDef(newTruck))
+		{
+			addLabel(newTruck, newLabel);
 		}
 	}
 
@@ -635,6 +681,7 @@ function eventDestroyed(obj)
 		case "roySpyAGTow":
 		case "royIslandAGTow":
 		case "royLZAGTow":
+		case "royCentralAGTow":
 			gameState.artifacts.chainGunProgression++;
 			// Get the next artifact tech
 			if (gameState.artifacts.chainGunProgression === 1)
@@ -660,6 +707,7 @@ function eventDestroyed(obj)
 				if (ARTI_LABEL !== "roySpyAGTow" && getObject("roySpyAGTow") !== null) camRemoveArtifact("roySpyAGTow");
 				if (ARTI_LABEL !== "royIslandAGTow" && getObject("royIslandAGTow") !== null) camRemoveArtifact("royIslandAGTow");
 				if (ARTI_LABEL !== "royLZAGTow" && getObject("royLZAGTow") !== null) camRemoveArtifact("royLZAGTow");
+				if (ARTI_LABEL !== "royCentralAGTow" && getObject("royCentralAGTow") !== null) camRemoveArtifact("royCentralAGTow");
 				break;
 			}
 			if (gameState.artifacts.chainGunProgression > 4) 
@@ -687,6 +735,10 @@ function eventDestroyed(obj)
 			if (getObject("royLZAGTow") !== null)
 			{
 				camAddArtifact({"royLZAGTow": { tech: tech, req: req }});
+			}
+			if (getObject("royCentralAGTow") !== null)
+			{
+				camAddArtifact({"royCentralAGTow": { tech: tech, req: req }});
 			}
 			break;
 		// Command-Control progression
@@ -738,17 +790,6 @@ function eventDestroyed(obj)
 				camAddArtifact({"coaHQ": { tech: ["R-Vehicle-Body02", tech], req: req }});
 			}
 			break;
-		// Duplicate Sarissa artifacts
-		case "resSarissa":
-		case "ampSarissa":
-			if (gameState.artifacts.sarissaDrop)
-			{
-				break;
-			}
-			gameState.artifacts.sarissaDrop = true;
-			if (ARTI_LABEL !== "resSarissa") camRemoveArtifact("resSarissa");
-			if (ARTI_LABEL !== "ampSarissa") camRemoveArtifact("ampSarissa");
-			break;
 		// Duplicate Heavy Machinegun artifacts
 		case "ampMGTow":
 		case "helMGTow":
@@ -783,6 +824,17 @@ function eventDestroyed(obj)
 			if (ARTI_LABEL !== "ampLancerTow") camRemoveArtifact("ampLancerTow");
 			if (ARTI_LABEL !== "royLancerTow1") camRemoveArtifact("royLancerTow1");
 			if (ARTI_LABEL !== "royLancerTow2") camRemoveArtifact("royLancerTow2");
+			break;
+		// Duplicate Pepperpot artifacts
+		case "royPepperPit1":
+		case "royPepperPit2":
+			if (gameState.artifacts.pepperDrop)
+			{
+				break;
+			}
+			gameState.artifacts.pepperDrop = true;
+			if (ARTI_LABEL !== "royPepperPit1") camRemoveArtifact("royPepperPit1");
+			if (ARTI_LABEL !== "royPepperPit2") camRemoveArtifact("royPepperPit2");
 			break;
 		// Duplicate Cyclone artifacts
 		case "ampAASite":
@@ -1128,7 +1180,6 @@ function eventResearched(research, structure, player)
 			case "R-Wpn-Mortar02Hvy": // Bombard
 			case "R-Wpn-Mortar3": // Pepperpot
 			// Rockets
-			case "R-Wpn-Rocket-LtA-TMk1": // Sarissa
 			case "R-Wpn-Rocket02-MRL": // Mini-Rocket Array
 			case "R-Wpn-Rocket03-HvAT": // Bunker Buster
 			case "R-Wpn-Rocket01-LtAT": // Lancer
@@ -1295,6 +1346,7 @@ function eventResearched(research, structure, player)
 }
 
 // Allow the player to change to colors via text chat
+// Also toggle ally vision via chat
 function eventChat(from, to, message)
 {
 	let colour = 0;
@@ -1444,6 +1496,11 @@ function eventChat(from, to, message)
 				return;
 			}
 			printAchievements();
+			return;
+		case "toggle ally vision":
+		case "toggle vision":
+		case "toggle vis":
+			gameState.allyVisionEnabled = !gameState.allyVisionEnabled;
 			return;
 		default:
 			return; // Some other message
@@ -1617,6 +1674,14 @@ function adaptFactionColours()
 	}
 }
 
+function allyVision()
+{
+	if (gameState.allyVisionEnabled)
+	{
+		viewAlliedObjects();
+	}
+}
+
 // Grant the player momentary vision of all allied objects
 function viewAlliedObjects()
 {
@@ -1624,28 +1689,30 @@ function viewAlliedObjects()
 
 	if (gameState.resistance.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(CAM_THE_RESISTANCE));
+		objList = objList.concat(enumStruct(CAM_THE_RESISTANCE).filter((struct) => (struct.stattype !== WALL)));
 		objList = objList.concat(enumDroid(CAM_THE_RESISTANCE));
 	}
 	if (gameState.amphos.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(CAM_AMPHOS));
+		objList = objList.concat(enumStruct(CAM_AMPHOS).filter((struct) => (struct.stattype !== WALL)));
 		objList = objList.concat(enumDroid(CAM_AMPHOS));
 	}
 	if (gameState.hellraisers.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(CAM_HELLRAISERS));
+		objList = objList.concat(enumStruct(CAM_HELLRAISERS).filter((struct) => (struct.stattype !== WALL)));
 		objList = objList.concat(enumDroid(CAM_HELLRAISERS));
 	}
 	if (gameState.coalition.allianceState === "ALLIED")
 	{
-		objList = objList.concat(enumStruct(CAM_THE_COALITION));
+		objList = objList.concat(enumStruct(CAM_THE_COALITION).filter((struct) => (struct.stattype !== WALL)));
 		objList = objList.concat(enumDroid(CAM_THE_COALITION));
 	}
 
+	const RANGE = 8 * 128; // 8 tiles
+
 	for (let i = 0; i < objList.length; i++)
 	{
-		addSpotter(objList[i].x, objList[i].y, CAM_HUMAN_PLAYER, 512, false, gameTime + camSecondsToMilliseconds(1));
+		addSpotter(objList[i].x, objList[i].y, CAM_HUMAN_PLAYER, RANGE, false, gameTime + camSecondsToMilliseconds(1));
 	}
 }
 
@@ -2035,24 +2102,12 @@ function eventStartLevel()
 
 	camSetEnemyBases(mis_baseData);
 
-	// Change a bunch of normal structures to their Collective-styled counterparts for the Royalists
-	camUpgradeOnMapStructures("PillBox1", "CO-HMGBunker", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Pillbox-RotMG", "CO-ROTMGBunker", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Sys-SensoTower02", "Sys-CO-SensoTower", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Sys-CB-Tower01", "Sys-COCB-Tower01", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Sys-VTOL-CB-Tower01", "Sys-CO-VTOL-CB-Tower01", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-CO-VTOL-RadarTower01", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("WallTower-QuadRotAAGun", "CO-WallTower-QuadRotAAGun", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("X-Super-Cannon", "COX-Super-Cannon", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("X-Super-Rocket", "COX-Super-Rocket", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("WallTower-TwinAssaultGun", "CO-WallTower-TwinAssaultGun", CAM_ROYALISTS);
+	// FlaME apparently has a hard limit on how many structures of one type can be placed, so some Royalist walls are 
+	// placed as standard Hardcrete walls. This function converts them to their Collective-styled variants.
 	camUpgradeOnMapStructures("A0HardcreteMk1Wall", "CollectiveWall", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Emplacement-RotMor", "CO-Emp-RotMor", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Emplacement-HvyATrocket", "CO-PillBoxTK", CAM_ROYALISTS);
-	camUpgradeOnMapStructures("Emplacement-HPVcannon", "CO-PillBoxHPC", CAM_ROYALISTS);
-	// camUpgradeOnMapStructures("Emplacement-HvyATrocket", "Emplacement-Ballista", CAM_ROYALISTS);
 	if (difficulty === INSANE)
 	{
+		// Swap some Hellraiser Twin MG strutures with HMG variants
 		camUpgradeOnMapStructures("GuardTower2", "GuardTower1", CAM_HELLRAISERS);
 		camUpgradeOnMapStructures("PillBox2", "PillBox1", CAM_HELLRAISERS);
 	}
@@ -2074,6 +2129,7 @@ function eventStartLevel()
 	setTimer("heroCheck", camSecondsToMilliseconds(3));
 	setTimer("baseCheck", camSecondsToMilliseconds(2));
 	setTimer("orderOliveTrucks", camSecondsToMilliseconds(2));
+	setTimer("allyVision", camSecondsToMilliseconds(1));
 
 	if (difficulty < HARD)
 	{

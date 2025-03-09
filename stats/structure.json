@@ -3570,7 +3570,7 @@
     "Flamer-Emplacement": {
         "armour": 15,
         "breadth": 1,
-        "buildPoints": 400,
+        "buildPoints": 225,
         "buildPower": 60,
         "ecmID": "ZNULLECM",
         "height": 1,
@@ -3593,7 +3593,7 @@
     "Cannon-Emplacement": {
         "armour": 15,
         "breadth": 1,
-        "buildPoints": 400,
+        "buildPoints": 225,
         "buildPower": 60,
         "ecmID": "ZNULLECM",
         "height": 1,
@@ -3616,7 +3616,7 @@
     "GuardTowerMRP": {
         "armour": 10,
         "breadth": 1,
-        "buildPoints": 300,
+        "buildPoints": 250,
         "buildPower": 80,
         "ecmID": "ZNULLECM",
         "height": 2,
@@ -3633,6 +3633,29 @@
         "type": "DEFENSE",
         "weapons": [
             "Rocket-Pod"
+        ],
+        "width": 1
+    },
+    "Sarissa-Tower": {
+        "armour": 10,
+        "breadth": 1,
+        "buildPoints": 250,
+        "buildPower": 80,
+        "ecmID": "ZNULLECM",
+        "height": 2,
+        "hitpoints": 450,
+        "id": "Sarissa-Tower",
+        "name": "Sarissa Guard Tower",
+        "resistance": 150,
+        "sensorID": "DefaultSensor1Mk1",
+        "strength": "MEDIUM",
+        "structureModel": [
+            "BLGUARDM.pie"
+        ],
+        "thermal": 10,
+        "type": "DEFENSE",
+        "weapons": [
+            "Rocket-LtA-TMk1"
         ],
         "width": 1
     }

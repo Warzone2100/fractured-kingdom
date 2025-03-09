@@ -160,9 +160,10 @@ function cam_eventStartLevel()
 	queue("__camEnableGuideTopics", camSecondsToMilliseconds(0.1)); // delayed to handle when mission scripts add research
 	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(6));
 
-	if (tweakOptions.fk_disableDayCycle)
+	if (!tweakOptions.fk_dayCycle)
 	{
 		// Player disabled the day cycle from the tweak menu
+		__camDayCycleActive = false;
 		__camDisableDayCycle();
 	}
 }
@@ -353,9 +354,9 @@ function cam_eventMissionTimeout()
 function cam_eventAttacked(victim, attacker)
 {
 	__camLogAttack(victim, attacker);
-	if (camDef(victim) && victim && victim.type === DROID)
+	if (camDef(victim) && victim)
 	{
-		if (victim.player !== CAM_HUMAN_PLAYER && !allianceExistsBetween(CAM_HUMAN_PLAYER, victim.player))
+		if (victim.type === DROID && victim.player !== CAM_HUMAN_PLAYER && !allianceExistsBetween(CAM_HUMAN_PLAYER, victim.player))
 		{
 			//Try dynamically creating a group of nearby droids not part
 			//of a group. Only supports those who can hit ground units.
@@ -394,6 +395,19 @@ function cam_eventAttacked(victim, attacker)
 						__camGroupInfo[victim.group].order = CAM_ORDER_ATTACK;
 					}
 				}
+			}
+		}
+		else if (victim.type === STRUCTURE)
+		{
+			// If an ally attacks an enemy base, reveal it
+			if (!allianceExistsBetween(CAM_HUMAN_PLAYER, victim.player) && allianceExistsBetween(CAM_HUMAN_PLAYER, attacker.player))
+			{
+				if (!attacker.hasIndirect)
+				{
+					// Don't reveal from artillery attacks
+					__camCheckBaseSeen(victim);
+				}
+				
 			}
 		}
 	}
