@@ -1294,11 +1294,6 @@ function eventResearched(research, structure, player)
 				// Enable High Temperature Flamer Gel Mk3 if the player researches the Inferno
 				enableResearch("R-Wpn-Flamer-Damage03");
 				break;
-			case "R-Wpn-Rocket01-LtAT":
-			case "R-Wpn-Rocket03-HvAT":
-				// Enable HEAT Rocket Warhead if the player researches the Lancer or Bunker Buster
-				enableResearch("R-Wpn-Rocket-Damage04");
-				break;
 			case "R-Wpn-Cannon3Mk1":
 			case "R-Wpn-Cannon4AMk1":
 			case "R-Wpn-Cannon5":
