@@ -251,6 +251,21 @@ HELNEGOMSG3			_("And you have earned my personal respect, Commander.")
 HELNEGOMSG4			_("I have sent a truck to begin negotiations for an alliance.")
 HELNEGOMSG5			_("Once they are complete, we can then join our forces and incinerate any Royalist who dares to stand in our path!")
 
+/* Hellraiser Alternate Negotiation Message */
+HELNEGOALTMSG1			_("Attention interlopers!")
+HELNEGOALTMSG2			_("This is the Warchief of the Hellraiser clan speaking.")
+HELNEGOALTMSG3			_("You have trespassed into our clan's rightful territory.")
+HELNEGOALTMSG4			_("And, while your...")
+HELNEGOALTMSG5			_("...")
+HELNEGOALTMSG6			_("...What is this?")
+HELNEGOALTMSG7			_("You've come all this way without destroying a single one of our structures?")
+HELNEGOALTMSG8			_("You are braver than most, Commander.")
+HELNEGOALTMSG9			_("Much braver indeed.")
+HELNEGOALTMSG510		_("I suppose that in times such as these, more bravery is what we need most.")
+HELNEGOALTMSG511		_("...")
+HELNEGOALTMSG512		_("Very well, I have sent a truck to begin negotiations for an alliance.")
+HELNEGOALTMSG513		_("Once they are complete, we can then join our forces and incinerate any Royalist who dares to stand in our path!")
+
 /* Hellraiser Aggro'd Message */
 HELAGGRMSG1			_("Well, it seems you have made the wrong choice!")
 HELAGGRMSG2			_("You are very brave, Commander. But also very foolish if you think you can best us.")

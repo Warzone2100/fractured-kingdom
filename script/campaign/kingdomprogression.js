@@ -1410,11 +1410,6 @@ camAreaEvent("helPitchTrigger", function(droid)
 // main base structure
 function helPitch()
 {
-	// Hellraiser pitch message
-	missionMessage("HELPITCHMSG", "TRANS");
-
-	gameState.hellraisers.pitched = true;
-
 	// Increase the size of the Resistance support group
 	gameState.resistance.groups.playerSupportGroup.maxSize += 4;
 
@@ -1438,18 +1433,38 @@ function helPitch()
 	// Calculate how many structs need to be rebuilt before negotiations may begin
 	// This number will either be the total amount of Hellraiser structures, or the
 	// current number of structures + 12, depending on which is lower
-	if (enumStruct(CAM_HELLRAISERS).length + 12 < gameState.hellraisers.totalStructs)
+	const NUM_STRUCTS = enumStruct(CAM_HELLRAISERS).length;
+	if (NUM_STRUCTS + 12 < gameState.hellraisers.totalStructs)
 	{
+		// By default, structThreshold equals the original amount of structures
 		gameState.hellraisers.structThreshold = enumStruct(CAM_HELLRAISERS).length + 12;
 	}
-	// By default, structThreshold equals the original amount of structures
+	if (NUM_STRUCTS < gameState.hellraisers.totalStructs)
+	{
+		// Hellraiser pitch message
+		missionMessage("HELPITCHMSG", "TRANS");
+		gameState.hellraisers.pitched = true;
+	}
+	else // No structures are missing
+	{
+		// Set up negotiations immediately
+		camCallOnce("setupHellraiserNegotiations");
+	}
 }
 
 // Called when the Hellraisers have rebuilt enough structures
 function setupHellraiserNegotiations()
 {
 	// Message from the Hellraisers
-	missionMessage("HELNEGOMSG", "TRANS");
+	if (gameState.hellraisers.pitched)
+	{
+		missionMessage("HELNEGOMSG", "TRANS");
+	}
+	else
+	{
+		// Alternate message if no structures had to be rebuilt
+		missionMessage("HELNEGOALTMSG", "TRANS");
+	}
 
 	console("The Hellraisers are offering to form an alliance with you!");
 	playSound("pcv479.ogg"); // "Alliance offered"
@@ -1573,6 +1588,9 @@ function allyHellraisers()
 
 	// Give the Hellraisers an extra Engineer
 	camManageTrucks(CAM_HELLRAISERS, "hellraiserMainBase", structSets.hellraiserStructs, cTempl.cyben, camSecondsToMilliseconds(60));
+
+	// Set up a truck to eventually build a base in the center of the map
+	camManageTrucks(CAM_HELLRAISERS, "hellraiserCentralRepairBase", structSets.hellraiserCentralRepairStructs, cTempl.hemtruckht, camSecondsToMilliseconds(90));
 
 	// Upgrade Hellraiser structures if the player has already researched better tech
 	updateAlliedStructs();

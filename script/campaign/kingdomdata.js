@@ -404,6 +404,13 @@ const mis_baseData = {
 		detectSnd: "pcv379.ogg",
 		eliminateSnd: "pcv394.ogg"
 	},
+	"hellraiserCentralRepairBase": {
+		cleanup: "royalistCentralFactoryBase",
+		player: CAM_HELLRAISERS,
+		detectMsg: "FACTORY_REPBASE",
+		detectSnd: "pcv379.ogg",
+		eliminateSnd: "pcv394.ogg"
+	},
 	"coaWestGateLZ": {
 		cleanup: "westGateLZ",
 		player: CAM_THE_COALITION,
@@ -717,10 +724,20 @@ var structSets = {
 		{stat: "WallTower-DoubleAAGun", x: 181, y: 53}, {stat: "WallTower06", x: 181, y: 50}, {stat: "WallTower06", x: 184, y: 53}, 
 		{stat: "Sys-SensoTower02", x: 178, y: 54},
 	],
+	// Hellraiser Extra Structures
+	hellraiserCentralRepairStructs: [ // Small Hellraiser outpost over the central factory base
+		{stat: "Emplacement-MortarPit-Incendiary", x: 121, y: 79}, {stat: "Emplacement-MortarPit-Incendiary", x: 116, y: 81}, {stat: "Emplacement-MortarPit-Incendiary", x: 118, y: 81},
+		{stat: "Tower-Projector", x: 114, y: 82}, {stat: "Tower-Projector", x: 117, y: 78}, {stat: "Tower-Projector", x: 125, y: 76},
+		{stat: "AASite-QuadMg1", x: 120, y: 77}, {stat: "AASite-QuadMg1", x: 122, y: 77}, {stat: "AASite-QuadMg1", x: 116, y: 83, rot: 2},
+		{stat: "A0RepairCentre3", x: 120, y: 82}, {stat: "A0HardcreteMk1Wall", x: 118, y: 76}, {stat: "A0HardcreteMk1Wall", x: 118, y: 77},
+		{stat: "A0HardcreteMk1Wall", x: 124, y: 76}, {stat: "A0HardcreteMk1Wall", x: 127, y: 80}, {stat: "Sys-SensoTower02", x: 126, y: 81},
+		{stat: "WallTower02", x: 118, y: 75}, {stat: "WallTower02", x: 118, y: 78}, {stat: "WallTower02", x: 124, y: 75},
+		{stat: "WallTower02", x: 124, y: 77}, {stat: "WallTower02", x: 126, y: 80},
+	],
 	// Coalition Extra Structures
 	coalitionWestGateLZStructs: [ // Coalition-built LZ in the west gate area
 		{stat: "WallTower04", x: 122, y: 24}, {stat: "WallTower04", x: 122, y: 20, rot: 2}, {stat: "WallTower04", x: 118, y: 20, rot: 2},
-		{stat: "WallTower04", x: 118, y: 24}, {stat: "Sys-SensoTower02", x: 124, y: 23}
+		{stat: "WallTower04", x: 118, y: 24}, {stat: "Sys-SensoTower02", x: 124, y: 23}, {stat: "A0RepairCentre3", x: 126, y: 22}
 	],
 	// Resistance Extra Structures
 	resistanceRiverTownRepairStructs: [ // Small Resistance repair outpost north of the river crossing
