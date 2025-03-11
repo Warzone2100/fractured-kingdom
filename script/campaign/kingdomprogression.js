@@ -1730,11 +1730,11 @@ function aggroHellraisers()
 	if (!allianceExistsBetween(CAM_HUMAN_PLAYER, CAM_THE_RESISTANCE))
 	{
 		// Transports come in slower, but Resistance units are also sent over land
+		gameState.coalition.proxyHostile = true;
 		coaReinforceMinutes = 12;
 		camEnableFactory("resistanceSubFactory");
 		camEnableFactory("resistanceSubCybFactory");
 		queue("coaThreat", camSecondsToMilliseconds(30));
-		gameState.coalition.proxyHostile = true;
 	}
 	if (gameState.amphos.allianceState === "ERADICATED" || gameState.amphos.allianceState === "ALLIED")
 	{

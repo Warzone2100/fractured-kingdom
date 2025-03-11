@@ -50,7 +50,7 @@ function checkResistanceGroups()
 	// Production doesn't stop if the faction is hostile towards the player, units
 	// will just be managed by their parent factory just like in the normal campaign.
 	if (groupsFull && gameState.resistance.allianceState !== "HOSTILE" && 
-		gameState.resistance.allianceState !== "ERADICATED") // Also don't stop factories when operating under the Coalition in secret
+		!gameState.coalition.proxyHostile) // Also don't stop factories when operating under the Coalition in secret
 	{
 		// All groups are full! Stop unit production
 		setProduction(CAM_THE_RESISTANCE, "GROUND", false);
