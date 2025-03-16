@@ -55,9 +55,9 @@ RESALLYMSG15		_("With our forces working together, we might be able to hold out 
 
 /* Resistance Aggro'd */
 RESAGGRMSG1			_("Really!?")
-RESAGGRMSG2			_("I extend and olive branch to you, offered a peaceful solution, yet you insist on tearing it to shreds?!")
-RESAGGRMSG3			_("If you think we're let this stand, you are sorely mistaken!")
-RESAGGRMSG4			_("We'll just have to do this the hard way then!")
+RESAGGRMSG2			_("I extend an olive branch to you and offered a peaceful solution, yet you insist on tearing it to shreds?!")
+RESAGGRMSG3			_("If you think we'll let this stand, you are sorely mistaken!")
+RESAGGRMSG4			_("We'll just have to do this the hard way!")
 
 /* Resistance Evac */
 RESEVACMSG1			_("Attention all Resistance members, this is James speaking.")
