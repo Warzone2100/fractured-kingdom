@@ -64,7 +64,7 @@ RESEVACMSG1			_("Attention all Resistance members, this is James speaking.")
 RESEVACMSG2			_("Even though this new foe is not among the Queen's Royalists, they have nonetheless proven to be quite formidable.")
 RESEVACMSG3			_("...")
 RESEVACMSG4			_("I have reached an agreement with the Coalition to evacuate our personnel to their base. Thus ensuring our survival in the event that these aggressors prevail.")
-RESEVACMSG5			_("This argreement comes with one condition...")
+RESEVACMSG5			_("This agreement comes with one condition...")
 RESEVACMSG6			_("I will be staying behind.")
 RESEVACMSG7			_("This is the only way I could ensure their cooperation, I'm sure most of you already know as to why.")
 RESEVACMSG8			_("Those of you who wish to remain and fight, I can only thank you for your courage.")
@@ -103,7 +103,7 @@ ROYEMSG5			_("If you take any further action against my forces, I will quickly s
 ROYEMSG6			_("Consider your next moves very carefully.")
 
 /* AMPHOS Introduction (From Resistance) */
-RESAMPMSG1			_("Commander, that base belongs to AMPHOS. They mostly operate in the East Lake area, utilising hovercrafts to move between islands within their control.")
+RESAMPMSG1			_("Commander, that base belongs to AMPHOS. They mostly operate in the East Lake area, utilizing hovercrafts to move between islands within their control.")
 RESAMPMSG2			_("They've actually been around since before the fall of the Old Kingdom, operating as their own independent hybrid economic and military, controlling traffic through the East Lake.")
 RESAMPMSG3			_("After the King passed, AMPHOS became one of the two larger factions that fought against the Royalists.")
 RESAMPMSG4			_("AMPHOS saw the King's death as an opportunity to expand their influence, and grow their own territory.")
@@ -161,7 +161,7 @@ AMPEVACMSG3ALT		_("Once you've dealt with them, simply remove your units and str
 
 /* AMPHOS Negotiation Message */
 AMPNEGOMSG1			_("Good day Commander, it appears Alice was correct about you.")
-AMPNEGOMSG2			_("You've succesfully managed to push back against the Royalists and cleared us breathing room.")
+AMPNEGOMSG2			_("You've successfully managed to push back against the Royalists and cleared us breathing room.")
 AMPNEGOMSG3			_("And you've not only done so by yourself, without any assistance from us, but also while our forces were actively working against you.")
 AMPNEGOMSG4			_("An incredible performance; do not think we will forget this extraordinary favor that you have done for us.")
 AMPNEGOMSG5			_("Commander, as president of the AMPHOS board of directors, I hereby offer to negotiate an alliance with you at the designated location.")
@@ -287,7 +287,7 @@ COAPITCHMSG3		_("The Hellraisers tell me that you're a competent fighter and a r
 COAPITCHMSG4		_("...But I can't say that I'm convinced yet, ")
 COAPITCHMSG5		_("So I've got a mission for you.")
 COAPITCHMSG6		_("The Royalists control a factory base wedged in the mountains north of you.")
-COAPITCHMSG7		_("It serves as a critical manufacturing site for the Royalists, and allows them to produce units close to the frontline.")
+COAPITCHMSG7		_("It serves as a critical manufacturing site for the Royalists, and allows them to produce units close to the front line.")
 COAPITCHMSG8		_("I want you to go there and destroy that base.")
 COAPITCHMSG9		_("Do this for us, and I'll set up negotiations so we can really work together.")
 
