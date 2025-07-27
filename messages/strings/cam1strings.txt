@@ -110,7 +110,7 @@ RESAMPMSG4			_("AMPHOS saw the King's death as an opportunity to expand their in
 RESAMPMSG5			_("They were a real pain too, since their hovercrafts excel at hit-and-run tactics, leaving slower or less prepared foes no time to react.")
 RESAMPMSG6			_("... Anyway, at some point the Royalists acquired their own hovercrafts and quickly surpassed AMPHOS' tactics, which eventually allowed them to force AMPHOS into 'negotiations'.")
 RESAMPMSG7			_("In what became known as the 'East Lake Deal', the Royalists had gained free access to the East Lake and pacified one of their largest sources of retaliation.")
-RESAMPMSG8			_("Though, with how much the Royalists grown in strength, it's likely that AMPHOS now acts more like a puppet than an equal ally.")
+RESAMPMSG8			_("Though, with how much the Royalists have grown in strength, it's likely that AMPHOS now acts more like a puppet than an equal ally.")
 RESAMPMSG9			_("...")
 RESAMPMSG10			_("History lesson aside, the Royalists must have used that base to get past the Hellraisers.")
 RESAMPMSG11			_("We'll need to clear it out to make sure the Royalists don't set up camp here again.")
