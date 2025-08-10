@@ -1,5 +1,5 @@
 /***********************************************************/
-/*  You may have to modify this file for it to be correct! */ 
+/*  You may have to modify this file for it to be correct! */
 /*******************       WRF\audio.wrf      *******************/
 
 
@@ -338,6 +338,7 @@ file		WAV	"scream.ogg"
 file		WAV	"scream2.ogg"
 file		WAV	"scream3.ogg"
 file		WAV	"silence.ogg"
+file		WAV	"shield-hit.ogg"
 directory	"audio/extra"
 file		WAV	"lndgzne.ogg"
 file		WAV	"nmedeted.ogg"
@@ -368,8 +369,6 @@ file		WAV	"pcv654.ogg"
 file		WAV	"pcv655.ogg"
 file		WAV	"pcv656.ogg"
 file		WAV	"pcv657.ogg"
-file		WAV	"pcv665.ogg"
-file		WAV	"crash.ogg"
 directory	"audio/nexus"
 file		WAV	"defabsrd.ogg"
 file		WAV	"defnut.ogg"
@@ -389,6 +388,7 @@ file		WAV	"hvcybmov.ogg"
 file		WAV	"emp.ogg"
 file		WAV	"hevlsr.ogg"
 file		WAV	"plasflm.ogg"
+file		WAV	"partgun.ogg"
 file		WAV	"uplink.ogg"
 file		WAV	"lasstrk.ogg"
 file		WAV	"beacon.ogg"
